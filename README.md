@@ -1,5 +1,6 @@
 # lkd
-## LKD Linkitetty kirjastodata -projekti
+Linkitetty kirjastodata -projekti (LKD)
 Linked library data project  (LKD)
 
-Kotisivu https://www.kiwi.fi/display/LKD
+Homepage https://www.kiwi.fi/display/LKD
+Coordinated by Kansalliskirjasto - The National Library of Finland
