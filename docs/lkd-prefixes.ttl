@@ -1,4 +1,6 @@
 #  2023-01-13: JS: We might not need all of these
+#  Please, note that lkd: is still a mock-up address in version 0.1.
+#
 @prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
 @prefix bflc: <http://id.loc.gov/ontologies/bflc/> .
 @prefix dct: <http://purl.org/dc/terms/> .
