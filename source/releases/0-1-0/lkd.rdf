@@ -1,0 +1,1612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:bf="http://id.loc.gov/ontologies/bibframe/"
+   xmlns:bflc="http://id.loc.gov/ontologies/bflc/"
+   xmlns:dct="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:lkd="http://example.org/lkd/"
+   xmlns:mts="http://urn.fi/URN:NBN:fi:au:mts:"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdaa="http://rdaregistry.info/Elements/a/"
+   xmlns:rdac="http://rdaregistry.info/Elements/c/"
+   xmlns:rdae="http://rdaregistry.info/Elements/e/"
+   xmlns:rdai="http://rdaregistry.info/Elements/i/"
+   xmlns:rdam="http://rdaregistry.info/Elements/m/"
+   xmlns:rdan="http://rdaregistry.info/Elements/n/"
+   xmlns:rdau="http://rdaregistry.info/Elements/u/"
+   xmlns:rdaw="http://rdaregistry.info/Elements/w/"
+   xmlns:rdawo="http://rdaregistry.info/Elements/w/object/"
+   xmlns:rdax="http://rdaregistry.info/Elements/x/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:schema="http://schema.org/"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+   xmlns:yso="http://www.yso.fi/onto/yso/">
+  <owl:Ontology rdf:about="http://example.org/lkd/">
+    <dct:contributor rdf:resource="http://example.org/lkd/lkdProject"/>
+    <dct:description xml:lang="en">This BIBFRAME data model is based on the BIBFRAME 2.2.0 model published by the Library of Congress. The model has been supplemented with classes and properties from the RDA element sets, as well as the Finnish national cataloguing guidelines. This 0.1.0 test version comprises of the RDA elements determined by the Finnish cataloguing levels. The identifiers used are temporary and the model is not ready for use.</dct:description>
+    <dct:description xml:lang="fi">Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.2.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Tämä 0.1.0-testiversio sisältää uudistuneen RDA:n mukaiset kansalliset suppean ja laajan kuvailutason elementit. Käytetyt tunnisteet ovat väliaikaisia, eikä malli ole valmis käyttöön.</dct:description>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-01-26</dct:issued>
+    <dct:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-02-09T18:00:29+00:00</dct:modified>
+    <dct:publisher rdf:resource="http://example.org/lkd/NatLibFi"/>
+    <dct:relation rdf:resource="http://id.loc.gov/ontologies/bibframe-2-2-0/"/>
+    <dct:relation rdf:resource="http://www.rdaregistry.info/Elements/"/>
+    <dct:title xml:lang="en">LKD data model -- BIBFRAME 2.2.0 data model Finnish implementation</dct:title>
+    <dct:title xml:lang="fi">LKD-tietomalli -- BIBFRAME 2.2.0 -tietomallin kansallinen sovellus</dct:title>
+    <owl:versionIRI rdf:resource="http://schema.finto.fi/lkd/0-1-0/"/>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://example.org/lkd/AbbreviatedTitle">
+    <rdfs:label xml:lang="sv">förkortad titel</rdfs:label>
+    <rdfs:label xml:lang="fi">lyhennetty nimeke</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/VariantTitle"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/AbbreviatedTitle"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/AccessPolicy">
+    <rdfs:label xml:lang="fi">pääsyrajoitus</rdfs:label>
+    <rdfs:label xml:lang="sv">villkor för tillgång</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/usageAndAccessPolicy"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/AccessPolicy"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/AdminMetadata">
+    <rdfs:label xml:lang="sv">administrativ metadata</rdfs:label>
+    <rdfs:label xml:lang="fi">hallinnolliset metatiedot</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/AdminMetadata"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Agent">
+    <rdfs:label xml:lang="sv">agent</rdfs:label>
+    <rdfs:label xml:lang="fi">toimija</rdfs:label>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Agent"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/c/C10002"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Aggregate">
+    <rdfs:label xml:lang="fi">aggregaatti</rdfs:label>
+    <rdfs:label xml:lang="sv">aggregat</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://id.loc.gov/ontologies/bibframe/Work"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <skos:closeMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Collection"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Capture">
+    <rdfs:label xml:lang="sv">inspelning</rdfs:label>
+    <rdfs:label xml:lang="fi">taltiointi</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10007"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Capture"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Cartographic">
+    <rdfs:label xml:lang="fi">kartografinen tieto</rdfs:label>
+    <rdfs:label xml:lang="sv">kartografisk information</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Work"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Cartographic"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Chronology">
+    <rdfs:label xml:lang="sv">kronologi</rdfs:label>
+    <rdfs:label xml:lang="fi">kronologia</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://id.loc.gov/ontologies/bibframe/EnumerationAndChronology"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10010"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Chronology"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Classification">
+    <rdfs:label xml:lang="sv">klassifikation</rdfs:label>
+    <rdfs:label xml:lang="fi">luokitus</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Classification"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Collection">
+    <rdfs:label xml:lang="fi">kokoelma</rdfs:label>
+    <rdfs:label xml:lang="sv">samling</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://id.loc.gov/ontologies/bibframe/Work"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Collection"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/CollectiveTitle">
+    <rdfs:label xml:lang="fi">kokoava nimeke</rdfs:label>
+    <rdfs:label xml:lang="sv">samlingstitel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/VariantTitle"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/CollectiveTitle"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Contribution">
+    <rdfs:label xml:lang="fi">kontribuutio</rdfs:label>
+    <rdfs:label xml:lang="sv">medverkan</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10002"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Contribution"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Dissertation">
+    <rdfs:label xml:lang="sv">akademisk avhandling</rdfs:label>
+    <rdfs:label xml:lang="fi">väitöskirja</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Dissertation"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Distribution">
+    <rdfs:label xml:lang="sv">distribution</rdfs:label>
+    <rdfs:label xml:lang="fi">jakaja</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://id.loc.gov/ontologies/bibframe/ProvisionActivity"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10002"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Distribution"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Enumeration">
+    <rdfs:label xml:lang="fi">numerointi</rdfs:label>
+    <rdfs:label xml:lang="sv">numrering</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://id.loc.gov/ontologies/bibframe/EnumerationAndChronology"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Enumeration"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Event">
+    <rdfs:label xml:lang="sv">händelse</rdfs:label>
+    <rdfs:label xml:lang="fi">tapahtuma</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Event"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Expression">
+    <rdfs:label xml:lang="fi">ekspressio</rdfs:label>
+    <rdfs:label xml:lang="sv">ekspression</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://id.loc.gov/ontologies/bibframe/Work"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Work"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/c/C10006"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Extent">
+    <rdfs:label xml:lang="fi">laajuus</rdfs:label>
+    <rdfs:label xml:lang="sv">omfång</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Extent"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Family">
+    <rdfs:label xml:lang="sv">släkt</rdfs:label>
+    <rdfs:label xml:lang="fi">suku</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Agent"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Family"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/c/C10008"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Hub">
+    <rdfs:label xml:lang="fi">hub</rdfs:label>
+    <rdfs:label xml:lang="sv">hub</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Work"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Hub"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Identifier">
+    <rdfs:label xml:lang="sv">identifikator</rdfs:label>
+    <rdfs:label xml:lang="fi">tunniste</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Identifier"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Illustration">
+    <rdfs:label xml:lang="sv">illustration</rdfs:label>
+    <rdfs:label xml:lang="fi">kuvasisältö</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Illustration"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Issuance">
+    <rdfs:label xml:lang="fi">julkaisutapa</rdfs:label>
+    <rdfs:label xml:lang="sv">utgivningssätt</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/m/P30013"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Issuance"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Item">
+    <rdfs:label xml:lang="fi">kappale</rdfs:label>
+    <rdfs:label xml:lang="sv">utgiven med</rdfs:label>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Item"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/c/C10003"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/KeyTitle">
+    <rdfs:label xml:lang="fi">avainnimeke</rdfs:label>
+    <rdfs:label xml:lang="sv">nyckeltitel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/VariantTitle"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/KeyTitle"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Manifestation">
+    <rdfs:label xml:lang="fi">manifestaatio</rdfs:label>
+    <rdfs:label xml:lang="sv">manifestation</rdfs:label>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Instance"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/c/C10007"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Manufacture">
+    <rdfs:label xml:lang="sv">tillverkare</rdfs:label>
+    <rdfs:label xml:lang="fi">valmistaja</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10002"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Manufacture"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Media">
+    <rdfs:label xml:lang="fi">mediatyyppi</rdfs:label>
+    <rdfs:label xml:lang="sv">medietyp</rdfs:label>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Media"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/termList/RDAMediaType"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Meeting">
+    <rdfs:label xml:lang="fi">kokous</rdfs:label>
+    <rdfs:label xml:lang="sv">möte</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Agent"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10005"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Meeting"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/MusicFormat">
+    <rdfs:label xml:lang="sv">format för noterad musik</rdfs:label>
+    <rdfs:label xml:lang="fi">nuottiaineiston muoto</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Notation"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/MusicFormat"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/termList/MusNotation"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/MusicMedium">
+    <rdfs:label xml:lang="sv">besättning</rdfs:label>
+    <rdfs:label xml:lang="fi">esityskokoonpano</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/MusicMedium"/>
+  </owl:Class>
+  <rdac:C10005 rdf:about="http://example.org/lkd/NatLibFi">
+    <dct:identifier rdf:resource="http://isni.org/isni/0000000120337602"/>
+    <dct:identifier rdf:resource="http://urn.fi/URN:NBN:fi:au:finaf:000034269"/>
+    <schema:location rdf:resource="http://www.yso.fi/onto/yso/p94137"/>
+    <schema:parentOrganization rdf:resource="http://urn.fi/URN:NBN:fi:au:finaf:000038390"/>
+    <rdfs:label xml:lang="fi">Kansalliskirjasto</rdfs:label>
+    <rdfs:label xml:lang="sv">Nationalbiblioteket</rdfs:label>
+    <rdfs:label xml:lang="en">The National Library of Finland</rdfs:label>
+    <foaf:homepage rdf:resource="https://www.kansalliskirjasto.fi/"/>
+  </rdac:C10005>
+  <owl:Class rdf:about="http://example.org/lkd/Notation">
+    <rdfs:label xml:lang="fi">notaatio</rdfs:label>
+    <rdfs:label xml:lang="sv">notationssystem</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/termList/noteMove"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Notation"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Organization">
+    <rdfs:label xml:lang="sv">organisation</rdfs:label>
+    <rdfs:label xml:lang="fi">yhteisö</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Agent"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Organization"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/c/C10005"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/ParallelTitle">
+    <rdfs:label xml:lang="sv">parallelltitel</rdfs:label>
+    <rdfs:label xml:lang="fi">rinnakkaisnimeke</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/VariantTitle"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/ParallelTitle"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Person">
+    <rdfs:label xml:lang="fi">henkilö</rdfs:label>
+    <rdfs:label xml:lang="sv">person</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Agent"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Person"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/c/C10004"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Place">
+    <rdfs:label xml:lang="fi">paikka</rdfs:label>
+    <rdfs:label xml:lang="sv">plats</rdfs:label>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Place"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/c/C10009"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Production">
+    <rdfs:label xml:lang="sv">produktion</rdfs:label>
+    <rdfs:label xml:lang="fi">tuottaja</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://id.loc.gov/ontologies/bibframe/ProvisionActivity"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10002"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Production"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Projection">
+    <rdfs:label xml:lang="fi">projektio</rdfs:label>
+    <rdfs:label xml:lang="sv">projektion</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Projection"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/ProvisionActivity">
+    <rdfs:label xml:lang="sv">produktion, utgivning, distribution och/eller tillverkning</rdfs:label>
+    <rdfs:label xml:lang="fi">tuottaja, julkaisija, kustantaja, jakaja tai valmistaja</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/ProvisionActivity"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Publication">
+    <rdfs:label xml:lang="fi">kustantaja</rdfs:label>
+    <rdfs:label xml:lang="sv">utgivning</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://id.loc.gov/ontologies/bibframe/ProvisionActivity"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10002"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Publication"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Role">
+    <rdfs:label xml:lang="sv">funktion</rdfs:label>
+    <rdfs:label xml:lang="fi">rooli</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Role"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Scale">
+    <rdfs:label xml:lang="fi">mittakaava</rdfs:label>
+    <rdfs:label xml:lang="sv">skala</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Scale"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Serial">
+    <rdfs:label xml:lang="fi">sarjajulkaisu</rdfs:label>
+    <rdfs:label xml:lang="sv">seriell resurs</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Work"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Serial"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/StillImage">
+    <rdfs:label xml:lang="sv">stillimage</rdfs:label>
+    <rdfs:label xml:lang="fi">stillkuva</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Work"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/StillImage"/>
+    <skos:exactMatch rdf:resource="http://rdvocab.info/termList/RDAContentType/1014"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Temporal">
+    <rdfs:label xml:lang="fi">ajanjakso</rdfs:label>
+    <rdfs:label xml:lang="sv">kronologisk täckning</rdfs:label>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/c/C10010"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Temporal"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Title">
+    <rdfs:label xml:lang="fi">nimeke</rdfs:label>
+    <rdfs:label xml:lang="sv">titel</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Title"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/UsageAndAccessPolicy">
+    <rdfs:label xml:lang="fi">käyttö- ja pääsyehdot</rdfs:label>
+    <rdfs:label xml:lang="sv">villkor för användning och åtkomst</rdfs:label>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/UsageAndAccessPolicy"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/VariantTitle">
+    <rdfs:label xml:lang="fi">varianttinimeke</rdfs:label>
+    <rdfs:label xml:lang="sv">varianttitel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Title"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <skos:closeMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/VariantTitle"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://example.org/lkd/Work">
+    <rdfs:label xml:lang="fi">teos</rdfs:label>
+    <rdfs:label xml:lang="sv">verk</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://id.loc.gov/ontologies/bibframe/Work"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Work"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/aapItem">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Item"/>
+    <rdfs:label xml:lang="sv">auktoriserad sökingång för eksemplar</rdfs:label>
+    <rdfs:label xml:lang="fi">kappaleen auktorisoitu hakutieto</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bflc/aap"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bflc/aap"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/i/P40083"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/aapOfExpression">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:label xml:lang="sv">auktoriserad sökingång för ekspression</rdfs:label>
+    <rdfs:label xml:lang="fi">ekspression auktorisoitu hakutieto</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bflc/aap"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bflc/aap"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20313"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/aapOfManifestation">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">auktoriserad sökingång för manifestation</rdfs:label>
+    <rdfs:label xml:lang="fi">manifestaation auktorisoitu hakutieto</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bflc/aap"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bflc/aap"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30294"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/aapOfWork">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="sv">auktoriserad sökingång för verk</rdfs:label>
+    <rdfs:label xml:lang="fi">teoksen auktorisoitu hakutieto</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bflc/aap"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bflc/aap"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10331"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/agent">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Contribution"/>
+    <rdfs:label xml:lang="sv">agent</rdfs:label>
+    <rdfs:label xml:lang="fi">toimija</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Agent"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/agent"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/object/P10311"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/aggregates">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Aggregate"/>
+    <rdfs:label xml:lang="fi">aggregoi expression</rdfs:label>
+    <rdfs:label xml:lang="sv">förenar expression</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/relatedTo"/>
+    <skos:closeMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/hasPart"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20319"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/capture">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">inspelning</rdfs:label>
+    <rdfs:label xml:lang="fi">tallennustiedot</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Capture"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/capture"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20217"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/carrier">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">bärartyp</rdfs:label>
+    <rdfs:label xml:lang="fi">tallennetyyppi</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/carrier"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30001"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/cartographicAttributes">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="fi">kartografinen data</rdfs:label>
+    <rdfs:label xml:lang="sv">kartografiska data</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Cartographic"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/w/P10024"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/cartographicAttributes"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/classification">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                  </rdf:Description>
+                </rdf:rest>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="sv">klassifikation</rdfs:label>
+    <rdfs:label xml:lang="fi">luokitus</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Classification"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/w/P10256"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/classification"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/content">
+    <rdfs:label xml:lang="sv">innehållstyp</rdfs:label>
+    <rdfs:label xml:lang="fi">sisältötyyppi</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/content"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20001"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/contributionOfExpression">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:label xml:lang="fi">ekspressioon liittyvä toimija ja rooli</rdfs:label>
+    <rdfs:label xml:lang="sv">medverkan och funktion</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Contribution"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/contribution"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/contribution"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/e/P20301"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/e/P20338"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/e/P20346"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/e/P20351"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/e/P20365"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/e/P20456"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/e/P20464"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/e/P20469"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/e/P20483"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/e/P20515"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/e/P20523"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/e/P20528"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/e/P20542"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/contributionOfManifestation">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="fi">manifestaatioon liittyvä toimija ja rooli</rdfs:label>
+    <rdfs:label xml:lang="sv">medverkan och funktion</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Contribution"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/contribution"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/contribution"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/m/P30343"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/m/P30362"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/m/P30401"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/m/P30420"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/m/P30430"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/m/P30449"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/contributionOfWork">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="sv">medverkan och funktion</rdfs:label>
+    <rdfs:label xml:lang="fi">teokseen liittyvä toimija ja rooli</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Contribution"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/contribution"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/contribution"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/w/P10437"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/w/P10531"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/w/P10578"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/coordinates">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Cartographic"/>
+    <rdfs:label xml:lang="fi">koordinaatit</rdfs:label>
+    <rdfs:label xml:lang="sv">koordinater</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/coordinates"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10081"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/copyrightDate">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">copyrightdatum</rdfs:label>
+    <rdfs:label xml:lang="fi">tekijänoikeusvuosi</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/date"/>
+    <skos:closeMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/copyrightDate"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30007"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/date">
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:label xml:lang="sv">datum</rdfs:label>
+    <rdfs:label xml:lang="fi">päiväys</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <skos:broadMatch rdf:resource="http://rdaregistry.info/Elements/x/P00011"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/date"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/dateOfCapture">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:label xml:lang="sv">datum för inspelning</rdfs:label>
+    <rdfs:label xml:lang="fi">tallennusajankohta</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/capture"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/capture"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20004"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/derivedFrom">
+    <rdfs:domain rdf:resource="http://example.org/lkd/AdminMetadata"/>
+    <rdfs:label xml:lang="fi">kuvailun lähde</rdfs:label>
+    <rdfs:label xml:lang="sv">metadatakälla</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/w/P10404"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/derivedFrom"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/dissertation">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="sv">anmärkning om akademisk avhandling</rdfs:label>
+    <rdfs:label xml:lang="fi">tieto väitöskirjasta</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Dissertation"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/dissertation"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10209"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/distribution">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">distribution</rdfs:label>
+    <rdfs:label xml:lang="fi">jakaja</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Distribution"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/provisionActivity"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/provisionActivity"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30173"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/duration">
+    <rdfs:label xml:lang="fi">kesto</rdfs:label>
+    <rdfs:label xml:lang="sv">speltid</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/duration"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20219"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/editionStatement">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="fi">painosmerkintö</rdfs:label>
+    <rdfs:label xml:lang="sv">upplageuppgift</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/editionStatement"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30133"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/editionStatement"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/editionStatementOfRevision">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">upplageuppgift</rdfs:label>
+    <rdfs:label xml:lang="fi">uudistetun painoksen painosmerkintö</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/editionStatement"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/editionStatement"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30132"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/enumerationAndChronology">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Meeting"/>
+    <rdfs:label xml:lang="fi">numerointi</rdfs:label>
+    <rdfs:label xml:lang="sv">numrering</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Enumeration"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/enumerationAndChronology"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/a/P50019"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/expressionIdentifiedBy">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:label xml:lang="fi">ekspression tunniste</rdfs:label>
+    <rdfs:label xml:lang="sv">identifikator av ekspression</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Identifier"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20002"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/expressionManifested">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:label xml:lang="sv">ekspression inom manifestationen</rdfs:label>
+    <rdfs:label xml:lang="fi">manifestaatioon sisältyvä ekspressio</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Manifestation"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/Instance"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30139"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/expressionOf">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:label xml:lang="fi">ekspression edustama teos</rdfs:label>
+    <rdfs:label xml:lang="sv">uttryck av</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/expressionOf"/>
+    <skos:closeMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/expressionOf"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20231"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/extent">
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:label xml:lang="fi">laajuus</rdfs:label>
+    <rdfs:label xml:lang="sv">omfång</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Extent"/>
+    <skos:closeMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/extent"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30182"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/firstIssue">
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:label xml:lang="fi">ensimmäinen numero</rdfs:label>
+    <rdfs:label xml:lang="sv">numrering av seriella resurser (första)</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/firstIssue"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30147"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/firstIssueChronology">
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:label xml:lang="sv">första kronologiska betekningen för seriella resurs</rdfs:label>
+    <rdfs:label xml:lang="fi">numerointijakson ensimmäinen aikamäärite</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/firstIssue"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/firstIssue"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30149"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/grantingInstitution">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Dissertation"/>
+    <rdfs:label xml:lang="sv">lärosäte som utfärdat examen</rdfs:label>
+    <rdfs:label xml:lang="fi">oppiarvon myöntävä yhteisö</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Organization"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/grantingInstitution"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10006"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/hasExpression">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="sv">har uttryck</rdfs:label>
+    <rdfs:label xml:lang="fi">teoksen ekspressio</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/relatedTo"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/hasExpression"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10078"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/hasItem">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">har bestånd</rdfs:label>
+    <rdfs:label xml:lang="fi">kappale</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Item"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/relatedTo"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30103"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/hasItem"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/hasPart">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="sv">har del</rdfs:label>
+    <rdfs:label xml:lang="fi">sisältää</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/relatedTo"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/hasPart"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10147"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/hasReproduction">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="fi">jäljenne</rdfs:label>
+    <rdfs:label xml:lang="sv">reproducerad som</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/hasEquivalent"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/hasReproduction"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30039"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/horizontalScale">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                  </rdf:Description>
+                </rdf:rest>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="fi">horisontaalinen mittakaava</rdfs:label>
+    <rdfs:label xml:lang="sv">skala</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Scale"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/scale"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/scale"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/e/P20226"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/illustrativeContent">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">illustrativt innehåll</rdfs:label>
+    <rdfs:label xml:lang="fi">kuvasisältö</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Illustration"/>
+    <skos:closeMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/illustrativeContent"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30453"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/issuance">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="fi">julkaisutapa</rdfs:label>
+    <rdfs:label xml:lang="sv">utgivningssätt</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Issuance"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/issuance"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30003"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/itemIdentifiedBy">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Item"/>
+    <rdfs:label xml:lang="sv">identifikator av bestånd</rdfs:label>
+    <rdfs:label xml:lang="fi">kappaleen tunniste</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Identifier"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/i/P40001"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/itemOf">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Item"/>
+    <rdfs:label xml:lang="sv">bestånd på</rdfs:label>
+    <rdfs:label xml:lang="fi">kappale kokoelmassa</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/relatedTo"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/i/P40049"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/itemOf"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/language">
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:label xml:lang="fi">kieli</rdfs:label>
+    <rdfs:label xml:lang="sv">språk</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/language"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/u/P60099"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/languageOfOrganization">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Organization"/>
+    <rdfs:label xml:lang="fi">organisaation kieli</rdfs:label>
+    <rdfs:label xml:lang="sv">språk av organisationen</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/language"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/language"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/a/P50023"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/languageOfWork">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="sv">språk av verket</rdfs:label>
+    <rdfs:label xml:lang="fi">teoksen kieli</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/language"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/language"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/e/P20006"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/lastIssue">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="sv">numrering av seriella resurser (sista)</rdfs:label>
+    <rdfs:label xml:lang="fi">viimeinen numero</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30148"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/lastIssue"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/lastIssueChronology">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="fi">numerointijakson viimeinen aikamäärite</rdfs:label>
+    <rdfs:label xml:lang="sv">numrering av seriella resurser (sista)</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/lastIssue"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/lastIssue"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30150"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/latitude">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Cartographic"/>
+    <rdfs:label xml:lang="sv">latitud</rdfs:label>
+    <rdfs:label xml:lang="fi">leveysaste</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/coordinates"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/coordinates"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10300"/>
+  </owl:DatatypeProperty>
+  <schema:Project rdf:about="http://example.org/lkd/lkdProject">
+    <dct:coverage>2022/2024</dct:coverage>
+    <schema:member rdf:resource="https://orcid.org/0000-0002-0348-144X"/>
+    <schema:member rdf:resource="https://orcid.org/0000-0002-2239-7980"/>
+    <schema:member rdf:resource="https://orcid.org/0000-0002-2793-5485"/>
+    <schema:member rdf:resource="https://orcid.org/0000-0002-5087-8669"/>
+    <schema:member rdf:resource="https://orcid.org/0000-0002-6801-6151"/>
+    <schema:member rdf:resource="https://orcid.org/0000-0002-8355-0256"/>
+    <schema:parentOrganization rdf:resource="http://example.org/lkd/NatLibFi"/>
+    <rdfs:label xml:lang="en">Linked Library Data (LKD)</rdfs:label>
+    <rdfs:label xml:lang="fi">Linkitetty kirjastodata (LKD)</rdfs:label>
+    <foaf:homepage rdf:resource="https://www.kiwi.fi/display/LKD"/>
+  </schema:Project>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/longitude">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Cartographic"/>
+    <rdfs:label xml:lang="sv">longitud</rdfs:label>
+    <rdfs:label xml:lang="fi">pituusaste</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/coordinates"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/coordinates"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10301"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/mainTitle">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Title"/>
+    <rdfs:label xml:lang="fi">nimekkeen merkkijono</rdfs:label>
+    <rdfs:label xml:lang="sv">sträng av titel</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/mainTitle"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/manifestationIdentifiedBy">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">identifikator av manifestation</rdfs:label>
+    <rdfs:label xml:lang="fi">manifestaation tunniste</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Identifier"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30004"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/manifestationOfExpression">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:label xml:lang="fi">ekspression manifestaatio</rdfs:label>
+    <rdfs:label xml:lang="sv">manifestation av ekspression</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/hasInstance"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/hasInstance"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/e/P20059"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/manifestationOfWork">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="sv">manifestation av verk</rdfs:label>
+    <rdfs:label xml:lang="fi">teoksen manifestaatio</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/hasInstance"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/hasInstance"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/w/P10072"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/manufacture">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">tillverkning</rdfs:label>
+    <rdfs:label xml:lang="fi">valmistaja</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Manufacture"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/provisionActivity"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/provisionActivity"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/m/P30087"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/m/P30175"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/media">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="fi">mediatyyppi</rdfs:label>
+    <rdfs:label xml:lang="sv">medietyp</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/media"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30002"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/meetingPlace">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Meeting"/>
+    <rdfs:label xml:lang="fi">konferenssin paikka</rdfs:label>
+    <rdfs:label xml:lang="sv">ursprungsplats för verket</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Place"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/place"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/place"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/a/P50024"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/musicFormat">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="sv">format för noterad musik</rdfs:label>
+    <rdfs:label xml:lang="fi">nuottiaineiston muoto</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/MusicFormat"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/musicFormat"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20209"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/musicKeyOfExpression">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:label xml:lang="fi">ekspression sävellaji</rdfs:label>
+    <rdfs:label xml:lang="sv">tonart av ekspression</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/musicKey"/>
+    <skos:closeMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/musicKey"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20326"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/musicKeyOfRepresentativeExpression">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="fi">edustavan eksperssion sävellaji</rdfs:label>
+    <rdfs:label xml:lang="sv">tonart av representativ ekspression</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/musicKey"/>
+    <skos:closeMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/musicKey"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10221"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/musicMedium">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="fi">musiikin esityskokoonpano</rdfs:label>
+    <rdfs:label xml:lang="sv">uppsättning för framförande</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/MusicMedium"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/musicMedium"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20215"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/musicOpusNumber">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="fi">opusnumero</rdfs:label>
+    <rdfs:label xml:lang="sv">opusnummer</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/musicOpusNumber"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10333"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/musicSerialNumber">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="fi">musiikkiteoksen järjestysnumero</rdfs:label>
+    <rdfs:label xml:lang="sv">nummer i verkförteckning</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/musicSerialNumber"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10334"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/musicThematicNumber">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="sv">nummer i tematisk förteckning</rdfs:label>
+    <rdfs:label xml:lang="fi">temaattisen teosluettelon numero</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/musicThematicNumber"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10335"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/notation">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="sv">notationssystem</rdfs:label>
+    <rdfs:label xml:lang="fi">nuottikirjoituksen tyyppi</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Notation"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/notation"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20064"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/originDate">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="fi">teoksen ajankohta</rdfs:label>
+    <rdfs:label xml:lang="sv">tid för verket</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/date"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/originDate"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10219"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/originPlace">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="fi">teoksen alkuperään liittyvä paikka</rdfs:label>
+    <rdfs:label xml:lang="sv">ursprungsplats för verket</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/place"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/originPlace"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10218"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/parallelTitle">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">parallelhuvudtitel</rdfs:label>
+    <rdfs:label xml:lang="fi">rinnakkainen päänimeke</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/ParallelTitle"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/title"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/title"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30203"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/partOf">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+                    <rdf:rest>
+                      <rdf:Description>
+                        <rdf:first rdf:resource="http://example.org/lkd/Event"/>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      </rdf:Description>
+                    </rdf:rest>
+                  </rdf:Description>
+                </rdf:rest>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="fi">osa kokonaisuudesta</rdfs:label>
+    <rdfs:label xml:lang="sv">är del av</rdfs:label>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+                    <rdf:rest>
+                      <rdf:Description>
+                        <rdf:first rdf:resource="http://example.org/lkd/Event"/>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      </rdf:Description>
+                    </rdf:rest>
+                  </rdf:Description>
+                </rdf:rest>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/relatedTo"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/w/P10019"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/partOf"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/place">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Agent"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://example.org/lkd/Capture"/>
+                    <rdf:rest>
+                      <rdf:Description>
+                        <rdf:first rdf:resource="http://example.org/lkd/ProvisionActivity"/>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      </rdf:Description>
+                    </rdf:rest>
+                  </rdf:Description>
+                </rdf:rest>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="fi">paikka</rdfs:label>
+    <rdfs:label xml:lang="sv">plats</rdfs:label>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Place"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <skos:closeMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/place"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/a/P50350"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/placeOfCapture">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:label xml:lang="sv">plats för inspelning</rdfs:label>
+    <rdfs:label xml:lang="fi">tallennuspaikka</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Capture"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/capture"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/capture"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20218"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/precededBy">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="fi">edeltävä teos</rdfs:label>
+    <rdfs:label xml:lang="sv">föregående</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/relatedTo"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/w/P10156"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/precededBy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/preferredTitleOfExpression">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:label xml:lang="fi">ekspression ensisijainen nimeke</rdfs:label>
+    <rdfs:label xml:lang="sv">föredragen titel för ekspression</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Title"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/title"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/title"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20315"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/preferredTitleOfItem">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Item"/>
+    <rdfs:label xml:lang="sv">föredragen titel för exemplaret</rdfs:label>
+    <rdfs:label xml:lang="fi">kappaleen ensisijainen nimeke</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Title"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/title"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/title"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/i/P40085"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/preferredTitleOfManifestation">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">huvudtitel för manifestation</rdfs:label>
+    <rdfs:label xml:lang="fi">manifestaation päänimeke</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Title"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/title"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/title"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30156"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/preferredTitleOfWork">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="sv">huvudtitel för verk</rdfs:label>
+    <rdfs:label xml:lang="fi">teoksen ensisijainen nimeke</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Title"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/title"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/title"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10223"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/production">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">produktion</rdfs:label>
+    <rdfs:label xml:lang="fi">tuottaja</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Production"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/provisionActivity"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/provisionActivity"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/m/P30009"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/projection">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Cartographic"/>
+    <rdfs:label xml:lang="fi">kartografisen sisällön projektio</rdfs:label>
+    <rdfs:label xml:lang="sv">kartprojektion</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Projection"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/projection"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/e/P20216"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/provisionActivity">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">produktion, utgivning, distribution och/eller tillverkning</rdfs:label>
+    <rdfs:label xml:lang="fi">tuottaja, julkaisija, kustantaja, jakaja tai valmistaja</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/ProvisionActivity"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/provisionActivity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/publication">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="fi">kustantaja</rdfs:label>
+    <rdfs:label xml:lang="sv">utgivning</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Publication"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/provisionActivity"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/provisionActivity"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/m/P30088"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/m/P30176"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/publicationDate">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="fi">julkaisuaika</rdfs:label>
+    <rdfs:label xml:lang="sv">utgivningstid</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/date"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/date"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30011"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/reproductionOf">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="fi">jäljenne</rdfs:label>
+    <rdfs:label xml:lang="sv">reproduktion av</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/hasEquivalent"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/reproductionOf"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30043"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/responsibilityStatement">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">upphovsuppgift</rdfs:label>
+    <rdfs:label xml:lang="fi">vastuullisuusmerkintö</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/responsibilityStatement"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30105"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/role">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Contribution"/>
+    <rdfs:label xml:lang="sv">funktion</rdfs:label>
+    <rdfs:label xml:lang="fi">rooli</rdfs:label>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://urn.fi/URN:NBN:fi:au:mts:m34"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://urn.fi/URN:NBN:fi:au:mts:m153"/>
+                    <rdf:rest>
+                      <rdf:Description>
+                        <rdf:first rdf:resource="http://urn.fi/URN:NBN:fi:au:mts:m491"/>
+                        <rdf:rest>
+                          <rdf:Description>
+                            <rdf:first rdf:resource="http://urn.fi/URN:NBN:fi:au:mts:m1157"/>
+                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                          </rdf:Description>
+                        </rdf:rest>
+                      </rdf:Description>
+                    </rdf:rest>
+                  </rdf:Description>
+                </rdf:rest>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/role"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/seriesEnumeration">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="fi">numerointijakson sisäinen numerointi</rdfs:label>
+    <rdfs:label xml:lang="sv">numrering inom serie</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/seriesEnumeration"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30014"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/seriesStatement">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="fi">sarjamerkintö</rdfs:label>
+    <rdfs:label xml:lang="sv">serieuppgift</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30158"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/seriesStatement"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/seriesTitle">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="fi">sarjan nimeke</rdfs:label>
+    <rdfs:label xml:lang="sv">serietitel</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Title"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/title"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/title"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30157"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/subject">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                    <rdf:rest>
+                      <rdf:Description>
+                        <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+                        <rdf:rest>
+                          <rdf:Description>
+                            <rdf:first rdf:resource="http://example.org/lkd/Event"/>
+                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                          </rdf:Description>
+                        </rdf:rest>
+                      </rdf:Description>
+                    </rdf:rest>
+                  </rdf:Description>
+                </rdf:rest>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="fi">aihe</rdfs:label>
+    <rdfs:label xml:lang="sv">ämne</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/subject"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10256"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://example.org/lkd/subtitle">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Title"/>
+    <rdfs:label xml:lang="fi">osan nimi</rdfs:label>
+    <rdfs:label xml:lang="sv">övrig titelinformation</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/m/P30142"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/subtitle"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/succeededBy">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:label xml:lang="sv">efterföljande</rdfs:label>
+    <rdfs:label xml:lang="fi">myöhempi teos</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/relatedTo"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/succeededBy"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10170"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/title">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                    <rdf:rest>
+                      <rdf:Description>
+                        <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+                        <rdf:rest>
+                          <rdf:Description>
+                            <rdf:first rdf:resource="http://example.org/lkd/Event"/>
+                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                          </rdf:Description>
+                        </rdf:rest>
+                      </rdf:Description>
+                    </rdf:rest>
+                  </rdf:Description>
+                </rdf:rest>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="sv">namn av resurs</rdfs:label>
+    <rdfs:label xml:lang="fi">resurssin nimeke</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Title"/>
+    <skos:exactMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/title"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/x/P00019"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/usageAndAccessPolicy">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                    <rdf:rest>
+                      <rdf:Description>
+                        <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      </rdf:Description>
+                    </rdf:rest>
+                  </rdf:Description>
+                </rdf:rest>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="fi">käyttö- ja pääsyehdot</rdfs:label>
+    <rdfs:label xml:lang="sv">villkor för användning och åtkomst</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/UsageAndAccessPolicy"/>
+    <skos:closeMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/usageAndAccessPolicyy"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/i/P40047"/>
+    <skos:narrowMatch rdf:resource="http://rdaregistry.info/Elements/m/P30145"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/variantTitle">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                    <rdf:rest>
+                      <rdf:Description>
+                        <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      </rdf:Description>
+                    </rdf:rest>
+                  </rdf:Description>
+                </rdf:rest>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="fi">varianttinimeke</rdfs:label>
+    <rdfs:label xml:lang="sv">varianttitel</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/VariantTitle"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/title"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/title"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/x/P00023"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/variantType">
+    <rdfs:domain rdf:resource="http://example.org/lkd/VariantTitle"/>
+    <rdfs:label xml:lang="sv">typ av variant</rdfs:label>
+    <rdfs:label xml:lang="fi">varianttityyppi</rdfs:label>
+    <rdfs:range rdf:resource="http://urn.fi/URN:NBN:fi:au:mts:m1803"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/title"/>
+    <skos:closeMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/variantType"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/n/P80078"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/verticalScale">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                  </rdf:Description>
+                </rdf:rest>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="fi">kartografisen sisällön vertikaalinen mittakaava</rdfs:label>
+    <rdfs:label xml:lang="sv">skala</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Scale"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/scale"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/scale"/>
+    <skos:closeMatch rdf:resource="http://rdaregistry.info/Elements/e/P20230"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/workGroupIdentifiedBy">
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:label xml:lang="sv">identifikator av verkgrupp</rdfs:label>
+    <rdfs:label xml:lang="fi">teosryhmän tunniste</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Identifier"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10400"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/workIdentifiedBy">
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:label xml:lang="sv">identifikator av verk</rdfs:label>
+    <rdfs:label xml:lang="fi">teoksen tunniste</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Identifier"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <skos:broadMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/w/P10002"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/lkd/workManifested">
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:label xml:lang="sv">har manifesterat verk</rdfs:label>
+    <rdfs:label xml:lang="fi">manifestaatioon sisältyvä teos</rdfs:label>
+    <rdfs:range rdf:resource="http://example.org/lkd/Work"/>
+    <skos:closeMatch rdf:resource="http://id.loc.gov/ontologies/bibframe/issuedWith"/>
+    <skos:exactMatch rdf:resource="http://rdaregistry.info/Elements/m/P30135"/>
+  </owl:ObjectProperty>
+</rdf:RDF>

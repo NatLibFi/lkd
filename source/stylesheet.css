@@ -1,0 +1,68 @@
+body {
+   font-family: sans-serif;
+   font-size: 18px;
+   margin-left: 3%;
+   width: 80%;
+}
+
+h2 {
+   font-size: 24px;
+   margin-bottom: 10px;
+   color: #000000;
+}
+
+a {
+   text-decoration: none;
+   color: #00008B;
+}
+
+hr {
+   color: #DCDCDC;
+}
+
+.fw-bold {
+   font-weight: bold;
+}
+
+dt {
+   margin-top: 4px;
+}
+
+a.version-dl-margin {
+   margin-right: 9px;
+}
+
+div.backToTop {
+   text-align:right;
+   font-size: 80%;
+   margin-top: 3px;
+   margin-bottom: 5px;
+}
+
+table {
+   font-size: 18px;
+   width: 97.5%;
+   margin-left: 2.5%;
+   table-layout: fixed;
+   border-collapse: collapse;
+}
+
+td {
+   border: 2px solid #000;
+   vertical-align: top;
+   overflow: hidden;
+   padding-left: 0.7%
+}
+
+td.key {
+   width: 20%;
+}
+
+td.value {
+   width: 80%;
+}
+
+.property {
+   padding-top: 7px;
+   padding-bottom: 10px;
+}
