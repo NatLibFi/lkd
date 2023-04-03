@@ -37,6 +37,7 @@ div.backToTop {
    font-size: 80%;
    margin-top: 3px;
    margin-bottom: 5px;
+   margin-bottom: 30px;
 }
 
 table {
@@ -48,7 +49,7 @@ table {
 }
 
 td {
-   border: 2px solid #000;
+   border: 2px solid;
    vertical-align: top;
    overflow: hidden;
    padding-left: 0.7%
@@ -65,4 +66,41 @@ td.value {
 .property {
    padding-top: 7px;
    padding-bottom: 10px;
+}
+
+.prefixes {
+   display:table;
+   margin-left: 40px;
+   border: 1px solid;
+   padding: 10px 15px;
+}
+
+.prefixes > div {
+   margin: 4px 0px;
+}
+
+.prefixes dt, .prefixes dd {
+   display: table-cell;
+   min-width: 120px;
+}
+
+.trHeading {
+   background: #efefef;
+   border: 2px solid;
+}
+
+.trHeading .key, .trHeading .value {
+   border: 0;
+   vertical-align: middle;
+   padding-top: 8px;
+   padding-bottom: 8px;
+}
+
+.tableContainer td, .tableContainer tr {
+   border-color: #CCC;
+}
+
+.tableContainer td {
+   padding-top: 2px;
+   padding-bottom: 2px;
 }
