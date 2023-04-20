@@ -17,7 +17,8 @@ lkd: a owl:Ontology ;
     dct:publisher lkd:NatLibFi ;
     dct:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
     dct:relation <http://id.loc.gov/ontologies/bibframe-2-2-0/>, <http://www.rdaregistry.info/Elements/> ;
-    dct:description """Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.2.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Tämä 0.1.0-testiversio sisältää uudistuneen RDA:n mukaiset kansalliset suppean ja laajan kuvailutason elementit. Käytetyt tunnisteet ovat väliaikaisia, eikä malli ole valmis käyttöön."""@fi, """This BIBFRAME data model is based on the BIBFRAME 2.2.0 model published by the Library of Congress. The model has been supplemented with classes and properties from the RDA element sets, as well as the Finnish national cataloguing guidelines. This 0.1.0 test version comprises of the RDA elements determined by the Finnish cataloguing levels. The identifiers used are temporary and the model is not ready for use."""@en .
+    dct:description """Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.2.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä."""@fi, 
+                    """This BIBFRAME data model is based on the BIBFRAME 2.2.0 model published by the Library of Congress. The model has been supplemented with classes and properties from the RDA element sets, as well as the Finnish national cataloguing guidelines."""@en .
 
 lkd:NatLibFi a rdac:C10005 ;
     rdfs:label   "Kansalliskirjasto"@fi, "Nationalbiblioteket"@sv, "The National Library of Finland"@en ;
