@@ -1,58 +1,31 @@
 #!/usr/bin/env python3
+"""
+ Copyright 2023 University Of Helsinki (The National Library Of Finland)
+
+ Licensed under the GNU, General Public License, Version 3.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     https://www.gnu.org/licenses/gpl-3.0.html
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+"""
 
 import argparse
 import csv
 import datetime
 
-import rdflib  # separate import for triggering autocomplete behavior in IDE
+import rdflib # separate import for triggering autocomplete behavior in IDE
 from rdflib import Graph, Literal, URIRef
 from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, XSD, NamespaceManager
 from rdflib.util import from_n3
 
-# extra prefixes (besides the ones defined in metadata file) to be used in conversion
-PREFIXES_DATA = """
-@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
-@prefix bflc: <http://id.loc.gov/ontologies/bflc/> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix mts: <http://urn.fi/URN:NBN:fi:au:mts:> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdaa: <http://rdaregistry.info/Elements/a/> .
-@prefix rdaad: <http://rdaregistry.info/Elements/a/datatype/> .
-@prefix rdaao: <http://rdaregistry.info/Elements/a/object/> .
-@prefix rdac: <http://rdaregistry.info/Elements/c/> .
-@prefix rdaco: <http://rdaregistry.info/termList/RDAContentType/> .
-@prefix rdaed: <http://rdaregistry.info/Elements/e/datatype/> .
-@prefix rdaeo: <http://rdaregistry.info/Elements/e/object/> .
-@prefix rdafnv: <http://rdaregistry.info/termList/noteForm/> .
-@prefix rdafmn: <http://rdaregistry.info/termList/MusNotation/> .
-@prefix rdae: <http://rdaregistry.info/Elements/e/> .
-@prefix rdai: <http://rdaregistry.info/Elements/i/> .
-@prefix rdam: <http://rdaregistry.info/Elements/m/> .
-@prefix rdamt: <http://rdaregistry.info/termList/RDAMediaType/> .
-@prefix rdan: <http://rdaregistry.info/Elements/n/> .
-@prefix rdand: <http://rdaregistry.info/Elements/n/datatype/> .
-@prefix rdano: <http://rdaregistry.info/Elements/n/object/> .
-@prefix rdap: <http://rdaregistry.info/Elements/p/> .
-@prefix rdapd: <http://rdaregistry.info/Elements/p/datatype/> .
-@prefix rdapo: <http://rdaregistry.info/Elements/p/object/> .
-@prefix rdat: <http://rdaregistry.info/Elements/t/> .
-@prefix rdatd: <http://rdaregistry.info/Elements/t/datatype/> .
-@prefix rdau: <http://rdaregistry.info/Elements/u/> .
-@prefix rdaw: <http://rdaregistry.info/Elements/w/> .
-@prefix rdawd: <http://rdaregistry.info/Elements/w/datatype/> .
-@prefix rdawo: <http://rdaregistry.info/Elements/w/object/> .
-@prefix rdax: <http://rdaregistry.info/Elements/x/> .
-@prefix rdaxd: <http://rdaregistry.info/Elements/x/datatype/> .
-@prefix rdaxo: <http://rdaregistry.info/Elements/x/object/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-"""
-
 # treat these CSV cell values as empty/missing
 EMPTY_COL_VALS = set(["", "#N/A"])
-
 
 class DataModelConverter:
     def __init__(self):
@@ -61,12 +34,16 @@ class DataModelConverter:
             help="Input path for LKD csv file", required=True)
         parser.add_argument("-o", "--output-path",
             help="Output path for data model", required=True)
+        parser.add_argument("-p", "--prefixes-path",
+            help="Input path for prefixes file to be used in processing the csv file", required=True)
         parser.add_argument("-ns", "--namespace",
-            help="Namespace for lkd prefix in output file", default="http://example.org/lkd/")
+            help="Namespace for lkd prefix in output file. If given, overrides any other value")
         parser.add_argument("-url", "--publishing-url",
             help="Base URL for published data model", default="http://schema.finto.fi/lkd/")
         parser.add_argument("-m", "--metadata-path",
             help="Input path for separate data model metadata file")
+        parser.add_argument("-r", "--releases-path",
+            help="Input path for separate releases csv file")
         parser.add_argument("-v", "--version",
             help="Explicit version number (in x.y.z format)")
         parser.add_argument("-pv", "--prior-version",
@@ -74,24 +51,42 @@ class DataModelConverter:
         args = parser.parse_args()
         self.input_path = args.input_path
         self.output_path = args.output_path
+        self.prefixes_path = args.prefixes_path
         self.namespace = args.namespace
         self.publishing_url = args.publishing_url
         self.metadata_path = args.metadata_path
+        self.releases_path = args.releases_path
         self.version = args.version
         self.prior_version = args.prior_version
 
-        if self.metadata_path:
-            self.graph = rdflib.Graph().parse(self.metadata_path, format="ttl")
-        else:
-            self.graph = rdflib.Graph()
+        self.graph = Graph(bind_namespaces='none').parse(self.prefixes_path)
 
-        self.graph.parse(data=PREFIXES_DATA)
-        self.graph.bind("lkd", self.namespace)
-
-        self.nsm = NamespaceManager(self.graph)
+        if self.namespace:
+            self.graph.bind('lkd', self.namespace)
 
         # identifier for the LKD ontology
-        lkdURIRef = URIRef(self.namespace)
+        lkdURIRef = URIRef(self.graph.namespace_manager.expand_curie('lkd:'))
+
+        if self.metadata_path:
+            self.graph.parse(self.metadata_path, format="ttl", publicID=lkdURIRef)
+
+        self.nsm = NamespaceManager(self.graph, 'none')
+
+        if self.releases_path and self.version:
+            with open(self.releases_path, "r", encoding="utf-8", newline="") as releases_file:
+                csvreader = csv.DictReader(releases_file, delimiter=",")
+                for row in csvreader:
+                    if row['owl:versionInfo'] == self.version:
+                        to_be_removed = []
+                        for literal in self.graph.objects(lkdURIRef, DCTERMS.description):
+                            if (desc_end := row['dct:description-' + (lang:=literal.language)]):
+                                self.graph.add(
+                                    (lkdURIRef, DCTERMS.description, Literal(' '.join([literal, desc_end]), lang ))
+                                )
+                                to_be_removed.append((lkdURIRef, DCTERMS.description, literal))
+                        for triple in to_be_removed:
+                            self.graph.remove(triple)
+                        break
 
         curdate = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
 
@@ -165,7 +160,7 @@ class DataModelConverter:
         """
         Converts the CSV document and adds resulting triples to the conversion-specific graph.
         """
-        LKD = rdflib.Namespace(self.namespace)
+        LKD = rdflib.Namespace(self.nsm.expand_curie('lkd:'))
         with open(self.input_path, "r", encoding="utf-8", newline="") as csvfile:
             csvreader = csv.DictReader(csvfile, delimiter=",")
 

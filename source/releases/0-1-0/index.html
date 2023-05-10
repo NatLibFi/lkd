@@ -7,11 +7,11 @@
   </head>
   <body>
     <h2>Linkitetyn kirjastodatan tietomalli (LKD) - BIBFRAME 2.2 -tietomallin kansallinen sovellus</h2>
-    <p>Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaiseman <a target="_blank" href="https://id.loc.gov/ontologies/bibframe-2-2-0.html">BIBFRAME-tietomallin 2.2.0 versioon</a>. Mallia on täydennetty <a target="_blank" href="https://www.rdaregistry.info/">RDA Registryn</a> luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Tämä 0.1.0-versio sisältää uudistuneen RDA:n mukaiset kansalliset suppean ja laajan kuvailutason elementit. Käytetyt tunnisteet ovat väliaikaisia, eikä malli ole valmis käyttöön.</p>
-    <p>Yksi merkittävä ero Kongressin kirjaston BIBFRAME-versioon nähden on, että LKD-tietomalli jakaa BIBFRAMEn Work-tason RDA:n mukaisiin teos- ja ekspressiotasoihin.</p>
+    <p id="description-general-fi">Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaiseman <a target="_blank" href="https://id.loc.gov/ontologies/bibframe-2-2-0.html">BIBFRAME-tietomallin 2.2.0 versioon</a>. Mallia on täydennetty <a target="_blank" href="https://www.rdaregistry.info/">RDA Registryn</a> luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Tämä 0.1.0-versio sisältää uudistuneen RDA:n mukaiset kansalliset suppean ja laajan kuvailutason elementit. Käytetyt tunnisteet ovat väliaikaisia, eikä malli ole valmis käyttöön.</p>
+    <p id="description-distinction-fi">Yksi merkittävä ero Kongressin kirjaston BIBFRAME-versioon nähden on, että LKD-tietomalli jakaa BIBFRAMEn Work-tason RDA:n mukaisiin teos- ja ekspressiotasoihin.</p>
     <p class="fw-bold">About the data model</p>
-    <p>This BIBFRAME data model is based on the <a target="_blank" href="https://id.loc.gov/ontologies/bibframe-2-2-0.html">BIBFRAME 2.2.0 data model</a> published by the Library of Congress. The model has been supplemented with categories and properties from <a target="_blank" href="https://www.rdaregistry.info/">RDA Registry</a>, as well as additions based on the Finnish description guidelines. This 0.1.0 version contains the national elements of mandatory narrow and broad description levels according to the Official RDA. The identifiers used are temporary and the model is not ready for test use.</p>
-    <p>A notable difference to the Library of Congress BIBFRAME data model is that LKD data model splits bf:Work into lkd:Work and lkd:Expression corresponding to the structure of RDA classes.</p>
+    <p id="description-general-en">This BIBFRAME data model is based on the <a target="_blank" href="https://id.loc.gov/ontologies/bibframe-2-2-0.html">BIBFRAME 2.2.0 data model</a> published by the Library of Congress. The model has been supplemented with categories and properties from <a target="_blank" href="https://www.rdaregistry.info/">RDA Registry</a>, as well as additions based on the Finnish description guidelines. This 0.1.0 version contains the national elements of mandatory narrow and broad description levels according to the Official RDA. The identifiers used are temporary and the model is not ready for test use.</p>
+    <p id="description-distinction-en">A notable difference to the Library of Congress BIBFRAME data model is that LKD data model splits bf:Work into lkd:Work and lkd:Expression corresponding to the structure of RDA classes.</p>
     <hr/>
     <p class="fw-bold">Tietomallidokumentaatio - Description Document</p>
     <dl>
@@ -134,21 +134,315 @@
       </div>
     </dl>
     <h2 id="Classes">Classes</h2>
-    <p>
-      <a href="#AbbreviatedTitle">AbbreviatedTitle</a>, <a href="#AccessPolicy">AccessPolicy</a>, <a href="#AdminMetadata">AdminMetadata</a>, <a href="#Agent">Agent</a>, <a href="#Aggregate">Aggregate</a>, <a href="#Capture">Capture</a>, <a href="#Cartographic">Cartographic</a>, <a href="#Chronology">Chronology</a>, <a href="#Classification">Classification</a>, <a href="#Collection">Collection</a>, <a href="#CollectiveTitle">CollectiveTitle</a>, <a href="#Contribution">Contribution</a>, <a href="#Dissertation">Dissertation</a>, <a href="#Distribution">Distribution</a>, <a href="#Enumeration">Enumeration</a>, <a href="#Event">Event</a>, <a href="#Expression">Expression</a>, <a href="#Extent">Extent</a>, <a href="#Family">Family</a>, <a href="#Hub">Hub</a>, <a href="#Identifier">Identifier</a>, <a href="#Illustration">Illustration</a>, <a href="#Issuance">Issuance</a>, <a href="#Item">Item</a>, <a href="#KeyTitle">KeyTitle</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Manufacture">Manufacture</a>, <a href="#Media">Media</a>, <a href="#Meeting">Meeting</a>, <a href="#MusicFormat">MusicFormat</a>, <a href="#MusicMedium">MusicMedium</a>, <a href="#Notation">Notation</a>, <a href="#Organization">Organization</a>, <a href="#ParallelTitle">ParallelTitle</a>, <a href="#Person">Person</a>, <a href="#Place">Place</a>, <a href="#Production">Production</a>, <a href="#Projection">Projection</a>, <a href="#ProvisionActivity">ProvisionActivity</a>, <a href="#Publication">Publication</a>, <a href="#Role">Role</a>, <a href="#Scale">Scale</a>, <a href="#Serial">Serial</a>, <a href="#StillImage">StillImage</a>, <a href="#Temporal">Temporal</a>, <a href="#Title">Title</a>, <a href="#UsageAndAccessPolicy">UsageAndAccessPolicy</a>, <a href="#VariantTitle">VariantTitle</a>, <a href="#Work">Work</a>
-    </p>
+    <ul>
+      <li>
+        <a href="#AbbreviatedTitle">AbbreviatedTitle</a>, </li>
+      <li>
+        <a href="#AccessPolicy">AccessPolicy</a>, </li>
+      <li>
+        <a href="#AdminMetadata">AdminMetadata</a>, </li>
+      <li>
+        <a href="#Agent">Agent</a>, </li>
+      <li>
+        <a href="#Aggregate">Aggregate</a>, </li>
+      <li>
+        <a href="#Capture">Capture</a>, </li>
+      <li>
+        <a href="#Cartographic">Cartographic</a>, </li>
+      <li>
+        <a href="#Chronology">Chronology</a>, </li>
+      <li>
+        <a href="#Classification">Classification</a>, </li>
+      <li>
+        <a href="#Collection">Collection</a>, </li>
+      <li>
+        <a href="#CollectiveTitle">CollectiveTitle</a>, </li>
+      <li>
+        <a href="#Contribution">Contribution</a>, </li>
+      <li>
+        <a href="#Dissertation">Dissertation</a>, </li>
+      <li>
+        <a href="#Distribution">Distribution</a>, </li>
+      <li>
+        <a href="#Enumeration">Enumeration</a>, </li>
+      <li>
+        <a href="#Event">Event</a>, </li>
+      <li>
+        <a href="#Expression">Expression</a>, </li>
+      <li>
+        <a href="#Extent">Extent</a>, </li>
+      <li>
+        <a href="#Family">Family</a>, </li>
+      <li>
+        <a href="#Hub">Hub</a>, </li>
+      <li>
+        <a href="#Identifier">Identifier</a>, </li>
+      <li>
+        <a href="#Illustration">Illustration</a>, </li>
+      <li>
+        <a href="#Issuance">Issuance</a>, </li>
+      <li>
+        <a href="#Item">Item</a>, </li>
+      <li>
+        <a href="#KeyTitle">KeyTitle</a>, </li>
+      <li>
+        <a href="#Manifestation">Manifestation</a>, </li>
+      <li>
+        <a href="#Manufacture">Manufacture</a>, </li>
+      <li>
+        <a href="#Media">Media</a>, </li>
+      <li>
+        <a href="#Meeting">Meeting</a>, </li>
+      <li>
+        <a href="#MusicFormat">MusicFormat</a>, </li>
+      <li>
+        <a href="#MusicMedium">MusicMedium</a>, </li>
+      <li>
+        <a href="#Notation">Notation</a>, </li>
+      <li>
+        <a href="#Organization">Organization</a>, </li>
+      <li>
+        <a href="#ParallelTitle">ParallelTitle</a>, </li>
+      <li>
+        <a href="#Person">Person</a>, </li>
+      <li>
+        <a href="#Place">Place</a>, </li>
+      <li>
+        <a href="#Production">Production</a>, </li>
+      <li>
+        <a href="#Projection">Projection</a>, </li>
+      <li>
+        <a href="#ProvisionActivity">ProvisionActivity</a>, </li>
+      <li>
+        <a href="#Publication">Publication</a>, </li>
+      <li>
+        <a href="#Role">Role</a>, </li>
+      <li>
+        <a href="#Scale">Scale</a>, </li>
+      <li>
+        <a href="#Serial">Serial</a>, </li>
+      <li>
+        <a href="#StillImage">StillImage</a>, </li>
+      <li>
+        <a href="#Temporal">Temporal</a>, </li>
+      <li>
+        <a href="#Title">Title</a>, </li>
+      <li>
+        <a href="#UsageAndAccessPolicy">UsageAndAccessPolicy</a>, </li>
+      <li>
+        <a href="#VariantTitle">VariantTitle</a>, </li>
+      <li>
+        <a href="#Work">Work</a>
+      </li>
+    </ul>
     <h2 id="ObjectProperties">Object Properties</h2>
-    <p>
-      <a href="#agent">agent</a>, <a href="#aggregates">aggregates</a>, <a href="#capture">capture</a>, <a href="#carrier">carrier</a>, <a href="#cartographicAttributes">cartographicAttributes</a>, <a href="#classification">classification</a>, <a href="#content">content</a>, <a href="#contributionOfExpression">contributionOfExpression</a>, <a href="#contributionOfManifestation">contributionOfManifestation</a>, <a href="#contributionOfWork">contributionOfWork</a>, <a href="#dateOfCapture">dateOfCapture</a>, <a href="#derivedFrom">derivedFrom</a>, <a href="#dissertation">dissertation</a>, <a href="#distribution">distribution</a>, <a href="#enumerationAndChronology">enumerationAndChronology</a>, <a href="#expressionIdentifiedBy">expressionIdentifiedBy</a>, <a href="#expressionManifested">expressionManifested</a>, <a href="#expressionOf">expressionOf</a>, <a href="#extent">extent</a>, <a href="#grantingInstitution">grantingInstitution</a>, <a href="#hasExpression">hasExpression</a>, <a href="#hasItem">hasItem</a>, <a href="#hasPart">hasPart</a>, <a href="#hasReproduction">hasReproduction</a>, <a href="#horizontalScale">horizontalScale</a>, <a href="#illustrativeContent">illustrativeContent</a>, <a href="#issuance">issuance</a>, <a href="#itemIdentifiedBy">itemIdentifiedBy</a>, <a href="#itemOf">itemOf</a>, <a href="#language">language</a>, <a href="#languageOfOrganization">languageOfOrganization</a>, <a href="#languageOfWork">languageOfWork</a>, <a href="#manifestationIdentifiedBy">manifestationIdentifiedBy</a>, <a href="#manifestationOfExpression">manifestationOfExpression</a>, <a href="#manifestationOfWork">manifestationOfWork</a>, <a href="#manufacture">manufacture</a>, <a href="#media">media</a>, <a href="#meetingPlace">meetingPlace</a>, <a href="#musicFormat">musicFormat</a>, <a href="#musicMedium">musicMedium</a>, <a href="#notation">notation</a>, <a href="#originPlace">originPlace</a>, <a href="#parallelTitle">parallelTitle</a>, <a href="#partOf">partOf</a>, <a href="#place">place</a>, <a href="#placeOfCapture">placeOfCapture</a>, <a href="#precededBy">precededBy</a>, <a href="#preferredTitleOfExpression">preferredTitleOfExpression</a>, <a href="#preferredTitleOfItem">preferredTitleOfItem</a>, <a href="#preferredTitleOfManifestation">preferredTitleOfManifestation</a>, <a href="#preferredTitleOfWork">preferredTitleOfWork</a>, <a href="#production">production</a>, <a href="#projection">projection</a>, <a href="#provisionActivity">provisionActivity</a>, <a href="#publication">publication</a>, <a href="#reproductionOf">reproductionOf</a>, <a href="#role">role</a>, <a href="#seriesTitle">seriesTitle</a>, <a href="#subject">subject</a>, <a href="#succeededBy">succeededBy</a>, <a href="#title">title</a>, <a href="#usageAndAccessPolicy">usageAndAccessPolicy</a>, <a href="#variantTitle">variantTitle</a>, <a href="#variantType">variantType</a>, <a href="#verticalScale">verticalScale</a>, <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>, <a href="#workIdentifiedBy">workIdentifiedBy</a>, <a href="#workManifested">workManifested</a>
-    </p>
+    <ul>
+      <li>
+        <a href="#agent">agent</a>, </li>
+      <li>
+        <a href="#aggregates">aggregates</a>, </li>
+      <li>
+        <a href="#capture">capture</a>, </li>
+      <li>
+        <a href="#carrier">carrier</a>, </li>
+      <li>
+        <a href="#cartographicAttributes">cartographicAttributes</a>, </li>
+      <li>
+        <a href="#classification">classification</a>, </li>
+      <li>
+        <a href="#content">content</a>, </li>
+      <li>
+        <a href="#contributionOfExpression">contributionOfExpression</a>, </li>
+      <li>
+        <a href="#contributionOfManifestation">contributionOfManifestation</a>, </li>
+      <li>
+        <a href="#contributionOfWork">contributionOfWork</a>, </li>
+      <li>
+        <a href="#dateOfCapture">dateOfCapture</a>, </li>
+      <li>
+        <a href="#derivedFrom">derivedFrom</a>, </li>
+      <li>
+        <a href="#dissertation">dissertation</a>, </li>
+      <li>
+        <a href="#distribution">distribution</a>, </li>
+      <li>
+        <a href="#enumerationAndChronology">enumerationAndChronology</a>, </li>
+      <li>
+        <a href="#expressionIdentifiedBy">expressionIdentifiedBy</a>, </li>
+      <li>
+        <a href="#expressionManifested">expressionManifested</a>, </li>
+      <li>
+        <a href="#expressionOf">expressionOf</a>, </li>
+      <li>
+        <a href="#extent">extent</a>, </li>
+      <li>
+        <a href="#grantingInstitution">grantingInstitution</a>, </li>
+      <li>
+        <a href="#hasExpression">hasExpression</a>, </li>
+      <li>
+        <a href="#hasItem">hasItem</a>, </li>
+      <li>
+        <a href="#hasPart">hasPart</a>, </li>
+      <li>
+        <a href="#hasReproduction">hasReproduction</a>, </li>
+      <li>
+        <a href="#horizontalScale">horizontalScale</a>, </li>
+      <li>
+        <a href="#illustrativeContent">illustrativeContent</a>, </li>
+      <li>
+        <a href="#issuance">issuance</a>, </li>
+      <li>
+        <a href="#itemIdentifiedBy">itemIdentifiedBy</a>, </li>
+      <li>
+        <a href="#itemOf">itemOf</a>, </li>
+      <li>
+        <a href="#language">language</a>, </li>
+      <li>
+        <a href="#languageOfOrganization">languageOfOrganization</a>, </li>
+      <li>
+        <a href="#languageOfWork">languageOfWork</a>, </li>
+      <li>
+        <a href="#manifestationIdentifiedBy">manifestationIdentifiedBy</a>, </li>
+      <li>
+        <a href="#manifestationOfExpression">manifestationOfExpression</a>, </li>
+      <li>
+        <a href="#manifestationOfWork">manifestationOfWork</a>, </li>
+      <li>
+        <a href="#manufacture">manufacture</a>, </li>
+      <li>
+        <a href="#media">media</a>, </li>
+      <li>
+        <a href="#meetingPlace">meetingPlace</a>, </li>
+      <li>
+        <a href="#musicFormat">musicFormat</a>, </li>
+      <li>
+        <a href="#musicMedium">musicMedium</a>, </li>
+      <li>
+        <a href="#notation">notation</a>, </li>
+      <li>
+        <a href="#originPlace">originPlace</a>, </li>
+      <li>
+        <a href="#parallelTitle">parallelTitle</a>, </li>
+      <li>
+        <a href="#partOf">partOf</a>, </li>
+      <li>
+        <a href="#place">place</a>, </li>
+      <li>
+        <a href="#placeOfCapture">placeOfCapture</a>, </li>
+      <li>
+        <a href="#precededBy">precededBy</a>, </li>
+      <li>
+        <a href="#preferredTitleOfExpression">preferredTitleOfExpression</a>, </li>
+      <li>
+        <a href="#preferredTitleOfItem">preferredTitleOfItem</a>, </li>
+      <li>
+        <a href="#preferredTitleOfManifestation">preferredTitleOfManifestation</a>, </li>
+      <li>
+        <a href="#preferredTitleOfWork">preferredTitleOfWork</a>, </li>
+      <li>
+        <a href="#production">production</a>, </li>
+      <li>
+        <a href="#projection">projection</a>, </li>
+      <li>
+        <a href="#provisionActivity">provisionActivity</a>, </li>
+      <li>
+        <a href="#publication">publication</a>, </li>
+      <li>
+        <a href="#reproductionOf">reproductionOf</a>, </li>
+      <li>
+        <a href="#role">role</a>, </li>
+      <li>
+        <a href="#seriesTitle">seriesTitle</a>, </li>
+      <li>
+        <a href="#subject">subject</a>, </li>
+      <li>
+        <a href="#succeededBy">succeededBy</a>, </li>
+      <li>
+        <a href="#title">title</a>, </li>
+      <li>
+        <a href="#usageAndAccessPolicy">usageAndAccessPolicy</a>, </li>
+      <li>
+        <a href="#variantTitle">variantTitle</a>, </li>
+      <li>
+        <a href="#variantType">variantType</a>, </li>
+      <li>
+        <a href="#verticalScale">verticalScale</a>, </li>
+      <li>
+        <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>, </li>
+      <li>
+        <a href="#workIdentifiedBy">workIdentifiedBy</a>, </li>
+      <li>
+        <a href="#workManifested">workManifested</a>
+      </li>
+    </ul>
     <h2 id="DatatypeProperties">Datatype Properties</h2>
-    <p>
-      <a href="#aapItem">aapItem</a>, <a href="#aapOfExpression">aapOfExpression</a>, <a href="#aapOfManifestation">aapOfManifestation</a>, <a href="#aapOfWork">aapOfWork</a>, <a href="#coordinates">coordinates</a>, <a href="#copyrightDate">copyrightDate</a>, <a href="#date">date</a>, <a href="#duration">duration</a>, <a href="#editionStatement">editionStatement</a>, <a href="#editionStatementOfRevision">editionStatementOfRevision</a>, <a href="#firstIssue">firstIssue</a>, <a href="#firstIssueChronology">firstIssueChronology</a>, <a href="#lastIssue">lastIssue</a>, <a href="#lastIssueChronology">lastIssueChronology</a>, <a href="#latitude">latitude</a>, <a href="#longitude">longitude</a>, <a href="#mainTitle">mainTitle</a>, <a href="#musicKeyOfExpression">musicKeyOfExpression</a>, <a href="#musicKeyOfRepresentativeExpression">musicKeyOfRepresentativeExpression</a>, <a href="#musicOpusNumber">musicOpusNumber</a>, <a href="#musicSerialNumber">musicSerialNumber</a>, <a href="#musicThematicNumber">musicThematicNumber</a>, <a href="#originDate">originDate</a>, <a href="#publicationDate">publicationDate</a>, <a href="#responsibilityStatement">responsibilityStatement</a>, <a href="#seriesEnumeration">seriesEnumeration</a>, <a href="#seriesStatement">seriesStatement</a>, <a href="#subtitle">subtitle</a>
-    </p>
+    <ul>
+      <li>
+        <a href="#aapItem">aapItem</a>, </li>
+      <li>
+        <a href="#aapOfExpression">aapOfExpression</a>, </li>
+      <li>
+        <a href="#aapOfManifestation">aapOfManifestation</a>, </li>
+      <li>
+        <a href="#aapOfWork">aapOfWork</a>, </li>
+      <li>
+        <a href="#coordinates">coordinates</a>, </li>
+      <li>
+        <a href="#copyrightDate">copyrightDate</a>, </li>
+      <li>
+        <a href="#date">date</a>, </li>
+      <li>
+        <a href="#duration">duration</a>, </li>
+      <li>
+        <a href="#editionStatement">editionStatement</a>, </li>
+      <li>
+        <a href="#editionStatementOfRevision">editionStatementOfRevision</a>, </li>
+      <li>
+        <a href="#firstIssue">firstIssue</a>, </li>
+      <li>
+        <a href="#firstIssueChronology">firstIssueChronology</a>, </li>
+      <li>
+        <a href="#lastIssue">lastIssue</a>, </li>
+      <li>
+        <a href="#lastIssueChronology">lastIssueChronology</a>, </li>
+      <li>
+        <a href="#latitude">latitude</a>, </li>
+      <li>
+        <a href="#longitude">longitude</a>, </li>
+      <li>
+        <a href="#mainTitle">mainTitle</a>, </li>
+      <li>
+        <a href="#musicKeyOfExpression">musicKeyOfExpression</a>, </li>
+      <li>
+        <a href="#musicKeyOfRepresentativeExpression">musicKeyOfRepresentativeExpression</a>, </li>
+      <li>
+        <a href="#musicOpusNumber">musicOpusNumber</a>, </li>
+      <li>
+        <a href="#musicSerialNumber">musicSerialNumber</a>, </li>
+      <li>
+        <a href="#musicThematicNumber">musicThematicNumber</a>, </li>
+      <li>
+        <a href="#originDate">originDate</a>, </li>
+      <li>
+        <a href="#publicationDate">publicationDate</a>, </li>
+      <li>
+        <a href="#responsibilityStatement">responsibilityStatement</a>, </li>
+      <li>
+        <a href="#seriesEnumeration">seriesEnumeration</a>, </li>
+      <li>
+        <a href="#seriesStatement">seriesStatement</a>, </li>
+      <li>
+        <a href="#subtitle">subtitle</a>
+      </li>
+    </ul>
     <h2 id="OtherIdentifiers">Other Identifiers</h2>
-    <p>
-      <a href="#lkdProject">lkdProject</a>, <a href="#NatLibFi">NatLibFi</a>
-    </p>
+    <ul>
+      <li>
+        <a href="#lkdProject">lkdProject</a>, </li>
+      <li>
+        <a href="#NatLibFi">NatLibFi</a>
+      </li>
+    </ul>
     <h2>Classes</h2>
     <div class="tableContainer">
       <table id="AbbreviatedTitle">
@@ -183,7 +477,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10012">rdac:C10012</a>
+              <a href="http://rdaregistry.info/Elements/c/C10012" target="_blank">rdac:C10012</a>
             </div>
           </td>
         </tr>
@@ -191,7 +485,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/AbbreviatedTitle">bf:AbbreviatedTitle</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_AbbreviatedTitle" target="_blank">bf:AbbreviatedTitle</a>
             </div>
           </td>
         </tr>
@@ -229,7 +523,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10013">rdac:C10013</a>
+              <a href="http://rdaregistry.info/Elements/c/C10013" target="_blank">rdac:C10013</a>
             </div>
           </td>
         </tr>
@@ -237,7 +531,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/AccessPolicy">bf:AccessPolicy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_AccessPolicy" target="_blank">bf:AccessPolicy</a>
             </div>
           </td>
         </tr>
@@ -275,7 +569,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10001">rdac:C10001</a>
+              <a href="http://rdaregistry.info/Elements/c/C10001" target="_blank">rdac:C10001</a>
             </div>
           </td>
         </tr>
@@ -283,7 +577,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/AdminMetadata">bf:AdminMetadata</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_AdminMetadata" target="_blank">bf:AdminMetadata</a>
             </div>
           </td>
         </tr>
@@ -343,9 +637,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Agent">bf:Agent</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Agent" target="_blank">bf:Agent</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10002">rdac:C10002</a>
+              <a href="http://rdaregistry.info/Elements/c/C10002" target="_blank">rdac:C10002</a>
             </div>
           </td>
         </tr>
@@ -375,7 +669,7 @@
           <td class="key">SubClass Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Work">bf:Work</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Work" target="_blank">bf:Work</a>
             </div>
           </td>
         </tr>
@@ -391,7 +685,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10001">rdac:C10001</a>
+              <a href="http://rdaregistry.info/Elements/c/C10001" target="_blank">rdac:C10001</a>
             </div>
           </td>
         </tr>
@@ -399,7 +693,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Collection">bf:Collection</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Collection" target="_blank">bf:Collection</a>
             </div>
           </td>
         </tr>
@@ -447,7 +741,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10007">rdac:C10007</a>
+              <a href="http://rdaregistry.info/Elements/c/C10007" target="_blank">rdac:C10007</a>
             </div>
           </td>
         </tr>
@@ -455,7 +749,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Capture">bf:Capture</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Capture" target="_blank">bf:Capture</a>
             </div>
           </td>
         </tr>
@@ -515,7 +809,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10013">rdac:C10013</a>
+              <a href="http://rdaregistry.info/Elements/c/C10013" target="_blank">rdac:C10013</a>
             </div>
           </td>
         </tr>
@@ -523,7 +817,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Cartographic">bf:Cartographic</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Cartographic" target="_blank">bf:Cartographic</a>
             </div>
           </td>
         </tr>
@@ -553,7 +847,7 @@
           <td class="key">SubClass Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/EnumerationAndChronology">bf:EnumerationAndChronology</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_EnumerationAndChronology" target="_blank">bf:EnumerationAndChronology</a>
             </div>
           </td>
         </tr>
@@ -561,7 +855,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10010">rdac:C10010</a>
+              <a href="http://rdaregistry.info/Elements/c/C10010" target="_blank">rdac:C10010</a>
             </div>
           </td>
         </tr>
@@ -569,7 +863,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Chronology">bf:Chronology</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Chronology" target="_blank">bf:Chronology</a>
             </div>
           </td>
         </tr>
@@ -607,7 +901,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10013">rdac:C10013</a>
+              <a href="http://rdaregistry.info/Elements/c/C10013" target="_blank">rdac:C10013</a>
             </div>
           </td>
         </tr>
@@ -615,7 +909,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Classification">bf:Classification</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Classification" target="_blank">bf:Classification</a>
             </div>
           </td>
         </tr>
@@ -645,7 +939,7 @@
           <td class="key">SubClass Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Work">bf:Work</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Work" target="_blank">bf:Work</a>
             </div>
           </td>
         </tr>
@@ -653,7 +947,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10001">rdac:C10001</a>
+              <a href="http://rdaregistry.info/Elements/c/C10001" target="_blank">rdac:C10001</a>
             </div>
           </td>
         </tr>
@@ -661,7 +955,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Collection">bf:Collection</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Collection" target="_blank">bf:Collection</a>
             </div>
           </td>
         </tr>
@@ -699,7 +993,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10012">rdac:C10012</a>
+              <a href="http://rdaregistry.info/Elements/c/C10012" target="_blank">rdac:C10012</a>
             </div>
           </td>
         </tr>
@@ -707,7 +1001,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/CollectiveTitle">bf:CollectiveTitle</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_CollectiveTitle" target="_blank">bf:CollectiveTitle</a>
             </div>
           </td>
         </tr>
@@ -759,7 +1053,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10002">rdac:C10002</a>
+              <a href="http://rdaregistry.info/Elements/c/C10002" target="_blank">rdac:C10002</a>
             </div>
           </td>
         </tr>
@@ -767,7 +1061,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Contribution">bf:Contribution</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Contribution" target="_blank">bf:Contribution</a>
             </div>
           </td>
         </tr>
@@ -813,7 +1107,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10001">rdac:C10001</a>
+              <a href="http://rdaregistry.info/Elements/c/C10001" target="_blank">rdac:C10001</a>
             </div>
           </td>
         </tr>
@@ -821,7 +1115,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Dissertation">bf:Dissertation</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Dissertation" target="_blank">bf:Dissertation</a>
             </div>
           </td>
         </tr>
@@ -851,7 +1145,7 @@
           <td class="key">SubClass Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/ProvisionActivity">bf:ProvisionActivity</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_ProvisionActivity" target="_blank">bf:ProvisionActivity</a>
             </div>
           </td>
         </tr>
@@ -867,7 +1161,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10002">rdac:C10002</a>
+              <a href="http://rdaregistry.info/Elements/c/C10002" target="_blank">rdac:C10002</a>
             </div>
           </td>
         </tr>
@@ -875,7 +1169,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Distribution">bf:Distribution</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Distribution" target="_blank">bf:Distribution</a>
             </div>
           </td>
         </tr>
@@ -905,7 +1199,7 @@
           <td class="key">SubClass Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/EnumerationAndChronology">bf:EnumerationAndChronology</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_EnumerationAndChronology" target="_blank">bf:EnumerationAndChronology</a>
             </div>
           </td>
         </tr>
@@ -921,7 +1215,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10012">rdac:C10012</a>
+              <a href="http://rdaregistry.info/Elements/c/C10012" target="_blank">rdac:C10012</a>
             </div>
           </td>
         </tr>
@@ -929,7 +1223,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Enumeration">bf:Enumeration</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Enumeration" target="_blank">bf:Enumeration</a>
             </div>
           </td>
         </tr>
@@ -979,7 +1273,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10013">rdac:C10013</a>
+              <a href="http://rdaregistry.info/Elements/c/C10013" target="_blank">rdac:C10013</a>
             </div>
           </td>
         </tr>
@@ -987,7 +1281,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Event">bf:Event</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Event" target="_blank">bf:Event</a>
             </div>
           </td>
         </tr>
@@ -1017,7 +1311,7 @@
           <td class="key">SubClass Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Work">bf:Work</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Work" target="_blank">bf:Work</a>
             </div>
           </td>
         </tr>
@@ -1073,7 +1367,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Work">bf:Work</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Work" target="_blank">bf:Work</a>
             </div>
           </td>
         </tr>
@@ -1081,7 +1375,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10006">rdac:C10006</a>
+              <a href="http://rdaregistry.info/Elements/c/C10006" target="_blank">rdac:C10006</a>
             </div>
           </td>
         </tr>
@@ -1119,7 +1413,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10013">rdac:C10013</a>
+              <a href="http://rdaregistry.info/Elements/c/C10013" target="_blank">rdac:C10013</a>
             </div>
           </td>
         </tr>
@@ -1127,7 +1421,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Extent">bf:Extent</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Extent" target="_blank">bf:Extent</a>
             </div>
           </td>
         </tr>
@@ -1165,9 +1459,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Family">bf:Family</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Family" target="_blank">bf:Family</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10008">rdac:C10008</a>
+              <a href="http://rdaregistry.info/Elements/c/C10008" target="_blank">rdac:C10008</a>
             </div>
           </td>
         </tr>
@@ -1205,7 +1499,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10001">rdac:C10001</a>
+              <a href="http://rdaregistry.info/Elements/c/C10001" target="_blank">rdac:C10001</a>
             </div>
           </td>
         </tr>
@@ -1213,7 +1507,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Hub">bf:Hub</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Hub" target="_blank">bf:Hub</a>
             </div>
           </td>
         </tr>
@@ -1259,7 +1553,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10012">rdac:C10012</a>
+              <a href="http://rdaregistry.info/Elements/c/C10012" target="_blank">rdac:C10012</a>
             </div>
           </td>
         </tr>
@@ -1267,7 +1561,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Identifier">bf:Identifier</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Identifier" target="_blank">bf:Identifier</a>
             </div>
           </td>
         </tr>
@@ -1305,7 +1599,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10001">rdac:C10001</a>
+              <a href="http://rdaregistry.info/Elements/c/C10001" target="_blank">rdac:C10001</a>
             </div>
           </td>
         </tr>
@@ -1313,7 +1607,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Illustration">bf:Illustration</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Illustration" target="_blank">bf:Illustration</a>
             </div>
           </td>
         </tr>
@@ -1351,7 +1645,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30013">rdam:P30013</a>
+              <a href="http://rdaregistry.info/Elements/m/P30013" target="_blank">rdam:P30013</a>
             </div>
           </td>
         </tr>
@@ -1359,7 +1653,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Issuance">bf:Issuance</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Issuance" target="_blank">bf:Issuance</a>
             </div>
           </td>
         </tr>
@@ -1427,9 +1721,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Item">bf:Item</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Item" target="_blank">bf:Item</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10003">rdac:C10003</a>
+              <a href="http://rdaregistry.info/Elements/c/C10003" target="_blank">rdac:C10003</a>
             </div>
           </td>
         </tr>
@@ -1467,7 +1761,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10012">rdac:C10012</a>
+              <a href="http://rdaregistry.info/Elements/c/C10012" target="_blank">rdac:C10012</a>
             </div>
           </td>
         </tr>
@@ -1475,7 +1769,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/KeyTitle">bf:KeyTitle</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_KeyTitle" target="_blank">bf:KeyTitle</a>
             </div>
           </td>
         </tr>
@@ -1613,7 +1907,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Instance">bf:Instance</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Instance" target="_blank">bf:Instance</a>
             </div>
           </td>
         </tr>
@@ -1621,7 +1915,7 @@
           <td class="key">Narrow Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10007">rdac:C10007</a>
+              <a href="http://rdaregistry.info/Elements/c/C10007" target="_blank">rdac:C10007</a>
             </div>
           </td>
         </tr>
@@ -1659,7 +1953,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10002">rdac:C10002</a>
+              <a href="http://rdaregistry.info/Elements/c/C10002" target="_blank">rdac:C10002</a>
             </div>
           </td>
         </tr>
@@ -1667,7 +1961,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Manufacture">bf:Manufacture</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Manufacture" target="_blank">bf:Manufacture</a>
             </div>
           </td>
         </tr>
@@ -1697,9 +1991,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Media">bf:Media</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Media" target="_blank">bf:Media</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/termList/RDAMediaType">&lt;http://rdaregistry.info/termList/RDAMediaType&gt;</a>
+              <a href="http://rdaregistry.info/termList/RDAMediaType" target="_blank">&lt;http://rdaregistry.info/termList/RDAMediaType&gt;</a>
             </div>
           </td>
         </tr>
@@ -1747,7 +2041,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10005">rdac:C10005</a>
+              <a href="http://rdaregistry.info/Elements/c/C10005" target="_blank">rdac:C10005</a>
             </div>
           </td>
         </tr>
@@ -1755,7 +2049,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Meeting">bf:Meeting</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Meeting" target="_blank">bf:Meeting</a>
             </div>
           </td>
         </tr>
@@ -1801,9 +2095,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/MusicFormat">bf:MusicFormat</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_MusicFormat" target="_blank">bf:MusicFormat</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/termList/MusNotation">&lt;http://rdaregistry.info/termList/MusNotation&gt;</a>
+              <a href="http://rdaregistry.info/termList/MusNotation" target="_blank">&lt;http://rdaregistry.info/termList/MusNotation&gt;</a>
             </div>
           </td>
         </tr>
@@ -1841,7 +2135,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10013">rdac:C10013</a>
+              <a href="http://rdaregistry.info/Elements/c/C10013" target="_blank">rdac:C10013</a>
             </div>
           </td>
         </tr>
@@ -1849,7 +2143,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/MusicMedium">bf:MusicMedium</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_MusicMedium" target="_blank">bf:MusicMedium</a>
             </div>
           </td>
         </tr>
@@ -1895,7 +2189,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/termList/noteMove">&lt;http://rdaregistry.info/termList/noteMove&gt;</a>
+              <a href="http://rdaregistry.info/termList/noteMove" target="_blank">&lt;http://rdaregistry.info/termList/noteMove&gt;</a>
             </div>
           </td>
         </tr>
@@ -1903,7 +2197,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Notation">bf:Notation</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Notation" target="_blank">bf:Notation</a>
             </div>
           </td>
         </tr>
@@ -1957,9 +2251,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Organization">bf:Organization</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Organization" target="_blank">bf:Organization</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10005">rdac:C10005</a>
+              <a href="http://rdaregistry.info/Elements/c/C10005" target="_blank">rdac:C10005</a>
             </div>
           </td>
         </tr>
@@ -2005,7 +2299,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10012">rdac:C10012</a>
+              <a href="http://rdaregistry.info/Elements/c/C10012" target="_blank">rdac:C10012</a>
             </div>
           </td>
         </tr>
@@ -2013,7 +2307,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/ParallelTitle">bf:ParallelTitle</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_ParallelTitle" target="_blank">bf:ParallelTitle</a>
             </div>
           </td>
         </tr>
@@ -2051,9 +2345,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Person">bf:Person</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Person" target="_blank">bf:Person</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10004">rdac:C10004</a>
+              <a href="http://rdaregistry.info/Elements/c/C10004" target="_blank">rdac:C10004</a>
             </div>
           </td>
         </tr>
@@ -2093,9 +2387,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Place">bf:Place</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Place" target="_blank">bf:Place</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10009">rdac:C10009</a>
+              <a href="http://rdaregistry.info/Elements/c/C10009" target="_blank">rdac:C10009</a>
             </div>
           </td>
         </tr>
@@ -2125,7 +2419,7 @@
           <td class="key">SubClass Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/ProvisionActivity">bf:ProvisionActivity</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_ProvisionActivity" target="_blank">bf:ProvisionActivity</a>
             </div>
           </td>
         </tr>
@@ -2141,7 +2435,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10002">rdac:C10002</a>
+              <a href="http://rdaregistry.info/Elements/c/C10002" target="_blank">rdac:C10002</a>
             </div>
           </td>
         </tr>
@@ -2149,7 +2443,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Production">bf:Production</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Production" target="_blank">bf:Production</a>
             </div>
           </td>
         </tr>
@@ -2187,7 +2481,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10013">rdac:C10013</a>
+              <a href="http://rdaregistry.info/Elements/c/C10013" target="_blank">rdac:C10013</a>
             </div>
           </td>
         </tr>
@@ -2195,7 +2489,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Projection">bf:Projection</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Projection" target="_blank">bf:Projection</a>
             </div>
           </td>
         </tr>
@@ -2241,7 +2535,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10013">rdac:C10013</a>
+              <a href="http://rdaregistry.info/Elements/c/C10013" target="_blank">rdac:C10013</a>
             </div>
           </td>
         </tr>
@@ -2249,7 +2543,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/ProvisionActivity">bf:ProvisionActivity</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_ProvisionActivity" target="_blank">bf:ProvisionActivity</a>
             </div>
           </td>
         </tr>
@@ -2279,7 +2573,7 @@
           <td class="key">SubClass Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/ProvisionActivity">bf:ProvisionActivity</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_ProvisionActivity" target="_blank">bf:ProvisionActivity</a>
             </div>
           </td>
         </tr>
@@ -2295,7 +2589,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10002">rdac:C10002</a>
+              <a href="http://rdaregistry.info/Elements/c/C10002" target="_blank">rdac:C10002</a>
             </div>
           </td>
         </tr>
@@ -2303,7 +2597,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Publication">bf:Publication</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Publication" target="_blank">bf:Publication</a>
             </div>
           </td>
         </tr>
@@ -2333,7 +2627,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10013">rdac:C10013</a>
+              <a href="http://rdaregistry.info/Elements/c/C10013" target="_blank">rdac:C10013</a>
             </div>
           </td>
         </tr>
@@ -2341,7 +2635,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Role">bf:Role</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Role" target="_blank">bf:Role</a>
             </div>
           </td>
         </tr>
@@ -2381,7 +2675,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10013">rdac:C10013</a>
+              <a href="http://rdaregistry.info/Elements/c/C10013" target="_blank">rdac:C10013</a>
             </div>
           </td>
         </tr>
@@ -2389,7 +2683,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Scale">bf:Scale</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Scale" target="_blank">bf:Scale</a>
             </div>
           </td>
         </tr>
@@ -2427,7 +2721,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10001">rdac:C10001</a>
+              <a href="http://rdaregistry.info/Elements/c/C10001" target="_blank">rdac:C10001</a>
             </div>
           </td>
         </tr>
@@ -2435,7 +2729,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Serial">bf:Serial</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Serial" target="_blank">bf:Serial</a>
             </div>
           </td>
         </tr>
@@ -2473,9 +2767,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/StillImage">bf:StillImage</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_StillImage" target="_blank">bf:StillImage</a>, </div>
             <div>
-              <a target="_blank" href="http://rdvocab.info/termList/RDAContentType/1014">&lt;http://rdvocab.info/termList/RDAContentType/1014&gt;</a>
+              <a href="http://rdvocab.info/termList/RDAContentType/1014" target="_blank">&lt;http://rdvocab.info/termList/RDAContentType/1014&gt;</a>
             </div>
           </td>
         </tr>
@@ -2505,7 +2799,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10010">rdac:C10010</a>
+              <a href="http://rdaregistry.info/Elements/c/C10010" target="_blank">rdac:C10010</a>
             </div>
           </td>
         </tr>
@@ -2513,7 +2807,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Temporal">bf:Temporal</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Temporal" target="_blank">bf:Temporal</a>
             </div>
           </td>
         </tr>
@@ -2579,7 +2873,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10012">rdac:C10012</a>
+              <a href="http://rdaregistry.info/Elements/c/C10012" target="_blank">rdac:C10012</a>
             </div>
           </td>
         </tr>
@@ -2587,7 +2881,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Title">bf:Title</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Title" target="_blank">bf:Title</a>
             </div>
           </td>
         </tr>
@@ -2625,7 +2919,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10013">rdac:C10013</a>
+              <a href="http://rdaregistry.info/Elements/c/C10013" target="_blank">rdac:C10013</a>
             </div>
           </td>
         </tr>
@@ -2633,7 +2927,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/UsageAndAccessPolicy">bf:UsageAndAccessPolicy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_UsageAndAccessPolicy" target="_blank">bf:UsageAndAccessPolicy</a>
             </div>
           </td>
         </tr>
@@ -2701,7 +2995,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10012">rdac:C10012</a>
+              <a href="http://rdaregistry.info/Elements/c/C10012" target="_blank">rdac:C10012</a>
             </div>
           </td>
         </tr>
@@ -2709,7 +3003,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/VariantTitle">bf:VariantTitle</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_VariantTitle" target="_blank">bf:VariantTitle</a>
             </div>
           </td>
         </tr>
@@ -2739,7 +3033,7 @@
           <td class="key">SubClass Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Work">bf:Work</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Work" target="_blank">bf:Work</a>
             </div>
           </td>
         </tr>
@@ -2843,7 +3137,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Work">bf:Work</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Work" target="_blank">bf:Work</a>
             </div>
           </td>
         </tr>
@@ -2851,7 +3145,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10001">rdac:C10001</a>
+              <a href="http://rdaregistry.info/Elements/c/C10001" target="_blank">rdac:C10001</a>
             </div>
           </td>
         </tr>
@@ -2900,9 +3194,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/agent">bf:agent</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_agent" target="_blank">bf:agent</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/object/P10311">rdawo:P10311</a>
+              <a href="http://rdaregistry.info/Elements/w/object/P10311" target="_blank">rdawo:P10311</a>
             </div>
           </td>
         </tr>
@@ -2932,7 +3226,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/relatedTo">bf:relatedTo</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_relatedTo" target="_blank">bf:relatedTo</a>
             </div>
           </td>
         </tr>
@@ -2956,7 +3250,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/hasPart">bf:hasPart</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_hasPart" target="_blank">bf:hasPart</a>
             </div>
           </td>
         </tr>
@@ -2964,7 +3258,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20319">rdae:P20319</a>
+              <a href="http://rdaregistry.info/Elements/e/P20319" target="_blank">rdae:P20319</a>
             </div>
           </td>
         </tr>
@@ -3020,9 +3314,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/capture">bf:capture</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_capture" target="_blank">bf:capture</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20217">rdae:P20217</a>
+              <a href="http://rdaregistry.info/Elements/e/P20217" target="_blank">rdae:P20217</a>
             </div>
           </td>
         </tr>
@@ -3060,7 +3354,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -3068,9 +3362,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/carrier">bf:carrier</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_carrier" target="_blank">bf:carrier</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30001">rdam:P30001</a>
+              <a href="http://rdaregistry.info/Elements/m/P30001" target="_blank">rdam:P30001</a>
             </div>
           </td>
         </tr>
@@ -3115,7 +3409,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10024">rdaw:P10024</a>
+              <a href="http://rdaregistry.info/Elements/w/P10024" target="_blank">rdaw:P10024</a>
             </div>
           </td>
         </tr>
@@ -3123,7 +3417,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/cartographicAttributes">bf:cartographicAttributes</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_cartographicAttributes" target="_blank">bf:cartographicAttributes</a>
             </div>
           </td>
         </tr>
@@ -3168,7 +3462,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10256">rdaw:P10256</a>
+              <a href="http://rdaregistry.info/Elements/w/P10256" target="_blank">rdaw:P10256</a>
             </div>
           </td>
         </tr>
@@ -3176,7 +3470,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/classification">bf:classification</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_classification" target="_blank">bf:classification</a>
             </div>
           </td>
         </tr>
@@ -3206,7 +3500,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -3214,9 +3508,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/content">bf:content</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_content" target="_blank">bf:content</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20001">rdae:P20001</a>
+              <a href="http://rdaregistry.info/Elements/e/P20001" target="_blank">rdae:P20001</a>
             </div>
           </td>
         </tr>
@@ -3246,7 +3540,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/contribution">bf:contribution</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_contribution" target="_blank">bf:contribution</a>
             </div>
           </td>
         </tr>
@@ -3270,9 +3564,9 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/contribution">bf:contribution</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_contribution" target="_blank">bf:contribution</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20301">rdae:P20301</a>
+              <a href="http://rdaregistry.info/Elements/e/P20301" target="_blank">rdae:P20301</a>
             </div>
           </td>
         </tr>
@@ -3280,29 +3574,29 @@
           <td class="key">Narrow Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20338">rdae:P20338</a>, </div>
+              <a href="http://rdaregistry.info/Elements/e/P20338" target="_blank">rdae:P20338</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20346">rdae:P20346</a>, </div>
+              <a href="http://rdaregistry.info/Elements/e/P20346" target="_blank">rdae:P20346</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20351">rdae:P20351</a>, </div>
+              <a href="http://rdaregistry.info/Elements/e/P20351" target="_blank">rdae:P20351</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20365">rdae:P20365</a>, </div>
+              <a href="http://rdaregistry.info/Elements/e/P20365" target="_blank">rdae:P20365</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20456">rdae:P20456</a>, </div>
+              <a href="http://rdaregistry.info/Elements/e/P20456" target="_blank">rdae:P20456</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20464">rdae:P20464</a>, </div>
+              <a href="http://rdaregistry.info/Elements/e/P20464" target="_blank">rdae:P20464</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20469">rdae:P20469</a>, </div>
+              <a href="http://rdaregistry.info/Elements/e/P20469" target="_blank">rdae:P20469</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20483">rdae:P20483</a>, </div>
+              <a href="http://rdaregistry.info/Elements/e/P20483" target="_blank">rdae:P20483</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20515">rdae:P20515</a>, </div>
+              <a href="http://rdaregistry.info/Elements/e/P20515" target="_blank">rdae:P20515</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20523">rdae:P20523</a>, </div>
+              <a href="http://rdaregistry.info/Elements/e/P20523" target="_blank">rdae:P20523</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20528">rdae:P20528</a>, </div>
+              <a href="http://rdaregistry.info/Elements/e/P20528" target="_blank">rdae:P20528</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20542">rdae:P20542</a>
+              <a href="http://rdaregistry.info/Elements/e/P20542" target="_blank">rdae:P20542</a>
             </div>
           </td>
         </tr>
@@ -3332,7 +3626,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/contribution">bf:contribution</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_contribution" target="_blank">bf:contribution</a>
             </div>
           </td>
         </tr>
@@ -3356,7 +3650,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/contribution">bf:contribution</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_contribution" target="_blank">bf:contribution</a>
             </div>
           </td>
         </tr>
@@ -3364,17 +3658,17 @@
           <td class="key">Narrow Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30343">rdam:P30343</a>, </div>
+              <a href="http://rdaregistry.info/Elements/m/P30343" target="_blank">rdam:P30343</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30362">rdam:P30362</a>, </div>
+              <a href="http://rdaregistry.info/Elements/m/P30362" target="_blank">rdam:P30362</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30401">rdam:P30401</a>, </div>
+              <a href="http://rdaregistry.info/Elements/m/P30401" target="_blank">rdam:P30401</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30420">rdam:P30420</a>, </div>
+              <a href="http://rdaregistry.info/Elements/m/P30420" target="_blank">rdam:P30420</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30430">rdam:P30430</a>, </div>
+              <a href="http://rdaregistry.info/Elements/m/P30430" target="_blank">rdam:P30430</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30449">rdam:P30449</a>
+              <a href="http://rdaregistry.info/Elements/m/P30449" target="_blank">rdam:P30449</a>
             </div>
           </td>
         </tr>
@@ -3404,7 +3698,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/contribution">bf:contribution</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_contribution" target="_blank">bf:contribution</a>
             </div>
           </td>
         </tr>
@@ -3428,7 +3722,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/contribution">bf:contribution</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_contribution" target="_blank">bf:contribution</a>
             </div>
           </td>
         </tr>
@@ -3436,11 +3730,11 @@
           <td class="key">Narrow Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10437">rdaw:P10437</a>, </div>
+              <a href="http://rdaregistry.info/Elements/w/P10437" target="_blank">rdaw:P10437</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10531">rdaw:P10531</a>, </div>
+              <a href="http://rdaregistry.info/Elements/w/P10531" target="_blank">rdaw:P10531</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10578">rdaw:P10578</a>
+              <a href="http://rdaregistry.info/Elements/w/P10578" target="_blank">rdaw:P10578</a>
             </div>
           </td>
         </tr>
@@ -3486,7 +3780,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -3494,7 +3788,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/capture">bf:capture</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_capture" target="_blank">bf:capture</a>
             </div>
           </td>
         </tr>
@@ -3502,7 +3796,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20004">rdae:P20004</a>
+              <a href="http://rdaregistry.info/Elements/e/P20004" target="_blank">rdae:P20004</a>
             </div>
           </td>
         </tr>
@@ -3540,7 +3834,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -3548,7 +3842,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10404">rdaw:P10404</a>
+              <a href="http://rdaregistry.info/Elements/w/P10404" target="_blank">rdaw:P10404</a>
             </div>
           </td>
         </tr>
@@ -3556,7 +3850,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/derivedFrom">bf:derivedFrom</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_derivedFrom" target="_blank">bf:derivedFrom</a>
             </div>
           </td>
         </tr>
@@ -3601,9 +3895,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/dissertation">bf:dissertation</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_dissertation" target="_blank">bf:dissertation</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10209">rdaw:P10209</a>
+              <a href="http://rdaregistry.info/Elements/w/P10209" target="_blank">rdaw:P10209</a>
             </div>
           </td>
         </tr>
@@ -3657,7 +3951,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/provisionActivity">bf:provisionActivity</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_provisionActivity" target="_blank">bf:provisionActivity</a>
             </div>
           </td>
         </tr>
@@ -3665,7 +3959,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30173">rdam:P30173</a>
+              <a href="http://rdaregistry.info/Elements/m/P30173" target="_blank">rdam:P30173</a>
             </div>
           </td>
         </tr>
@@ -3711,7 +4005,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/enumerationAndChronology">bf:enumerationAndChronology</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_enumerationAndChronology" target="_blank">bf:enumerationAndChronology</a>
             </div>
           </td>
         </tr>
@@ -3719,7 +4013,7 @@
           <td class="key">Narrow Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/a/P50019">rdaa:P50019</a>
+              <a href="http://rdaregistry.info/Elements/a/P50019" target="_blank">rdaa:P50019</a>
             </div>
           </td>
         </tr>
@@ -3749,7 +4043,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/identifiedBy">bf:identifiedBy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_identifiedBy" target="_blank">bf:identifiedBy</a>
             </div>
           </td>
         </tr>
@@ -3773,7 +4067,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/identifiedBy">bf:identifiedBy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_identifiedBy" target="_blank">bf:identifiedBy</a>
             </div>
           </td>
         </tr>
@@ -3781,7 +4075,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20002">rdae:P20002</a>
+              <a href="http://rdaregistry.info/Elements/e/P20002" target="_blank">rdae:P20002</a>
             </div>
           </td>
         </tr>
@@ -3827,7 +4121,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/Instance">bf:Instance</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#c_Instance" target="_blank">bf:Instance</a>
             </div>
           </td>
         </tr>
@@ -3835,7 +4129,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30139">rdam:P30139</a>
+              <a href="http://rdaregistry.info/Elements/m/P30139" target="_blank">rdam:P30139</a>
             </div>
           </td>
         </tr>
@@ -3865,7 +4159,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/expressionOf">bf:expressionOf</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_expressionOf" target="_blank">bf:expressionOf</a>
             </div>
           </td>
         </tr>
@@ -3889,7 +4183,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/expressionOf">bf:expressionOf</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_expressionOf" target="_blank">bf:expressionOf</a>
             </div>
           </td>
         </tr>
@@ -3897,7 +4191,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20231">rdae:P20231</a>
+              <a href="http://rdaregistry.info/Elements/e/P20231" target="_blank">rdae:P20231</a>
             </div>
           </td>
         </tr>
@@ -3927,7 +4221,7 @@
           <td class="key">Domain</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -3943,9 +4237,9 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/extent">bf:extent</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_extent" target="_blank">bf:extent</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30182">rdam:P30182</a>
+              <a href="http://rdaregistry.info/Elements/m/P30182" target="_blank">rdam:P30182</a>
             </div>
           </td>
         </tr>
@@ -3991,9 +4285,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/grantingInstitution">bf:grantingInstitution</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_grantingInstitution" target="_blank">bf:grantingInstitution</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10006">rdaw:P10006</a>
+              <a href="http://rdaregistry.info/Elements/w/P10006" target="_blank">rdaw:P10006</a>
             </div>
           </td>
         </tr>
@@ -4023,7 +4317,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/relatedTo">bf:relatedTo</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_relatedTo" target="_blank">bf:relatedTo</a>
             </div>
           </td>
         </tr>
@@ -4047,9 +4341,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/hasExpression">bf:hasExpression</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_hasExpression" target="_blank">bf:hasExpression</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10078">rdaw:P10078</a>
+              <a href="http://rdaregistry.info/Elements/w/P10078" target="_blank">rdaw:P10078</a>
             </div>
           </td>
         </tr>
@@ -4079,7 +4373,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/relatedTo">bf:relatedTo</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_relatedTo" target="_blank">bf:relatedTo</a>
             </div>
           </td>
         </tr>
@@ -4103,7 +4397,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30103">rdam:P30103</a>
+              <a href="http://rdaregistry.info/Elements/m/P30103" target="_blank">rdam:P30103</a>
             </div>
           </td>
         </tr>
@@ -4111,7 +4405,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/hasItem">bf:hasItem</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_hasItem" target="_blank">bf:hasItem</a>
             </div>
           </td>
         </tr>
@@ -4141,7 +4435,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/relatedTo">bf:relatedTo</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_relatedTo" target="_blank">bf:relatedTo</a>
             </div>
           </td>
         </tr>
@@ -4165,9 +4459,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/hasPart">bf:hasPart</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_hasPart" target="_blank">bf:hasPart</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10147">rdaw:P10147</a>
+              <a href="http://rdaregistry.info/Elements/w/P10147" target="_blank">rdaw:P10147</a>
             </div>
           </td>
         </tr>
@@ -4197,7 +4491,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/hasEquivalent">bf:hasEquivalent</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_hasEquivalent" target="_blank">bf:hasEquivalent</a>
             </div>
           </td>
         </tr>
@@ -4220,9 +4514,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/hasReproduction">bf:hasReproduction</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_hasReproduction" target="_blank">bf:hasReproduction</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30039">rdam:P30039</a>
+              <a href="http://rdaregistry.info/Elements/m/P30039" target="_blank">rdam:P30039</a>
             </div>
           </td>
         </tr>
@@ -4252,7 +4546,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/scale">bf:scale</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_scale" target="_blank">bf:scale</a>
             </div>
           </td>
         </tr>
@@ -4275,7 +4569,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/scale">bf:scale</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_scale" target="_blank">bf:scale</a>
             </div>
           </td>
         </tr>
@@ -4283,7 +4577,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20226">rdae:P20226</a>
+              <a href="http://rdaregistry.info/Elements/e/P20226" target="_blank">rdae:P20226</a>
             </div>
           </td>
         </tr>
@@ -4329,9 +4623,9 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/illustrativeContent">bf:illustrativeContent</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_illustrativeContent" target="_blank">bf:illustrativeContent</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30453">rdam:P30453</a>
+              <a href="http://rdaregistry.info/Elements/m/P30453" target="_blank">rdam:P30453</a>
             </div>
           </td>
         </tr>
@@ -4377,9 +4671,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/issuance">bf:issuance</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_issuance" target="_blank">bf:issuance</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30003">rdam:P30003</a>
+              <a href="http://rdaregistry.info/Elements/m/P30003" target="_blank">rdam:P30003</a>
             </div>
           </td>
         </tr>
@@ -4409,7 +4703,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/identifiedBy">bf:identifiedBy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_identifiedBy" target="_blank">bf:identifiedBy</a>
             </div>
           </td>
         </tr>
@@ -4433,7 +4727,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/identifiedBy">bf:identifiedBy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_identifiedBy" target="_blank">bf:identifiedBy</a>
             </div>
           </td>
         </tr>
@@ -4441,7 +4735,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/i/P40001">rdai:P40001</a>
+              <a href="http://rdaregistry.info/Elements/i/P40001" target="_blank">rdai:P40001</a>
             </div>
           </td>
         </tr>
@@ -4471,7 +4765,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/relatedTo">bf:relatedTo</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_relatedTo" target="_blank">bf:relatedTo</a>
             </div>
           </td>
         </tr>
@@ -4495,7 +4789,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/i/P40049">rdai:P40049</a>
+              <a href="http://rdaregistry.info/Elements/i/P40049" target="_blank">rdai:P40049</a>
             </div>
           </td>
         </tr>
@@ -4503,7 +4797,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/itemOf">bf:itemOf</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_itemOf" target="_blank">bf:itemOf</a>
             </div>
           </td>
         </tr>
@@ -4543,7 +4837,7 @@
           <td class="key">Domain</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -4551,7 +4845,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -4559,9 +4853,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/language">bf:language</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_language" target="_blank">bf:language</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/u/P60099">rdau:P60099</a>
+              <a href="http://rdaregistry.info/Elements/u/P60099" target="_blank">rdau:P60099</a>
             </div>
           </td>
         </tr>
@@ -4607,7 +4901,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -4615,7 +4909,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/language">bf:language</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_language" target="_blank">bf:language</a>
             </div>
           </td>
         </tr>
@@ -4623,7 +4917,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/a/P50023">rdaa:P50023</a>
+              <a href="http://rdaregistry.info/Elements/a/P50023" target="_blank">rdaa:P50023</a>
             </div>
           </td>
         </tr>
@@ -4669,7 +4963,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -4677,7 +4971,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/language">bf:language</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_language" target="_blank">bf:language</a>
             </div>
           </td>
         </tr>
@@ -4685,7 +4979,7 @@
           <td class="key">Narrow Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20006">rdae:P20006</a>
+              <a href="http://rdaregistry.info/Elements/e/P20006" target="_blank">rdae:P20006</a>
             </div>
           </td>
         </tr>
@@ -4715,7 +5009,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/identifiedBy">bf:identifiedBy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_identifiedBy" target="_blank">bf:identifiedBy</a>
             </div>
           </td>
         </tr>
@@ -4739,7 +5033,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/identifiedBy">bf:identifiedBy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_identifiedBy" target="_blank">bf:identifiedBy</a>
             </div>
           </td>
         </tr>
@@ -4747,7 +5041,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30004">rdam:P30004</a>
+              <a href="http://rdaregistry.info/Elements/m/P30004" target="_blank">rdam:P30004</a>
             </div>
           </td>
         </tr>
@@ -4777,7 +5071,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/hasInstance">bf:hasInstance</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_hasInstance" target="_blank">bf:hasInstance</a>
             </div>
           </td>
         </tr>
@@ -4801,7 +5095,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/hasInstance">bf:hasInstance</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_hasInstance" target="_blank">bf:hasInstance</a>
             </div>
           </td>
         </tr>
@@ -4809,7 +5103,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20059">rdae:P20059</a>
+              <a href="http://rdaregistry.info/Elements/e/P20059" target="_blank">rdae:P20059</a>
             </div>
           </td>
         </tr>
@@ -4839,7 +5133,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/hasInstance">bf:hasInstance</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_hasInstance" target="_blank">bf:hasInstance</a>
             </div>
           </td>
         </tr>
@@ -4863,7 +5157,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/hasInstance">bf:hasInstance</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_hasInstance" target="_blank">bf:hasInstance</a>
             </div>
           </td>
         </tr>
@@ -4871,7 +5165,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10072">rdaw:P10072</a>
+              <a href="http://rdaregistry.info/Elements/w/P10072" target="_blank">rdaw:P10072</a>
             </div>
           </td>
         </tr>
@@ -4901,7 +5195,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/provisionActivity">bf:provisionActivity</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_provisionActivity" target="_blank">bf:provisionActivity</a>
             </div>
           </td>
         </tr>
@@ -4925,7 +5219,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/provisionActivity">bf:provisionActivity</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_provisionActivity" target="_blank">bf:provisionActivity</a>
             </div>
           </td>
         </tr>
@@ -4933,9 +5227,9 @@
           <td class="key">Narrow Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30087">rdam:P30087</a>, </div>
+              <a href="http://rdaregistry.info/Elements/m/P30087" target="_blank">rdam:P30087</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30175">rdam:P30175</a>
+              <a href="http://rdaregistry.info/Elements/m/P30175" target="_blank">rdam:P30175</a>
             </div>
           </td>
         </tr>
@@ -4972,7 +5266,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -4980,9 +5274,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/media">bf:media</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_media" target="_blank">bf:media</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30002">rdam:P30002</a>
+              <a href="http://rdaregistry.info/Elements/m/P30002" target="_blank">rdam:P30002</a>
             </div>
           </td>
         </tr>
@@ -5036,7 +5330,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/place">bf:place</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_place" target="_blank">bf:place</a>
             </div>
           </td>
         </tr>
@@ -5044,7 +5338,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/a/P50024">rdaa:P50024</a>
+              <a href="http://rdaregistry.info/Elements/a/P50024" target="_blank">rdaa:P50024</a>
             </div>
           </td>
         </tr>
@@ -5089,9 +5383,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/musicFormat">bf:musicFormat</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_musicFormat" target="_blank">bf:musicFormat</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20209">rdae:P20209</a>
+              <a href="http://rdaregistry.info/Elements/e/P20209" target="_blank">rdae:P20209</a>
             </div>
           </td>
         </tr>
@@ -5137,9 +5431,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/musicMedium">bf:musicMedium</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_musicMedium" target="_blank">bf:musicMedium</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20215">rdae:P20215</a>
+              <a href="http://rdaregistry.info/Elements/e/P20215" target="_blank">rdae:P20215</a>
             </div>
           </td>
         </tr>
@@ -5184,9 +5478,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/notation">bf:notation</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_notation" target="_blank">bf:notation</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20064">rdae:P20064</a>
+              <a href="http://rdaregistry.info/Elements/e/P20064" target="_blank">rdae:P20064</a>
             </div>
           </td>
         </tr>
@@ -5232,7 +5526,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -5240,9 +5534,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/originPlace">bf:originPlace</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_originPlace" target="_blank">bf:originPlace</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10218">rdaw:P10218</a>
+              <a href="http://rdaregistry.info/Elements/w/P10218" target="_blank">rdaw:P10218</a>
             </div>
           </td>
         </tr>
@@ -5296,7 +5590,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/title">bf:title</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_title" target="_blank">bf:title</a>
             </div>
           </td>
         </tr>
@@ -5304,7 +5598,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30203">rdam:P30203</a>
+              <a href="http://rdaregistry.info/Elements/m/P30203" target="_blank">rdam:P30203</a>
             </div>
           </td>
         </tr>
@@ -5334,7 +5628,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/relatedTo">bf:relatedTo</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_relatedTo" target="_blank">bf:relatedTo</a>
             </div>
           </td>
         </tr>
@@ -5356,7 +5650,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10019">rdaw:P10019</a>
+              <a href="http://rdaregistry.info/Elements/w/P10019" target="_blank">rdaw:P10019</a>
             </div>
           </td>
         </tr>
@@ -5364,7 +5658,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/partOf">bf:partOf</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_partOf" target="_blank">bf:partOf</a>
             </div>
           </td>
         </tr>
@@ -5403,14 +5697,14 @@
         <tr>
           <td class="key">Domain</td>
           <td class="value">
-            <div>Union of <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>, <a href="#Agent">Agent</a>, <a href="#Capture">Capture</a> and <a href="#ProvisionActivity">ProvisionActivity</a>
+            <div>Union of <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>, <a href="#Agent">Agent</a>, <a href="#Capture">Capture</a> and <a href="#ProvisionActivity">ProvisionActivity</a>
             </div>
           </td>
         </tr>
         <tr>
           <td class="key">Range</td>
           <td class="value">
-            <div>Union of <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a> and <a href="#Place">Place</a>
+            <div>Union of <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a> and <a href="#Place">Place</a>
             </div>
           </td>
         </tr>
@@ -5418,7 +5712,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/place">bf:place</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_place" target="_blank">bf:place</a>
             </div>
           </td>
         </tr>
@@ -5426,7 +5720,7 @@
           <td class="key">Narrow Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/a/P50350">rdaa:P50350</a>
+              <a href="http://rdaregistry.info/Elements/a/P50350" target="_blank">rdaa:P50350</a>
             </div>
           </td>
         </tr>
@@ -5480,7 +5774,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/capture">bf:capture</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_capture" target="_blank">bf:capture</a>
             </div>
           </td>
         </tr>
@@ -5488,7 +5782,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20218">rdae:P20218</a>
+              <a href="http://rdaregistry.info/Elements/e/P20218" target="_blank">rdae:P20218</a>
             </div>
           </td>
         </tr>
@@ -5518,7 +5812,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/relatedTo">bf:relatedTo</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_relatedTo" target="_blank">bf:relatedTo</a>
             </div>
           </td>
         </tr>
@@ -5542,7 +5836,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10156">rdaw:P10156</a>
+              <a href="http://rdaregistry.info/Elements/w/P10156" target="_blank">rdaw:P10156</a>
             </div>
           </td>
         </tr>
@@ -5550,7 +5844,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/precededBy">bf:precededBy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_precededBy" target="_blank">bf:precededBy</a>
             </div>
           </td>
         </tr>
@@ -5604,7 +5898,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/title">bf:title</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_title" target="_blank">bf:title</a>
             </div>
           </td>
         </tr>
@@ -5612,7 +5906,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20315">rdae:P20315</a>
+              <a href="http://rdaregistry.info/Elements/e/P20315" target="_blank">rdae:P20315</a>
             </div>
           </td>
         </tr>
@@ -5666,7 +5960,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/title">bf:title</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_title" target="_blank">bf:title</a>
             </div>
           </td>
         </tr>
@@ -5674,7 +5968,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/i/P40085">rdai:P40085</a>
+              <a href="http://rdaregistry.info/Elements/i/P40085" target="_blank">rdai:P40085</a>
             </div>
           </td>
         </tr>
@@ -5728,7 +6022,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/title">bf:title</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_title" target="_blank">bf:title</a>
             </div>
           </td>
         </tr>
@@ -5736,7 +6030,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30156">rdam:P30156</a>
+              <a href="http://rdaregistry.info/Elements/m/P30156" target="_blank">rdam:P30156</a>
             </div>
           </td>
         </tr>
@@ -5790,7 +6084,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/title">bf:title</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_title" target="_blank">bf:title</a>
             </div>
           </td>
         </tr>
@@ -5798,7 +6092,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10223">rdaw:P10223</a>
+              <a href="http://rdaregistry.info/Elements/w/P10223" target="_blank">rdaw:P10223</a>
             </div>
           </td>
         </tr>
@@ -5852,7 +6146,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/provisionActivity">bf:provisionActivity</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_provisionActivity" target="_blank">bf:provisionActivity</a>
             </div>
           </td>
         </tr>
@@ -5860,7 +6154,7 @@
           <td class="key">Narrow Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30009">rdam:P30009</a>
+              <a href="http://rdaregistry.info/Elements/m/P30009" target="_blank">rdam:P30009</a>
             </div>
           </td>
         </tr>
@@ -5906,9 +6200,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/projection">bf:projection</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_projection" target="_blank">bf:projection</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20216">rdae:P20216</a>
+              <a href="http://rdaregistry.info/Elements/e/P20216" target="_blank">rdae:P20216</a>
             </div>
           </td>
         </tr>
@@ -5966,7 +6260,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/provisionActivity">bf:provisionActivity</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_provisionActivity" target="_blank">bf:provisionActivity</a>
             </div>
           </td>
         </tr>
@@ -6020,7 +6314,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/provisionActivity">bf:provisionActivity</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_provisionActivity" target="_blank">bf:provisionActivity</a>
             </div>
           </td>
         </tr>
@@ -6028,9 +6322,9 @@
           <td class="key">Narrow Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30088">rdam:P30088</a>, </div>
+              <a href="http://rdaregistry.info/Elements/m/P30088" target="_blank">rdam:P30088</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30176">rdam:P30176</a>
+              <a href="http://rdaregistry.info/Elements/m/P30176" target="_blank">rdam:P30176</a>
             </div>
           </td>
         </tr>
@@ -6060,7 +6354,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/hasEquivalent">bf:hasEquivalent</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_hasEquivalent" target="_blank">bf:hasEquivalent</a>
             </div>
           </td>
         </tr>
@@ -6084,9 +6378,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/reproductionOf">bf:reproductionOf</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_reproductionOf" target="_blank">bf:reproductionOf</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30043">rdam:P30043</a>
+              <a href="http://rdaregistry.info/Elements/m/P30043" target="_blank">rdam:P30043</a>
             </div>
           </td>
         </tr>
@@ -6123,7 +6417,7 @@
         <tr>
           <td class="key">Range</td>
           <td class="value">
-            <div>Union of <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>, <a target="_blank" href="http://urn.fi/URN:NBN:fi:au:mts:m34">mts:m34</a>, <a target="_blank" href="http://urn.fi/URN:NBN:fi:au:mts:m153">mts:m153</a>, <a target="_blank" href="http://urn.fi/URN:NBN:fi:au:mts:m491">mts:m491</a> and <a target="_blank" href="http://urn.fi/URN:NBN:fi:au:mts:m1157">mts:m1157</a>
+            <div>Union of <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m34" target="_blank">mts:m34</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m153" target="_blank">mts:m153</a>, <a href="http://urn.fi/URN:NBN:fi:au:mts:m491" target="_blank">mts:m491</a> and <a href="http://urn.fi/URN:NBN:fi:au:mts:m1157" target="_blank">mts:m1157</a>
             </div>
           </td>
         </tr>
@@ -6131,7 +6425,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/role">bf:role</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_role" target="_blank">bf:role</a>
             </div>
           </td>
         </tr>
@@ -6185,7 +6479,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/title">bf:title</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_title" target="_blank">bf:title</a>
             </div>
           </td>
         </tr>
@@ -6193,7 +6487,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30157">rdam:P30157</a>
+              <a href="http://rdaregistry.info/Elements/m/P30157" target="_blank">rdam:P30157</a>
             </div>
           </td>
         </tr>
@@ -6230,7 +6524,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -6238,9 +6532,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/subject">bf:subject</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_subject" target="_blank">bf:subject</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10256">rdaw:P10256</a>
+              <a href="http://rdaregistry.info/Elements/w/P10256" target="_blank">rdaw:P10256</a>
             </div>
           </td>
         </tr>
@@ -6270,7 +6564,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/relatedTo">bf:relatedTo</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_relatedTo" target="_blank">bf:relatedTo</a>
             </div>
           </td>
         </tr>
@@ -6294,9 +6588,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/succeededBy">bf:succeededBy</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_succeededBy" target="_blank">bf:succeededBy</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10170">rdaw:P10170</a>
+              <a href="http://rdaregistry.info/Elements/w/P10170" target="_blank">rdaw:P10170</a>
             </div>
           </td>
         </tr>
@@ -6363,7 +6657,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/title">bf:title</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_title" target="_blank">bf:title</a>
             </div>
           </td>
         </tr>
@@ -6371,7 +6665,7 @@
           <td class="key">Narrow Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/x/P00019">rdax:P00019</a>
+              <a href="http://rdaregistry.info/Elements/x/P00019" target="_blank">rdax:P00019</a>
             </div>
           </td>
         </tr>
@@ -6424,7 +6718,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/usageAndAccessPolicyy">bf:usageAndAccessPolicyy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_usageAndAccessPolicyy" target="_blank">bf:usageAndAccessPolicyy</a>
             </div>
           </td>
         </tr>
@@ -6432,9 +6726,9 @@
           <td class="key">Narrow Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/i/P40047">rdai:P40047</a>, </div>
+              <a href="http://rdaregistry.info/Elements/i/P40047" target="_blank">rdai:P40047</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30145">rdam:P30145</a>
+              <a href="http://rdaregistry.info/Elements/m/P30145" target="_blank">rdam:P30145</a>
             </div>
           </td>
         </tr>
@@ -6487,7 +6781,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/title">bf:title</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_title" target="_blank">bf:title</a>
             </div>
           </td>
         </tr>
@@ -6495,7 +6789,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/x/P00023">rdax:P00023</a>
+              <a href="http://rdaregistry.info/Elements/x/P00023" target="_blank">rdax:P00023</a>
             </div>
           </td>
         </tr>
@@ -6541,7 +6835,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://urn.fi/URN:NBN:fi:au:mts:m1803">mts:m1803</a>
+              <a href="http://urn.fi/URN:NBN:fi:au:mts:m1803" target="_blank">mts:m1803</a>
             </div>
           </td>
         </tr>
@@ -6549,9 +6843,9 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/variantType">bf:variantType</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_variantType" target="_blank">bf:variantType</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/n/P80078">rdan:P80078</a>
+              <a href="http://rdaregistry.info/Elements/n/P80078" target="_blank">rdan:P80078</a>
             </div>
           </td>
         </tr>
@@ -6581,7 +6875,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/scale">bf:scale</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_scale" target="_blank">bf:scale</a>
             </div>
           </td>
         </tr>
@@ -6604,7 +6898,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/scale">bf:scale</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_scale" target="_blank">bf:scale</a>
             </div>
           </td>
         </tr>
@@ -6612,7 +6906,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20230">rdae:P20230</a>
+              <a href="http://rdaregistry.info/Elements/e/P20230" target="_blank">rdae:P20230</a>
             </div>
           </td>
         </tr>
@@ -6642,7 +6936,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/identifiedBy">bf:identifiedBy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_identifiedBy" target="_blank">bf:identifiedBy</a>
             </div>
           </td>
         </tr>
@@ -6650,7 +6944,7 @@
           <td class="key">Domain</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -6666,7 +6960,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/identifiedBy">bf:identifiedBy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_identifiedBy" target="_blank">bf:identifiedBy</a>
             </div>
           </td>
         </tr>
@@ -6674,7 +6968,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10400">rdaw:P10400</a>
+              <a href="http://rdaregistry.info/Elements/w/P10400" target="_blank">rdaw:P10400</a>
             </div>
           </td>
         </tr>
@@ -6704,7 +6998,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/identifiedBy">bf:identifiedBy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_identifiedBy" target="_blank">bf:identifiedBy</a>
             </div>
           </td>
         </tr>
@@ -6712,7 +7006,7 @@
           <td class="key">Domain</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -6728,7 +7022,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/identifiedBy">bf:identifiedBy</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_identifiedBy" target="_blank">bf:identifiedBy</a>
             </div>
           </td>
         </tr>
@@ -6736,7 +7030,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10002">rdaw:P10002</a>
+              <a href="http://rdaregistry.info/Elements/w/P10002" target="_blank">rdaw:P10002</a>
             </div>
           </td>
         </tr>
@@ -6782,7 +7076,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/issuedWith">bf:issuedWith</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_issuedWith" target="_blank">bf:issuedWith</a>
             </div>
           </td>
         </tr>
@@ -6790,7 +7084,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30135">rdam:P30135</a>
+              <a href="http://rdaregistry.info/Elements/m/P30135" target="_blank">rdam:P30135</a>
             </div>
           </td>
         </tr>
@@ -6823,7 +7117,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bflc/aap">bflc:aap</a>
+              <a href="http://id.loc.gov/ontologies/bflc.html#p_aap" target="_blank">bflc:aap</a>
             </div>
           </td>
         </tr>
@@ -6839,7 +7133,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -6847,7 +7141,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bflc/aap">bflc:aap</a>
+              <a href="http://id.loc.gov/ontologies/bflc.html#p_aap" target="_blank">bflc:aap</a>
             </div>
           </td>
         </tr>
@@ -6855,7 +7149,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/i/P40083">rdai:P40083</a>
+              <a href="http://rdaregistry.info/Elements/i/P40083" target="_blank">rdai:P40083</a>
             </div>
           </td>
         </tr>
@@ -6885,7 +7179,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bflc/aap">bflc:aap</a>
+              <a href="http://id.loc.gov/ontologies/bflc.html#p_aap" target="_blank">bflc:aap</a>
             </div>
           </td>
         </tr>
@@ -6901,7 +7195,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -6909,7 +7203,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bflc/aap">bflc:aap</a>
+              <a href="http://id.loc.gov/ontologies/bflc.html#p_aap" target="_blank">bflc:aap</a>
             </div>
           </td>
         </tr>
@@ -6917,7 +7211,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20313">rdae:P20313</a>
+              <a href="http://rdaregistry.info/Elements/e/P20313" target="_blank">rdae:P20313</a>
             </div>
           </td>
         </tr>
@@ -6947,7 +7241,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bflc/aap">bflc:aap</a>
+              <a href="http://id.loc.gov/ontologies/bflc.html#p_aap" target="_blank">bflc:aap</a>
             </div>
           </td>
         </tr>
@@ -6963,7 +7257,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -6971,7 +7265,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bflc/aap">bflc:aap</a>
+              <a href="http://id.loc.gov/ontologies/bflc.html#p_aap" target="_blank">bflc:aap</a>
             </div>
           </td>
         </tr>
@@ -6979,7 +7273,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30294">rdam:P30294</a>
+              <a href="http://rdaregistry.info/Elements/m/P30294" target="_blank">rdam:P30294</a>
             </div>
           </td>
         </tr>
@@ -7009,7 +7303,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bflc/aap">bflc:aap</a>
+              <a href="http://id.loc.gov/ontologies/bflc.html#p_aap" target="_blank">bflc:aap</a>
             </div>
           </td>
         </tr>
@@ -7025,7 +7319,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7033,7 +7327,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bflc/aap">bflc:aap</a>
+              <a href="http://id.loc.gov/ontologies/bflc.html#p_aap" target="_blank">bflc:aap</a>
             </div>
           </td>
         </tr>
@@ -7041,7 +7335,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10331">rdaw:P10331</a>
+              <a href="http://rdaregistry.info/Elements/w/P10331" target="_blank">rdaw:P10331</a>
             </div>
           </td>
         </tr>
@@ -7089,7 +7383,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7097,9 +7391,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/coordinates">bf:coordinates</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_coordinates" target="_blank">bf:coordinates</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10081">rdaw:P10081</a>
+              <a href="http://rdaregistry.info/Elements/w/P10081" target="_blank">rdaw:P10081</a>
             </div>
           </td>
         </tr>
@@ -7145,7 +7439,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7153,9 +7447,9 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/copyrightDate">bf:copyrightDate</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_copyrightDate" target="_blank">bf:copyrightDate</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30007">rdam:P30007</a>
+              <a href="http://rdaregistry.info/Elements/m/P30007" target="_blank">rdam:P30007</a>
             </div>
           </td>
         </tr>
@@ -7197,7 +7491,7 @@
           <td class="key">Domain</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -7205,7 +7499,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7213,7 +7507,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/x/P00011">rdax:P00011</a>
+              <a href="http://rdaregistry.info/Elements/x/P00011" target="_blank">rdax:P00011</a>
             </div>
           </td>
         </tr>
@@ -7221,7 +7515,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/date">bf:date</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_date" target="_blank">bf:date</a>
             </div>
           </td>
         </tr>
@@ -7251,7 +7545,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7259,9 +7553,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/duration">bf:duration</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_duration" target="_blank">bf:duration</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20219">rdae:P20219</a>
+              <a href="http://rdaregistry.info/Elements/e/P20219" target="_blank">rdae:P20219</a>
             </div>
           </td>
         </tr>
@@ -7291,7 +7585,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/editionStatement">bf:editionStatement</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_editionStatement" target="_blank">bf:editionStatement</a>
             </div>
           </td>
         </tr>
@@ -7307,7 +7601,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7315,7 +7609,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30133">rdam:P30133</a>
+              <a href="http://rdaregistry.info/Elements/m/P30133" target="_blank">rdam:P30133</a>
             </div>
           </td>
         </tr>
@@ -7323,7 +7617,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/editionStatement">bf:editionStatement</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_editionStatement" target="_blank">bf:editionStatement</a>
             </div>
           </td>
         </tr>
@@ -7353,7 +7647,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/editionStatement">bf:editionStatement</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_editionStatement" target="_blank">bf:editionStatement</a>
             </div>
           </td>
         </tr>
@@ -7369,7 +7663,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7377,7 +7671,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/editionStatement">bf:editionStatement</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_editionStatement" target="_blank">bf:editionStatement</a>
             </div>
           </td>
         </tr>
@@ -7385,7 +7679,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30132">rdam:P30132</a>
+              <a href="http://rdaregistry.info/Elements/m/P30132" target="_blank">rdam:P30132</a>
             </div>
           </td>
         </tr>
@@ -7415,7 +7709,7 @@
           <td class="key">Domain</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -7423,7 +7717,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7431,7 +7725,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/firstIssue">bf:firstIssue</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_firstIssue" target="_blank">bf:firstIssue</a>
             </div>
           </td>
         </tr>
@@ -7439,7 +7733,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30147">rdam:P30147</a>
+              <a href="http://rdaregistry.info/Elements/m/P30147" target="_blank">rdam:P30147</a>
             </div>
           </td>
         </tr>
@@ -7469,7 +7763,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/firstIssue">bf:firstIssue</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_firstIssue" target="_blank">bf:firstIssue</a>
             </div>
           </td>
         </tr>
@@ -7477,7 +7771,7 @@
           <td class="key">Domain</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a>
             </div>
           </td>
         </tr>
@@ -7485,7 +7779,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7493,7 +7787,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/firstIssue">bf:firstIssue</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_firstIssue" target="_blank">bf:firstIssue</a>
             </div>
           </td>
         </tr>
@@ -7501,7 +7795,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30149">rdam:P30149</a>
+              <a href="http://rdaregistry.info/Elements/m/P30149" target="_blank">rdam:P30149</a>
             </div>
           </td>
         </tr>
@@ -7538,7 +7832,7 @@
         <tr>
           <td class="key">Domain</td>
           <td class="value">
-            <div>Union of <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a> and <a href="#Manifestation">Manifestation</a>
+            <div>Union of <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a> and <a href="#Manifestation">Manifestation</a>
             </div>
           </td>
         </tr>
@@ -7546,7 +7840,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7554,7 +7848,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30148">rdam:P30148</a>
+              <a href="http://rdaregistry.info/Elements/m/P30148" target="_blank">rdam:P30148</a>
             </div>
           </td>
         </tr>
@@ -7562,7 +7856,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/lastIssue">bf:lastIssue</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_lastIssue" target="_blank">bf:lastIssue</a>
             </div>
           </td>
         </tr>
@@ -7599,7 +7893,7 @@
         <tr>
           <td class="key">Domain</td>
           <td class="value">
-            <div>Union of <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Resource">rdfs:Resource</a> and <a href="#Manifestation">Manifestation</a>
+            <div>Union of <a href="http://www.w3.org/2000/01/rdf-schema#Resource" target="_blank">rdfs:Resource</a> and <a href="#Manifestation">Manifestation</a>
             </div>
           </td>
         </tr>
@@ -7607,7 +7901,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7615,7 +7909,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/lastIssue">bf:lastIssue</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_lastIssue" target="_blank">bf:lastIssue</a>
             </div>
           </td>
         </tr>
@@ -7623,7 +7917,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30150">rdam:P30150</a>
+              <a href="http://rdaregistry.info/Elements/m/P30150" target="_blank">rdam:P30150</a>
             </div>
           </td>
         </tr>
@@ -7669,7 +7963,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7677,7 +7971,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/coordinates">bf:coordinates</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_coordinates" target="_blank">bf:coordinates</a>
             </div>
           </td>
         </tr>
@@ -7685,7 +7979,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10300">rdaw:P10300</a>
+              <a href="http://rdaregistry.info/Elements/w/P10300" target="_blank">rdaw:P10300</a>
             </div>
           </td>
         </tr>
@@ -7731,7 +8025,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7739,7 +8033,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/coordinates">bf:coordinates</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_coordinates" target="_blank">bf:coordinates</a>
             </div>
           </td>
         </tr>
@@ -7747,7 +8041,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10301">rdaw:P10301</a>
+              <a href="http://rdaregistry.info/Elements/w/P10301" target="_blank">rdaw:P10301</a>
             </div>
           </td>
         </tr>
@@ -7785,7 +8079,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7793,7 +8087,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/mainTitle">bf:mainTitle</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_mainTitle" target="_blank">bf:mainTitle</a>
             </div>
           </td>
         </tr>
@@ -7823,7 +8117,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/musicKey">bf:musicKey</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_musicKey" target="_blank">bf:musicKey</a>
             </div>
           </td>
         </tr>
@@ -7839,7 +8133,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7847,7 +8141,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/musicKey">bf:musicKey</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_musicKey" target="_blank">bf:musicKey</a>
             </div>
           </td>
         </tr>
@@ -7855,7 +8149,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/e/P20326">rdae:P20326</a>
+              <a href="http://rdaregistry.info/Elements/e/P20326" target="_blank">rdae:P20326</a>
             </div>
           </td>
         </tr>
@@ -7885,7 +8179,7 @@
           <td class="key">SubProperty Of</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/musicKey">bf:musicKey</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_musicKey" target="_blank">bf:musicKey</a>
             </div>
           </td>
         </tr>
@@ -7901,7 +8195,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7909,7 +8203,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/musicKey">bf:musicKey</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_musicKey" target="_blank">bf:musicKey</a>
             </div>
           </td>
         </tr>
@@ -7917,7 +8211,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10221">rdaw:P10221</a>
+              <a href="http://rdaregistry.info/Elements/w/P10221" target="_blank">rdaw:P10221</a>
             </div>
           </td>
         </tr>
@@ -7955,7 +8249,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7963,9 +8257,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/musicOpusNumber">bf:musicOpusNumber</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_musicOpusNumber" target="_blank">bf:musicOpusNumber</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10333">rdaw:P10333</a>
+              <a href="http://rdaregistry.info/Elements/w/P10333" target="_blank">rdaw:P10333</a>
             </div>
           </td>
         </tr>
@@ -8003,7 +8297,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -8011,9 +8305,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/musicSerialNumber">bf:musicSerialNumber</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_musicSerialNumber" target="_blank">bf:musicSerialNumber</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10334">rdaw:P10334</a>
+              <a href="http://rdaregistry.info/Elements/w/P10334" target="_blank">rdaw:P10334</a>
             </div>
           </td>
         </tr>
@@ -8051,7 +8345,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -8059,9 +8353,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/musicThematicNumber">bf:musicThematicNumber</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_musicThematicNumber" target="_blank">bf:musicThematicNumber</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10335">rdaw:P10335</a>
+              <a href="http://rdaregistry.info/Elements/w/P10335" target="_blank">rdaw:P10335</a>
             </div>
           </td>
         </tr>
@@ -8107,7 +8401,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -8115,9 +8409,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/originDate">bf:originDate</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_originDate" target="_blank">bf:originDate</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/w/P10219">rdaw:P10219</a>
+              <a href="http://rdaregistry.info/Elements/w/P10219" target="_blank">rdaw:P10219</a>
             </div>
           </td>
         </tr>
@@ -8163,7 +8457,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -8171,7 +8465,7 @@
           <td class="key">Broader Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/date">bf:date</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_date" target="_blank">bf:date</a>
             </div>
           </td>
         </tr>
@@ -8179,7 +8473,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30011">rdam:P30011</a>
+              <a href="http://rdaregistry.info/Elements/m/P30011" target="_blank">rdam:P30011</a>
             </div>
           </td>
         </tr>
@@ -8217,7 +8511,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -8225,9 +8519,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/responsibilityStatement">bf:responsibilityStatement</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_responsibilityStatement" target="_blank">bf:responsibilityStatement</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30105">rdam:P30105</a>
+              <a href="http://rdaregistry.info/Elements/m/P30105" target="_blank">rdam:P30105</a>
             </div>
           </td>
         </tr>
@@ -8265,7 +8559,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -8273,9 +8567,9 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/seriesEnumeration">bf:seriesEnumeration</a>, </div>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_seriesEnumeration" target="_blank">bf:seriesEnumeration</a>, </div>
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30014">rdam:P30014</a>
+              <a href="http://rdaregistry.info/Elements/m/P30014" target="_blank">rdam:P30014</a>
             </div>
           </td>
         </tr>
@@ -8313,7 +8607,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -8321,7 +8615,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30158">rdam:P30158</a>
+              <a href="http://rdaregistry.info/Elements/m/P30158" target="_blank">rdam:P30158</a>
             </div>
           </td>
         </tr>
@@ -8329,7 +8623,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/seriesStatement">bf:seriesStatement</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_seriesStatement" target="_blank">bf:seriesStatement</a>
             </div>
           </td>
         </tr>
@@ -8367,7 +8661,7 @@
           <td class="key">Range</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.w3.org/2000/01/rdf-schema#Literal">rdfs:Literal</a>
+              <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -8375,7 +8669,7 @@
           <td class="key">Close Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/m/P30142">rdam:P30142</a>
+              <a href="http://rdaregistry.info/Elements/m/P30142" target="_blank">rdam:P30142</a>
             </div>
           </td>
         </tr>
@@ -8383,7 +8677,7 @@
           <td class="key">Exact Match</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://id.loc.gov/ontologies/bibframe/subtitle">bf:subtitle</a>
+              <a href="http://id.loc.gov/ontologies/bibframe.html#p_subtitle" target="_blank">bf:subtitle</a>
             </div>
           </td>
         </tr>
@@ -8416,7 +8710,7 @@
           <td class="key">Type</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://schema.org/Project">schema:Project</a>
+              <a href="http://schema.org/Project" target="_blank">schema:Project</a>
             </div>
           </td>
         </tr>
@@ -8438,17 +8732,17 @@
           <td class="key">Has Member</td>
           <td class="value">
             <div>
-              <a target="_blank" href="https://orcid.org/0000-0002-0348-144X">&lt;https://orcid.org/0000-0002-0348-144X&gt;</a>, </div>
+              <a href="https://orcid.org/0000-0002-0348-144X" target="_blank">&lt;https://orcid.org/0000-0002-0348-144X&gt;</a>, </div>
             <div>
-              <a target="_blank" href="https://orcid.org/0000-0002-2239-7980">&lt;https://orcid.org/0000-0002-2239-7980&gt;</a>, </div>
+              <a href="https://orcid.org/0000-0002-2239-7980" target="_blank">&lt;https://orcid.org/0000-0002-2239-7980&gt;</a>, </div>
             <div>
-              <a target="_blank" href="https://orcid.org/0000-0002-2793-5485">&lt;https://orcid.org/0000-0002-2793-5485&gt;</a>, </div>
+              <a href="https://orcid.org/0000-0002-2793-5485" target="_blank">&lt;https://orcid.org/0000-0002-2793-5485&gt;</a>, </div>
             <div>
-              <a target="_blank" href="https://orcid.org/0000-0002-5087-8669">&lt;https://orcid.org/0000-0002-5087-8669&gt;</a>, </div>
+              <a href="https://orcid.org/0000-0002-5087-8669" target="_blank">&lt;https://orcid.org/0000-0002-5087-8669&gt;</a>, </div>
             <div>
-              <a target="_blank" href="https://orcid.org/0000-0002-6801-6151">&lt;https://orcid.org/0000-0002-6801-6151&gt;</a>, </div>
+              <a href="https://orcid.org/0000-0002-6801-6151" target="_blank">&lt;https://orcid.org/0000-0002-6801-6151&gt;</a>, </div>
             <div>
-              <a target="_blank" href="https://orcid.org/0000-0002-8355-0256">&lt;https://orcid.org/0000-0002-8355-0256&gt;</a>
+              <a href="https://orcid.org/0000-0002-8355-0256" target="_blank">&lt;https://orcid.org/0000-0002-8355-0256&gt;</a>
             </div>
           </td>
         </tr>
@@ -8456,7 +8750,7 @@
           <td class="key">Homepage</td>
           <td class="value">
             <div>
-              <a target="_blank" href="https://www.kiwi.fi/display/LKD">&lt;https://www.kiwi.fi/display/LKD&gt;</a>
+              <a href="https://www.kiwi.fi/display/LKD" target="_blank">&lt;https://www.kiwi.fi/display/LKD&gt;</a>
             </div>
           </td>
         </tr>
@@ -8487,7 +8781,7 @@
           <td class="key">Type</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://rdaregistry.info/Elements/c/C10005">rdac:C10005</a>
+              <a href="http://rdaregistry.info/Elements/c/C10005" target="_blank">rdac:C10005</a>
             </div>
           </td>
         </tr>
@@ -8495,9 +8789,9 @@
           <td class="key">Identifier</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://isni.org/isni/0000000120337602">&lt;http://isni.org/isni/0000000120337602&gt;</a>, </div>
+              <a href="http://isni.org/isni/0000000120337602" target="_blank">&lt;http://isni.org/isni/0000000120337602&gt;</a>, </div>
             <div>
-              <a target="_blank" href="http://urn.fi/URN:NBN:fi:au:finaf:000034269">&lt;http://urn.fi/URN:NBN:fi:au:finaf:000034269&gt;</a>
+              <a href="http://urn.fi/URN:NBN:fi:au:finaf:000034269" target="_blank">&lt;http://urn.fi/URN:NBN:fi:au:finaf:000034269&gt;</a>
             </div>
           </td>
         </tr>
@@ -8505,7 +8799,7 @@
           <td class="key">Parent Organization</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://urn.fi/URN:NBN:fi:au:finaf:000038390">&lt;http://urn.fi/URN:NBN:fi:au:finaf:000038390&gt;</a>
+              <a href="http://urn.fi/URN:NBN:fi:au:finaf:000038390" target="_blank">&lt;http://urn.fi/URN:NBN:fi:au:finaf:000038390&gt;</a>
             </div>
           </td>
         </tr>
@@ -8513,7 +8807,7 @@
           <td class="key">Location</td>
           <td class="value">
             <div>
-              <a target="_blank" href="http://www.yso.fi/onto/yso/p94137">yso:p94137</a>
+              <a href="http://www.yso.fi/onto/yso/p94137" target="_blank">yso:p94137</a>
             </div>
           </td>
         </tr>
@@ -8521,7 +8815,7 @@
           <td class="key">Homepage</td>
           <td class="value">
             <div>
-              <a target="_blank" href="https://www.kansalliskirjasto.fi/">&lt;https://www.kansalliskirjasto.fi/&gt;</a>
+              <a href="https://www.kansalliskirjasto.fi/" target="_blank">&lt;https://www.kansalliskirjasto.fi/&gt;</a>
             </div>
           </td>
         </tr>
