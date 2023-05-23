@@ -11,6 +11,7 @@
 @prefix rdaad: <http://rdaregistry.info/Elements/a/datatype/> .
 @prefix rdaao: <http://rdaregistry.info/Elements/a/object/> .
 @prefix rdac: <http://rdaregistry.info/Elements/c/> .
+@prefix rdact: <http://rdaregistry.info/termList/RDACarrierType> .
 @prefix rdaed: <http://rdaregistry.info/Elements/e/datatype/> .
 @prefix rdaeo: <http://rdaregistry.info/Elements/e/object/> .
 @prefix rdae: <http://rdaregistry.info/Elements/e/> .
