@@ -25,6 +25,7 @@
 @prefix rdapo: <http://rdaregistry.info/Elements/p/object/> .
 @prefix rdat: <http://rdaregistry.info/Elements/t/> .
 @prefix rdatd: <http://rdaregistry.info/Elements/t/datatype/> .
+@prefix rdaterm: <http://rdaregistry.info/termList/RDATerms/> .
 @prefix rdau: <http://rdaregistry.info/Elements/u/> .
 @prefix rdaw: <http://rdaregistry.info/Elements/w/> .
 @prefix rdawd: <http://rdaregistry.info/Elements/w/datatype/> .
