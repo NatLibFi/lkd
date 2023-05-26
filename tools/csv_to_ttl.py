@@ -25,7 +25,7 @@ from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, XSD, NamespaceManager
 from rdflib.util import from_n3
 
 # treat these CSV cell values as empty/missing
-EMPTY_COL_VALS = set(["", "#N/A"])
+EMPTY_COL_VALS = set(["", "#N/A", "N/A", "?"])
 
 class DataModelConverter:
     def __init__(self):
@@ -44,6 +44,8 @@ class DataModelConverter:
             help="Input path for separate data model metadata file")
         parser.add_argument("-r", "--releases-path",
             help="Input path for separate releases csv file")
+        parser.add_argument("--write-rdfxml", default=False, action="store_true",
+            help="Serialize as RDF/XML (.rdf), too")
         parser.add_argument("-v", "--version",
             help="Explicit version number (in x.y.z format)")
         parser.add_argument("-pv", "--prior-version",
@@ -56,6 +58,7 @@ class DataModelConverter:
         self.publishing_url = args.publishing_url
         self.metadata_path = args.metadata_path
         self.releases_path = args.releases_path
+        self.write_rdfxml = args.write_rdfxml
         self.version = args.version
         self.prior_version = args.prior_version
 
@@ -112,6 +115,11 @@ class DataModelConverter:
 
         self.convertCSV()
         self.serialize()
+        if self.write_rdfxml:
+            if self.output_path[-4:] == ".ttl":
+                self.graph.serialize(format="xml", destination=self.output_path[:-4]+".rdf",)
+            else:
+                self.graph.serialize(format="xml", destination=self.output_path+".rdf")
 
     def from_n3(self, s: str):
         """
@@ -174,6 +182,8 @@ class DataModelConverter:
                 # drop unwanted rows
                 if row["skos:historyNote"] == "lkd-v0.1: not included":
                     continue
+                if row["lkd status"] not in ["published", "planned"]:
+                    continue
 
                 id = row["lkd-id"]
 
@@ -182,25 +192,36 @@ class DataModelConverter:
                 lkd_id = LKD[id[4:]]
 
                 # labels
+                self.graph.add((lkd_id, RDFS.label, Literal(row["lkd rdfs:label-en"], "en")))
                 self.graph.add((lkd_id, RDFS.label, Literal(row["lkd rdfs:label-fi"], "fi")))
                 self.graph.add((lkd_id, RDFS.label, Literal(row["lkd rdfs:label-sv"], "sv")))
 
                 # LKD to BF mapping
-                lkd_map_bf = row["mapping LKD to BF"]
-                if lkd_map_bf not in ["skos:exactMatch", "skos:closeMatch", "skos:broadMatch", "skos:narrowMatch"]:
-                    raise ValueError(f"Mapping property from {lkd_id} to BIBFRAME had an unexpected value, got: {lkd_map_bf}")
-                self.graph.add((lkd_id, self.from_n3(lkd_map_bf), URIRef(row["bibframe-id"])))
+                lkd_map_bf = row["LKD-BF-owl-mapping"]
+                if lkd_map_bf not in ["owl:equivalentClass", "owl:equivalentProperty", "rdfs:subClassOf", "rdfs:subPropertyOf", "rdfs:seeAlso"]:
+                    if not lkd_map_bf in EMPTY_COL_VALS:
+                        raise ValueError(f"Mapping property from {lkd_id} to BIBFRAME had an unexpected value, got: {lkd_map_bf}")
+                    else:
+                        # missing values may pass
+                        pass
+                else:
+                    self.graph.add((lkd_id, self.from_n3(lkd_map_bf), URIRef(row["bibframeURI"])))
 
                 # LKD to RDA mapping
-                lkd_map_rda = row["mapping LKD to RDA"]
-                if lkd_map_rda not in ["skos:exactMatch", "skos:closeMatch", "skos:broadMatch", "skos:narrowMatch"]:
+                lkd_map_rda = row["LKD-RDA-owl-mapping"]
+                if lkd_map_rda not in ["owl:equivalentClass", "owl:equivalentProperty", "rdfs:subClassOf", "rdfs:subPropertyOf", "rdfs:seeAlso"]:
                     if not lkd_map_rda in EMPTY_COL_VALS:
                         raise ValueError(f"Mapping property from {lkd_id} to RDA had an unexpected value, got: {lkd_map_bf}")
                     else:
                         # missing values may pass
                         pass
+                elif row["rdaURI"] in EMPTY_COL_VALS:
+                    # missing values may pass
+                    pass
                 else:
-                    self.graph.add((lkd_id, self.from_n3(lkd_map_rda), URIRef(row["RDA-id"])))
+                    for item in [_.strip() for _ in row["rdaURI"].split("|")]:
+                        long_iri = self.graph.namespace_manager.expand_curie(item) if not item.startswith("http") else item
+                        self.graph.add((lkd_id, self.from_n3(lkd_map_rda), URIRef(long_iri)))
 
                 # domain
                 domainCol = "lkd rdfs:domain"
@@ -213,10 +234,11 @@ class DataModelConverter:
                     self.processComplexCol(lkd_id, RDFS.range, lkd_range)
 
                 # type
-                lkd_type = row["rdf:type"]
+                lkd_type = row["lkd: rdf:type"]
                 if lkd_type == "owl:Class":
                     self.graph.add((lkd_id, RDF.type, OWL.Class))
-                elif lkd_type == "owl:ObjectProperty":
+                elif lkd_type in ["owl:ObjectProperty", "owl:SymmetricProperty"]:
+                    self.graph.add((lkd_id, RDF.type, OWL[lkd_type[4:]]))
                     self.graph.add((lkd_id, RDF.type, OWL.ObjectProperty))
                     if (lkd_id, RDFS.range, None) not in self.graph:
                         # set rdfs:range to rdfs:Resource in case no range specified (handled previously)
@@ -235,14 +257,25 @@ class DataModelConverter:
                     raise ValueError(f"{lkd_id} had an unexpected type value, got {lkd_type}")
 
                 # subclasses
-                lkd_subclass = row["rdfs:subClassOf"]
+                lkd_subclass = row["lkd: rdfs:subClassOf"]
                 for item in [_.strip() for _ in lkd_subclass.split(",") if lkd_subclass]:
                     self.graph.add((lkd_id, RDFS.subClassOf, self.from_n3(item)))
 
                 # subproperties
-                lkd_subproperty = row["rdfs:subPropertyOf"]
+                lkd_subproperty = row["lkd: rdfs:subPropertyOf"]
                 for item in [_.strip() for _ in lkd_subproperty.split(",") if lkd_subproperty]:
                     self.graph.add((lkd_id, RDFS.subPropertyOf, self.from_n3(item)))
+
+                #inverse of
+                lkd_inverse_of = row["lkd: owl:inverseOf"]
+                if lkd_inverse_of:
+                    self.graph.add((lkd_id, OWL.inverseOf, self.from_n3(lkd_inverse_of)))
+                    self.graph.add((self.from_n3(lkd_inverse_of), OWL.inverseOf, lkd_id))
+
+                lkd_disjoint_with = row["lkd: owl:disjointWith"]
+                if lkd_disjoint_with:
+                    self.graph.add((lkd_id, OWL.disjointWith, self.from_n3(lkd_disjoint_with)))
+                    self.graph.add((self.from_n3(lkd_disjoint_with), OWL.disjointWith, lkd_id))
 
                 # update the previous row variable for the next iteration
                 prevRow = row
@@ -252,7 +285,6 @@ class DataModelConverter:
         Serializes the complete data model graph as TTL.
         """
         self.graph.serialize(format="ttl", destination=self.output_path)
-
 
 if __name__ == "__main__":
     DataModelConverter()
