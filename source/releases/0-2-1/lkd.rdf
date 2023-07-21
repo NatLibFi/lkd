@@ -1,0 +1,2246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dct="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:schema="http://schema.org/"
+>
+  <rdf:Description rdf:about="http://example.org/lkd/capture">
+    <rdfs:label xml:lang="en">capture of content</rdfs:label>
+    <rdfs:label xml:lang="fi">tallennustiedot</rdfs:label>
+    <rdfs:label xml:lang="sv">inspelning</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/capture"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20217"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Capture"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dct:title xml:lang="fi">LKD-tietomalli -- BIBFRAME 2.2.0 -tietomallin kansallinen sovellus</dct:title>
+    <dct:title xml:lang="en">LKD data model -- BIBFRAME 2.2.0 data model Finnish implementation</dct:title>
+    <dct:contributor rdf:resource="http://example.org/lkd/lkdProject"/>
+    <dct:publisher rdf:resource="http://example.org/lkd/NatLibFi"/>
+    <dct:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <dct:relation rdf:resource="http://id.loc.gov/ontologies/bibframe-2-2-0/"/>
+    <dct:relation rdf:resource="http://www.rdaregistry.info/Elements/"/>
+    <dct:description xml:lang="fi">Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.2.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Tämä 0.2-testiversio sisältää uudistuneen RDA:n mukaiset kansalliset suppean ja laajan kuvailutason elementit. Käytetyt tunnisteet ovat väliaikaisia, eikä malli ole valmis käyttöön. 0.1-sarjan versioihin nähden 0.2.0 sisältää uudistetun version nimekkeiden käsittelystä sekä joukon pienempiä korjauksia. Olemme vaihtaneet siltausominaisuudet tähän versioon, mutta tehty ratkaisu ei ole lopullinen. 0.2.1 versiossa on tehty pieniä korjauksia termeihin ja suhteisiin. </dct:description>
+    <dct:description xml:lang="en">This BIBFRAME data model is based on the BIBFRAME 2.2.0 model published by the Library of Congress. The model has been supplemented with classes and properties from the RDA element sets, as well as the Finnish national cataloguing guidelines. This 0.2 test version comprises of the RDA elements determined by the Finnish cataloguing levels. The identifiers used are temporary and the model is not ready for use. Compared to the 0.1 versions of the data model, this one contains a new approach to titles as well as a number of minor corrections. We have changed the mapping properties we are not entirely satisfied with this approach, either. The translations of the various terms have been updated but the work on these is still partly incomplete.</dct:description>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-07-21</dct:issued>
+    <owl:versionIRI rdf:resource="http://schema.finto.fi/lkd/0-2-1/"/>
+    <owl:versionInfo>0.2.1</owl:versionInfo>
+    <owl:priorVersion rdf:resource="http://schema.finto.fi/lkd/0-2-0/"/>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-07-21T09:17:24+00:00</dct:modified>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Carrier">
+    <rdfs:label xml:lang="en">Carrier type</rdfs:label>
+    <rdfs:label xml:lang="fi">Tallennetyyppi</rdfs:label>
+    <rdfs:label xml:lang="sv">Bärartyp</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Carrier"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Media"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/hasPart">
+    <rdfs:label xml:lang="en">has part</rdfs:label>
+    <rdfs:label xml:lang="fi">sisältää</rdfs:label>
+    <rdfs:label xml:lang="sv">innehåller</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/hasPart"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/w/P10147"/>
+    <rdfs:domain rdf:nodeID="ndaac373cd8154fccbdd0dbd24c74a86ab1"/>
+    <rdfs:range rdf:nodeID="n00722ed18ded491fb1b15818390618bbb1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/relatedTo"/>
+    <owl:inverseOf rdf:resource="http://example.org/lkd/partOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/verticalScale">
+    <rdfs:label xml:lang="en">vertical scale of cartographic content</rdfs:label>
+    <rdfs:label xml:lang="fi">kartografisen sisällön vertikaalinen mittakaava</rdfs:label>
+    <rdfs:label xml:lang="sv">vertikal skala för kartografiskt innehåll</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/scale"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20230"/>
+    <rdfs:domain rdf:nodeID="n9c7bb65605a546df858f17df93e4e8e4b1"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Scale"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/scale"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n3b691c0a6eaf47fa87295bc1576e6eccb2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n3b691c0a6eaf47fa87295bc1576e6eccb3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/contributionOfExpression">
+    <rdfs:label xml:lang="en">contributor and role of expression</rdfs:label>
+    <rdfs:label xml:lang="fi">ekspressioon liittyvä toimija ja rooli</rdfs:label>
+    <rdfs:label xml:lang="sv">agent och roll relaterad till uttryck</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/contribution"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20338"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20346"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20351"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20365"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20515"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20523"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20528"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20542"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20456"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20464"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20469"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20483"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Contribution"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/contribution"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/contributionOfManifestation">
+    <rdfs:label xml:lang="en">contributor and role of manifestation</rdfs:label>
+    <rdfs:label xml:lang="fi">manifestaatioon liittyvä toimija ja rooli</rdfs:label>
+    <rdfs:label xml:lang="sv">agent och roll relaterad till manifestation</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/contribution"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30362"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30449"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30420"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Contribution"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/contribution"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/partOf">
+    <owl:inverseOf rdf:resource="http://example.org/lkd/hasPart"/>
+    <rdfs:label xml:lang="en">Is part of</rdfs:label>
+    <rdfs:label xml:lang="fi">osa kokonaisuudesta</rdfs:label>
+    <rdfs:label xml:lang="sv">är del av</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/partOf"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10019"/>
+    <rdfs:domain rdf:nodeID="n5014aa70021344d48fabe3177ae1be6db1"/>
+    <rdfs:range rdf:nodeID="n6754c16ee76b43ad8a13aceaeb123c80b1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/relatedTo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/ClassificationYkl">
+    <rdfs:label xml:lang="en">PLC Classification</rdfs:label>
+    <rdfs:label xml:lang="fi">YKL-luokitus</rdfs:label>
+    <rdfs:label xml:lang="sv">KAB-klassifikation</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/Classification"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Classification"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Collection">
+    <rdfs:label xml:lang="en">Collection</rdfs:label>
+    <rdfs:label xml:lang="fi">Kokoelma</rdfs:label>
+    <rdfs:label xml:lang="sv">Samling</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Collection"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/succeededBy">
+    <owl:inverseOf rdf:resource="http://example.org/lkd/precededBy"/>
+    <rdfs:label xml:lang="en">succeeded by</rdfs:label>
+    <rdfs:label xml:lang="fi">seuraaja</rdfs:label>
+    <rdfs:label xml:lang="sv">efterföljare</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/succeededBy"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/w/P10170"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20169"/>
+    <rdfs:domain rdf:nodeID="ndef196d395304721baa3e5c9e4dc8747b1"/>
+    <rdfs:range rdf:nodeID="nea40383473ed4a44aa6e6d03f0a10d91b1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/relatedTo"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ae85d8627d94f008a8797ca8066aff2b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n6ae85d8627d94f008a8797ca8066aff2b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/note">
+    <rdfs:label xml:lang="en">note</rdfs:label>
+    <rdfs:label xml:lang="fi">huomautus</rdfs:label>
+    <rdfs:label xml:lang="sv">anmärkning</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/note"/>
+    <rdfs:domain rdf:nodeID="n00f77c52578048d5a6926acbe4781efab1"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Note"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://example.org/lkd/noteFor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/musicKeyOfRepresentativeExpression">
+    <rdfs:label xml:lang="en">key of representative expression</rdfs:label>
+    <rdfs:label xml:lang="fi">edustavan eksperssion sävellaji</rdfs:label>
+    <rdfs:label xml:lang="sv">tonart för representativ uttryck</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/musicKey"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10221"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/musicKey"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n58024de14ed5425e8a8bb9c89e772fe6b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n58024de14ed5425e8a8bb9c89e772fe6b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/editionStatementOfRevision">
+    <rdfs:label xml:lang="en">edition statement of revision</rdfs:label>
+    <rdfs:label xml:lang="fi">nimetyn uudistetun painoksen määrite</rdfs:label>
+    <rdfs:label xml:lang="sv">påföljande upplagebeteckning</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/editionStatement"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30132"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/editionStatement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/contributionOfWork">
+    <rdfs:label xml:lang="en">contributor and role of work</rdfs:label>
+    <rdfs:label xml:lang="fi">teokseen liittyvä toimija ja rooli</rdfs:label>
+    <rdfs:label xml:lang="sv">agent och roll relaterad till verk</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/contribution"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/w/P10437"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/w/P10531"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/w/P10578"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Contribution"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/contribution"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/seriesEnumeration">
+    <rdfs:label xml:lang="en">series enumeration</rdfs:label>
+    <rdfs:label xml:lang="fi">numerointijakson sisäinen numerointi</rdfs:label>
+    <rdfs:label xml:lang="sv">numrering inom serie</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/seriesEnumeration"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30014"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/latitude">
+    <rdfs:label xml:lang="en">latitude</rdfs:label>
+    <rdfs:label xml:lang="fi">leveysaste</rdfs:label>
+    <rdfs:label xml:lang="sv">latitud</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/coordinates"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10300"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Cartographic"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/coordinates"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/originPlace">
+    <rdfs:label xml:lang="en">origin place</rdfs:label>
+    <rdfs:label xml:lang="fi">teoksen alkuperään liittyvä paikka</rdfs:label>
+    <rdfs:label xml:lang="sv">ursprungsort för verket</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/originPlace"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10218"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/place"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Publication">
+    <rdfs:label xml:lang="en">Publisher</rdfs:label>
+    <rdfs:label xml:lang="fi">Kustantaja</rdfs:label>
+    <rdfs:label xml:lang="sv">Utgivare</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Publication"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10002"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/ProvisionActivity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n41d570e0e2534c81a1d25bf603552dedb1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n41d570e0e2534c81a1d25bf603552dedb2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/languageOfOrganization">
+    <rdfs:label xml:lang="en">language of corporate body</rdfs:label>
+    <rdfs:label xml:lang="fi">organisaation kieli</rdfs:label>
+    <rdfs:label xml:lang="sv">organisationens språk</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/language"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/a/P50023"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Organization"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/language"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/agent">
+    <rdfs:label xml:lang="en">associated agent</rdfs:label>
+    <rdfs:label xml:lang="fi">liittyvä toimija</rdfs:label>
+    <rdfs:label xml:lang="sv">agent</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/agent"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/object/P10311"/>
+    <rdfs:domain rdf:nodeID="nc75f7271e248480da3a1fbabb539a09ab1"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Agent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://example.org/lkd/agentOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ndcbbfb5beb184aef91f279fd8660c3bdb2">
+    <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:rest rdf:nodeID="ndcbbfb5beb184aef91f279fd8660c3bdb3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/publicationDate">
+    <rdfs:label xml:lang="en">date of publication</rdfs:label>
+    <rdfs:label xml:lang="fi">julkaisuaika</rdfs:label>
+    <rdfs:label xml:lang="sv">utgivningstid</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/date"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30011"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/workGroupIdentifiedBy">
+    <rdfs:label xml:lang="en">identifier for work group</rdfs:label>
+    <rdfs:label xml:lang="fi">teosryhmän tunniste</rdfs:label>
+    <rdfs:label xml:lang="sv">identifikator för verkgrupp</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10400"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Identifier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/identifiedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/musicSerialNumber">
+    <rdfs:label xml:lang="en">music serial number</rdfs:label>
+    <rdfs:label xml:lang="fi">musiikkiteoksen järjestysnumero</rdfs:label>
+    <rdfs:label xml:lang="sv">nummer i verkförteckning</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/musicSerialNumber"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10334"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc75f7271e248480da3a1fbabb539a09ab3">
+    <rdf:first rdf:resource="http://example.org/lkd/ProvisionActivity"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Source">
+    <rdfs:label xml:lang="en">Source</rdfs:label>
+    <rdfs:label xml:lang="fi">Lähde</rdfs:label>
+    <rdfs:label xml:lang="sv">Källa</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Source"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Extent">
+    <rdfs:label xml:lang="en">Extent</rdfs:label>
+    <rdfs:label xml:lang="fi">Laajuus</rdfs:label>
+    <rdfs:label xml:lang="sv">Omfång</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Extent"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ndaac373cd8154fccbdd0dbd24c74a86ab6">
+    <rdf:first rdf:resource="http://example.org/lkd/Event"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/lastIssueChronology">
+    <rdfs:label xml:lang="en">last chronological designation of sequence</rdfs:label>
+    <rdfs:label xml:lang="fi">numerointijakson viimeinen aikamäärite</rdfs:label>
+    <rdfs:label xml:lang="sv">senaste numrets datum</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/enumerationAndChronology"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30150"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/enumerationAndChronology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/firstIssueChronology">
+    <rdfs:label xml:lang="en">first chronological designation of sequence</rdfs:label>
+    <rdfs:label xml:lang="fi">numerointijakson ensimmäinen aikamäärite</rdfs:label>
+    <rdfs:label xml:lang="sv">första kronologiska beteckningen för seriell resurs</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/enumerationAndChronology"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30149"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/enumerationAndChronology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Distribution">
+    <rdfs:label xml:lang="en">Distributor</rdfs:label>
+    <rdfs:label xml:lang="fi">Jakaja</rdfs:label>
+    <rdfs:label xml:lang="sv">Distributör</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Distribution"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10002"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/ProvisionActivity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/musicOpusNumber">
+    <rdfs:label xml:lang="en">music opus number</rdfs:label>
+    <rdfs:label xml:lang="fi">opusnumero</rdfs:label>
+    <rdfs:label xml:lang="sv">opusnummer</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/musicOpusNumber"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10333"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/languageOfWork">
+    <rdfs:label xml:lang="en">language of representative expression</rdfs:label>
+    <rdfs:label xml:lang="fi">teoksen kieli</rdfs:label>
+    <rdfs:label xml:lang="sv">verkets spräk</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/language"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10353"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/language"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9c7bb65605a546df858f17df93e4e8e4b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n9c7bb65605a546df858f17df93e4e8e4b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd8baa720043a4320a3fdd8f171f71131b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/editionStatement">
+    <rdfs:label xml:lang="en">edition statement</rdfs:label>
+    <rdfs:label xml:lang="fi">painosmäärite</rdfs:label>
+    <rdfs:label xml:lang="sv">upplagebeteckning</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/editionStatement"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30133"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/projection">
+    <rdfs:label xml:lang="en">cartographic projection</rdfs:label>
+    <rdfs:label xml:lang="fi">karttaprojektio</rdfs:label>
+    <rdfs:label xml:lang="sv">kartprojektion</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/projection"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20216"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Cartographic"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Projection"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/responsibilityStatement">
+    <rdfs:label xml:lang="en">creative responsibility statement</rdfs:label>
+    <rdfs:label xml:lang="fi">vastuullisuusmerkintö</rdfs:label>
+    <rdfs:label xml:lang="sv">upphovsuppgift</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/responsibilityStatement"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30105"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/date">
+    <rdfs:label xml:lang="en">date</rdfs:label>
+    <rdfs:label xml:lang="fi">aika</rdfs:label>
+    <rdfs:label xml:lang="sv">datum</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/date"/>
+    <rdfs:subPropertyOf rdf:resource="http://rdaregistry.info/Elements/x/P00011"/>
+    <rdfs:domain rdf:nodeID="ndcbbfb5beb184aef91f279fd8660c3bdb1"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/musicMedium">
+    <rdfs:label xml:lang="en">music medium of performance</rdfs:label>
+    <rdfs:label xml:lang="fi">musiikin esityskokoonpano</rdfs:label>
+    <rdfs:label xml:lang="sv">besättning för framförande</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/musicMedium"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20215"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/MusicMedium"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/notation">
+    <rdfs:label xml:lang="en">notation system</rdfs:label>
+    <rdfs:label xml:lang="fi">notaatio</rdfs:label>
+    <rdfs:label xml:lang="sv">notation</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/notation"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20064"/>
+    <rdfs:domain rdf:nodeID="nd8baa720043a4320a3fdd8f171f71131b1"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Notation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nea40383473ed4a44aa6e6d03f0a10d91b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="nea40383473ed4a44aa6e6d03f0a10d91b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd8baa720043a4320a3fdd8f171f71131b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="nd8baa720043a4320a3fdd8f171f71131b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/usageAndAccessPolicy">
+    <rdfs:label xml:lang="en">use and access condition</rdfs:label>
+    <rdfs:label xml:lang="fi">käyttö- ja pääsyrajoitukset</rdfs:label>
+    <rdfs:label xml:lang="sv">villkor för användning och tillgång</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/usageAndAccessPolicy"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/i/P40047"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30145"/>
+    <rdfs:domain rdf:nodeID="n07ee8259ff474444a08e7bbcb4b15aa5b1"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/UsageAndAccessPolicy"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Chronology">
+    <rdfs:label xml:lang="en">Chronology</rdfs:label>
+    <rdfs:label xml:lang="fi">Julkaisuaikatiedot</rdfs:label>
+    <rdfs:label xml:lang="sv">Information om utgivningstid</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Chronology"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10010"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/EnumerationAndChronology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n00722ed18ded491fb1b15818390618bbb2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n00722ed18ded491fb1b15818390618bbb3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/originDate">
+    <rdfs:label xml:lang="en">origin date</rdfs:label>
+    <rdfs:label xml:lang="fi">teoksen ajankohta</rdfs:label>
+    <rdfs:label xml:lang="sv">tid för verket</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/originDate"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10219"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Notation">
+    <rdfs:label xml:lang="en">Notation</rdfs:label>
+    <rdfs:label xml:lang="fi">Notaatio</rdfs:label>
+    <rdfs:label xml:lang="sv">Notation</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Notation"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Hub">
+    <rdfs:label xml:lang="en">Hub</rdfs:label>
+    <rdfs:label xml:lang="fi">Hub</rdfs:label>
+    <rdfs:label xml:lang="sv">Hub</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Hub"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/EnumerationAndChronology">
+    <rdfs:label xml:lang="en">Enumeration and chronology</rdfs:label>
+    <rdfs:label xml:lang="fi">Numerointi- ja julkaisuaikatiedot</rdfs:label>
+    <rdfs:label xml:lang="sv">Information om numrering och utgivningstid</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/EnumerationAndChronology"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/issuance">
+    <rdfs:label xml:lang="en">mode of issuance</rdfs:label>
+    <rdfs:label xml:lang="fi">julkaisutapa</rdfs:label>
+    <rdfs:label xml:lang="sv">utgivningssätt</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/issuance"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30003"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Issuance"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Enumeration">
+    <rdfs:label xml:lang="en">Enumeration</rdfs:label>
+    <rdfs:label xml:lang="fi">Numerointi</rdfs:label>
+    <rdfs:label xml:lang="sv">Numrering</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Enumeration"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/EnumerationAndChronology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Content">
+    <rdfs:label xml:lang="en">Content type</rdfs:label>
+    <rdfs:label xml:lang="fi">Sisältötyyppi</rdfs:label>
+    <rdfs:label xml:lang="sv">Innehållstyp</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Content"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Place">
+    <rdfs:label xml:lang="en">Place</rdfs:label>
+    <rdfs:label xml:lang="fi">Paikka</rdfs:label>
+    <rdfs:label xml:lang="sv">Plats</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Place"/>
+    <owl:equivalentClass rdf:resource="http://rdaregistry.info/Elements/c/C10009"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/firstIssueEnumeration">
+    <rdfs:label xml:lang="en">first alphanumeric designation of sequence</rdfs:label>
+    <rdfs:label xml:lang="fi">numerointijakson ensimmäinen numero- ja/tai kirjainmäärite</rdfs:label>
+    <rdfs:label xml:lang="sv">numerisk och/eller alfabetisk beteckning för första numret/delen i svit</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/enumerationAndChronology"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30147"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/enumerationAndChronology"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="naec4fa3b41634e01956b6b35d1e7d44db2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="naec4fa3b41634e01956b6b35d1e7d44db3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/titleOf">
+    <rdfs:label xml:lang="en">title of</rdfs:label>
+    <rdfs:label xml:lang="fi">nimekkeenä</rdfs:label>
+    <rdfs:label xml:lang="sv">titel för</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/titleOf"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Title"/>
+    <rdfs:range rdf:nodeID="naec4fa3b41634e01956b6b35d1e7d44db1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://example.org/lkd/title"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/lkdProject">
+    <rdf:type rdf:resource="http://schema.org/Project"/>
+    <rdfs:label xml:lang="fi">Linkitetty kirjastodata (LKD)</rdfs:label>
+    <rdfs:label xml:lang="en">Linked Library Data (LKD)</rdfs:label>
+    <foaf:homepage rdf:resource="https://www.kiwi.fi/display/LKD"/>
+    <dct:coverage>2022/2024</dct:coverage>
+    <schema:parentOrganization rdf:resource="http://example.org/lkd/NatLibFi"/>
+    <schema:member rdf:resource="https://orcid.org/0000-0002-8355-0256"/>
+    <schema:member rdf:resource="https://orcid.org/0000-0002-2239-7980"/>
+    <schema:member rdf:resource="https://orcid.org/0000-0002-6801-6151"/>
+    <schema:member rdf:resource="https://orcid.org/0000-0002-2793-5485"/>
+    <schema:member rdf:resource="https://orcid.org/0000-0002-5087-8669"/>
+    <schema:member rdf:resource="https://orcid.org/0000-0002-0348-144X"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/musicThematicNumber">
+    <rdfs:label xml:lang="en">music thematic number</rdfs:label>
+    <rdfs:label xml:lang="fi">temaattisen teosluettelon numero</rdfs:label>
+    <rdfs:label xml:lang="sv">nummer i tematisk verkförteckning</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/musicThematicNumber"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10335"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Work">
+    <owl:disjointWith rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:label xml:lang="en">Work</rdfs:label>
+    <rdfs:label xml:lang="fi">Teos</rdfs:label>
+    <rdfs:label xml:lang="sv">Verk</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://id.loc.gov/ontologies/bibframe/Work"/>
+    <owl:equivalentClass rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6a0484b6dca64244a815a6816eb1b067b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n6a0484b6dca64244a815a6816eb1b067b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Temporal">
+    <rdfs:label xml:lang="en">Temporal concept</rdfs:label>
+    <rdfs:label xml:lang="fi">Ajanjakso</rdfs:label>
+    <rdfs:label xml:lang="sv">Kronologiskt ämnesord</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Temporal"/>
+    <owl:equivalentClass rdf:resource="http://rdaregistry.info/Elements/c/C10010"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6754c16ee76b43ad8a13aceaeb123c80b5">
+    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:rest rdf:nodeID="n6754c16ee76b43ad8a13aceaeb123c80b6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Aggregate">
+    <rdfs:label xml:lang="en">Aggregate</rdfs:label>
+    <rdfs:label xml:lang="fi">Aggregaatti</rdfs:label>
+    <rdfs:label xml:lang="sv">Aggregat</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/Collection"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/musicFormat">
+    <rdfs:label xml:lang="en">format of notated music</rdfs:label>
+    <rdfs:label xml:lang="fi">nuottiaineiston muoto</rdfs:label>
+    <rdfs:label xml:lang="sv">format för noterad musik</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/musicFormat"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20209"/>
+    <rdfs:domain rdf:nodeID="n3b691c0a6eaf47fa87295bc1576e6eccb1"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/MusicFormat"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/qualifier">
+    <rdfs:label xml:lang="en">qualifier</rdfs:label>
+    <rdfs:label xml:lang="fi">tarkenne</rdfs:label>
+    <rdfs:label xml:lang="sv">särskiljande tillägg</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/qualifier"/>
+    <rdfs:subPropertyOf rdf:resource="http://rdaregistry.info/Elements/x/#P00015"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Dissertation">
+    <rdfs:label xml:lang="en">Dissertation information</rdfs:label>
+    <rdfs:label xml:lang="fi">Tieto väitöskirjasta</rdfs:label>
+    <rdfs:label xml:lang="sv">Anmärkning om doktorsavhandling</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Dissertation"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9b707981df8f4b7b9ad9de06906055f3b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/provisionActivity">
+    <rdfs:label xml:lang="en">provision activity</rdfs:label>
+    <rdfs:label xml:lang="fi">tuotantotiedot</rdfs:label>
+    <rdfs:label xml:lang="sv">Produktionsuppgift</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/provisionActivity"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30173"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30176"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30009"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30175"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30087"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30088"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30085"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30086"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30008"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30010"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30011"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30174"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/ProvisionActivity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/relatedTo">
+    <rdfs:label xml:lang="en">related resource</rdfs:label>
+    <rdfs:label xml:lang="fi">liittyvä resurssi</rdfs:label>
+    <rdfs:label xml:lang="sv">relaterad till</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/relatedTo"/>
+    <rdfs:subPropertyOf rdf:resource="http://rdaregistry.info/Elements/x/P00001"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/dissertation">
+    <rdfs:label xml:lang="en">dissertation information</rdfs:label>
+    <rdfs:label xml:lang="fi">tieto väitöskirjasta</rdfs:label>
+    <rdfs:label xml:lang="sv">anmärkning om doktorsavhandling</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/dissertation"/>
+    <rdfs:subPropertyOf rdf:resource="http://rdaregistry.info/Elements/w/P10209"/>
+    <rdfs:domain rdf:nodeID="ne5b4806b955e4a98b0e5a1059c8ec69ab1"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Dissertation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n79afe743def54bb38cdbd96bae1e973fb3">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/NatLibFi">
+    <rdf:type rdf:resource="http://rdaregistry.info/Elements/c/C10005"/>
+    <rdfs:label xml:lang="fi">Kansalliskirjasto</rdfs:label>
+    <rdfs:label xml:lang="sv">Nationalbiblioteket</rdfs:label>
+    <rdfs:label xml:lang="en">The National Library of Finland</rdfs:label>
+    <dct:identifier rdf:resource="http://urn.fi/URN:NBN:fi:au:finaf:000034269"/>
+    <dct:identifier rdf:resource="http://isni.org/isni/0000000120337602"/>
+    <foaf:homepage rdf:resource="https://www.kansalliskirjasto.fi/"/>
+    <schema:parentOrganization rdf:resource="http://urn.fi/URN:NBN:fi:au:finaf:000038390"/>
+    <schema:location rdf:resource="http://www.yso.fi/onto/yso/p94137"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/ClassificationUdc">
+    <rdfs:label xml:lang="en">UDC Classification</rdfs:label>
+    <rdfs:label xml:lang="fi">UDK-luokitus</rdfs:label>
+    <rdfs:label xml:lang="sv">UDK-klassifikation</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/ClassificationUdc"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Classification"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/firstIssue">
+    <rdfs:label xml:lang="en">multipart first issue</rdfs:label>
+    <rdfs:label xml:lang="fi">ensimmäinen numero</rdfs:label>
+    <rdfs:label xml:lang="sv">numrering av seriella resurser (första)</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/firstIssue"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Agent">
+    <rdfs:label xml:lang="en">Agent</rdfs:label>
+    <rdfs:label xml:lang="fi">Toimija</rdfs:label>
+    <rdfs:label xml:lang="sv">Agent</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Agent"/>
+    <owl:equivalentClass rdf:resource="http://rdaregistry.info/Elements/c/C10002"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n00722ed18ded491fb1b15818390618bbb5">
+    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:rest rdf:nodeID="n00722ed18ded491fb1b15818390618bbb6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/aapOfManifestation">
+    <rdfs:label xml:lang="en">authorized access point for manifestation</rdfs:label>
+    <rdfs:label xml:lang="fi">manifestaation auktorisoitu hakutieto</rdfs:label>
+    <rdfs:label xml:lang="sv">auktoriserad sökingång för manifestation</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bflc/aap"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30294"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n99e6e740dcc3486cb77d9e397464eaa2b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n99e6e740dcc3486cb77d9e397464eaa2b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/expressionManifested">
+    <rdfs:label xml:lang="en">expression manifested</rdfs:label>
+    <rdfs:label xml:lang="fi">manifestaatioon sisältyvä ekspressio</rdfs:label>
+    <rdfs:label xml:lang="sv">uttryck som ingår i manifestation</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/hasInstance"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30139"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/relatedTo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/hasItem">
+    <rdfs:label xml:lang="en">exemplar of manifestation</rdfs:label>
+    <rdfs:label xml:lang="fi">manifestaation kappale</rdfs:label>
+    <rdfs:label xml:lang="sv">exemplar av manifestation</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/hasItem"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30103"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/relatedTo"/>
+    <owl:inverseOf rdf:resource="http://example.org/lkd/itemOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/contributionItem">
+    <rdfs:label xml:lang="en">contributor and role of item</rdfs:label>
+    <rdfs:label xml:lang="fi">kappaleeseen liittyvä toimija ja rooli</rdfs:label>
+    <rdfs:label xml:lang="sv">agent och roll relaterad till exemplar</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/contribution"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/i/P40072"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Item"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Contribution"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/contribution"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n29da6370cc1f406daa122aa79103d6dcb1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n29da6370cc1f406daa122aa79103d6dcb2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Production">
+    <rdfs:label xml:lang="en">Producer</rdfs:label>
+    <rdfs:label xml:lang="fi">Tuottaja</rdfs:label>
+    <rdfs:label xml:lang="sv">Producent</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Production"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10002"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/ProvisionActivity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n07ee8259ff474444a08e7bbcb4b15aa5b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:nodeID="n07ee8259ff474444a08e7bbcb4b15aa5b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Title">
+    <rdfs:label xml:lang="en">Title entity</rdfs:label>
+    <rdfs:label xml:lang="fi">Nimeke</rdfs:label>
+    <rdfs:label xml:lang="sv">Titel</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://id.loc.gov/ontologies/bibframe/Title"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/aapOfExpression">
+    <rdfs:label xml:lang="en">authorized access point for expression</rdfs:label>
+    <rdfs:label xml:lang="fi">ekspression auktorisoitu hakutieto</rdfs:label>
+    <rdfs:label xml:lang="sv">auktoriserad sökingång för uttryck</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bflc/aap"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20313"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/media">
+    <rdfs:label xml:lang="en">media type</rdfs:label>
+    <rdfs:label xml:lang="fi">mediatyyppi</rdfs:label>
+    <rdfs:label xml:lang="sv">medietyp</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/media"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30002"/>
+    <rdfs:domain rdf:nodeID="n6836af4a80bf44d79c3a44e51d36869bb1"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n518be964cfcf4666bb17556a2e2c81e3b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n518be964cfcf4666bb17556a2e2c81e3b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Script">
+    <rdfs:label xml:lang="en">Script</rdfs:label>
+    <rdfs:label xml:lang="fi">Kirjoitusjärjestelmä</rdfs:label>
+    <rdfs:label xml:lang="sv">Skriftsystem</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Script"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Notation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/classification">
+    <rdfs:label xml:lang="en">classification</rdfs:label>
+    <rdfs:label xml:lang="fi">luokitus</rdfs:label>
+    <rdfs:label xml:lang="sv">klassifikation</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/classification"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/w/P10256"/>
+    <rdfs:domain rdf:nodeID="n87b1b5833a724de09d0b8c4d0a127632b1"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Classification"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n518be964cfcf4666bb17556a2e2c81e3b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n518be964cfcf4666bb17556a2e2c81e3b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Event">
+    <rdfs:label xml:lang="en">Event entity</rdfs:label>
+    <rdfs:label xml:lang="fi">Tapahtuma</rdfs:label>
+    <rdfs:label xml:lang="sv">Evenemang</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Event"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10002"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n25114620fa954a9cb5b17c7fb43c6bbcb2">
+    <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:rest rdf:nodeID="n25114620fa954a9cb5b17c7fb43c6bbcb3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/ClassificationYklFiction">
+    <rdfs:label xml:lang="en">PLC Form tags for fiction</rdfs:label>
+    <rdfs:label xml:lang="fi">YKL fiktiivisen aineiston lisäluokka</rdfs:label>
+    <rdfs:label xml:lang="sv">KAB Tilläggsklass för fiktivt material</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/Classification"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Classification"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Projection">
+    <rdfs:label xml:lang="en">Projection</rdfs:label>
+    <rdfs:label xml:lang="fi">Projektio</rdfs:label>
+    <rdfs:label xml:lang="sv">Projektion</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Projection"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/contribution">
+    <rdfs:label xml:lang="en">contribution</rdfs:label>
+    <rdfs:label xml:lang="fi">kontribuutio</rdfs:label>
+    <rdfs:label xml:lang="sv">medverkan</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/contribution"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/w/P10311"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20301"/>
+    <rdfs:domain rdf:nodeID="n58024de14ed5425e8a8bb9c89e772fe6b1"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Contribution"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/AccessPolicy">
+    <rdfs:label xml:lang="en">Access policy</rdfs:label>
+    <rdfs:label xml:lang="fi">Pääsyrajoitus</rdfs:label>
+    <rdfs:label xml:lang="sv">Restriktion för tillgång</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/AccessPolicy"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/UsageAndAccessPolicy"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/precededBy">
+    <rdfs:label xml:lang="en">preceded by</rdfs:label>
+    <rdfs:label xml:lang="fi">edeltäjä</rdfs:label>
+    <rdfs:label xml:lang="sv">föregående</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/precededBy"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/w/P10156"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/e/P20154"/>
+    <rdfs:domain rdf:nodeID="n99e6e740dcc3486cb77d9e397464eaa2b1"/>
+    <rdfs:range rdf:nodeID="n29da6370cc1f406daa122aa79103d6dcb1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/relatedTo"/>
+    <owl:inverseOf rdf:resource="http://example.org/lkd/succeededBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/workManifested">
+    <owl:inverseOf rdf:resource="http://example.org/lkd/manifestationOfWork"/>
+    <rdfs:label xml:lang="en">work manifested</rdfs:label>
+    <rdfs:label xml:lang="fi">manifestaatioon sisältyvä teos</rdfs:label>
+    <rdfs:label xml:lang="sv">manifesterat verk</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/issuedWith"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30135"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/relatedTo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Serial">
+    <rdfs:label xml:lang="en">Serial</rdfs:label>
+    <rdfs:label xml:lang="fi">Sarjajulkaisu</rdfs:label>
+    <rdfs:label xml:lang="sv">Seriell resurs</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Serial"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n96c048e986ed4766853a9e65059281c5b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:nodeID="n96c048e986ed4766853a9e65059281c5b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/role">
+    <rdfs:label xml:lang="en">contributor role</rdfs:label>
+    <rdfs:label xml:lang="fi">rooli</rdfs:label>
+    <rdfs:label xml:lang="sv">funktion</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/role"/>
+    <rdfs:subPropertyOf rdf:resource="http://rdaregistry.info/Elements/a/P50304"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Contribution"/>
+    <rdfs:range rdf:nodeID="n25114620fa954a9cb5b17c7fb43c6bbcb1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/title">
+    <rdfs:label xml:lang="en">title resource</rdfs:label>
+    <rdfs:label xml:lang="fi">nimeke</rdfs:label>
+    <rdfs:label xml:lang="sv">titel</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/title"/>
+    <rdfs:subPropertyOf rdf:resource="http://rdaregistry.info/Elements/x/P00019"/>
+    <rdfs:domain rdf:nodeID="n947d7655e5544dfabc86fb4a1a9a602eb1"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Title"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://example.org/lkd/titleOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/mainTitle">
+    <rdfs:label xml:lang="en">main title</rdfs:label>
+    <rdfs:label xml:lang="fi">nimekkeen merkkijono</rdfs:label>
+    <rdfs:label xml:lang="sv">teckensträck för titel</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/mainTitle"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30156"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Title"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Issuance">
+    <rdfs:label xml:lang="en">Mode of issuance</rdfs:label>
+    <rdfs:label xml:lang="fi">Julkaisutapa</rdfs:label>
+    <rdfs:label xml:lang="sv">Utgivningssätt</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Issuance"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Meeting">
+    <rdfs:label xml:lang="en">Meeting</rdfs:label>
+    <rdfs:label xml:lang="fi">Kokous</rdfs:label>
+    <rdfs:label xml:lang="sv">Möte</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Meeting"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10005"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Agent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n5b4c0265c4544974877ba3de695c6e17b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n5b4c0265c4544974877ba3de695c6e17b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/placeOfCapture">
+    <rdfs:label xml:lang="en">place of capture</rdfs:label>
+    <rdfs:label xml:lang="fi">tallennuspaikka</rdfs:label>
+    <rdfs:label xml:lang="sv">inspelningsort</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/place"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20218"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Capture"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Place"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/place"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Manufacture">
+    <rdfs:label xml:lang="en">Manufacturer</rdfs:label>
+    <rdfs:label xml:lang="fi">Valmistaja</rdfs:label>
+    <rdfs:label xml:lang="sv">Tillverkare</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Manufacture"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10002"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/ProvisionActivity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/ProvisionActivity">
+    <rdfs:label xml:lang="en">Provider entity</rdfs:label>
+    <rdfs:label xml:lang="fi">Tuotantotiedot</rdfs:label>
+    <rdfs:label xml:lang="sv">Produktionsuppgift</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/ProvisionActivity"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/identifiedBy">
+    <rdfs:label xml:lang="en">identifier</rdfs:label>
+    <rdfs:label xml:lang="fi">tunniste</rdfs:label>
+    <rdfs:label xml:lang="sv">identifikator</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <rdfs:subPropertyOf rdf:resource="http://rdaregistry.info/Elements/x/P00018"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Identifier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ndaac373cd8154fccbdd0dbd24c74a86ab3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="ndaac373cd8154fccbdd0dbd24c74a86ab4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Identifier">
+    <rdfs:label xml:lang="en">Identifier</rdfs:label>
+    <rdfs:label xml:lang="fi">Tunniste</rdfs:label>
+    <rdfs:label xml:lang="sv">Identifikator</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Identifier"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Person">
+    <rdfs:label xml:lang="en">Person</rdfs:label>
+    <rdfs:label xml:lang="fi">Henkilö</rdfs:label>
+    <rdfs:label xml:lang="sv">Person</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Person"/>
+    <owl:equivalentClass rdf:resource="http://rdaregistry.info/Elements/c/C10004"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/lastIssueEnumeration">
+    <rdfs:label xml:lang="en">last alphanumeric designation of alternative sequence</rdfs:label>
+    <rdfs:label xml:lang="fi">numerointijakson viimeinen numero- ja/tai kirjainmäärite</rdfs:label>
+    <rdfs:label xml:lang="sv">numerisk och/eller alfabetisk beteckning för sista numret/delen i svit</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/enumerationAndChronology"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30148"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/enumerationAndChronology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/source">
+    <rdfs:label xml:lang="en">source</rdfs:label>
+    <rdfs:label xml:lang="fi">lähde</rdfs:label>
+    <rdfs:label xml:lang="sv">källa</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/source"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Source"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/noteFor">
+    <owl:inverseOf rdf:resource="http://example.org/lkd/note"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Scale">
+    <rdfs:label xml:lang="en">Scale</rdfs:label>
+    <rdfs:label xml:lang="fi">Mittakaava</rdfs:label>
+    <rdfs:label xml:lang="sv">Skala</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Scale"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Organization">
+    <rdfs:label xml:lang="en">Organization</rdfs:label>
+    <rdfs:label xml:lang="fi">Yhteisö</rdfs:label>
+    <rdfs:label xml:lang="sv">Institution</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Organization"/>
+    <owl:equivalentClass rdf:resource="http://rdaregistry.info/Elements/c/C10005"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/horizontalScale">
+    <rdfs:label xml:lang="en">horizontal scale of cartographic content</rdfs:label>
+    <rdfs:label xml:lang="fi">horisontaalinen mittakaava</rdfs:label>
+    <rdfs:label xml:lang="sv">horisontell skala</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/scale"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20226"/>
+    <rdfs:domain rdf:nodeID="n9b707981df8f4b7b9ad9de06906055f3b1"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Scale"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/scale"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc75f7271e248480da3a1fbabb539a09ab2">
+    <rdf:first rdf:resource="http://example.org/lkd/Contribution"/>
+    <rdf:rest rdf:nodeID="nc75f7271e248480da3a1fbabb539a09ab3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/seriesStatement">
+    <rdfs:label xml:lang="en">series statement</rdfs:label>
+    <rdfs:label xml:lang="fi">sarjamerkintö</rdfs:label>
+    <rdfs:label xml:lang="sv">serieuppgift</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/seriesStatement"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30158"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n5014aa70021344d48fabe3177ae1be6db2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n5014aa70021344d48fabe3177ae1be6db3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/hasEquivalent">
+    <rdfs:label xml:lang="en">equivalence</rdfs:label>
+    <rdfs:label xml:lang="fi">vastaava</rdfs:label>
+    <rdfs:label xml:lang="sv">likvärdighet</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/hasEquivalent"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30024"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/i/P40031"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/n/P80113"/>
+    <rdfs:domain rdf:nodeID="n06482d01d49c410bb1b6645009610230b1"/>
+    <rdfs:range rdf:nodeID="n6a0484b6dca64244a815a6816eb1b067b1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/relatedTo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/musicKeyOfExpression">
+    <rdfs:label xml:lang="en">key of expression</rdfs:label>
+    <rdfs:label xml:lang="fi">ekspression sävellaji</rdfs:label>
+    <rdfs:label xml:lang="sv">tonart för uttryck</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/musicKey"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20326"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/musicKey"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n25114620fa954a9cb5b17c7fb43c6bbcb1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n25114620fa954a9cb5b17c7fb43c6bbcb2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/derivedFrom">
+    <rdfs:label xml:lang="en">source metadata</rdfs:label>
+    <rdfs:label xml:lang="fi">metadatan lähde</rdfs:label>
+    <rdfs:label xml:lang="sv">metadatakälla</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/derivedFrom"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/w/P10406"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/w/P10404"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/n/P80139"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/AdminMetadata"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Cartographic">
+    <rdfs:label xml:lang="en">Cartographic information</rdfs:label>
+    <rdfs:label xml:lang="fi">Kartografinen tieto</rdfs:label>
+    <rdfs:label xml:lang="sv">Kartografisk information</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Cartographic"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n06482d01d49c410bb1b6645009610230b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n06482d01d49c410bb1b6645009610230b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n947d7655e5544dfabc86fb4a1a9a602eb4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:nodeID="n947d7655e5544dfabc86fb4a1a9a602eb5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/duration">
+    <rdfs:label xml:lang="en">duration</rdfs:label>
+    <rdfs:label xml:lang="fi">kesto</rdfs:label>
+    <rdfs:label xml:lang="sv">speltid</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/duration"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20219"/>
+    <rdfs:domain rdf:nodeID="n4028eeab48ff4ae485dbb426be7a6928b1"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/languageOfExpression">
+    <rdfs:label xml:lang="en">language of expression</rdfs:label>
+    <rdfs:label xml:lang="fi">ekspression kieli</rdfs:label>
+    <rdfs:label xml:lang="sv">uttryckets språk</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/language"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/language"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Contribution">
+    <rdfs:label xml:lang="en">Contribution</rdfs:label>
+    <rdfs:label xml:lang="fi">Kontribuutio</rdfs:label>
+    <rdfs:label xml:lang="sv">Medverkan</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://id.loc.gov/ontologies/bibframe/Contribution"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10002"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/itemIdentifiedBy">
+    <rdfs:label xml:lang="en">identifier for item</rdfs:label>
+    <rdfs:label xml:lang="fi">kappaleen tunniste</rdfs:label>
+    <rdfs:label xml:lang="sv">identifikator för exemplar</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/i/P40001"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Item"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Identifier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/identifiedBy"/>
+    <owl:inverseOf rdf:resource="http://example.org/lkd/identifier"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/coordinates">
+    <rdfs:label xml:lang="en">cartographic coordinates</rdfs:label>
+    <rdfs:label xml:lang="fi">koordinaatit</rdfs:label>
+    <rdfs:label xml:lang="sv">koordinater</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/coordinates"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10024"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10081"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Cartographic"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/scale">
+    <rdfs:label xml:lang="en">scale</rdfs:label>
+    <rdfs:label xml:lang="fi">mittakaava</rdfs:label>
+    <rdfs:label xml:lang="sv">skala</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/scale"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20228"/>
+    <rdfs:domain rdf:nodeID="n6ae85d8627d94f008a8797ca8066aff2b1"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Scale"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/MusicNotation">
+    <rdfs:label xml:lang="en">Music notation</rdfs:label>
+    <rdfs:label xml:lang="fi">Nuottikirjoitus</rdfs:label>
+    <rdfs:label xml:lang="sv">Musiknotation</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/MusicNotation"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Notation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n5014aa70021344d48fabe3177ae1be6db5">
+    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:rest rdf:nodeID="n5014aa70021344d48fabe3177ae1be6db6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n37f23681576f41a6a67c7943a12a6e53b2">
+    <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:rest rdf:nodeID="n37f23681576f41a6a67c7943a12a6e53b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6836af4a80bf44d79c3a44e51d36869bb2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n6836af4a80bf44d79c3a44e51d36869bb3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n37f23681576f41a6a67c7943a12a6e53b6">
+    <rdf:first rdf:resource="http://example.org/lkd/Manufacture"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n87b1b5833a724de09d0b8c4d0a127632b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n87b1b5833a724de09d0b8c4d0a127632b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n41d570e0e2534c81a1d25bf603552dedb2">
+    <rdf:first rdf:resource="http://rdaregistry.info/termList/RDACarrierType"/>
+    <rdf:rest rdf:nodeID="n41d570e0e2534c81a1d25bf603552dedb3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n58024de14ed5425e8a8bb9c89e772fe6b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:nodeID="n58024de14ed5425e8a8bb9c89e772fe6b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Manifestation">
+    <rdfs:label xml:lang="en">Manifestation</rdfs:label>
+    <rdfs:label xml:lang="fi">Manifestaatio</rdfs:label>
+    <rdfs:label xml:lang="sv">Manifestation</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Instance"/>
+    <owl:equivalentClass rdf:resource="http://rdaregistry.info/Elements/c/C10007"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n4028eeab48ff4ae485dbb426be7a6928b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n4028eeab48ff4ae485dbb426be7a6928b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/place">
+    <rdfs:label xml:lang="en">place</rdfs:label>
+    <rdfs:label xml:lang="fi">paikka</rdfs:label>
+    <rdfs:label xml:lang="sv">plats</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/place"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/a/P50350"/>
+    <rdfs:domain rdf:nodeID="n37f23681576f41a6a67c7943a12a6e53b1"/>
+    <rdfs:range rdf:nodeID="nc6460a306944406b8459b3d3a793a622b1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/musicKey">
+    <rdfs:label xml:lang="en">music key</rdfs:label>
+    <rdfs:label xml:lang="fi">sävellaji</rdfs:label>
+    <rdfs:label xml:lang="sv">tonart</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/musicKey"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20326"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ndaac373cd8154fccbdd0dbd24c74a86ab5">
+    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:rest rdf:nodeID="ndaac373cd8154fccbdd0dbd24c74a86ab6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/grantingInstitution">
+    <rdfs:label xml:lang="en">degree granting institution</rdfs:label>
+    <rdfs:label xml:lang="fi">oppiarvon myöntävä yhteisö</rdfs:label>
+    <rdfs:label xml:lang="sv">institution som beviljar lärdomsgrad</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/grantingInstitution"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10006"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Dissertation"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Organization"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/reproductionOf">
+    <owl:inverseOf rdf:resource="http://example.org/lkd/hasReproduction"/>
+    <rdfs:label xml:lang="en">reproduction of</rdfs:label>
+    <rdfs:label xml:lang="fi">jäljenne manifestaatiosta</rdfs:label>
+    <rdfs:label xml:lang="sv">reproduktion av</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/reproductionOf"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30043"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/hasEquivalent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/workIdentifiedBy">
+    <rdfs:label xml:lang="en">identifier for work</rdfs:label>
+    <rdfs:label xml:lang="fi">teoksen tunniste</rdfs:label>
+    <rdfs:label xml:lang="sv">identifikator för verk</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10002"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Identifier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/identifiedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/aapItem">
+    <rdfs:label xml:lang="en">authorized access point for item</rdfs:label>
+    <rdfs:label xml:lang="fi">kappaleen auktorisoitu hakutieto</rdfs:label>
+    <rdfs:label xml:lang="sv">auktoriserad sökingång för exemplar</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bflc/aap"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/i/P40083"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Item"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc6460a306944406b8459b3d3a793a622b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Place"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/manifestationOfWork">
+    <rdfs:label xml:lang="en">manifestation of work</rdfs:label>
+    <rdfs:label xml:lang="fi">teoksen manifestaatio</rdfs:label>
+    <rdfs:label xml:lang="sv">manifestation av verk</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/hasInstance"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10072"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/hasInstance"/>
+    <owl:inverseOf rdf:resource="http://example.org/lkd/workManifested"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/hasExpression">
+    <owl:inverseOf rdf:resource="http://example.org/lkd/expressionOf"/>
+    <rdfs:label xml:lang="en">expressed as</rdfs:label>
+    <rdfs:label xml:lang="fi">teoksen ekspressio</rdfs:label>
+    <rdfs:label xml:lang="sv">har uttryck</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/hasExpression"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10078"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/relatedTo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/MusicFormat">
+    <rdfs:label xml:lang="en">Notated music format</rdfs:label>
+    <rdfs:label xml:lang="fi">Nuottiaineiston muoto</rdfs:label>
+    <rdfs:label xml:lang="sv">Notmaterialets form</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/MusicFormat"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/termList/formatNoteMus"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ae85d8627d94f008a8797ca8066aff2b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n6ae85d8627d94f008a8797ca8066aff2b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n96c048e986ed4766853a9e65059281c5b5">
+    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/carrier">
+    <rdfs:label xml:lang="en">carrier type</rdfs:label>
+    <rdfs:label xml:lang="fi">tallennetyyppi</rdfs:label>
+    <rdfs:label xml:lang="sv">bärartyp</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/carrier"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30001"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:nodeID="n41d570e0e2534c81a1d25bf603552dedb1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/extent">
+    <rdfs:label xml:lang="en">extent</rdfs:label>
+    <rdfs:label xml:lang="fi">laajuus</rdfs:label>
+    <rdfs:label xml:lang="sv">omfång</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/extent"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30182"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Extent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n07ee8259ff474444a08e7bbcb4b15aa5b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n07ee8259ff474444a08e7bbcb4b15aa5b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/meetingPlace">
+    <rdfs:label xml:lang="en">place of conference</rdfs:label>
+    <rdfs:label xml:lang="fi">konferenssin paikka</rdfs:label>
+    <rdfs:label xml:lang="sv">plats för konferens</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/place"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/a/P50024"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Meeting"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Place"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/place"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/hasReproduction">
+    <rdfs:label xml:lang="en">reproduced as manifestation</rdfs:label>
+    <rdfs:label xml:lang="fi">manifestaation jäljenne</rdfs:label>
+    <rdfs:label xml:lang="sv">reproducerats som manifestation</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/hasReproduction"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30039"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/hasEquivalent"/>
+    <owl:inverseOf rdf:resource="http://example.org/lkd/reproductionOf"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/expressionIdentifiedBy">
+    <rdfs:label xml:lang="en">identifier for expression</rdfs:label>
+    <rdfs:label xml:lang="fi">ekspression tunniste</rdfs:label>
+    <rdfs:label xml:lang="sv">identifikator för uttryck</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20002"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Identifier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/identifiedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/MusicMedium">
+    <rdfs:label xml:lang="en">Music medium information</rdfs:label>
+    <rdfs:label xml:lang="fi">Esityskokoonpano</rdfs:label>
+    <rdfs:label xml:lang="sv">Besättning</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/MusicMedium"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n37f23681576f41a6a67c7943a12a6e53b5">
+    <rdf:first rdf:resource="http://example.org/lkd/ProvisionActivity"/>
+    <rdf:rest rdf:nodeID="n37f23681576f41a6a67c7943a12a6e53b6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n25114620fa954a9cb5b17c7fb43c6bbcb3">
+    <rdf:first rdf:resource="http://urn.fi/URN:NBN:fi:au:mts:m34"/>
+    <rdf:rest rdf:nodeID="n25114620fa954a9cb5b17c7fb43c6bbcb4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n29da6370cc1f406daa122aa79103d6dcb3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n29da6370cc1f406daa122aa79103d6dcb4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9b707981df8f4b7b9ad9de06906055f3b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n9b707981df8f4b7b9ad9de06906055f3b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n5b4c0265c4544974877ba3de695c6e17b5">
+    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:rest rdf:nodeID="n5b4c0265c4544974877ba3de695c6e17b6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n5014aa70021344d48fabe3177ae1be6db3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n5014aa70021344d48fabe3177ae1be6db4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ndaac373cd8154fccbdd0dbd24c74a86ab1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="ndaac373cd8154fccbdd0dbd24c74a86ab2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n00f77c52578048d5a6926acbe4781efab2">
+    <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:rest rdf:nodeID="n00f77c52578048d5a6926acbe4781efab3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n29da6370cc1f406daa122aa79103d6dcb4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Note">
+    <rdfs:label xml:lang="en">Note</rdfs:label>
+    <rdfs:label xml:lang="fi">Huomautus</rdfs:label>
+    <rdfs:label xml:lang="sv">Anmärkning</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Note"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/longitude">
+    <rdfs:label xml:lang="en">longitude</rdfs:label>
+    <rdfs:label xml:lang="fi">pituusaste</rdfs:label>
+    <rdfs:label xml:lang="sv">longitud</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/coordinates"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10301"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Cartographic"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/coordinates"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Classification">
+    <rdfs:label xml:lang="en">Classification entity</rdfs:label>
+    <rdfs:label xml:lang="fi">Luokitus</rdfs:label>
+    <rdfs:label xml:lang="sv">Klassifikation</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Classification"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Role">
+    <rdfs:label xml:lang="en">Role</rdfs:label>
+    <rdfs:label xml:lang="fi">Rooli</rdfs:label>
+    <rdfs:label xml:lang="sv">Funktion</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Role"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/content">
+    <rdfs:label xml:lang="en">content type</rdfs:label>
+    <rdfs:label xml:lang="fi">sisältötyyppi</rdfs:label>
+    <rdfs:label xml:lang="sv">innehållstyp</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bibframe/content"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20001"/>
+    <rdfs:domain rdf:nodeID="n518be964cfcf4666bb17556a2e2c81e3b1"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Expression">
+    <rdfs:label xml:lang="en">Expression</rdfs:label>
+    <rdfs:label xml:lang="fi">Ekspressio</rdfs:label>
+    <rdfs:label xml:lang="sv">Uttryck</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://id.loc.gov/ontologies/bibframe/Work"/>
+    <owl:equivalentClass rdf:resource="http://rdaregistry.info/Elements/c/C10006"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="http://example.org/lkd/Work"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/manifestationIdentifiedBy">
+    <rdfs:label xml:lang="en">identifier for manifestation</rdfs:label>
+    <rdfs:label xml:lang="fi">manifestaation tunniste</rdfs:label>
+    <rdfs:label xml:lang="sv">identifikator för manifestation</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/identifiedBy"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30004"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Identifier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/identifiedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ndef196d395304721baa3e5c9e4dc8747b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n27f012d108c0497ab56ef6277f7161ebb2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n27f012d108c0497ab56ef6277f7161ebb3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n5b4c0265c4544974877ba3de695c6e17b6">
+    <rdf:first rdf:resource="http://example.org/lkd/Event"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n00722ed18ded491fb1b15818390618bbb3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n00722ed18ded491fb1b15818390618bbb4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6836af4a80bf44d79c3a44e51d36869bb1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n6836af4a80bf44d79c3a44e51d36869bb2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6754c16ee76b43ad8a13aceaeb123c80b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n6754c16ee76b43ad8a13aceaeb123c80b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Media">
+    <rdfs:label xml:lang="en">Media type</rdfs:label>
+    <rdfs:label xml:lang="fi">Mediatyyppi</rdfs:label>
+    <rdfs:label xml:lang="sv">Medietyp</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Media"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/subject">
+    <rdfs:label xml:lang="en">subject</rdfs:label>
+    <rdfs:label xml:lang="fi">aihe</rdfs:label>
+    <rdfs:label xml:lang="sv">ämne</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/subject"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10256"/>
+    <rdfs:domain rdf:nodeID="n5b4c0265c4544974877ba3de695c6e17b1"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/expressionOf">
+    <rdfs:label xml:lang="en">expression of</rdfs:label>
+    <rdfs:label xml:lang="fi">ekspression toteuttama teos</rdfs:label>
+    <rdfs:label xml:lang="sv">uttryck av</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/expressionOf"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20231"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/relatedTo"/>
+    <owl:inverseOf rdf:resource="http://example.org/lkd/hasExpression"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/StillImage">
+    <rdfs:label xml:lang="en">Still image</rdfs:label>
+    <rdfs:label xml:lang="fi">Stillkuva</rdfs:label>
+    <rdfs:label xml:lang="sv">Stillbild</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/StillImage"/>
+    <rdfs:subClassOf rdf:resource="http://rdvocab.info/termList/RDAContentType/1014"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n37f23681576f41a6a67c7943a12a6e53b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Agent"/>
+    <rdf:rest rdf:nodeID="n37f23681576f41a6a67c7943a12a6e53b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/manifestationOfExpression">
+    <rdfs:label xml:lang="en">manifestation of expression</rdfs:label>
+    <rdfs:label xml:lang="fi">ekspression manifestaatio</rdfs:label>
+    <rdfs:label xml:lang="sv">manifestation av uttryck</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/hasInstance"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20059"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Expression"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/hasInstance"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ndef196d395304721baa3e5c9e4dc8747b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="ndef196d395304721baa3e5c9e4dc8747b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Series">
+    <rdfs:label xml:lang="en">Series</rdfs:label>
+    <rdfs:label xml:lang="fi">Sarja</rdfs:label>
+    <rdfs:label xml:lang="sv">Serie</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/Series"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10007"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n29da6370cc1f406daa122aa79103d6dcb2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n29da6370cc1f406daa122aa79103d6dcb3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ndef196d395304721baa3e5c9e4dc8747b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="ndef196d395304721baa3e5c9e4dc8747b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/MovementNotation">
+    <rdfs:label xml:lang="en">Movement notation</rdfs:label>
+    <rdfs:label xml:lang="fi">Liikenotaatio</rdfs:label>
+    <rdfs:label xml:lang="sv">Rörelsenotation</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/MovementNotation"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Notation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9c7bb65605a546df858f17df93e4e8e4b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n9c7bb65605a546df858f17df93e4e8e4b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n947d7655e5544dfabc86fb4a1a9a602eb1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n947d7655e5544dfabc86fb4a1a9a602eb2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n07ee8259ff474444a08e7bbcb4b15aa5b5">
+    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n947d7655e5544dfabc86fb4a1a9a602eb2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n947d7655e5544dfabc86fb4a1a9a602eb3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ae85d8627d94f008a8797ca8066aff2b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/agentOf">
+    <owl:inverseOf rdf:resource="http://example.org/lkd/agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n5b4c0265c4544974877ba3de695c6e17b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:nodeID="n5b4c0265c4544974877ba3de695c6e17b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc6460a306944406b8459b3d3a793a622b2">
+    <rdf:first rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:rest rdf:nodeID="nc6460a306944406b8459b3d3a793a622b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n00722ed18ded491fb1b15818390618bbb4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:nodeID="n00722ed18ded491fb1b15818390618bbb5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n5b4c0265c4544974877ba3de695c6e17b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n5b4c0265c4544974877ba3de695c6e17b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/cartographicAttributes">
+    <rdfs:label xml:lang="en">cartographic data</rdfs:label>
+    <rdfs:label xml:lang="fi">kartografinen data</rdfs:label>
+    <rdfs:label xml:lang="sv">kartografisk data</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/cartographicAttributes"/>
+    <rdfs:subPropertyOf rdf:resource="http://rdaregistry.info/Elements/w/P10024"/>
+    <rdfs:domain rdf:nodeID="n27f012d108c0497ab56ef6277f7161ebb1"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Cartographic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/copyrightDate">
+    <rdfs:label xml:lang="en">copyright date</rdfs:label>
+    <rdfs:label xml:lang="fi">copyright-vuosi</rdfs:label>
+    <rdfs:label xml:lang="sv">copyrightdatum</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/copyrightDate"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30007"/>
+    <rdfs:domain rdf:nodeID="n79afe743def54bb38cdbd96bae1e973fb1"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/date"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Illustration">
+    <rdfs:label xml:lang="en">Illustrative content</rdfs:label>
+    <rdfs:label xml:lang="fi">Kuvasisältö</rdfs:label>
+    <rdfs:label xml:lang="sv">Illustrativt innehåll</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Illustration"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/itemOf">
+    <owl:inverseOf rdf:resource="http://example.org/lkd/hasItem"/>
+    <rdfs:label xml:lang="en">holding for</rdfs:label>
+    <rdfs:label xml:lang="fi">kappaleen edustama manifestaatio</rdfs:label>
+    <rdfs:label xml:lang="sv">exemplar av manifestation</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/itemOf"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/i/P40049"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Item"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/relatedTo"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Modification">
+    <rdfs:label xml:lang="en">Modification</rdfs:label>
+    <rdfs:label xml:lang="fi">Muokkaus</rdfs:label>
+    <rdfs:label xml:lang="sv">Modifikation</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Modification"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/ProvisionActivity"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9c7bb65605a546df858f17df93e4e8e4b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/subtitle">
+    <rdfs:label xml:lang="en">subtitle</rdfs:label>
+    <rdfs:label xml:lang="fi">muu nimeketieto</rdfs:label>
+    <rdfs:label xml:lang="sv">övrig titelinformation</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/subtitle"/>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/m/P30142"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Title"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n25114620fa954a9cb5b17c7fb43c6bbcb6">
+    <rdf:first rdf:resource="http://urn.fi/URN:NBN:fi:au:mts:m1157"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/lastIssue">
+    <rdfs:label xml:lang="en">multipart last issue</rdfs:label>
+    <rdfs:label xml:lang="fi">viimeinen numero</rdfs:label>
+    <rdfs:label xml:lang="sv">numrering av seriella resurser (sista)</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/lastIssue"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/language">
+    <rdfs:label xml:lang="en">language information</rdfs:label>
+    <rdfs:label xml:lang="fi">kieli</rdfs:label>
+    <rdfs:label xml:lang="sv">språk</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/language"/>
+    <rdfs:subPropertyOf rdf:resource="http://rdaregistry.info/Elements/u/P60099"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ndef196d395304721baa3e5c9e4dc8747b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="ndef196d395304721baa3e5c9e4dc8747b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/AdminMetadata">
+    <rdfs:label xml:lang="en">Administrative metadata</rdfs:label>
+    <rdfs:label xml:lang="fi">Hallinnolliset metatiedot</rdfs:label>
+    <rdfs:label xml:lang="sv">Administrativ metadata</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/AdminMetadata"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10001"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Capture">
+    <rdfs:label xml:lang="en">Capture of content</rdfs:label>
+    <rdfs:label xml:lang="fi">Taltiointi</rdfs:label>
+    <rdfs:label xml:lang="sv">Inspelning</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Capture"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10007"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="naec4fa3b41634e01956b6b35d1e7d44db1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="naec4fa3b41634e01956b6b35d1e7d44db2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ndaac373cd8154fccbdd0dbd24c74a86ab2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="ndaac373cd8154fccbdd0dbd24c74a86ab3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/aap">
+    <rdfs:label xml:lang="en">authorized access point</rdfs:label>
+    <rdfs:label xml:lang="fi">auktorisoitu hakutieto</rdfs:label>
+    <rdfs:label xml:lang="sv">auktoriserad sökingång</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bflc/aap"/>
+    <rdfs:subPropertyOf rdf:resource="http://rdaregistry.info/Elements/x/P00020"/>
+    <rdfs:domain rdf:nodeID="n96c048e986ed4766853a9e65059281c5b1"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n96c048e986ed4766853a9e65059281c5b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n96c048e986ed4766853a9e65059281c5b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n79afe743def54bb38cdbd96bae1e973fb1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n79afe743def54bb38cdbd96bae1e973fb2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n00f77c52578048d5a6926acbe4781efab3">
+    <rdf:first rdf:resource="http://example.org/lkd/AdminMetadata"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n5b4c0265c4544974877ba3de695c6e17b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n5b4c0265c4544974877ba3de695c6e17b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Item">
+    <rdfs:label xml:lang="en">Item</rdfs:label>
+    <rdfs:label xml:lang="fi">Kappale</rdfs:label>
+    <rdfs:label xml:lang="sv">Exemplar</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Item"/>
+    <owl:equivalentClass rdf:resource="http://rdaregistry.info/Elements/c/C10003"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n4028eeab48ff4ae485dbb426be7a6928b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n4028eeab48ff4ae485dbb426be7a6928b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/titleNote">
+    <rdfs:label xml:lang="en">title note</rdfs:label>
+    <rdfs:label xml:lang="fi">huomautus nimekkeestä</rdfs:label>
+    <rdfs:label xml:lang="sv">anmärkning om titel</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/note"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Title"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Note"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/note"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/UsageAndAccessPolicy">
+    <rdfs:label xml:lang="en">Use and access conditions</rdfs:label>
+    <rdfs:label xml:lang="fi">Käyttö- ja pääsyrajoitukset</rdfs:label>
+    <rdfs:label xml:lang="sv">Villkor för användning och tillgång</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/UsageAndAccessPolicy"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10013"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/illustrativeContent">
+    <rdfs:label xml:lang="en">illustrative content</rdfs:label>
+    <rdfs:label xml:lang="fi">kuvasisältö</rdfs:label>
+    <rdfs:label xml:lang="sv">illustrativt innehåll</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/illustrativeContent"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/m/P30453"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Illustration"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ndaac373cd8154fccbdd0dbd24c74a86ab4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:nodeID="ndaac373cd8154fccbdd0dbd24c74a86ab5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/aapOfWork">
+    <rdfs:label xml:lang="en">authorized access point for work</rdfs:label>
+    <rdfs:label xml:lang="fi">teoksen auktorisoitu hakutieto</rdfs:label>
+    <rdfs:label xml:lang="sv">auktoriserad sökingång för verk</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://id.loc.gov/ontologies/bflc/aap"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/w/P10331"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Work"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9b707981df8f4b7b9ad9de06906055f3b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n9b707981df8f4b7b9ad9de06906055f3b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/aggregates">
+    <rdfs:label xml:lang="en">aggregates expression</rdfs:label>
+    <rdfs:label xml:lang="fi">aggregoi expression</rdfs:label>
+    <rdfs:label xml:lang="sv">aggregerar uttrycket</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/hasPart"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20319"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Aggregate"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/relatedTo"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd8baa720043a4320a3fdd8f171f71131b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="nd8baa720043a4320a3fdd8f171f71131b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n518be964cfcf4666bb17556a2e2c81e3b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ne5b4806b955e4a98b0e5a1059c8ec69ab1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="ne5b4806b955e4a98b0e5a1059c8ec69ab2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n41d570e0e2534c81a1d25bf603552dedb3">
+    <rdf:first rdf:resource="http://urn.fi/URN:NBN:fi:au:mts:m180"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/dateOfCapture">
+    <rdfs:label xml:lang="en">date of capture</rdfs:label>
+    <rdfs:label xml:lang="fi">tallennusajankohta</rdfs:label>
+    <rdfs:label xml:lang="sv">inspelningsdatum</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://id.loc.gov/ontologies/bibframe/date"/>
+    <owl:equivalentProperty rdf:resource="http://rdaregistry.info/Elements/e/P20004"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Capture"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://example.org/lkd/date"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n27f012d108c0497ab56ef6277f7161ebb3">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/Family">
+    <rdfs:label xml:lang="en">Family</rdfs:label>
+    <rdfs:label xml:lang="fi">Suku</rdfs:label>
+    <rdfs:label xml:lang="sv">Släkt</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/Family"/>
+    <owl:equivalentClass rdf:resource="http://rdaregistry.info/Elements/c/C10008"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6836af4a80bf44d79c3a44e51d36869bb3">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/enumerationAndChronology">
+    <rdfs:label xml:lang="en">enumeration and chronology</rdfs:label>
+    <rdfs:label xml:lang="fi">numerointi- ja julkaisuaikatiedot</rdfs:label>
+    <rdfs:label xml:lang="sv">information om numrering och utgivningstid</rdfs:label>
+    <owl:equivalentProperty rdf:resource="http://id.loc.gov/ontologies/bibframe/enumerationAndChronology"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Item"/>
+    <rdfs:range rdf:resource="http://example.org/lkd/EnumerationAndChronology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc6460a306944406b8459b3d3a793a622b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="nc6460a306944406b8459b3d3a793a622b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n25114620fa954a9cb5b17c7fb43c6bbcb5">
+    <rdf:first rdf:resource="http://urn.fi/URN:NBN:fi:au:mts:m491"/>
+    <rdf:rest rdf:nodeID="n25114620fa954a9cb5b17c7fb43c6bbcb6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/label">
+    <rdfs:label xml:lang="en">label</rdfs:label>
+    <rdfs:label xml:lang="fi">termi</rdfs:label>
+    <rdfs:label xml:lang="sv">term</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://rdaregistry.info/Elements/x/P00019"/>
+    <rdfs:domain rdf:resource="http://example.org/lkd/Note"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n00722ed18ded491fb1b15818390618bbb6">
+    <rdf:first rdf:resource="http://example.org/lkd/Event"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n06482d01d49c410bb1b6645009610230b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:nodeID="n06482d01d49c410bb1b6645009610230b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n3b691c0a6eaf47fa87295bc1576e6eccb1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n3b691c0a6eaf47fa87295bc1576e6eccb2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nea40383473ed4a44aa6e6d03f0a10d91b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="nea40383473ed4a44aa6e6d03f0a10d91b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6754c16ee76b43ad8a13aceaeb123c80b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n6754c16ee76b43ad8a13aceaeb123c80b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n58024de14ed5425e8a8bb9c89e772fe6b5">
+    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n5014aa70021344d48fabe3177ae1be6db6">
+    <rdf:first rdf:resource="http://example.org/lkd/Event"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6754c16ee76b43ad8a13aceaeb123c80b6">
+    <rdf:first rdf:resource="http://example.org/lkd/Event"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n79afe743def54bb38cdbd96bae1e973fb2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n79afe743def54bb38cdbd96bae1e973fb3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ndcbbfb5beb184aef91f279fd8660c3bdb3">
+    <rdf:first rdf:resource="http://example.org/lkd/ProvisionActivity"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n07ee8259ff474444a08e7bbcb4b15aa5b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n07ee8259ff474444a08e7bbcb4b15aa5b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/identifier">
+    <owl:inverseOf rdf:resource="http://example.org/lkd/itemIdentifiedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ne5b4806b955e4a98b0e5a1059c8ec69ab3">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n37f23681576f41a6a67c7943a12a6e53b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n37f23681576f41a6a67c7943a12a6e53b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="naec4fa3b41634e01956b6b35d1e7d44db3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="naec4fa3b41634e01956b6b35d1e7d44db4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="naec4fa3b41634e01956b6b35d1e7d44db4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:nodeID="naec4fa3b41634e01956b6b35d1e7d44db5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ne5b4806b955e4a98b0e5a1059c8ec69ab2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="ne5b4806b955e4a98b0e5a1059c8ec69ab3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n87b1b5833a724de09d0b8c4d0a127632b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n58024de14ed5425e8a8bb9c89e772fe6b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n58024de14ed5425e8a8bb9c89e772fe6b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6754c16ee76b43ad8a13aceaeb123c80b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n6754c16ee76b43ad8a13aceaeb123c80b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9c7bb65605a546df858f17df93e4e8e4b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n9c7bb65605a546df858f17df93e4e8e4b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n37f23681576f41a6a67c7943a12a6e53b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Capture"/>
+    <rdf:rest rdf:nodeID="n37f23681576f41a6a67c7943a12a6e53b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/lkd/TactileNotation">
+    <rdfs:label xml:lang="en">Tactile notation</rdfs:label>
+    <rdfs:label xml:lang="fi">Taktiili notaatio</rdfs:label>
+    <rdfs:label xml:lang="sv">Taktil notation</rdfs:label>
+    <owl:equivalentClass rdf:resource="http://id.loc.gov/ontologies/bibframe/TactileNotation"/>
+    <rdfs:subClassOf rdf:resource="http://rdaregistry.info/Elements/c/C10012"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/lkd/Notation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n96c048e986ed4766853a9e65059281c5b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n96c048e986ed4766853a9e65059281c5b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n9b707981df8f4b7b9ad9de06906055f3b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n9b707981df8f4b7b9ad9de06906055f3b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n27f012d108c0497ab56ef6277f7161ebb1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n27f012d108c0497ab56ef6277f7161ebb2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n99e6e740dcc3486cb77d9e397464eaa2b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n4028eeab48ff4ae485dbb426be7a6928b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n5014aa70021344d48fabe3177ae1be6db1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n5014aa70021344d48fabe3177ae1be6db2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n3b691c0a6eaf47fa87295bc1576e6eccb3">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n25114620fa954a9cb5b17c7fb43c6bbcb4">
+    <rdf:first rdf:resource="http://urn.fi/URN:NBN:fi:au:mts:m153"/>
+    <rdf:rest rdf:nodeID="n25114620fa954a9cb5b17c7fb43c6bbcb5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nc75f7271e248480da3a1fbabb539a09ab1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="nc75f7271e248480da3a1fbabb539a09ab2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n99e6e740dcc3486cb77d9e397464eaa2b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n99e6e740dcc3486cb77d9e397464eaa2b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n5014aa70021344d48fabe3177ae1be6db4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:nodeID="n5014aa70021344d48fabe3177ae1be6db5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n947d7655e5544dfabc86fb4a1a9a602eb6">
+    <rdf:first rdf:resource="http://example.org/lkd/Event"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="naec4fa3b41634e01956b6b35d1e7d44db5">
+    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:rest rdf:nodeID="naec4fa3b41634e01956b6b35d1e7d44db6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nea40383473ed4a44aa6e6d03f0a10d91b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6a0484b6dca64244a815a6816eb1b067b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n947d7655e5544dfabc86fb4a1a9a602eb5">
+    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:rest rdf:nodeID="n947d7655e5544dfabc86fb4a1a9a602eb6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6754c16ee76b43ad8a13aceaeb123c80b4">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:nodeID="n6754c16ee76b43ad8a13aceaeb123c80b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n87b1b5833a724de09d0b8c4d0a127632b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:nodeID="n87b1b5833a724de09d0b8c4d0a127632b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n947d7655e5544dfabc86fb4a1a9a602eb3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n947d7655e5544dfabc86fb4a1a9a602eb4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n58024de14ed5425e8a8bb9c89e772fe6b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n58024de14ed5425e8a8bb9c89e772fe6b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="naec4fa3b41634e01956b6b35d1e7d44db6">
+    <rdf:first rdf:resource="http://example.org/lkd/Event"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n07ee8259ff474444a08e7bbcb4b15aa5b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n07ee8259ff474444a08e7bbcb4b15aa5b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n00f77c52578048d5a6926acbe4781efab1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n00f77c52578048d5a6926acbe4781efab2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ndcbbfb5beb184aef91f279fd8660c3bdb1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="ndcbbfb5beb184aef91f279fd8660c3bdb2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6a0484b6dca64244a815a6816eb1b067b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Manifestation"/>
+    <rdf:rest rdf:nodeID="n6a0484b6dca64244a815a6816eb1b067b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n99e6e740dcc3486cb77d9e397464eaa2b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n99e6e740dcc3486cb77d9e397464eaa2b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n4028eeab48ff4ae485dbb426be7a6928b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n4028eeab48ff4ae485dbb426be7a6928b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n00722ed18ded491fb1b15818390618bbb1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="n00722ed18ded491fb1b15818390618bbb2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n6ae85d8627d94f008a8797ca8066aff2b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n6ae85d8627d94f008a8797ca8066aff2b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n96c048e986ed4766853a9e65059281c5b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="n96c048e986ed4766853a9e65059281c5b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n87b1b5833a724de09d0b8c4d0a127632b2">
+    <rdf:first rdf:resource="http://example.org/lkd/Work"/>
+    <rdf:rest rdf:nodeID="n87b1b5833a724de09d0b8c4d0a127632b3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="n06482d01d49c410bb1b6645009610230b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Item"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nea40383473ed4a44aa6e6d03f0a10d91b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="nea40383473ed4a44aa6e6d03f0a10d91b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nd8baa720043a4320a3fdd8f171f71131b3">
+    <rdf:first rdf:resource="http://example.org/lkd/Expression"/>
+    <rdf:rest rdf:nodeID="nd8baa720043a4320a3fdd8f171f71131b4"/>
+  </rdf:Description>
+</rdf:RDF>
