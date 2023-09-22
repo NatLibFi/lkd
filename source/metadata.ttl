@@ -35,3 +35,10 @@
     schema:member <https://orcid.org/0000-0002-8355-0256>, <https://orcid.org/0000-0002-2239-7980>,
     <https://orcid.org/0000-0002-6801-6151>, <https://orcid.org/0000-0002-2793-5485>, <https://orcid.org/0000-0002-5087-8669>,
     <https://orcid.org/0000-0002-0348-144X> .
+
+<closeMatch> a owl:AnnotationProperty ;
+   rdfs:label "lähes sama kuin"@fi, "close match to"@en ;
+   skos:definition "Refers to a semantically similar entity (typically class or property) in another ontology or scheme."@en,
+                   "Viittaa merkitykseltään samankaltaiseen entiteettiin (tyypillisesti luokka tai ominaisuus) jossakin toisessa ontologiassa tai skeemassa."@fi;
+    rdfs:subPropertyOf dct:relation ;
+    owl:equivalentProperty <https://www.svde.org/ontology/closeMatch> .
