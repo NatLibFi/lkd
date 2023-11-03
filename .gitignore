@@ -3,3 +3,6 @@ tools/lkd.html
 tools/lkd.rdf
 tools/lkd.ttl
 tools/stylesheet.css
+tools/lkd.csv
+tools/releases.csv
+tools/resolver

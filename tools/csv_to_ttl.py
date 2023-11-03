@@ -194,34 +194,7 @@ class DataModelConverter:
                 # labels
                 self.graph.add((lkd_id, RDFS.label, Literal(row["lkd rdfs:label-en"], "en")))
                 self.graph.add((lkd_id, RDFS.label, Literal(row["lkd rdfs:label-fi"], "fi")))
-                self.graph.add((lkd_id, RDFS.label, Literal(row["lkd rdfs:label-sv"], "sv")))
-
-                # LKD to BF mapping
-                lkd_map_bf = row["LKD-BF-owl-mapping"]
-                if lkd_map_bf not in ["owl:equivalentClass", "owl:equivalentProperty", "rdfs:subClassOf", "rdfs:subPropertyOf", "rdfs:seeAlso"]:
-                    if not lkd_map_bf in EMPTY_COL_VALS:
-                        raise ValueError(f"Mapping property from {lkd_id} to BIBFRAME had an unexpected value, got: {lkd_map_bf}")
-                    else:
-                        # missing values may pass
-                        pass
-                else:
-                    self.graph.add((lkd_id, self.from_n3(lkd_map_bf), URIRef(row["bibframeURI"])))
-
-                # LKD to RDA mapping
-                lkd_map_rda = row["LKD-RDA-owl-mapping"]
-                if lkd_map_rda not in ["owl:equivalentClass", "owl:equivalentProperty", "rdfs:subClassOf", "rdfs:subPropertyOf", "rdfs:seeAlso"]:
-                    if not lkd_map_rda in EMPTY_COL_VALS:
-                        raise ValueError(f"Mapping property from {lkd_id} to RDA had an unexpected value, got: {lkd_map_bf}")
-                    else:
-                        # missing values may pass
-                        pass
-                elif row["rdaURI"] in EMPTY_COL_VALS:
-                    # missing values may pass
-                    pass
-                else:
-                    for item in [_.strip() for _ in row["rdaURI"].split("|")]:
-                        long_iri = self.graph.namespace_manager.expand_curie(item) if not item.startswith("http") else item
-                        self.graph.add((lkd_id, self.from_n3(lkd_map_rda), URIRef(long_iri)))
+                #self.graph.add((lkd_id, RDFS.label, Literal(row["lkd rdfs:label-sv"], "sv")))
 
                 # domain
                 domainCol = "lkd rdfs:domain"
@@ -235,7 +208,7 @@ class DataModelConverter:
 
                 # type
                 lkd_type = row["lkd: rdf:type"]
-                if lkd_type == "owl:Class":
+                if (lkd_id_isClass:=lkd_type == "owl:Class"):
                     self.graph.add((lkd_id, RDF.type, OWL.Class))
                 elif lkd_type in ["owl:ObjectProperty", "owl:SymmetricProperty"]:
                     self.graph.add((lkd_id, RDF.type, OWL[lkd_type[4:]]))
@@ -255,6 +228,40 @@ class DataModelConverter:
                         self.graph.add((lkd_id, RDFS.range, RDFS.Literal))
                 else:
                     raise ValueError(f"{lkd_id} had an unexpected type value, got {lkd_type}")
+
+                # LKD to BF mapping
+                lkd_map_bf = row["LKD-BF-owl-mapping"]
+                if lkd_map_bf not in ["owl:equivalentClass", "owl:equivalentProperty", "rdfs:subClassOf", "rdfs:subPropertyOf", "rdfs:seeAlso"]:
+                    if not lkd_map_bf in EMPTY_COL_VALS:
+                        raise ValueError(f"Mapping property from {lkd_id} to BIBFRAME had an unexpected value, got: {lkd_map_bf}")
+                    else:
+                        # missing values may pass
+                        pass
+                else:
+                    self.graph.add((lkd_id, self.from_n3(lkd_map_bf), URIRef(row["bibframeURI"])))
+
+                # LKD to RDA mapping
+                lkd_map_rda = row["LKD-RDA-owl-mapping"]
+                if lkd_map_rda not in ["lkd:broadMatch", "lkd:closeMatch", "lkd:exactMatch", "lkd:narrowMatch", "rdfs:seeAlso"]:
+                    if not lkd_map_rda in EMPTY_COL_VALS:
+                        raise ValueError(f"Mapping property from {lkd_id} to RDA had an unexpected value, got: {lkd_map_rda}")
+                    else:
+                        # missing values may pass
+                        pass
+                elif row["rdaURI"] in EMPTY_COL_VALS:
+                    # missing values may pass
+                    pass
+                else:
+                    for item in [_.strip() for _ in row["rdaURI"].split("|")]:
+                        long_iri = self.graph.namespace_manager.expand_curie(item) if not item.startswith("http") else item
+                        self.graph.add((lkd_id, self.from_n3(lkd_map_rda), URIRef(long_iri)))
+                        # test that classes match with RDA classes and vice versa for properties
+                        if not (rdaURI_isClass:=long_iri.startswith("http://rdaregistry.info/Elements/c/") and lkd_id_isClass):
+                            # let termList values pass for now
+                            if "/termList/" not in long_iri:
+                                ValueError(f"{lkd_id} is a class but has RDA relationship to something other than to a RDA class!")
+                        elif rdaURI_isClass and not lkd_id_isClass:
+                            ValueError(f"{lkd_id} is not a class but has RDA relationship to a RDA class!")
 
                 # subclasses
                 lkd_subclass = row["lkd: rdfs:subClassOf"]

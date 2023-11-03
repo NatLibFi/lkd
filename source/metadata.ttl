@@ -36,33 +36,33 @@
     <https://orcid.org/0000-0002-6801-6151>, <https://orcid.org/0000-0002-2793-5485>, <https://orcid.org/0000-0002-5087-8669>,
     <https://orcid.org/0000-0002-0348-144X> .
 
-skos:definition a owl:AnnotationProperty ;  
+skos:definition
     rdfs:label "definition"@en, "määritelmä"@fi .
 
-rdfs:seeAlso a rdf:Property ;
+rdfs:seeAlso
     rdfs:label "katso myös"@fi, "see also"@en .
 
 <exactMatch> a owl:AnnotationProperty ; 
     rdfs:label "tarkasti vastaava"@fi, "exact match"@en ;
     skos:definition "Semantically exactly matching class or property in another ontology or scheme."@en, 
-                   "Merkitykseltään vastaava luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi;
+                    "Merkitykseltään vastaava luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi;
     rdfs:subPropertyOf dct:relation .
 
 <closeMatch> a owl:AnnotationProperty ;
     rdfs:label "lähes vastaava"@fi, "close match"@en ;
     skos:definition "Semantically similar class or property in another ontology or scheme."@en,
-                   "Merkitykseltään lähes vastaava luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi;
+                    "Merkitykseltään lähes vastaava luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi;
    rdfs:subPropertyOf dct:relation ;
    owl:equivalentProperty <https://www.svde.org/ontology/closeMatch> .
 
 <broadMatch>  a owl:AnnotationProperty ; 
     rdfs:label "laajempi vastaavuus"@fi, "broad match"@en ;
-   skos:definition "Semantically broader class or property in another ontology or scheme."@en, 
-                   "Merkitykseltään vastaava laajempi luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi;
-   rdfs:subPropertyOf dct:relation .
+    skos:definition "Semantically broader class or property in another ontology or scheme."@en,
+                    "Merkitykseltään vastaava laajempi luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi;
+    rdfs:subPropertyOf dct:relation .
 
 <narrowMatch>  a owl:AnnotationProperty ; 
     rdfs:label "suppeampi vastaavuus"@fi, "narrow match"@en ;
-   skos:definition "Semantically narrower class or property in another ontology or scheme."@en, 
-                   "Merkitykseltään vastaava suppeampi luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi;
-   rdfs:subPropertyOf dct:relation .
+    skos:definition "Semantically narrower class or property in another ontology or scheme."@en,
+                    "Merkitykseltään vastaava suppeampi luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi;
+    rdfs:subPropertyOf dct:relation .

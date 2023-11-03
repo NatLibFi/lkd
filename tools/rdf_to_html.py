@@ -14,10 +14,19 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 """
-import argparse
+import copy
+import contextlib
 import csv
+import io
 import logging
+import os
+import pathlib
+import sys
+import textwrap
+import time
+import urllib
 
+from argparse import ArgumentParser, Action
 from lxml import etree
 from lxml.etree import Element, SubElement
 from rdflib import Graph, URIRef, BNode, Namespace, RDF, Literal, util, DCTERMS, FOAF
@@ -55,34 +64,31 @@ HEADERS_SINGULAR = {v: (v[0] + ''.join(
 TYPES = [OWL.Class, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty, '']
 
 # Row labels below are ordered
-# Note: conversions from InvPath to str are used because of rdflib issue #2242
 ROW_HEADER_LABELS = {
-    'IRI': '',
     RDFS.label: 'Label',
+    SKOS.definition: 'Definition',
+    RDFS.comment: "Comment",
     RDF.type: 'Type',
     OWL.inverseOf: 'Inverse Property',
     OWL.equivalentClass: 'Equivalent Class',
     OWL.equivalentProperty: 'Equivalent Property',
     OWL.disjointWith: 'Disjoint With',
     RDFS.subClassOf: 'SubClass Of',
-    InvPath(RDFS.subClassOf).n3(): 'SubClassed As',
-    InvPath(RDFS.range).n3(): 'Is in Range Of',
+    InvPath(RDFS.subClassOf): 'SubClassed As',
     RDFS.subPropertyOf: 'SubProperty Of',
-    InvPath(RDFS.subPropertyOf).n3(): 'SubProperties',
+    InvPath(RDFS.subPropertyOf): 'SubProperties',
     RDFS.seeAlso: 'See Also',
     RDFS.domain: 'Domain',
-    InvPath(RDFS.domain).n3(): 'Is in Domain Of',
+    InvPath(RDFS.domain): 'Is in Domain Of',
     RDFS.range: 'Range',
+    InvPath(RDFS.range): 'Is in Range Of',
     DCTERMS.identifier: 'Identifier',
     DCTERMS.coverage: 'Coverage',
     SCHEMA.parentOrganization: 'Parent Organization',
     SCHEMA.location: 'Location',
     SCHEMA.member: 'Has Member',
     FOAF.homepage: 'Homepage',
-    SKOS.broadMatch: 'Broader Match',
-    SKOS.closeMatch: 'Close Match',
-    SKOS.exactMatch: 'Exact Match',
-    SKOS.narrowMatch: 'Narrow Match',
+    # LKD.{(broad|close|exact|narrow)Match} to be added live
 }
 
 class RDFtoHTML:
@@ -93,15 +99,15 @@ class RDFtoHTML:
     to take into account quirks in LKD data model.
     '''
     def __init__(self):
-        parser = argparse.ArgumentParser(description='Conversion of LKD data model from RDF to HTML')
-        parser.add_argument('-pl', '--pref-label',
-            help='Property name for preferred labels, e.g., skos:prefLabel', required=True)
+        parser = ArgumentParser(description='Conversion of LKD data model from RDF to HTML')
+        plArg = parser.add_argument('-pl', '--pref-label',
+            help='Preferred label property, e.g., rdfs:label or <http://www.w3.org/2000/01/rdf-schema#label>', required=True)
         parser.add_argument('-l', '--language',
-            help='Language code of main language used in HTML documentation', required=True)
+            help='Language code of firstly displayed language-tagged literal in HTML documentation', required=True)
         parser.add_argument('-i', '--input-path',
-            help='Input path for rdf file', required=True)
+            help='Input path for rdf file', required=True, type=pathlib.Path)
         parser.add_argument('-o', '--output-path',
-            help='Output path for html documentation file', required=True)
+            help='Output path for html documentation file', required=True, type=pathlib.Path)
         parser.add_argument('-ns', '--namespace',
             help='Namespace of concepts in input file', required=True)
         parser.add_argument('-u', '--base-url',
@@ -110,11 +116,15 @@ class RDFtoHTML:
             help='Title of HTML document')
         parser.add_argument('-d', '--description',
             help='HTML file containing description of data model to be included to output file')
-        parser.add_argument('-m', '--metadata-path',
+        parser.add_argument("--embedded-css", default=False, action="store_true",
+            help="Create a stand-alone HTML document via embedding the stylesheet rules into it")
+        parser.add_argument('-rda', '--rda-vocabularies-path', type=pathlib.Path,
+            help="Input path for RDA Vocabularies directory, to be used in showing human readable RDA labels")
+        parser.add_argument('-m', '--metadata-path', type=pathlib.Path,
             help='Input path for a separate RDF metadata file, to be used in populating description list')
         parser.add_argument("-r", "--releases-path",
             help="Input path for separate releases csv file")
-        parser.add_argument('--other-identifiers', default='lkd:NatLibFi lkd:lkdProject',
+        oiArg = parser.add_argument('--other-identifiers', default='lkd:NatLibFi lkd:lkdProject',
             help='Other identifiers to be shown in the html documentation file')
         parser.add_argument('-v', '--version',
             help='Explicit version number (in format x.y.z), used to overwrite any such thing defined in metadata file')
@@ -122,12 +132,13 @@ class RDFtoHTML:
             help='Explicit prior version number (in format x.y.z), used to overwrite any such thing defined by metadata file')
         args = parser.parse_args()
         self.language = args.language
-        self.pref_label = args.pref_label
         self.input_path = args.input_path
         self.output_path = args.output_path
         self.namespace = args.namespace
         self.base_url = args.base_url
         self.title = args.title
+        self.embedded_css = args.embedded_css
+        self.rda_path = args.rda_vocabularies_path
         self.description = args.description
         self.metadata_path = args.metadata_path
         self.releases_path = args.releases_path
@@ -140,27 +151,82 @@ class RDFtoHTML:
         # identifier for the LKD ontology
         self.URIRef = URIRef(self.combined_graph.namespace_manager.expand_curie('lkd:'))
 
+        # FIXME: add these to globals after LKD namespace has been fixed
+        LKD = Namespace(self.URIRef)
+        ROW_HEADER_LABELS.update({
+            LKD.broadMatch: 'Broader Match',
+            LKD.closeMatch: 'Close Match',
+            LKD.exactMatch: 'Exact Match',
+            LKD.narrowMatch: 'Narrow Match',
+        })
+
         if self.metadata_path:
             self.combined_graph.parse(self.metadata_path, format='ttl', publicID=self.URIRef)
 
+        self.pref_label = self.parse_URIRef_arg(args.pref_label, parser, plArg)
+
         self.other_identifiers = [
-            URIRef(util.from_n3(x, nsm=self.combined_graph.namespace_manager)) for x in args.other_identifiers.split()
+            self.parse_URIRef_arg(x, parser, oiArg) for x in args.other_identifiers.split() if len(x)
         ]
+
+        self.rda = {}
+        if self.rda_path:
+            for prefix, ns in self.combined_graph.namespaces():
+                if ns.startswith(RDA):
+                    dir_name = ns.split('/', 4)[3]
+                    with open(f"{self.rda_path}/csv/{dir_name}/{prefix}.csv", "r", encoding="utf-8", newline="") as rdafile:
+                        csvreader = csv.DictReader(rdafile, delimiter=",")
+                        for line in csvreader:
+                            self.rda[str(ns + line["*uri"].partition(":")[2])] = line["*label_en" if dir_name == 'Elements' else "*preferred label[0]_en"]
+
+        self.aElems = {}
 
         self.parse_graph()
 
-    def get_pref_label(self, subject, graph=None):
+    def parse_URIRef_arg(self, arg_str: str, parser: ArgumentParser, action: Action) -> URIRef:
+        with contextlib.redirect_stderr(io.StringIO()) as f:
+            if arg_str.startswith("<") and arg_str.endswith(">"):
+                # NB: does not support relative values
+                ret = URIRef(arg_str[1:-1])
+            else:
+                ret = URIRef(arg_str)
+        valid = None if (_:=f.getvalue()) else ret
+        try:
+            with contextlib.redirect_stderr(io.StringIO()) as f2:
+                if ret != (_:=URIRef(util.from_n3(arg_str, nsm=self.combined_graph.namespace_manager))):
+                    ret = _
+            if valid == None and f2.getvalue():
+                parser.error(f"argument {'/'.join(action.option_strings)}: invalid value: '{arg_str}'.")
+
+        except KeyError as e:
+            if e.args[0] in ["http", "https", "file"]:
+                pass
+            else:
+                reason = f"Prefix '{e.args[0]}' is not defined. Try encapsulate value with '<' and '>' for literal meaning?"
+                parser.error(f"argument {'/'.join(action.option_strings)}: invalid value: '{arg_str}'. Reason: {reason}")
+        return ret
+
+    def get_pref_label(self, subject: URIRef, graph: Graph=None, labelPropArr=None, lang=None, warn=True):
         graph = graph or self.graph
-        for probj in graph.predicate_objects(subject):
-            prop = probj[0]
-            obj = probj[1]
-            prop_ns = prop.n3(graph.namespace_manager)
-            if prop_ns == self.pref_label:
-                if Literal(probj[1]).language:
-                    if self.language == Literal(probj[1]).language:
-                        return(obj)
+        if not labelPropArr:
+            labelPropArr = [self.pref_label]
+        elif type(labelPropArr) == URIRef:
+            labelPropArr = [labelPropArr]
+        if not lang:
+            lang = self.language
+
+        for property in labelPropArr:
+            for object in graph.objects(subject, property):
+                if type(object) == Literal:
+                    if object.language:
+                        if lang == object.language:
+                            return object
+                    else:
+                        return object
                 else:
-                    return(obj)
+                    return object
+        if warn:
+            logging.warning(f'Unable to find a label for {subject}')
 
     def sort_properties_with_id(self, properties):
         sorted_labels = sorted(properties.keys(), key=str.casefold)
@@ -171,38 +237,115 @@ class RDFtoHTML:
 
         return sorted_properties
 
-    def sort_properties_with_label(self, properties):
-        unsorted_properties = {}
-        for prop in properties:
-            pref_label = self.get_pref_label(prop, graph=self.graph)
-            unsorted_properties[pref_label] = {prop: properties[prop]}
-        sorted_labels = sorted(unsorted_properties.keys(), key=str.casefold)
-        sorted_properties = {}
-        for pref_label in sorted_labels:
-            sorted_properties.update(unsorted_properties[pref_label])
-        return sorted_properties
-
-    def create_hyperlink_elem(self, identifier) -> etree.ElementBase:
+    def create_hyperlink_elem(self, identifier: URIRef, resort_marker_elem=None) -> etree.ElementBase:
+        if identifier in self.aElems:
+            return copy.copy(self.aElems[identifier])
         if identifier.startswith(self.namespace):
             dfrag = defrag_iri(identifier)
             (aElem := Element('a', attrib={'href': '#' + dfrag[1]})).text = dfrag[1]
-        else:
-            aElem = Element('a', attrib={'href': str(identifier), 'target': '_blank'})
-            qname = identifier.n3(self.graph.namespace_manager)
-            if not (ns:=qname.split(':')[0]).startswith('<http'):
-                self.used_prefixes.add(ns)
-            aElem.text = str(qname)
+            # test that a label exists
+            self.get_pref_label(identifier)
+            self.aElems[identifier] = aElem
+            return copy.copy(aElem)
 
-            if identifier.startswith('http://id.loc.gov/ontologies/'):
-                # As BF and BFLC links serve RDF by default, change href to HTML representation
-                addr_end_ind = identifier.rfind('/')
-                aElem.set('href',
-                    identifier[:addr_end_ind] +
-                    '.html#' +
-                    ('c_' if identifier[addr_end_ind+1].isupper() else 'p_') +
-                    identifier[addr_end_ind+1:]
+        aElem = Element('a', attrib={'href': (href:=str(identifier)), 'target': '_blank'}) #type: etree.ElementBase
+
+        qname = identifier.n3(self.graph.namespace_manager)
+        aElem.text = str(qname)
+
+        if identifier.startswith('http://id.loc.gov/ontologies/'):
+            # As BF and BFLC links serve RDF by default, change href to HTML representation
+            addr_end_ind = identifier.rfind('/')
+            aElem.set('href',
+                identifier[:addr_end_ind] +
+                '.html#' +
+                ('c_' if identifier[addr_end_ind+1].isupper() else 'p_') +
+                identifier[addr_end_ind+1:]
+            )
+        elif identifier.startswith(RDA):
+            if (rda_label:=self.rda.get(href, None)):
+                aElem.text += f" ({rda_label})"
+            else:
+                if '/termList/' in href:
+                    # IRI is of form /termList/xyz where xyz already tells us enough about the label
+                    pass
+                else:
+                    logging.warning(f"RDA label not found for {aElem.text}")
+        elif (yso:=href.startswith("http://www.yso.fi")) or href.startswith("http://urn.fi"):
+            # local source is of form finto/vocid/lname.ttl
+            local_rdf_source = os.path.join("resolver/finto/", (_:=href.split('/' if yso else ':'))[-2], _[-1] + ".ttl")
+            os.makedirs(os.path.dirname(local_rdf_source), exist_ok=True)
+            if os.path.exists(local_rdf_source):
+                g = Graph().parse(local_rdf_source)
+            else:
+                g = Graph().parse(href)
+                g.serialize(destination=local_rdf_source)
+                logging.info(f"Downloaded Finto.fi-based link to {local_rdf_source}.")
+
+            if (aLabel:= self.get_pref_label(identifier, g, SKOS.prefLabel, warn=False)):
+                aElem.text = aLabel
+                if yso and (identifier, SKOS.inScheme, URIRef("http://www.yso.fi/onto/yso/places")) in g:
+                    aElem.tail = f" (yso-paikat)"
+                else:
+                    aElem.tail = f" ({_[-2]})"
+
+        elif href.startswith("https://orcid.org/"):
+            local_rdf_source = os.path.join("resolver/orcid/", href.rpartition('/')[2] + ".ttl")
+            os.makedirs(os.path.dirname(local_rdf_source), exist_ok=True)
+            if os.path.exists(local_rdf_source):
+                g = Graph().parse(local_rdf_source)
+            else:
+                g = Graph().parse(href)
+                g.serialize(destination=local_rdf_source)
+                logging.info(f"Downloaded ORCID link to {local_rdf_source}.")
+                # only send 120 requests per minute
+                time.sleep(0.5)
+            aElem.text = g.value(identifier, RDFS.label)
+        elif "://isni.org/isni/" in href:
+            local_rdf_source = os.path.join("resolver/isni/", (isni_id:=href.rpartition('/')[2]) + "-wikidata.ttl")
+            os.makedirs(os.path.dirname(local_rdf_source), exist_ok=True)
+            isni_lit = Literal(" ".join(textwrap.wrap(isni_id, 4)))
+            if os.path.exists(local_rdf_source):
+                g = Graph().parse(local_rdf_source)
+            else:
+                # ISNI does not readily serve RDF, use Wikidata instead
+                q = prepareQuery('''CONSTRUCT {
+    ?s wdt:P213 ?isni.
+    ?s rdfs:label ?label.
+    ?s wdtn:P244 ?lc.
+    ?s wdtn:P8980 ?finaf.
+}
+WHERE {
+    SERVICE <https://query.wikidata.org/sparql> {
+        ?s wdt:P213 ?isni .
+        ?s rdfs:label ?label .
+        OPTIONAL {?s wdtn:P244 ?lc}
+        OPTIONAL {?s wdtn:P8980 ?finaf}
+    }
+}''', initNs = { 'rdfs': RDFS, 'wdt': URIRef("http://www.wikidata.org/prop/direct/"), 'wdtn': (wdtn:=Namespace("http://www.wikidata.org/prop/direct-normalized/")) }
                 )
-        return aElem
+
+                g = Graph().query(q, initBindings={'isni': isni_lit}).graph
+                g.serialize(destination=local_rdf_source, format="ttl")
+                logging.info(f"Downloaded ISNI link to {local_rdf_source}.")
+                # only send 120 requests per minute
+                time.sleep(0.5)
+            if (len((_:=list(g.subjects(object=isni_lit, unique=True))))) == 1:
+                if (aLabel:=self.get_pref_label(_[0], g, RDFS.label)):
+                    aElem.text = aLabel
+                    aElem.tail = " (isni)"
+
+        if identifier in self.other_identifiers:
+            aElem.attrib['href'] = '#' + aElem.text
+            del aElem.attrib['target']
+        if resort_marker_elem is not None:
+            resort_marker_elem.set('resort', "true")
+
+        if not (ns:=qname.split(':')[0]).startswith('<http') and aElem.text.startswith(ns+':'):
+            self.used_prefixes.add(ns)
+
+        self.aElems[identifier] = aElem
+        return copy.copy(aElem)
 
     def create_contents(self, html_elem, header: str, properties):
         SubElement(html_elem, 'h2', id=header.replace(' ', '')).text = header
@@ -210,7 +353,8 @@ class RDFtoHTML:
         for idx, subject in enumerate(properties):
             result = defrag_iri(subject)
             if result:
-                fragment = result[1]
+                # FIXME fragment = result[1]
+                fragment = result[1] if result[0] == str(self.URIRef) else subject.n3(self.graph.namespace_manager)
                 text = fragment
                 (anchor:=SubElement(SubElement(ul_elem, 'li'), 'a', href='#' + fragment)).text = text 
                 if idx < len(properties) - 1:
@@ -222,75 +366,89 @@ class RDFtoHTML:
         for subject in properties:
             result = defrag_iri(subject)
             if result:
+                if result[0] != str(self.URIRef): # FIXME
+                    result = (result[0], subject.n3(self.graph.namespace_manager))
                 table = SubElement(tableContainerDiv, 'table', id=result[1])
                 tablerow = SubElement(table, 'tr', attrib={'class': 'trHeading'})
                 SubElement(tablerow, 'td', attrib={'class': 'key'}).text = HEADERS_SINGULAR[header] + ':'
-                td_value = SubElement(tablerow, 'td', attrib={'class': 'value'})
+                td_value = SubElement(tablerow, 'td', attrib={'class': 'value'}) #type: etree.ElementBase
                 SubElement(td_value, 'a', href='#' + result[1]).text = result[1]
-
+                table.append(etree.fromstring(f'<tr><td class="key">IRI</td><td class="value"><div>{subject}</div></td></tr>'))
                 for prop in properties[subject]:
+                    # only show types in 'Other Identifiers' section
                     if prop == RDF.type and next(reversed(HEADERS.values())) != header:
                         continue
                     tablerow = SubElement(table, 'tr')
-                    if type(prop) == URIRef or prop != 'IRI':
-                        if (rowLabel:=ROW_HEADER_LABELS[prop]):
-                            (td_key:=SubElement(tablerow, 'td')).text = rowLabel
-                        else:
-                            root = self.tag(prop)
-                            td_key = SubElement(tablerow, 'td')
-                            td_key.append(root)
-                    else:
-                        (td_key:=SubElement(tablerow, 'td')).text = prop
+                    (td_key:=SubElement(tablerow, 'td')).text = ROW_HEADER_LABELS[prop]
 
                     td_key.set('class', 'key')
-                    td_value_orig = SubElement(tablerow, 'td', attrib={'class': 'value'})
+                    td_value_orig = SubElement(tablerow, 'td', attrib={'class': 'value'}) #type: etree.ElementBase
 
                     for idx, value in enumerate(properties[subject][prop]):
                         td_value = SubElement(td_value_orig, 'div')
-                        if type(value) in [URIRef, InvPath]:
-                            if prop == 'IRI':
-                                td_value.text = value
-                            else:
-                                root = self.create_hyperlink_elem(value)
-                                if idx < len(properties[subject][prop]) - 1:
-                                    root.tail = ', ' if not root.tail else root.tail + ', '
-                                td_value.append(root)
+                        if type(value) == URIRef:
+                            aElem = self.create_hyperlink_elem(value, resort_marker_elem=td_value_orig)
+                            href = aElem.attrib['href']
+                            td_value.append(aElem)
+
+                            if prop == RDFS.subClassOf:
+                                if href[0] == "#":
+                                    if (None, RDFS.range, value) in self.graph:
+                                        aElem.set('class', 'todo')
+                                        td_value.append(Element('ul', attrib={'class': 'superclassProps outwards'}))
+
+                                    if (None, RDFS.domain, value) in self.graph:
+                                        aElem.set('class', 'todo')
+                                        td_value.append(Element('ul', attrib={'class': 'superclassProps inwards'}))
+
+                            elif type(prop) == InvPath and ((dom:=prop==InvPath(RDFS.domain)) or prop == InvPath(RDFS.range)):
+                                tablerow.set('class', "isInDomainOf" if dom else "isInRangeOf")
+                                aElem.tail = (aElem.tail or '') + (" → " if dom else " ← ")
+                                for node in self.graph.objects(value, RDFS.range if dom else RDFS.domain):
+                                    if type(node) == URIRef:
+                                        td_value.append(self.create_hyperlink_elem(node))
+                                    elif type(node) == BNode:
+                                        aElem.tail += "{"
+                                        unionOf = self.graph.value(node, OWL.unionOf, any=False)
+                                        union_len = len(list(self.graph.items(unionOf)))
+                                        for idx2, x in enumerate(self.graph.items(unionOf), start=1):
+                                            td_value.append((_:=self.create_hyperlink_elem(x)))
+                                            if idx2 < union_len:
+                                                _.tail = (_.tail or '') + ", "
+                                            else:
+                                                _.tail = (_.tail or '') + "}"
+                                    else:
+                                        logging.warning("Encountered literal, skipping in {value} {prop} {node}")
+
                         elif type(value) == BNode:
-                            a = list(self.graph.objects(value, OWL.unionOf))
-                            if len(a) == 1:
-                                unionOf = list(self.graph.items(a[0]))
-                                td_value.text = 'Union of '
-                                union_len = len(unionOf) - 2
+                            unionOf = self.graph.value(value, OWL.unionOf, any=False)
+                            union_len = len(list(self.graph.items(unionOf)))
+                            td_value.text = 'Union of '
 
-                                for idx2, x in enumerate(unionOf):
-                                    union_aElem = self.create_hyperlink_elem(x)
-                                    if idx2 < union_len:
-                                        union_aElem.tail = ', '
-                                    elif idx2 == union_len:
-                                        union_aElem.tail = ' and '
-                                    td_value.append(union_aElem)
-                            else:
-                                logging.warning(
-                                    'Multiple owl:unionOf structures detected for %s %s %s, skipping' % subject, prop, value
-                                )
+                            for idx2, x in enumerate(self.graph.items(unionOf), start=2):
+                                td_value.append((_:=self.create_hyperlink_elem(x)))
+                                if idx2 < union_len:
+                                    _.tail = (_.tail or '') + ", "
+                                elif idx2 == union_len:
+                                    _.tail = (_.tail or '') + ' and '
+
                         else:
-                            if Literal(value).language:
-                                value = str(value) + ' (' + Literal(value).language + ')'
-
-                            text = str(value)
-
-                            if idx < len(properties[subject][prop]) - 1:
-                                text += ', '
+                            #type(value) == Literal:
+                            rawText = str(value) + (f" ({value.language})" if value.language != None else '')
 
                             try:
-                                text = etree.fromstring(text)
-                                td_value.append(text)
+                                litText = etree.fromstring(rawText)
+                                td_value.append(litText)
                             except etree.XMLSyntaxError:
                                 try:
-                                    text = etree.fromstring(text)
-                                    td_value.append(text)
+                                    litText = etree.fromstring(rawText)
+                                    td_value.append(litText)
                                 except etree.XMLSyntaxError:
-                                    td_value.text = text
+                                    td_value.text = rawText
+
+                    if td_value_orig.get('resort', None):
+                        td_value_orig[:] = sorted(td_value_orig[:], key=lambda _: (_[0].text or '') + (_[0].tail or ''))
+                        del td_value_orig.attrib['resort']
 
                 #Add back to header list and top links
                 backToDiv = SubElement(tableContainerDiv, 'div', attrib={'class': 'backToTop'})
@@ -308,12 +466,9 @@ class RDFtoHTML:
 
     def parse_graph(self):
         self.graph.parse(self.input_path, format='ttl')
-        data_model = {} # type: dict[URIRef, Any]
-        inverse_prop_list = set()
-        sort_order_list = list(ROW_HEADER_LABELS.keys())
-        for key, val in ROW_HEADER_LABELS.items():
-            if type(key) == str:
-                inverse_prop_list.add(URIRef(key[2:-1]))
+        data_model = {} # type: dict[URIRef, InvPath]
+
+        inverse_prop_list = [URIRef(str(x)[6:-1]) for x in filter(lambda i: isinstance(i, InvPath), ROW_HEADER_LABELS.keys())]
 
         q = prepareQuery(
             'SELECT ?s ?p WHERE { ?s ?p ?o . ?o owl:unionOf ?o2 . ?o2 rdf:rest*/rdf:first ?o3 .}',
@@ -325,63 +480,45 @@ class RDFtoHTML:
         for t in TYPES:
             data_model[t] = {}
             for subject in (self.graph.subjects(RDF.type, t) if t != '' else self.other_identifiers):
-                fragment = None
-                result = defrag_iri(subject)
-                if result:
-                    fragment = result[1]
-                pref_label = self.get_pref_label(subject)
                 if type(subject) == BNode:
                     # Not supported at the moment
                     continue
 
+                fragment = None
+                result = defrag_iri(subject)
+                if result:
+                    fragment = result[1]
+                pref_label = self.get_pref_label(subject, warn=False)
+                if not pref_label and subject in self.other_identifiers:
+                    # FIXME: refactor
+                    pref_label = subject.n3(self.graph.namespace_manager)
                 if pref_label and fragment:
-                    sorted_properties  = {}
-                    sorted_properties['IRI'] = [subject]
-                    pref_labels = []
-                    other_properties = []
+                    properties = dict((x, []) for x in ROW_HEADER_LABELS.keys())
+
                     for prop, obj in self.graph.predicate_objects(subject):
-                        prop_ns = prop.n3(self.graph.namespace_manager)
-                        language = _ if (_:=Literal(obj).language) else None
-                        prop_dict = {'language': language, 'prop': prop, 'obj': obj}
-                        if prop_ns == self.pref_label:
-                            pref_labels.append(prop_dict)
-                        else:
-                            other_properties.append(prop_dict)
+                        properties[prop].append(obj)
 
                     for obj, prop in filter(lambda w: w[1] in inverse_prop_list, self.graph.subject_predicates(subject)):
-                        prop_dict = {'language': None, 'prop': InvPath(prop).n3(), 'obj': obj}
-                        other_properties.append(prop_dict)
+                        properties[InvPath(prop)].append(obj)
 
                     for obj, prop in self.graph.query(q, initBindings={'o3': subject}):
-                        prop_dict = {'language': None, 'prop': InvPath(prop).n3(), 'obj': obj}
-                        other_properties.append(prop_dict)
+                        properties[InvPath(prop)].append(obj)
 
-                    sorted_languages = sorted(pref_labels, key=lambda k: (  
-                        k['language'] != self.language,
-                        k['language']
-                    ))
+                    for pred in ROW_HEADER_LABELS.keys():
+                        if (vlen:=len(properties[pred])) > 1:
+                            properties[pred].sort(
+                                key=lambda k: (
+                                    (lang:=None if not isinstance(k, Literal) or k.datatype else k.language or "") != self.language,
+                                    lang,
+                                    k
+                                )
+                            )
+                        elif vlen == 0:
+                            del properties[pred]
 
-                    for sl in sorted_languages:
-                        if sl['prop'] in sorted_properties:
-                            sorted_properties[sl['prop']].append(sl['obj'])
-                        else:
-                            sorted_properties[sl['prop']] = [sl['obj']]
-
-                    other_properties = sorted(other_properties, key=lambda k: (  
-                        k['prop'], k['obj']
-                    ))
-
-                    for sl in other_properties:
-                        if sl['prop'] in sorted_properties:
-                            sorted_properties[sl['prop']].append(sl['obj'])
-                        else:
-                            sorted_properties[sl['prop']] = [sl['obj']]
-
-                    sorted_properties = dict(sorted(sorted_properties.items(), key=lambda x: sort_order_list.index(x[0]))) 
-                    data_model[(t if t else '')][subject] = sorted_properties
-
+                    data_model[(t if t else '')][subject] = properties
                 else:
-                    logging.warning('PrefLabel or URI fragment missing from %s' % subject)                      
+                    logging.warning('PrefLabel or URI fragment missing from %s. Skipping.' % subject)
 
         html_elem = Element('html') # type: etree.ElementBase
         head_elem = SubElement(html_elem, 'head') # type: etree.ElementBase
@@ -392,9 +529,26 @@ class RDFtoHTML:
             'content': 'text/html; charset=utf-8',
         })
 
-        SubElement(head_elem, 'link', rel='stylesheet', href='stylesheet.css')
+        if self.embedded_css:
+            SubElement(head_elem, 'style').text = pathlib.Path('stylesheet.css').read_text()
+        else:
+            SubElement(head_elem, 'link', rel='stylesheet', href='stylesheet.css')
 
-        body_elem = SubElement(html_elem, 'body') # type: etree.ElementBase
+        SubElement(head_elem, 'script').text = \
+'''
+function hideSuperclassProps(){Array.from(document.getElementsByClassName('superclassProps')).forEach(function(i){i.classList.add('hide'); let e; if ((e=i.previousElementSibling).innerHTML.length == 1) {e.innerHTML = "⯈";}})}
+
+function showSuperclassProps(){Array.from(document.getElementsByClassName('superclassProps')).forEach(function(i){i.classList.remove('hide'); let e; if ((e=i.previousElementSibling).innerHTML.length == 1) {e.innerHTML = "⯆";}})}
+
+function toggleElemSuperclassProps(elem){let ret; elem.parentElement.querySelectorAll(".superclassProps").forEach(function(i){ret=i.classList.toggle('hide');}); elem.innerHTML = ret ? "⯈" : "⯆";}
+
+document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); let b=document.body; setTimeout(function(){b.removeAttribute('style');}, 0);});
+
+'''
+
+        # FIXME: simplify above using css classes on parent element and rules based on that
+        body_elem = SubElement(html_elem, 'body', attrib={'class': 'no-js', 'style': 'visibility:hidden'}) # type: etree.ElementBase
+        SubElement(body_elem, 'script').text = 'document.body.classList.remove("no-js")';
         if self.description:
             description_tree = etree.parse(self.description, etree.HTMLParser(encoding='utf-8')) # type: etree._ElementTree
             if self.releases_path and self.version:
@@ -478,6 +632,11 @@ class RDFtoHTML:
 
         dl_prefix_elem = SubElement(body_elem, 'dl', attrib={'class': 'prefixes'})
 
+        SubElement(body_elem, 'p', attrib={'class': 'fw-bold margin-top-20'}).text = 'Document view settings'
+        button_panel = SubElement(body_elem, 'div', attrib={'class': 'button-panel'})
+        SubElement(button_panel, 'button', attrib={'onclick': 'showSuperclassProps();'}).text = 'Show superclass properties'
+        SubElement(button_panel, 'button', attrib={'onclick': 'hideSuperclassProps();'}).text = 'Hide superclass properties'
+
         for t in data_model:
             data_model[t] = self.sort_properties_with_id(data_model[t])
 
@@ -488,6 +647,28 @@ class RDFtoHTML:
             if data_model[t]:
                 self.create_properties(body_elem, HEADERS[t], data_model[t])
 
+        # copy domain and range values from superclasses to subclasses
+        for todo in body_elem.findall(".//a[@class='todo']"):
+            todo: etree.ElementBase
+            todo_id = todo.attrib['href'][1:]
+
+            superClassElem = body_elem.find(f"./div/table[@id='{todo_id}']")
+            for i, k in enumerate(['isInDomainOf', 'isInRangeOf']):
+                ulElem = todo.getnext() if i == 0 else todo.getparent()[-1]
+                for propDivContainer in superClassElem.findall(f".//tr[@class='{k}']/td/div"):
+                    # only copy first link
+                    b = copy.copy(propDivContainer[0])
+                    # drop false positives
+                    if b.text == None:
+                        continue
+                    # drop redundant tail
+                    b.tail = None
+                    li = SubElement(ulElem, 'li')
+                    li.append(b)
+            del todo.attrib['class']
+            (buttonElem:=Element('button', attrib={'onclick': 'toggleElemSuperclassProps(this);'})).text = '⯆'
+            todo.addnext(buttonElem)
+
         for prefix in sorted(self.used_prefixes):
             nsm = self.combined_graph.namespace_manager
             dt_prefix_div = f'<div><dt>{prefix}</dt><dd>{nsm.expand_curie(prefix+":")}</dd></div>'
@@ -495,7 +676,7 @@ class RDFtoHTML:
 
         etree.indent(html_elem)
         with open(self.output_path, 'wb') as output:
-            output.write(etree.tostring(html_elem, encoding='utf-8', doctype='<!DOCTYPE html>'))
+            output.write(etree.tostring(html_elem, encoding='utf-8', doctype='<!DOCTYPE html>', method='html'))
 
         # remove duplicate dct:description triples, prefer more specific ones defined in self.graph
         for literal in self.graph[self.URIRef:DCTERMS.description:]:
@@ -551,7 +732,7 @@ class RDFtoHTML:
                         aElem = SubElement(dd, 'a', attrib={'href': str(object), 'target': '_blank'})
                         aElem.text = object
                     # Use human readable value, if possible
-                    if (aLabel := self.get_pref_label(object, graph)):
+                    if (aLabel := self.get_pref_label(object, graph, warn=False)):
                         aElem.text = aLabel
                 else:
                     if object.language:
