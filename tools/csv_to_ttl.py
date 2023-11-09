@@ -80,6 +80,10 @@ class DataModelConverter:
                 csvreader = csv.DictReader(releases_file, delimiter=",")
                 for row in csvreader:
                     if row['owl:versionInfo'] == self.version:
+                        if (issued_date:=row['dct:issued'].strip()):
+                            self.graph.add(
+                                (lkdURIRef, DCTERMS.issued, Literal(issued_date, datatype=XSD.date))
+                            )
                         to_be_removed = []
                         for literal in self.graph.objects(lkdURIRef, DCTERMS.description):
                             if (desc_end := row['dct:description-' + (lang:=literal.language)]):
