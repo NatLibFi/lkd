@@ -393,13 +393,7 @@ WHERE {
 
                             if prop == RDFS.subClassOf:
                                 if href[0] == "#":
-                                    if (None, RDFS.range, value) in self.graph:
-                                        aElem.set('class', 'todo')
-                                        td_value.append(Element('ul', attrib={'class': 'superclassProps outwards'}))
-
-                                    if (None, RDFS.domain, value) in self.graph:
-                                        aElem.set('class', 'todo')
-                                        td_value.append(Element('ul', attrib={'class': 'superclassProps inwards'}))
+                                    aElem.set('class', 'todo')
 
                             elif type(prop) == InvPath and ((dom:=prop==InvPath(RDFS.domain)) or prop == InvPath(RDFS.range)):
                                 tablerow.set('class', "isInDomainOf" if dom else "isInRangeOf")
@@ -653,8 +647,8 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
             todo_id = todo.attrib['href'][1:]
 
             superClassElem = body_elem.find(f"./div/table[@id='{todo_id}']")
-            for i, k in enumerate(['isInDomainOf', 'isInRangeOf']):
-                ulElem = todo.getnext() if i == 0 else todo.getparent()[-1]
+            for i, k in enumerate(['isInRangeOf', 'isInDomainOf']):
+                ulElem = Element('ul', attrib={'class': f'superclassProps {"outwards" if i == 1 else "inwards"}'})
                 for propDivContainer in superClassElem.findall(f".//tr[@class='{k}']/td/div"):
                     # only copy first link
                     b = copy.copy(propDivContainer[0])
@@ -665,6 +659,8 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                     b.tail = None
                     li = SubElement(ulElem, 'li')
                     li.append(b)
+                if len(ulElem):
+                    todo.addnext(ulElem)
             del todo.attrib['class']
             (buttonElem:=Element('button', attrib={'onclick': 'toggleElemSuperclassProps(this);'})).text = '⯆'
             todo.addnext(buttonElem)
