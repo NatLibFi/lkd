@@ -5,6 +5,7 @@
 @prefix bflc: <http://id.loc.gov/ontologies/bflc/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix finaf: <http://urn.fi/URN:NBN:fi:au:finaf:> .
+@prefix isothes: <http://purl.org/iso25964/skos-thes#> .
 @prefix lkd: <http://example.org/lkd/> .
 @prefix lkd-meta: <http://example.org/lkd-meta/> .
 @prefix mts: <http://urn.fi/URN:NBN:fi:au:mts:> .
