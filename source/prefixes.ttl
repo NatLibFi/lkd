@@ -1,11 +1,12 @@
 #  2023-01-13: JS: We might not need all of these
-#  Please, note that lkd: is still a mock-up address in version 0.1.
+#  Please, note that lkd: and lkd-meta: are still mock-up addresses currently.
 
 @prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
 @prefix bflc: <http://id.loc.gov/ontologies/bflc/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix finaf: <http://urn.fi/URN:NBN:fi:au:finaf:> .
 @prefix lkd: <http://example.org/lkd/> .
+@prefix lkd-meta: <http://example.org/lkd-meta/> .
 @prefix mts: <http://urn.fi/URN:NBN:fi:au:mts:> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdaa: <http://rdaregistry.info/Elements/a/> .
