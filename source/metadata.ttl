@@ -44,10 +44,8 @@ skos:definition
 rdfs:seeAlso
     rdfs:label "katso myös"@fi, "see also"@en .
 
-lkd-meta:relatedConceptGroup a owl:ObjectProperty ;
+lkd-meta:relatedConceptGroup a owl:AnnotationProperty ;
     rdfs:label "liittyvä käsiteryhmä"@fi, "related concept group"@en ;
-#   rdfs:domain owl:Class ;
-#   rdfs:range isothes:ConceptGroup ;
     skos:definition "Concept group containing instances of this class."@en, 
                     "Tämän luokan yksilöitä sisältävä käsiteryhmä."@fi .
 

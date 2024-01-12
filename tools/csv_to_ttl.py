@@ -71,7 +71,7 @@ class DataModelConverter:
         lkdURIRef = URIRef(self.graph.namespace_manager.expand_curie('lkd:'))
 
         if self.metadata_path:
-            self.graph.parse(self.metadata_path, format="ttl", publicID=lkdURIRef)
+            self.graph.parse(self.metadata_path, format="ttl")
 
         self.nsm = NamespaceManager(self.graph, 'none')
 
@@ -86,7 +86,7 @@ class DataModelConverter:
                             )
                         to_be_removed = []
                         for literal in self.graph.objects(lkdURIRef, DCTERMS.description):
-                            if (desc_end := row['dct:description-' + (lang:=literal.language)]):
+                            if (desc_end := row['dct:description-' + (lang:=literal.language)].strip()):
                                 self.graph.add(
                                     (lkdURIRef, DCTERMS.description, Literal(' '.join([literal, desc_end]), lang ))
                                 )
@@ -242,11 +242,12 @@ class DataModelConverter:
                         # missing values may pass
                         pass
                 else:
-                    self.graph.add((lkd_id, self.from_n3(lkd_map_bf), URIRef(row["bibframeURI"])))
+                    if not (bibframeURI:=row["bibframeURI"]) in EMPTY_COL_VALS:
+                        self.graph.add((lkd_id, self.from_n3(lkd_map_bf), URIRef(bibframeURI)))
 
                 # LKD to RDA mapping
-                lkd_map_rda = row["LKD-RDA-owl-mapping"]
-                if lkd_map_rda not in ["lkd:broadMatch", "lkd:closeMatch", "lkd:exactMatch", "lkd:narrowMatch", "rdfs:seeAlso"]:
+                lkd_map_rda = row["LKD-RDA-mapping"]
+                if lkd_map_rda not in ["lkd-meta:broadMatch", "lkd-meta:closeMatch", "lkd-meta:exactMatch", "lkd-meta:narrowMatch", "rdfs:seeAlso"]:
                     if not lkd_map_rda in EMPTY_COL_VALS:
                         raise ValueError(f"Mapping property from {lkd_id} to RDA had an unexpected value, got: {lkd_map_rda}")
                     else:

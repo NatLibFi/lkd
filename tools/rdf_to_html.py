@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
- Copyright 2021-2023 University Of Helsinki (The National Library Of Finland)
+ Copyright 2022-2024 University Of Helsinki (The National Library Of Finland)
 
  Licensed under the GNU, General Public License, Version 3.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -88,7 +88,7 @@ ROW_HEADER_LABELS = {
     SCHEMA.location: 'Location',
     SCHEMA.member: 'Has Member',
     FOAF.homepage: 'Homepage',
-    # LKD.{(broad|close|exact|narrow)Match} to be added live
+    # LKDMETA.{(broad|close|exact|narrow)Match} to be added live
 }
 
 class RDFtoHTML:
@@ -153,12 +153,14 @@ class RDFtoHTML:
 
         # FIXME: add these to globals after LKD namespace has been fixed
         LKD = Namespace(self.URIRef)
+        LKDMETA = Namespace(self.combined_graph.namespace_manager.expand_curie('lkd-meta:'))
         ROW_HEADER_LABELS.update({
-            LKD.broadMatch: 'Broader Match',
-            LKD.closeMatch: 'Close Match',
-            LKD.exactMatch: 'Exact Match',
-            LKD.narrowMatch: 'Narrow Match',
+            LKDMETA.broadMatch: 'Broader Match',
+            LKDMETA.closeMatch: 'Close Match',
+            LKDMETA.exactMatch: 'Exact Match',
+            LKDMETA.narrowMatch: 'Narrow Match',
         })
+        self.used_prefixes.add('lkd-meta')
 
         if self.metadata_path:
             self.combined_graph.parse(self.metadata_path, format='ttl', publicID=self.URIRef)
@@ -462,7 +464,12 @@ WHERE {
         self.graph.parse(self.input_path, format='ttl')
         data_model = {} # type: dict[URIRef, InvPath]
 
-        inverse_prop_list = [URIRef(str(x)[6:-1]) for x in filter(lambda i: isinstance(i, InvPath), ROW_HEADER_LABELS.keys())]
+        transitive_prop_list = [
+            RDFS.subClassOf,
+            InvPath(RDFS.subClassOf),
+            RDFS.subPropertyOf,
+            InvPath(RDFS.subPropertyOf),
+        ]
 
         q = prepareQuery(
             'SELECT ?s ?p WHERE { ?s ?p ?o . ?o owl:unionOf ?o2 . ?o2 rdf:rest*/rdf:first ?o3 .}',
@@ -487,28 +494,29 @@ WHERE {
                     # FIXME: refactor
                     pref_label = subject.n3(self.graph.namespace_manager)
                 if pref_label and fragment:
-                    properties = dict((x, []) for x in ROW_HEADER_LABELS.keys())
-
-                    for prop, obj in self.graph.predicate_objects(subject):
-                        properties[prop].append(obj)
-
-                    for obj, prop in filter(lambda w: w[1] in inverse_prop_list, self.graph.subject_predicates(subject)):
-                        properties[InvPath(prop)].append(obj)
+                    properties = dict((x, set(self.graph.objects(subject, x))) for x in ROW_HEADER_LABELS.keys())
 
                     for obj, prop in self.graph.query(q, initBindings={'o3': subject}):
-                        properties[InvPath(prop)].append(obj)
+                        properties[InvPath(prop)].add(obj)
 
                     for pred in ROW_HEADER_LABELS.keys():
-                        if (vlen:=len(properties[pred])) > 1:
-                            properties[pred].sort(
-                                key=lambda k: (
-                                    (lang:=None if not isinstance(k, Literal) or k.datatype else k.language or "") != self.language,
-                                    lang,
-                                    k
-                                )
-                            )
-                        elif vlen == 0:
+                        if len(properties[pred]) == 0:
                             del properties[pred]
+                            continue
+
+                        if pred in transitive_prop_list:
+                            for obj in self.graph.transitive_objects(subject, pred):
+                                if subject != obj and not obj.startswith("http://id.loc.gov/ontologies/"):
+                                    properties[pred].add(obj)
+
+                        properties[pred] = sorted(
+                            properties[pred],
+                            key=lambda k: (
+                                (lang:=None if not isinstance(k, Literal) or k.datatype else k.language or "") != self.language,
+                                lang,
+                                k
+                            )
+                        )
 
                     data_model[(t if t else '')][subject] = properties
                 else:
@@ -620,7 +628,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         if len(divItem) > 1:
             dl_elem.append(divItem)
 
-        SubElement(body_elem, 'p').text = 'Copyright: © The National Library of Finland, 2023'
+        SubElement(body_elem, 'p').text = 'Copyright: © The National Library of Finland, 2022-2024'
 
         SubElement(body_elem, 'p', attrib={'class': 'fw-bold'}).text = 'Prefixes in this document'
 
@@ -662,8 +670,10 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 if len(ulElem):
                     todo.addnext(ulElem)
             del todo.attrib['class']
-            (buttonElem:=Element('button', attrib={'onclick': 'toggleElemSuperclassProps(this);'})).text = '⯆'
-            todo.addnext(buttonElem)
+
+            if todo.getnext() is not None:
+                (buttonElem:=Element('button', attrib={'onclick': 'toggleElemSuperclassProps(this);'})).text = '⯆'
+                todo.addnext(buttonElem)
 
         for prefix in sorted(self.used_prefixes):
             nsm = self.combined_graph.namespace_manager
@@ -681,7 +691,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                     self.combined_graph.remove((self.URIRef, DCTERMS.description, _))
                     break
 
-        self.combined_graph.serialize(format='turtle', destination='LKD-combined.ttl')        
+        self.combined_graph.serialize(format='turtle', destination='LKD-combined.ttl')
 
     def createDlItemForProperty(self, prop : URIRef, graph: Graph=None, dt_text=None, dd_value=None, dd_type=None, subject=None) -> etree.ElementBase:
         if subject == None:

@@ -1,0 +1,1503 @@
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix bflc: <http://id.loc.gov/ontologies/bflc/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix finaf: <http://urn.fi/URN:NBN:fi:au:finaf:> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lkd: <http://example.org/lkd/> .
+@prefix lkd-meta: <http://example.org/lkd-meta/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdac: <http://rdaregistry.info/Elements/c/> .
+@prefix rdacarx: <http://www.rdaregistry.info/termList/RDACarrierEU/> .
+@prefix rdaco: <http://rdaregistry.info/termList/RDAContentType/> .
+@prefix rdact: <http://rdaregistry.info/termList/RDACarrierType/> .
+@prefix rdae: <http://rdaregistry.info/Elements/e/> .
+@prefix rdafmn: <http://rdaregistry.info/termList/MusNotation/> .
+@prefix rdafnm: <http://rdaregistry.info/termList/formatNoteMus/> .
+@prefix rdafnv: <http://rdaregistry.info/termList/noteMove/> .
+@prefix rdai: <http://rdaregistry.info/Elements/i/> .
+@prefix rdaill: <http://rdaregistry.info/termList/IllusContent/> .
+@prefix rdam: <http://rdaregistry.info/Elements/m/> .
+@prefix rdami: <http://www.rdaregistry.info/termList/ModeIssue/> .
+@prefix rdamt: <http://rdaregistry.info/termList/RDAMediaType/> .
+@prefix rdan: <http://rdaregistry.info/Elements/n/> .
+@prefix rdasource: <http://rdaregistry.info/termList/RDARecordingSources/> .
+@prefix rdaterm: <http://rdaregistry.info/termList/RDATerms/> .
+@prefix rdau: <http://rdaregistry.info/Elements/u/> .
+@prefix rdaw: <http://rdaregistry.info/Elements/w/> .
+@prefix rdawo: <http://rdaregistry.info/Elements/w/object/> .
+@prefix rdax: <http://rdaregistry.info/Elements/x/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix yso: <http://www.yso.fi/onto/yso/> .
+
+lkd-meta:broadMatch a owl:AnnotationProperty ;
+    rdfs:label "broad match"@en,
+        "laajempi vastaavuus"@fi ;
+    rdfs:subPropertyOf dct:relation ;
+    skos:definition "Semantically broader class or property in another ontology or scheme."@en,
+        "Merkitykseltään vastaava laajempi luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi .
+
+lkd-meta:closeMatch a owl:AnnotationProperty ;
+    rdfs:label "close match"@en,
+        "lähes vastaava"@fi ;
+    rdfs:subPropertyOf dct:relation ;
+    owl:equivalentProperty <https://www.svde.org/ontology/closeMatch> ;
+    skos:definition "Semantically similar class or property in another ontology or scheme."@en,
+        "Merkitykseltään lähes vastaava luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi .
+
+lkd-meta:exactMatch a owl:AnnotationProperty ;
+    rdfs:label "exact match"@en,
+        "tarkasti vastaava"@fi ;
+    rdfs:subPropertyOf dct:relation ;
+    skos:definition "Semantically exactly matching class or property in another ontology or scheme."@en,
+        "Merkitykseltään vastaava luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi .
+
+lkd-meta:narrowMatch a owl:AnnotationProperty ;
+    rdfs:label "narrow match"@en,
+        "suppeampi vastaavuus"@fi ;
+    rdfs:subPropertyOf dct:relation ;
+    skos:definition "Semantically narrower class or property in another ontology or scheme."@en,
+        "Merkitykseltään vastaava suppeampi luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi .
+
+lkd-meta:relatedConceptGroup a owl:AnnotationProperty ;
+    rdfs:label "related concept group"@en,
+        "liittyvä käsiteryhmä"@fi ;
+    skos:definition "Concept group containing instances of this class."@en,
+        "Tämän luokan yksilöitä sisältävä käsiteryhmä."@fi .
+
+lkd: a owl:Ontology ;
+    dct:contributor lkd:lkdProject ;
+    dct:description "This BIBFRAME data model is based on the BIBFRAME 2.2.0 model published by the Library of Congress. The model has been supplemented with classes and properties from the RDA element sets, as well as the Finnish national cataloguing guidelines. This 0.3.1 test version comprises of the RDA elements determined by the Finnish cataloguing levels. The identifiers used are temporary and the model is not ready for use. This version includes subclasses of lkd:Work and lkd:Expression which have close matches to the subclasses of BIBFRAME Work. For handling various Title types we have added the lkd:TitleNote class and lkd:titleNote property."@en,
+        "Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.2.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Tämä 0.3.1-testiversio sisältää uudistuneen RDA:n mukaiset kansalliset suppean ja laajan kuvailutason elementit. Käytetyt tunnisteet ovat väliaikaisia, eikä malli ole valmis käyttöön. Tähän versioon on viety loppuun luokan bf:Work alaluokkia vastaavien luokkien jako lkd:Work ja lkd:Expression alaluokiksi. Nimekkeiden tyypittelyä varten on lisätty lkd:TitleNote-luokka ja lkd:titleNote-ominaisuus."@fi ;
+    dct:issued "2024-01-12"^^xsd:date ;
+    dct:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+    dct:modified "2024-01-12T13:17:42+00:00"^^xsd:dateTime ;
+    dct:publisher lkd:NatLibFi ;
+    dct:relation <http://id.loc.gov/ontologies/bibframe-2-2-0/>,
+        <http://www.rdaregistry.info/Elements/> ;
+    dct:title "LKD data model -- BIBFRAME 2.2.0 data model Finnish implementation"@en,
+        "LKD-tietomalli -- BIBFRAME 2.2.0 -tietomallin kansallinen sovellus"@fi ;
+    owl:priorVersion <http://schema.finto.fi/lkd/0-3-0/> ;
+    owl:versionIRI <http://schema.finto.fi/lkd/0-3-1/> ;
+    owl:versionInfo "0.3.1" .
+
+lkd:AccessPolicy a owl:Class ;
+    rdfs:label "Access policy"@en,
+        "Pääsyrajoitus"@fi ;
+    rdfs:subClassOf lkd:UsageAndAccessPolicy ;
+    owl:equivalentClass bf:AccessPolicy .
+
+lkd:Chronology a owl:Class ;
+    rdfs:label "Chronology"@en,
+        "Julkaisuaikatiedot"@fi ;
+    rdfs:subClassOf lkd:EnumerationAndChronology ;
+    owl:equivalentClass bf:Chronology .
+
+lkd:ClassificationUdc a owl:Class ;
+    rdfs:label "UDC Classification"@en,
+        "UDK-luokitus"@fi ;
+    rdfs:subClassOf lkd:Classification ;
+    owl:equivalentClass bf:ClassificationUdc .
+
+lkd:ClassificationYkl a owl:Class ;
+    rdfs:label "PLC Classification"@en,
+        "YKL-luokitus"@fi ;
+    rdfs:subClassOf lkd:Classification .
+
+lkd:ClassificationYklFiction a owl:Class ;
+    rdfs:label "PLC Form tags for fiction"@en,
+        "YKL fiktiivisen aineiston lisäluokka"@fi ;
+    rdfs:subClassOf lkd:Classification .
+
+lkd:CollectionExpression a owl:Class ;
+    rdfs:label "Collection expression"@en,
+        "Kokoelmaekspressio"@fi ;
+    rdfs:seeAlso bf:Collection ;
+    rdfs:subClassOf lkd:Expression .
+
+lkd:CollectionWork a owl:Class ;
+    rdfs:label "Collection work"@en,
+        "Kokoelmateos"@fi ;
+    rdfs:seeAlso bf:Collection ;
+    rdfs:subClassOf lkd:Work .
+
+lkd:Dataset a owl:Class ;
+    rdfs:label "Dataset"@en,
+        "Datasetti"@fi ;
+    rdfs:subClassOf lkd:Expression ;
+    owl:equivalentClass bf:Dataset .
+
+lkd:Distribution a owl:Class ;
+    rdfs:label "Distributor"@en,
+        "Jakaja"@fi ;
+    rdfs:subClassOf lkd:ProvisionActivity ;
+    owl:equivalentClass bf:Distribution .
+
+lkd:Enumeration a owl:Class ;
+    rdfs:label "Enumeration"@en,
+        "Numerointi"@fi ;
+    rdfs:subClassOf lkd:EnumerationAndChronology ;
+    owl:equivalentClass bf:Enumeration .
+
+lkd:Family a owl:Class ;
+    rdfs:label "Family"@en,
+        "Suku"@fi ;
+    lkd-meta:exactMatch rdac:C10008 ;
+    rdfs:subClassOf lkd:Agent ;
+    owl:equivalentClass bf:Family .
+
+lkd:Integrating a owl:Class ;
+    rdfs:label "Integrating work"@en,
+        "Päivittyvä teos"@fi ;
+    rdfs:seeAlso rdaterm:1133 ;
+    rdfs:subClassOf lkd:Work ;
+    owl:equivalentClass bf:Integrating .
+
+lkd:Kit a owl:Class ;
+    rdfs:label "Kit"@en,
+        "Moniviestin"@fi ;
+    rdfs:subClassOf lkd:MixedMaterial ;
+    owl:equivalentClass bf:Kit .
+
+lkd:Meeting a owl:Class ;
+    rdfs:label "Meeting"@en,
+        "Kokous"@fi ;
+    lkd-meta:broadMatch rdac:C10005 ;
+    rdfs:subClassOf lkd:Agent ;
+    owl:equivalentClass bf:Meeting .
+
+lkd:Modification a owl:Class ;
+    rdfs:label "Modification"@en,
+        "Muokkaus"@fi ;
+    rdfs:subClassOf lkd:ProvisionActivity ;
+    owl:equivalentClass bf:Modification .
+
+lkd:MonographExpression a owl:Class ;
+    rdfs:label "Monograph expression"@en,
+        "Monografiaekspressio"@fi ;
+    rdfs:seeAlso bf:Monograph ;
+    rdfs:subClassOf lkd:Expression .
+
+lkd:MonographWork a owl:Class ;
+    rdfs:label "Monograph work"@en,
+        "Monografiateos"@fi ;
+    rdfs:seeAlso bf:Monograph ;
+    rdfs:subClassOf lkd:Work .
+
+lkd:MovementNotation a owl:Class ;
+    rdfs:label "Movement notation"@en,
+        "Liikenotaatio"@fi ;
+    rdfs:subClassOf lkd:Notation ;
+    owl:equivalentClass bf:MovementNotation .
+
+lkd:Multimedia a owl:Class ;
+    rdfs:label "Software"@en,
+        "Ohjelmisto"@fi ;
+    rdfs:subClassOf lkd:Expression ;
+    owl:equivalentClass bf:Multimedia .
+
+lkd:MusicAudioExpression a owl:Class ;
+    rdfs:label "Music audio expression"@en,
+        "Musiikkiaudioekspressio"@fi ;
+    lkd-meta:broadMatch rdac:C10006 ;
+    rdfs:seeAlso bf:MusicAudio ;
+    rdfs:subClassOf lkd:AudioExpression .
+
+lkd:MusicAudioWork a owl:Class ;
+    rdfs:label "Music audio work"@en,
+        "Musiikkiääniteos"@fi ;
+    lkd-meta:broadMatch rdac:C10001 ;
+    rdfs:seeAlso bf:MusicAudio ;
+    rdfs:subClassOf lkd:AudioWork .
+
+lkd:MusicNotation a owl:Class ;
+    rdfs:label "Music notation"@en,
+        "Nuottikirjoituksen tyyppi"@fi ;
+    rdfs:subClassOf lkd:Notation ;
+    owl:equivalentClass bf:MusicNotation .
+
+lkd:NonMusicAudioExpression a owl:Class ;
+    rdfs:label "Non-music audio expression"@en,
+        "Musiikiton audioekspressio"@fi ;
+    lkd-meta:broadMatch rdac:C10006 ;
+    rdfs:seeAlso bf:NonMusicAudio ;
+    rdfs:subClassOf lkd:AudioExpression .
+
+lkd:NonMusicAudioWork a owl:Class ;
+    rdfs:label "Non-music audio work"@en,
+        "Musiikiton ääniteos"@fi ;
+    lkd-meta:broadMatch rdac:C10001 ;
+    rdfs:seeAlso bf:NonMusicAudio ;
+    rdfs:subClassOf lkd:AudioWork .
+
+lkd:NotatedMovement a owl:Class ;
+    rdfs:label "Notated movement"@en,
+        "Liikenotaatio"@fi ;
+    rdfs:seeAlso rdaco:1009,
+        rdafnv: ;
+    rdfs:subClassOf lkd:Expression ;
+    owl:equivalentClass bf:NotatedMovement .
+
+lkd:NotatedMusic a owl:Class ;
+    rdfs:label "Notated music"@en,
+        "Nuottikirjoitus"@fi ;
+    rdfs:seeAlso rdafmn:,
+        rdaco:1010,
+        rdafnm: ;
+    rdfs:subClassOf lkd:Expression ;
+    owl:equivalentClass bf:NotatedMusic .
+
+lkd:Object a owl:Class ;
+    rdfs:label "Three-dimensional form"@en,
+        "Kolmiulotteinen muoto"@fi ;
+    rdfs:seeAlso rdaco:1021 ;
+    rdfs:subClassOf lkd:Expression ;
+    owl:equivalentClass bf:Object .
+
+lkd:Person a owl:Class ;
+    rdfs:label "Person"@en,
+        "Henkilö"@fi ;
+    lkd-meta:exactMatch rdac:C10004 ;
+    rdfs:subClassOf lkd:Agent ;
+    owl:equivalentClass bf:Person .
+
+lkd:Production a owl:Class ;
+    rdfs:label "Producer"@en,
+        "Tuottaja"@fi ;
+    lkd-meta:broadMatch rdac:C10005 ;
+    rdfs:subClassOf lkd:ProvisionActivity ;
+    owl:equivalentClass bf:Production .
+
+lkd:Publication a owl:Class ;
+    rdfs:label "Publisher"@en,
+        "Kustantaja"@fi ;
+    rdfs:subClassOf lkd:ProvisionActivity ;
+    owl:equivalentClass bf:Publication .
+
+lkd:Script a owl:Class ;
+    rdfs:label "Script"@en,
+        "Kirjoitusjärjestelmä"@fi ;
+    rdfs:subClassOf lkd:Notation ;
+    owl:equivalentClass bf:Script .
+
+lkd:SerialExpression a owl:Class ;
+    rdfs:label "Serial expression"@en,
+        "Sarjajulkaisuekspressio"@fi ;
+    rdfs:seeAlso bf:Serial ;
+    rdfs:subClassOf lkd:Expression .
+
+lkd:SerialWork a owl:Class ;
+    rdfs:label "Serial work"@en,
+        "Sarjajulkaisuteos"@fi ;
+    rdfs:seeAlso bf:Serial ;
+    rdfs:subClassOf lkd:Work .
+
+lkd:SeriesExpression a owl:Class ;
+    rdfs:label "Series expression"@en,
+        "Sarjaekspressio"@fi ;
+    rdfs:seeAlso bf:Series ;
+    rdfs:subClassOf lkd:Expression .
+
+lkd:SeriesWork a owl:Class ;
+    rdfs:label "Series work"@en,
+        "Sarjateos"@fi ;
+    rdfs:seeAlso bf:Series ;
+    rdfs:subClassOf lkd:Work .
+
+lkd:StillImage a owl:Class ;
+    rdfs:label "Still image"@en,
+        "Stillkuva"@fi ;
+    rdfs:seeAlso rdaco:1014 ;
+    rdfs:subClassOf lkd:Expression ;
+    owl:equivalentClass bf:StillImage .
+
+lkd:TactileNotation a owl:Class ;
+    rdfs:label "Tactile notation"@en,
+        "Taktiili notaatio"@fi ;
+    rdfs:subClassOf lkd:Notation ;
+    owl:equivalentClass bf:TactileNotation .
+
+lkd:Text a owl:Class ;
+    rdfs:label "Text"@en,
+        "Teksti"@fi ;
+    rdfs:seeAlso bf:Text,
+        rdaco:1020 ;
+    rdfs:subClassOf lkd:Expression .
+
+lkd:aapOfExpression a owl:DatatypeProperty ;
+    rdfs:label "authorized access point for expression"@en,
+        "ekspression auktorisoitu hakutieto"@fi ;
+    lkd-meta:exactMatch rdae:P20313 ;
+    rdfs:domain lkd:Expression ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:aap .
+
+lkd:aapOfItem a owl:DatatypeProperty ;
+    rdfs:label "authorized access point for item"@en,
+        "kappaleen auktorisoitu hakutieto"@fi ;
+    lkd-meta:exactMatch rdai:P40083 ;
+    rdfs:domain lkd:Item ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:aap .
+
+lkd:aapOfManifestation a owl:DatatypeProperty ;
+    rdfs:label "authorized access point for manifestation"@en,
+        "manifestaation auktorisoitu hakutieto"@fi ;
+    lkd-meta:exactMatch rdam:P30294 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:aap .
+
+lkd:aapOfWork a owl:DatatypeProperty ;
+    rdfs:label "authorized access point for work"@en,
+        "teoksen auktorisoitu hakutieto"@fi ;
+    lkd-meta:exactMatch rdaw:P10331 ;
+    rdfs:domain lkd:Work ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:aap .
+
+lkd:agent a owl:ObjectProperty ;
+    rdfs:label "associated agent"@en,
+        "liittyvä toimija"@fi ;
+    lkd-meta:closeMatch rdawo:P10311 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Contribution lkd:ProvisionActivity ) ] ;
+    rdfs:range lkd:Agent ;
+    rdfs:subPropertyOf bf:agent .
+
+lkd:aggregates a owl:ObjectProperty ;
+    rdfs:label "aggregates expression"@en,
+        "aggregoi ekspression"@fi ;
+    lkd-meta:exactMatch rdae:P20319 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:AggregatingWork lkd:AggregatingExpression ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression ) ] ;
+    rdfs:seeAlso bf:hasPart ;
+    rdfs:subPropertyOf lkd:relatedTo .
+
+lkd:capture a owl:ObjectProperty ;
+    rdfs:label "capture of content"@en,
+        "tallennustiedot"@fi ;
+    lkd-meta:exactMatch rdae:P20217 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation ) ] ;
+    rdfs:range lkd:Capture ;
+    rdfs:subPropertyOf bf:capture .
+
+lkd:carrier a owl:ObjectProperty ;
+    rdfs:label "carrier type"@en,
+        "tallennetyyppi"@fi ;
+    lkd-meta:exactMatch rdam:P30001 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range lkd:Carrier ;
+    rdfs:subPropertyOf bf:carrier .
+
+lkd:cartographicAttributes a owl:ObjectProperty ;
+    rdfs:label "cartographic data"@en,
+        "kartografinen data"@fi ;
+    lkd-meta:closeMatch rdaw:P10024 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Manifestation ) ] ;
+    rdfs:range lkd:Cartographic ;
+    owl:equivalentProperty bf:cartographicAttributes .
+
+lkd:classification a owl:ObjectProperty ;
+    rdfs:label "classification"@en,
+        "luokitus"@fi ;
+    lkd-meta:closeMatch rdaw:P10256 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation lkd:Item ) ] ;
+    rdfs:range lkd:Classification ;
+    owl:equivalentProperty bf:classification .
+
+lkd:content a owl:ObjectProperty ;
+    rdfs:label "content type"@en,
+        "sisältötyyppi"@fi ;
+    lkd-meta:exactMatch rdae:P20001 ;
+    rdfs:domain lkd:Expression ;
+    rdfs:range lkd:Content ;
+    owl:equivalentProperty bf:content .
+
+lkd:contributionOfExpression a owl:ObjectProperty ;
+    rdfs:label "contributor and role of expression"@en,
+        "ekspressioon liittyvä toimija ja rooli"@fi ;
+    lkd-meta:narrowMatch rdae:P20338,
+        rdae:P20346,
+        rdae:P20351,
+        rdae:P20365,
+        rdae:P20456,
+        rdae:P20464,
+        rdae:P20469,
+        rdae:P20483,
+        rdae:P20515,
+        rdae:P20523,
+        rdae:P20528,
+        rdae:P20542 ;
+    rdfs:domain lkd:Expression ;
+    rdfs:range lkd:Contribution ;
+    rdfs:subPropertyOf lkd:contribution .
+
+lkd:contributionOfItem a owl:ObjectProperty ;
+    rdfs:label "contributor and role of item"@en,
+        "kappaleeseen liittyvä toimija ja rooli"@fi ;
+    lkd-meta:closeMatch rdai:P40072 ;
+    rdfs:domain lkd:Item ;
+    rdfs:range lkd:Contribution ;
+    rdfs:subPropertyOf lkd:contribution .
+
+lkd:contributionOfManifestation a owl:ObjectProperty ;
+    rdfs:label "contributor and role of manifestation"@en,
+        "manifestaatioon liittyvä toimija ja rooli"@fi ;
+    lkd-meta:narrowMatch rdam:P30362,
+        rdam:P30420,
+        rdam:P30449 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range lkd:Contribution ;
+    rdfs:subPropertyOf lkd:contribution .
+
+lkd:contributionOfWork a owl:ObjectProperty ;
+    rdfs:label "contributor and role of work"@en,
+        "teokseen liittyvä toimija ja rooli"@fi ;
+    lkd-meta:narrowMatch rdaw:P10437,
+        rdaw:P10531,
+        rdaw:P10578 ;
+    rdfs:domain lkd:Work ;
+    rdfs:range lkd:Contribution ;
+    rdfs:subPropertyOf lkd:contribution .
+
+lkd:copyrightDate a owl:DatatypeProperty ;
+    rdfs:label "copyright date"@en,
+        "copyright-vuosi"@fi ;
+    lkd-meta:exactMatch rdam:P30007 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation ) ] ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:date ;
+    owl:equivalentProperty bf:copyrightDate .
+
+lkd:derivedFrom a owl:ObjectProperty ;
+    rdfs:label "source metadata"@en,
+        "metadatan lähde"@fi ;
+    lkd-meta:narrowMatch rdan:P80139 ;
+    rdfs:domain lkd:AdminMetadata ;
+    rdfs:range rdfs:Resource ;
+    owl:equivalentProperty bf:derivedFrom .
+
+lkd:dissertation a owl:ObjectProperty ;
+    rdfs:label "dissertation information"@en,
+        "tieto väitöskirjasta"@fi ;
+    lkd-meta:exactMatch rdaw:P10209 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Manifestation ) ] ;
+    rdfs:range lkd:Dissertation ;
+    owl:equivalentProperty bf:dissertation .
+
+lkd:duration a owl:DatatypeProperty ;
+    rdfs:label "duration"@en,
+        "kesto"@fi ;
+    lkd-meta:exactMatch rdae:P20219 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation ) ] ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:duration .
+
+lkd:editionStatementOfRevision a owl:DatatypeProperty ;
+    rdfs:label "edition statement of revision"@en,
+        "nimetyn uudistetun painoksen määrite"@fi ;
+    lkd-meta:exactMatch rdam:P30132 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:editionStatement .
+
+lkd:expressionIdentifiedBy a owl:ObjectProperty ;
+    rdfs:label "identifier for expression"@en,
+        "ekspression tunniste"@fi ;
+    lkd-meta:exactMatch rdae:P20002 ;
+    rdfs:domain lkd:Expression ;
+    rdfs:range lkd:Identifier ;
+    rdfs:subPropertyOf lkd:identifiedBy .
+
+lkd:extent a owl:ObjectProperty ;
+    rdfs:label "extent"@en,
+        "laajuus"@fi ;
+    lkd-meta:exactMatch rdam:P30182 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range lkd:Extent ;
+    owl:equivalentProperty bf:extent .
+
+lkd:firstIssue a owl:DatatypeProperty ;
+    rdfs:label "multipart first issue"@en,
+        "ensimmäinen numero"@fi ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:firstIssue .
+
+lkd:firstIssueChronology a owl:DatatypeProperty ;
+    rdfs:label "first chronological designation of sequence"@en,
+        "numerointijakson ensimmäinen aikamäärite"@fi ;
+    lkd-meta:exactMatch rdam:P30149 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:enumerationAndChronology .
+
+lkd:firstIssueEnumeration a owl:DatatypeProperty ;
+    rdfs:label "first alphanumeric designation of sequence"@en,
+        "numerointijakson ensimmäinen numero- ja/tai kirjainmäärite"@fi ;
+    lkd-meta:exactMatch rdam:P30147 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:enumerationAndChronology .
+
+lkd:grantingInstitution a owl:ObjectProperty ;
+    rdfs:label "degree granting institution"@en,
+        "oppiarvon myöntävä yhteisö"@fi ;
+    lkd-meta:exactMatch rdaw:P10006 ;
+    rdfs:domain lkd:Dissertation ;
+    rdfs:range lkd:Organization ;
+    rdfs:subPropertyOf bf:grantingInstitution .
+
+lkd:horizontalScale a owl:ObjectProperty ;
+    rdfs:label "horizontal scale of cartographic content"@en,
+        "horisontaalinen mittakaava"@fi ;
+    lkd-meta:exactMatch rdae:P20226 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation ) ] ;
+    rdfs:range lkd:Scale ;
+    rdfs:subPropertyOf lkd:scale .
+
+lkd:illustrativeContent a owl:ObjectProperty ;
+    rdfs:label "illustrative content"@en,
+        "kuvasisältö"@fi ;
+    lkd-meta:narrowMatch rdae:P20148,
+        rdam:P30453 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Expression lkd:Manifestation ) ] ;
+    rdfs:range lkd:Illustration ;
+    owl:equivalentProperty bf:illustrativeContent .
+
+lkd:issuance a owl:ObjectProperty ;
+    rdfs:label "mode of issuance"@en,
+        "julkaisutapa"@fi ;
+    lkd-meta:exactMatch rdam:P30003 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range lkd:Issuance ;
+    rdfs:subPropertyOf bf:issuance .
+
+lkd:itemIdentifiedBy a owl:ObjectProperty ;
+    rdfs:label "identifier for item"@en,
+        "kappaleen tunniste"@fi ;
+    lkd-meta:exactMatch rdai:P40001 ;
+    rdfs:domain lkd:Item ;
+    rdfs:range lkd:Identifier ;
+    rdfs:subPropertyOf lkd:identifiedBy .
+
+lkd:label a owl:DatatypeProperty ;
+    rdfs:label "label"@en,
+        "termi"@fi ;
+    lkd-meta:exactMatch rdax:P00019 ;
+    rdfs:domain lkd:Note ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf rdfs:label .
+
+lkd:languageOfExpression a owl:ObjectProperty ;
+    rdfs:label "language of expression"@en,
+        "ekspression kieli"@fi ;
+    lkd-meta:exactMatch rdae:P20006 ;
+    rdfs:domain lkd:Expression ;
+    rdfs:range lkd:Language ;
+    rdfs:subPropertyOf lkd:language .
+
+lkd:languageOfRepresentativeExpression a owl:ObjectProperty ;
+    rdfs:label "language of representative expression"@en,
+        "edustavan ekspression kieli"@fi ;
+    lkd-meta:exactMatch rdaw:P10353 ;
+    rdfs:domain lkd:Work ;
+    rdfs:range lkd:Language ;
+    rdfs:subPropertyOf lkd:language .
+
+lkd:lastIssue a owl:DatatypeProperty ;
+    rdfs:label "multipart last issue"@en,
+        "viimeinen numero"@fi ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:lastIssue .
+
+lkd:lastIssueChronology a owl:DatatypeProperty ;
+    rdfs:label "last chronological designation of sequence"@en,
+        "numerointijakson viimeinen aikamäärite"@fi ;
+    lkd-meta:exactMatch rdam:P30150 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:enumerationAndChronology .
+
+lkd:lastIssueEnumeration a owl:DatatypeProperty ;
+    rdfs:label "last alphanumeric designation of alternative sequence"@en,
+        "numerointijakson viimeinen numero- ja/tai kirjainmäärite"@fi ;
+    lkd-meta:exactMatch rdam:P30148 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:enumerationAndChronology .
+
+lkd:latitude a owl:DatatypeProperty ;
+    rdfs:label "latitude"@en,
+        "leveysaste"@fi ;
+    lkd-meta:exactMatch rdaw:P10300 ;
+    rdfs:domain lkd:Cartographic ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:coordinates .
+
+lkd:longitude a owl:DatatypeProperty ;
+    rdfs:label "longitude"@en,
+        "pituusaste"@fi ;
+    lkd-meta:exactMatch rdaw:P10301 ;
+    rdfs:domain lkd:Cartographic ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:coordinates .
+
+lkd:mainTitle a owl:DatatypeProperty ;
+    rdfs:label "main title"@en,
+        "nimekkeen merkkijono"@fi ;
+    rdfs:domain lkd:Title ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:mainTitle .
+
+lkd:manifestationIdentifiedBy a owl:ObjectProperty ;
+    rdfs:label "identifier for manifestation"@en,
+        "manifestaation tunniste"@fi ;
+    lkd-meta:exactMatch rdam:P30004 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range lkd:Identifier ;
+    rdfs:subPropertyOf lkd:identifiedBy .
+
+lkd:media a owl:ObjectProperty ;
+    rdfs:label "media type"@en,
+        "mediatyyppi"@fi ;
+    lkd-meta:exactMatch rdam:P30002 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation ) ] ;
+    rdfs:range lkd:Media ;
+    owl:equivalentProperty bf:media .
+
+lkd:musicFormat a owl:ObjectProperty ;
+    rdfs:label "format of notated music"@en,
+        "nuottiaineiston muoto"@fi ;
+    lkd-meta:exactMatch rdae:P20209 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Expression lkd:Manifestation ) ] ;
+    rdfs:range lkd:MusicFormat ;
+    owl:equivalentProperty bf:musicFormat .
+
+lkd:musicKeyOfExpression a owl:DatatypeProperty ;
+    rdfs:label "key of expression"@en,
+        "ekspression sävellaji"@fi ;
+    lkd-meta:exactMatch rdae:P20326 ;
+    rdfs:domain lkd:Expression ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:musicKey .
+
+lkd:musicKeyOfRepresentativeExpression a owl:DatatypeProperty ;
+    rdfs:label "key of representative expression"@en,
+        "edustavan ekspression sävellaji"@fi ;
+    lkd-meta:exactMatch rdaw:P10221 ;
+    rdfs:domain lkd:Work ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:musicKey .
+
+lkd:musicMedium a owl:ObjectProperty ;
+    rdfs:label "music medium of performance"@en,
+        "musiikin esityskokoonpano"@fi ;
+    lkd-meta:exactMatch rdae:P20215 ;
+    rdfs:domain lkd:Expression ;
+    rdfs:range lkd:MusicMedium ;
+    owl:equivalentProperty bf:musicMedium .
+
+lkd:musicOpusNumber a owl:DatatypeProperty ;
+    rdfs:label "music opus number"@en,
+        "opusnumero"@fi ;
+    lkd-meta:exactMatch rdaw:P10333 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression ) ] ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:musicOpusNumber .
+
+lkd:musicSerialNumber a owl:DatatypeProperty ;
+    rdfs:label "music serial number"@en,
+        "musiikkiteoksen järjestysnumero"@fi ;
+    lkd-meta:exactMatch rdaw:P10334 ;
+    rdfs:domain lkd:Work ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:musicSerialNumber .
+
+lkd:musicThematicNumber a owl:DatatypeProperty ;
+    rdfs:label "music thematic number"@en,
+        "temaattisen teosluettelon numero"@fi ;
+    lkd-meta:exactMatch rdaw:P10335 ;
+    rdfs:domain lkd:Work ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:musicThematicNumber .
+
+lkd:notation a owl:ObjectProperty ;
+    rdfs:label "notation system"@en,
+        "notaatio"@fi ;
+    lkd-meta:narrowMatch rdae:P20061,
+        rdae:P20062,
+        rdae:P20063,
+        rdae:P20064 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation ) ] ;
+    rdfs:range lkd:Notation ;
+    owl:equivalentProperty bf:notation .
+
+lkd:originDate a owl:DatatypeProperty ;
+    rdfs:label "origin date"@en,
+        "teoksen ajankohta"@fi ;
+    lkd-meta:exactMatch rdaw:P10219 ;
+    rdfs:domain lkd:Work ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf lkd:date ;
+    owl:equivalentProperty bf:originDate .
+
+lkd:originPlace a owl:ObjectProperty ;
+    rdfs:label "origin place"@en,
+        "teoksen alkuperään liittyvä paikka"@fi ;
+    lkd-meta:exactMatch rdaw:P10218 ;
+    rdfs:domain lkd:Work ;
+    rdfs:range lkd:Place ;
+    rdfs:subPropertyOf lkd:place .
+
+lkd:projection a owl:ObjectProperty ;
+    rdfs:label "cartographic projection"@en,
+        "karttaprojektio"@fi ;
+    lkd-meta:exactMatch rdae:P20216 ;
+    rdfs:domain lkd:Cartographic ;
+    rdfs:range lkd:Projection ;
+    owl:equivalentProperty bf:projection .
+
+lkd:provisionActivity a owl:ObjectProperty ;
+    rdfs:label "provision activity"@en,
+        "tuotantotiedot"@fi ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range lkd:ProvisionActivity ;
+    rdfs:seeAlso rdam:P30008,
+        rdam:P30009,
+        rdam:P30010,
+        rdam:P30011,
+        rdam:P30085,
+        rdam:P30086,
+        rdam:P30087,
+        rdam:P30088,
+        rdam:P30173,
+        rdam:P30174,
+        rdam:P30175,
+        rdam:P30176 ;
+    owl:equivalentProperty bf:provisionActivity .
+
+lkd:qualifier a owl:DatatypeProperty ;
+    rdfs:label "qualifier"@en,
+        "tarkenne"@fi ;
+    lkd-meta:closeMatch rdax:P00015 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:qualifier .
+
+lkd:responsibilityStatement a owl:DatatypeProperty ;
+    rdfs:label "creative responsibility statement"@en,
+        "vastuullisuusmerkintö"@fi ;
+    lkd-meta:exactMatch rdam:P30105 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:responsibilityStatement .
+
+lkd:role a owl:ObjectProperty ;
+    rdfs:label "contributor role"@en,
+        "rooli"@fi ;
+    rdfs:domain lkd:Contribution ;
+    rdfs:range lkd:Role ;
+    rdfs:subPropertyOf bf:role .
+
+lkd:seriesEnumeration a owl:DatatypeProperty ;
+    rdfs:label "series enumeration"@en,
+        "numerointijakson sisäinen numerointi"@fi ;
+    lkd-meta:exactMatch rdam:P30014 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:seriesEnumeration .
+
+lkd:seriesStatement a owl:DatatypeProperty ;
+    rdfs:label "series statement"@en,
+        "sarjamerkintö"@fi ;
+    lkd-meta:exactMatch rdam:P30106 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:seriesStatement .
+
+lkd:source a owl:ObjectProperty ;
+    rdfs:label "source"@en,
+        "lähde"@fi ;
+    lkd-meta:narrowMatch rdan:P80139 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range lkd:Source ;
+    rdfs:subPropertyOf bf:source .
+
+lkd:subject a owl:ObjectProperty ;
+    rdfs:label "subject"@en,
+        "aihe"@fi ;
+    lkd-meta:exactMatch rdaw:P10256 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation lkd:Item lkd:Event ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation lkd:Item lkd:Agent lkd:Place lkd:Temporal ) ] ;
+    owl:equivalentProperty bf:subject .
+
+lkd:subtitle a owl:DatatypeProperty ;
+    rdfs:label "subtitle"@en,
+        "muu nimeketieto"@fi ;
+    lkd-meta:closeMatch rdam:P30142 ;
+    rdfs:domain lkd:Title ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:subtitle .
+
+lkd:titleNote a owl:ObjectProperty ;
+    rdfs:label "title note"@en,
+        "huomautus nimekkeestä"@fi ;
+    rdfs:domain lkd:Title ;
+    rdfs:range lkd:TitleNote ;
+    rdfs:subPropertyOf lkd:note .
+
+lkd:usageAndAccessPolicy a owl:ObjectProperty ;
+    rdfs:label "use and access condition"@en,
+        "käyttö- ja pääsyrajoitukset"@fi ;
+    lkd-meta:narrowMatch rdai:P40047,
+        rdam:P30145 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation lkd:Item ) ] ;
+    rdfs:range lkd:UsageAndAccessPolicy ;
+    owl:equivalentProperty bf:usageAndAccessPolicy .
+
+lkd:verticalScale a owl:ObjectProperty ;
+    rdfs:label "vertical scale of cartographic content"@en,
+        "kartografisen sisällön vertikaalinen mittakaava"@fi ;
+    lkd-meta:exactMatch rdae:P20230 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation ) ] ;
+    rdfs:range lkd:Scale ;
+    rdfs:subPropertyOf lkd:scale .
+
+lkd:workGroupIdentifiedBy a owl:ObjectProperty ;
+    rdfs:label "identifier for work group"@en,
+        "teosryhmän tunniste"@fi ;
+    lkd-meta:exactMatch rdaw:P10400 ;
+    rdfs:domain lkd:Work ;
+    rdfs:range lkd:Identifier ;
+    rdfs:subPropertyOf lkd:identifiedBy .
+
+lkd:workIdentifiedBy a owl:ObjectProperty ;
+    rdfs:label "identifier for work"@en,
+        "teoksen tunniste"@fi ;
+    lkd-meta:exactMatch rdaw:P10002 ;
+    rdfs:domain lkd:Work ;
+    rdfs:range lkd:Identifier ;
+    rdfs:subPropertyOf lkd:identifiedBy .
+
+rdfs:seeAlso rdfs:label "see also"@en,
+        "katso myös"@fi .
+
+skos:definition rdfs:label "definition"@en,
+        "määritelmä"@fi .
+
+lkd:AggregatingExpression a owl:Class ;
+    rdfs:label "Aggregating expression"@en,
+        "Aggregoiva ekspressio"@fi ;
+    lkd-meta:closeMatch rdac:C10006 ;
+    rdfs:subClassOf lkd:Expression .
+
+lkd:AggregatingWork a owl:Class ;
+    rdfs:label "Aggregating work"@en,
+        "Aggregoiva teos"@fi ;
+    lkd-meta:closeMatch rdac:C10001 ;
+    rdfs:subClassOf lkd:Work .
+
+lkd:Carrier a owl:Class ;
+    rdfs:label "Carrier type"@en,
+        "Tallennetyyppi"@fi ;
+    rdfs:seeAlso rdact: ;
+    owl:equivalentClass bf:Carrier .
+
+lkd:CartographyExpression a owl:Class ;
+    rdfs:label "Cartographic expression"@en,
+        "Kartografinen ekspressio"@fi ;
+    rdfs:seeAlso bf:Cartography ;
+    rdfs:subClassOf lkd:Expression ;
+    owl:disjointWith lkd:CartographyWork .
+
+lkd:CartographyWork a owl:Class ;
+    rdfs:label "Cartographic work"@en,
+        "Kartografinen teos"@fi ;
+    rdfs:seeAlso bf:Cartography ;
+    rdfs:subClassOf lkd:Work ;
+    owl:disjointWith lkd:CartographyExpression .
+
+lkd:Content a owl:Class ;
+    rdfs:label "Content type"@en,
+        "Sisältötyyppi"@fi ;
+    owl:equivalentClass bf:Content .
+
+lkd:Extent a owl:Class ;
+    rdfs:label "Extent"@en,
+        "Laajuus"@fi ;
+    rdfs:seeAlso rdacarx: ;
+    owl:equivalentClass bf:Extent .
+
+lkd:Illustration a owl:Class ;
+    rdfs:label "Illustrative content"@en,
+        "Kuvasisältö"@fi ;
+    rdfs:seeAlso rdaill: ;
+    owl:equivalentClass bf:Illustration .
+
+lkd:Issuance a owl:Class ;
+    rdfs:label "Mode of issuance"@en,
+        "Julkaisutapa"@fi ;
+    rdfs:seeAlso rdami: ;
+    owl:equivalentClass bf:Issuance .
+
+lkd:Manufacture a owl:Class ;
+    rdfs:label "Manufacturer"@en,
+        "Valmistaja"@fi ;
+    lkd-meta:broadMatch rdac:C10005 ;
+    rdfs:subClassOf lkd:ProvisionActivity ;
+    owl:equivalentClass bf:Manufacture .
+
+lkd:Media a owl:Class ;
+    rdfs:label "Media type"@en,
+        "Mediatyyppi"@fi ;
+    rdfs:seeAlso rdamt: ;
+    owl:equivalentClass bf:Media .
+
+lkd:MixedMaterial a owl:Class ;
+    rdfs:label "Mixed material"@en,
+        "Kooste"@fi ;
+    rdfs:subClassOf lkd:Expression ;
+    owl:equivalentClass bf:MixedMaterial .
+
+lkd:MovingImageExpression a owl:Class ;
+    rdfs:label "Moving image expression"@en,
+        "Liikkuvan kuvan ekspressio"@fi ;
+    rdfs:seeAlso bf:MovingImage ;
+    rdfs:subClassOf lkd:Expression ;
+    owl:disjointWith lkd:MovingImageWork .
+
+lkd:MovingImageWork a owl:Class ;
+    rdfs:label "Moving image work"@en,
+        "Liikkuvan kuvan teos"@fi ;
+    rdfs:seeAlso bf:MovingImage ;
+    rdfs:subClassOf lkd:Work ;
+    owl:disjointWith lkd:MovingImageExpression .
+
+lkd:MusicFormat a owl:Class ;
+    rdfs:label "Notated music format"@en,
+        "Nuottiaineiston muoto"@fi ;
+    rdfs:seeAlso rdafnm: ;
+    owl:equivalentClass bf:MusicFormat .
+
+lkd:MusicMedium a owl:Class ;
+    rdfs:label "Music medium information"@en,
+        "Musiikin esityskokoonpano"@fi ;
+    owl:equivalentClass bf:MusicMedium .
+
+lkd:Organization a owl:Class ;
+    rdfs:label "Organization"@en,
+        "Yhteisö"@fi ;
+    lkd-meta:closeMatch rdac:C10005 ;
+    rdfs:subClassOf lkd:Agent ;
+    owl:equivalentClass bf:Organization .
+
+lkd:Projection a owl:Class ;
+    rdfs:label "Projection"@en,
+        "Projektio"@fi ;
+    owl:equivalentClass bf:Projection .
+
+lkd:Role a owl:Class ;
+    rdfs:label "Role"@en,
+        "Rooli"@fi ;
+    owl:equivalentClass bf:Role .
+
+lkd:Source a owl:Class ;
+    rdfs:label "Source"@en,
+        "Lähde"@fi ;
+    rdfs:seeAlso rdasource: ;
+    owl:equivalentClass bf:Source .
+
+lkd:Temporal a owl:Class ;
+    rdfs:label "Temporal concept"@en,
+        "Ajanjakso"@fi ;
+    lkd-meta:closeMatch rdac:C10010 ;
+    owl:equivalentClass bf:Temporal .
+
+lkd:TitleNote a owl:Class ;
+    rdfs:label "Title note"@en,
+        "Huomautus nimekkeestä"@fi ;
+    rdfs:subClassOf lkd:Note .
+
+lkd:editionStatement a owl:DatatypeProperty ;
+    rdfs:label "edition statement"@en,
+        "painosmäärite"@fi ;
+    lkd-meta:exactMatch rdam:P30133 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:editionStatement .
+
+lkd:expressionManifested a owl:ObjectProperty ;
+    rdfs:label "expression manifested"@en,
+        "manifestaatioon sisältyvä ekspressio"@fi ;
+    lkd-meta:exactMatch rdam:P30139 ;
+    rdfs:domain lkd:Expression ;
+    rdfs:range lkd:Manifestation ;
+    rdfs:seeAlso bf:hasInstance ;
+    rdfs:subPropertyOf lkd:relatedTo ;
+    owl:inverseOf lkd:manifestationOfExpression .
+
+lkd:expressionOf a owl:ObjectProperty ;
+    rdfs:label "expression of"@en,
+        "ekspression toteuttama teos"@fi ;
+    lkd-meta:exactMatch rdae:P20231 ;
+    rdfs:domain lkd:Expression ;
+    rdfs:range lkd:Work ;
+    rdfs:subPropertyOf lkd:relatedTo ;
+    owl:inverseOf lkd:hasExpression .
+
+lkd:hasExpression a owl:ObjectProperty ;
+    rdfs:label "expressed as"@en,
+        "teoksen ekspressio"@fi ;
+    lkd-meta:exactMatch rdaw:P10078 ;
+    rdfs:domain lkd:Work ;
+    rdfs:range lkd:Expression ;
+    rdfs:subPropertyOf lkd:relatedTo ;
+    owl:equivalentProperty bf:hasExpression ;
+    owl:inverseOf lkd:expressionOf .
+
+lkd:hasItem a owl:ObjectProperty ;
+    rdfs:label "exemplar of manifestation"@en,
+        "manifestaation kappale"@fi ;
+    lkd-meta:exactMatch rdam:P30103 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range lkd:Item ;
+    rdfs:subPropertyOf lkd:relatedTo ;
+    owl:equivalentProperty bf:hasItem ;
+    owl:inverseOf lkd:itemOf .
+
+lkd:hasPart a owl:ObjectProperty ;
+    rdfs:label "has part"@en,
+        "kokonaisuuden osa"@fi ;
+    lkd-meta:narrowMatch rdae:P20145,
+        rdam:P30033,
+        rdaw:P10147 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation lkd:Item ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation lkd:Item ) ] ;
+    rdfs:seeAlso bf:hasPart ;
+    rdfs:subPropertyOf lkd:relatedTo ;
+    owl:inverseOf lkd:partOf .
+
+lkd:hasReproduction a owl:ObjectProperty ;
+    rdfs:label "reproduced as manifestation"@en,
+        "manifestaation jäljenne"@fi ;
+    lkd-meta:exactMatch rdam:P30039 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range lkd:Manifestation ;
+    rdfs:subPropertyOf lkd:hasEquivalent ;
+    owl:equivalentProperty bf:hasReproduction ;
+    owl:inverseOf lkd:reproductionOf .
+
+lkd:itemOf a owl:ObjectProperty ;
+    rdfs:label "manifestation exemplified"@en,
+        "kappaleen edustama manifestaatio"@fi ;
+    lkd-meta:exactMatch rdai:P40049 ;
+    rdfs:domain lkd:Item ;
+    rdfs:range lkd:Manifestation ;
+    rdfs:subPropertyOf lkd:relatedTo ;
+    owl:equivalentProperty bf:itemOf ;
+    owl:inverseOf lkd:hasItem .
+
+lkd:lkdProject a schema:Project ;
+    rdfs:label "Linked Library Data (LKD)"@en,
+        "Linkitetty kirjastodata (LKD)"@fi ;
+    dct:coverage "2022/2024" ;
+    schema:member <https://orcid.org/0000-0002-0348-144X>,
+        <https://orcid.org/0000-0002-2239-7980>,
+        <https://orcid.org/0000-0002-2793-5485>,
+        <https://orcid.org/0000-0002-5087-8669>,
+        <https://orcid.org/0000-0002-6801-6151>,
+        <https://orcid.org/0000-0002-8355-0256> ;
+    schema:parentOrganization lkd:NatLibFi ;
+    foaf:homepage <https://www.kiwi.fi/display/LKD> .
+
+lkd:manifestationOfExpression a owl:ObjectProperty ;
+    rdfs:label "manifestation of expression"@en,
+        "ekspression manifestaatio"@fi ;
+    lkd-meta:exactMatch rdae:P20059 ;
+    rdfs:domain lkd:Expression ;
+    rdfs:range lkd:Manifestation ;
+    rdfs:seeAlso bf:hasInstance ;
+    rdfs:subPropertyOf lkd:relatedTo ;
+    owl:inverseOf lkd:expressionManifested .
+
+lkd:manifestationOfWork a owl:ObjectProperty ;
+    rdfs:label "manifestation of work"@en,
+        "teoksen manifestaatio"@fi ;
+    lkd-meta:exactMatch rdaw:P10072 ;
+    rdfs:domain lkd:Work ;
+    rdfs:range lkd:Manifestation ;
+    rdfs:seeAlso bf:hasInstance ;
+    rdfs:subPropertyOf lkd:relatedTo ;
+    owl:inverseOf lkd:workManifested .
+
+lkd:note a owl:ObjectProperty ;
+    rdfs:label "note"@en,
+        "huomautus"@fi ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:AdminMetadata lkd:Title ) ] ;
+    rdfs:range lkd:Note ;
+    rdfs:subPropertyOf bf:note .
+
+lkd:partOf a owl:ObjectProperty ;
+    rdfs:label "part of"@en,
+        "osa kokonaisuutta"@fi ;
+    lkd-meta:narrowMatch rdae:P20074,
+        rdam:P30020,
+        rdaw:P10019 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation ) ] ;
+    rdfs:subPropertyOf lkd:relatedTo ;
+    owl:equivalentProperty bf:partOf ;
+    owl:inverseOf lkd:hasPart .
+
+lkd:place a owl:ObjectProperty ;
+    rdfs:label "place"@en,
+        "paikka"@fi ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( rdfs:Resource lkd:Agent lkd:Capture lkd:ProvisionActivity lkd:Manufacture ) ] ;
+    rdfs:range lkd:Place ;
+    rdfs:subPropertyOf bf:place .
+
+lkd:precededBy a owl:ObjectProperty ;
+    rdfs:label "preceded by"@en,
+        "edeltäjä"@fi ;
+    lkd-meta:narrowMatch rdae:P20154,
+        rdaw:P10156 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression ) ] ;
+    rdfs:subPropertyOf lkd:relatedTo ;
+    owl:equivalentProperty bf:precededBy ;
+    owl:inverseOf lkd:succeededBy .
+
+lkd:reproductionOf a owl:ObjectProperty ;
+    rdfs:label "reproduction of"@en,
+        "jäljenne manifestaatiosta"@fi ;
+    lkd-meta:exactMatch rdam:P30043 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range lkd:Manifestation ;
+    rdfs:subPropertyOf lkd:hasEquivalent ;
+    owl:equivalentProperty bf:reproductionOf ;
+    owl:inverseOf lkd:hasReproduction .
+
+lkd:succeededBy a owl:ObjectProperty ;
+    rdfs:label "succeeded by"@en,
+        "seuraaja"@fi ;
+    lkd-meta:narrowMatch rdae:P20169,
+        rdaw:P10170 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression ) ] ;
+    rdfs:subPropertyOf lkd:relatedTo ;
+    owl:equivalentProperty bf:succeededBy ;
+    owl:inverseOf lkd:precededBy .
+
+lkd:title a owl:ObjectProperty ;
+    rdfs:label "title resource"@en,
+        "nimeke"@fi ;
+    lkd-meta:narrowMatch rdae:P20312,
+        rdai:P40082,
+        rdam:P30134,
+        rdaw:P10088 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation lkd:Item lkd:Event ) ] ;
+    rdfs:range lkd:Title ;
+    rdfs:subPropertyOf bf:title ;
+    owl:inverseOf lkd:titleOf .
+
+lkd:titleOf a owl:ObjectProperty ;
+    rdfs:label "title of"@en,
+        "nimekkeenä"@fi ;
+    lkd-meta:narrowMatch rdan:P80017,
+        rdan:P80039,
+        rdan:P80062,
+        rdan:P80064 ;
+    rdfs:domain lkd:Title ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation lkd:Item lkd:Event ) ] ;
+    rdfs:subPropertyOf bf:titleOf ;
+    owl:inverseOf lkd:title .
+
+lkd:workManifested a owl:ObjectProperty ;
+    rdfs:label "work manifested"@en,
+        "manifestaatioon sisältyvä teos"@fi ;
+    lkd-meta:exactMatch rdam:P30135 ;
+    rdfs:domain lkd:Manifestation ;
+    rdfs:range lkd:Work ;
+    rdfs:seeAlso bf:instanceOf ;
+    rdfs:subPropertyOf lkd:relatedTo ;
+    owl:inverseOf lkd:manifestationOfWork .
+
+lkd:AdminMetadata a owl:Class ;
+    rdfs:label "Administrative metadata"@en,
+        "Hallinnolliset metatiedot"@fi ;
+    owl:equivalentClass bf:AdminMetadata .
+
+lkd:AudioExpression a owl:Class ;
+    rdfs:label "Audio expression"@en,
+        "Audioekspressio"@fi ;
+    rdfs:subClassOf lkd:Expression .
+
+lkd:AudioWork a owl:Class ;
+    rdfs:label "Audio work"@en,
+        "Ääniteos"@fi ;
+    rdfs:seeAlso bf:Audio ;
+    rdfs:subClassOf lkd:Work .
+
+lkd:Dissertation a owl:Class ;
+    rdfs:label "Dissertation information"@en,
+        "Tieto väitöskirjasta"@fi ;
+    owl:equivalentClass bf:Dissertation .
+
+lkd:NatLibFi a rdac:C10005 ;
+    rdfs:label "The National Library of Finland"@en,
+        "Kansalliskirjasto"@fi,
+        "Nationalbiblioteket"@sv ;
+    dct:identifier <http://isni.org/isni/0000000120337602>,
+        finaf:000034269 ;
+    schema:location yso:p94137 ;
+    schema:parentOrganization finaf:000038390 ;
+    foaf:homepage <https://www.kansalliskirjasto.fi/> .
+
+lkd:UsageAndAccessPolicy a owl:Class ;
+    rdfs:label "Use and access conditions"@en,
+        "Käyttö- ja pääsyrajoitukset"@fi ;
+    owl:equivalentClass bf:UsageAndAccessPolicy .
+
+lkd:coordinates a owl:DatatypeProperty ;
+    rdfs:label "cartographic coordinates"@en,
+        "koordinaatit"@fi ;
+    lkd-meta:narrowMatch rdaw:P10024,
+        rdaw:P10081 ;
+    rdfs:domain lkd:Cartographic ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:coordinates .
+
+lkd:date a owl:DatatypeProperty ;
+    rdfs:label "date"@en,
+        "aika"@fi ;
+    lkd-meta:exactMatch rdax:P00011 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( rdfs:Resource lkd:Capture lkd:ProvisionActivity ) ] ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:date .
+
+lkd:hasEquivalent a owl:ObjectProperty ;
+    rdfs:label "equivalence"@en,
+        "vastaava"@fi ;
+    lkd-meta:narrowMatch rdai:P40031,
+        rdam:P30024,
+        rdan:P80113 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation lkd:Item ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation lkd:Item ) ] ;
+    rdfs:subPropertyOf lkd:relatedTo ;
+    owl:equivalentProperty bf:hasEquivalent .
+
+lkd:language a owl:ObjectProperty ;
+    rdfs:label "language information"@en,
+        "kieli"@fi ;
+    lkd-meta:closeMatch rdau:P60099 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range lkd:Language ;
+    rdfs:subPropertyOf bf:language .
+
+lkd:musicKey a owl:DatatypeProperty ;
+    rdfs:label "music key"@en,
+        "sävellaji"@fi ;
+    lkd-meta:narrowMatch rdae:P20326,
+        rdaw:P10221 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression ) ] ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:musicKey .
+
+lkd:scale a owl:ObjectProperty ;
+    rdfs:label "scale"@en,
+        "mittakaava"@fi ;
+    lkd-meta:exactMatch rdae:P20228 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Expression lkd:Manifestation ) ] ;
+    rdfs:range lkd:Scale ;
+    owl:equivalentProperty bf:scale .
+
+lkd:Capture a owl:Class ;
+    rdfs:label "Capture of content"@en,
+        "Taltiointi"@fi ;
+    owl:equivalentClass bf:Capture .
+
+lkd:EnumerationAndChronology a owl:Class ;
+    rdfs:label "Enumeration and chronology"@en,
+        "Numerointi- ja julkaisuaikatiedot"@fi ;
+    owl:equivalentClass bf:EnumerationAndChronology .
+
+lkd:Event a owl:Class ;
+    rdfs:label "Event entity"@en,
+        "Tapahtuma"@fi ;
+    rdfs:seeAlso bf:Event .
+
+lkd:Language a owl:Class ;
+    rdfs:label "Language entity"@en,
+        "Kieli"@fi ;
+    owl:equivalentClass bf:Language .
+
+lkd:Note a owl:Class ;
+    rdfs:label "Note"@en,
+        "Huomautus"@fi ;
+    owl:equivalentClass bf:Note .
+
+lkd:Place a owl:Class ;
+    rdfs:label "Place"@en,
+        "Paikka"@fi ;
+    lkd-meta:exactMatch rdac:C10009 ;
+    owl:equivalentClass bf:Place .
+
+lkd:Scale a owl:Class ;
+    rdfs:label "Scale"@en,
+        "Mittakaava"@fi ;
+    owl:equivalentClass bf:Scale .
+
+lkd:Classification a owl:Class ;
+    rdfs:label "Classification entity"@en,
+        "Luokitus"@fi ;
+    lkd-meta:broadMatch rdac:C10013 ;
+    owl:equivalentClass bf:Classification .
+
+lkd:aap a owl:DatatypeProperty ;
+    rdfs:label "authorized access point"@en,
+        "auktorisoitu hakutieto"@fi ;
+    lkd-meta:broadMatch rdax:P00020 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation lkd:Item ) ] ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf bflc:aap .
+
+lkd:contribution a owl:ObjectProperty ;
+    rdfs:label "contribution"@en,
+        "kontribuutio"@fi ;
+    lkd-meta:narrowMatch rdae:P20301,
+        rdaw:P10311 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( lkd:Work lkd:Expression lkd:Manifestation lkd:Item ) ] ;
+    rdfs:range lkd:Contribution ;
+    owl:equivalentProperty bf:contribution .
+
+lkd:enumerationAndChronology a owl:ObjectProperty ;
+    rdfs:label "enumeration and chronology"@en,
+        "numerointi- ja julkaisuaikatiedot"@fi ;
+    rdfs:domain lkd:Item ;
+    rdfs:range lkd:EnumerationAndChronology ;
+    owl:equivalentProperty bf:enumerationAndChronology .
+
+lkd:Cartographic a owl:Class ;
+    rdfs:label "Cartographic information"@en,
+        "Kartografinen tieto"@fi ;
+    owl:equivalentClass bf:Cartographic .
+
+lkd:Notation a owl:Class ;
+    rdfs:label "Notation"@en,
+        "Notaatio"@fi ;
+    owl:equivalentClass bf:Notation .
+
+lkd:identifiedBy a owl:ObjectProperty ;
+    rdfs:label "identifier"@en,
+        "tunniste"@fi ;
+    lkd-meta:exactMatch rdax:P00018 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range lkd:Identifier ;
+    owl:equivalentProperty bf:identifiedBy .
+
+lkd:Identifier a owl:Class ;
+    rdfs:label "Identifier"@en,
+        "Tunniste"@fi ;
+    lkd-meta:broadMatch rdac:C10012 ;
+    owl:equivalentClass bf:Identifier .
+
+lkd:Title a owl:Class ;
+    rdfs:label "Title entity"@en,
+        "Nimeke"@fi ;
+    rdfs:subClassOf bf:Title .
+
+lkd:Agent a owl:Class ;
+    rdfs:label "Agent"@en,
+        "Toimija"@fi ;
+    lkd-meta:exactMatch rdac:C10002 ;
+    owl:equivalentClass bf:Agent .
+
+lkd:Contribution a owl:Class ;
+    rdfs:label "Contribution"@en,
+        "Kontribuutio"@fi ;
+    rdfs:subClassOf bf:Contribution .
+
+lkd:ProvisionActivity a owl:Class ;
+    rdfs:label "Provider entity"@en,
+        "Tuotantotiedot"@fi ;
+    owl:equivalentClass bf:ProvisionActivity .
+
+lkd:relatedTo a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "related resource"@en,
+        "liittyvä resurssi"@fi ;
+    lkd-meta:narrowMatch rdaw:P10198,
+        rdax:P00001 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range rdfs:Resource ;
+    owl:equivalentProperty bf:relatedTo .
+
+lkd:Item a owl:Class ;
+    rdfs:label "Item"@en,
+        "Kappale"@fi ;
+    lkd-meta:exactMatch rdac:C10003 ;
+    owl:equivalentClass bf:Item .
+
+lkd:Manifestation a owl:Class ;
+    rdfs:label "Manifestation"@en,
+        "Manifestaatio"@fi ;
+    lkd-meta:exactMatch rdac:C10007 ;
+    owl:equivalentClass bf:Instance .
+
+lkd:Work a owl:Class ;
+    rdfs:label "Work"@en,
+        "Teos"@fi ;
+    lkd-meta:broadMatch rdac:C10001 ;
+    rdfs:subClassOf bf:Work ;
+    owl:disjointWith lkd:Expression .
+
+lkd:Expression a owl:Class ;
+    rdfs:label "Expression"@en,
+        "Ekspressio"@fi ;
+    lkd-meta:exactMatch rdac:C10006 ;
+    rdfs:subClassOf bf:Work ;
+    owl:disjointWith lkd:Work .
+
