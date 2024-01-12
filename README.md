@@ -15,7 +15,7 @@ Test version 0.2.0, published on 2023-05-26, comprises of the RDA elements deter
 
 Test version 0.3.0, published on 2023-11-03, comprises of the RDA elements determined by the Finnish cataloguing levels. The identifiers used are temporary and the model is not ready for use. Compared to the 0.2 versions of the data model, this one contains a new set of linking properties used for linking to RDA as well as corrections to said links, a more coherent approach to titles, and a host of minor corrections. We temporarily left Swedish labels out of this version as we intend to check and correct them systematically and introduce them back into a future version.
 
-Version 0.3.1 is intended for release later in Fall 2023. It will conclude the division of bf:Work into lkd:Work and lkd:Expression, including the classes corresponding to the bf:Work subclasses.
+Test version 0.3.1, published on 2024-01-12, includes subclasses of lkd:Work and lkd:Expression which have close matches to the subclasses of BIBFRAME Work. For handling various Title types we have added the lkd:TitleNote class and the lkd:titleNote property.
 
 ## Conversion
 In addtion to the data model this project aims to create MARC21 to LKD conversion rules and conversion software to implement them. Backward conversion from LKD to MARC21 will be implemented, too.
