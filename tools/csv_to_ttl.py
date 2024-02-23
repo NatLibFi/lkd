@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
- Copyright 2023 University Of Helsinki (The National Library Of Finland)
+ Copyright 2022-2024 University Of Helsinki (The National Library Of Finland)
 
  Licensed under the GNU, General Public License, Version 3.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,10 +18,13 @@
 import argparse
 import csv
 import datetime
+import logging
+import os
 
 import rdflib # separate import for triggering autocomplete behavior in IDE
 from rdflib import Graph, Literal, URIRef
-from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, XSD, NamespaceManager
+from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS, XSD, NamespaceManager
+from rdflib.plugins.sparql.processor import prepareQuery
 from rdflib.util import from_n3
 
 # treat these CSV cell values as empty/missing
@@ -29,17 +32,19 @@ EMPTY_COL_VALS = set(["", "#N/A", "N/A", "?"])
 
 class DataModelConverter:
     def __init__(self):
-        parser = argparse.ArgumentParser(description="CSV to TTL converter to be used in LKD data model conversion")
+        parser = argparse.ArgumentParser(description="CSV to TTL converter to be used in LKD data model (Finnish BIBFRAME) conversion")
         parser.add_argument("-i", "--input-path",
             help="Input path for LKD csv file", required=True)
         parser.add_argument("-o", "--output-path",
             help="Output path for data model", required=True)
+        parser.add_argument('-O', '--log',
+            help='Log file name. Default is to use standard error')
+        parser.add_argument('-D', '--debug', default=False, action="store_true",
+            help='Show debug output')
         parser.add_argument("-p", "--prefixes-path",
             help="Input path for prefixes file to be used in processing the csv file", required=True)
-        parser.add_argument("-ns", "--namespace",
-            help="Namespace for lkd prefix in output file. If given, overrides any other value")
         parser.add_argument("-url", "--publishing-url",
-            help="Base URL for published data model", default="http://schema.finto.fi/lkd/")
+            help="Base URL for published data model", default="http://schema.finto.fi/bffi/")
         parser.add_argument("-m", "--metadata-path",
             help="Input path for separate data model metadata file")
         parser.add_argument("-r", "--releases-path",
@@ -53,8 +58,9 @@ class DataModelConverter:
         args = parser.parse_args()
         self.input_path = args.input_path
         self.output_path = args.output_path
+        self.debug = args.debug
+        self.log = args.log
         self.prefixes_path = args.prefixes_path
-        self.namespace = args.namespace
         self.publishing_url = args.publishing_url
         self.metadata_path = args.metadata_path
         self.releases_path = args.releases_path
@@ -63,15 +69,28 @@ class DataModelConverter:
         self.prior_version = args.prior_version
 
         self.graph = Graph(bind_namespaces='none').parse(self.prefixes_path)
+        self.meta_graph = Graph(bind_namespaces='none')
+        self.bf_graph = Graph()
+        self.versioning_dates = {}
 
-        if self.namespace:
-            self.graph.bind('lkd', self.namespace)
+        # configure logging, messages to stderr by default
+        logformat = '%(levelname)s: %(message)s'
+        loglevel = logging.INFO
+        if self.debug:
+            loglevel = logging.DEBUG
+        if self.log:
+            logging.basicConfig(filename=self.log,
+                                format=logformat, filemode='w+', level=loglevel)
+        else:
+            logging.basicConfig(format=logformat, level=loglevel)
 
-        # identifier for the LKD ontology
-        lkdURIRef = URIRef(self.graph.namespace_manager.expand_curie('lkd:'))
+        # identifier for the ontology
+        self.URIRef = bffiURIRef = URIRef(self.graph.namespace_manager.expand_curie('bffi:'))
+        self.meta_URIRef = URIRef(self.graph.namespace_manager.expand_curie('bffi-meta:'))
 
         if self.metadata_path:
-            self.graph.parse(self.metadata_path, format="ttl")
+            self.meta_graph.parse(self.metadata_path, format="ttl")
+            self.graph += self.meta_graph
 
         self.nsm = NamespaceManager(self.graph, 'none')
 
@@ -79,45 +98,68 @@ class DataModelConverter:
             with open(self.releases_path, "r", encoding="utf-8", newline="") as releases_file:
                 csvreader = csv.DictReader(releases_file, delimiter=",")
                 for row in csvreader:
-                    if row['owl:versionInfo'] == self.version:
-                        if (issued_date:=row['dct:issued'].strip()):
+                    version_info = row['owl:versionInfo'].strip()
+                    if (issued_date:=row['dct:issued'].strip()):
+                        self.versioning_dates[version_info] = Literal(issued_date, datatype=XSD.date)
+
+                    if version_info == self.version:
+                        if issued_date:
                             self.graph.add(
-                                (lkdURIRef, DCTERMS.issued, Literal(issued_date, datatype=XSD.date))
+                                (bffiURIRef, DCTERMS.issued, self.versioning_dates[version_info])
                             )
                         to_be_removed = []
-                        for literal in self.graph.objects(lkdURIRef, DCTERMS.description):
+                        for literal in self.graph.objects(bffiURIRef, DCTERMS.description):
                             if (desc_end := row['dct:description-' + (lang:=literal.language)].strip()):
                                 self.graph.add(
-                                    (lkdURIRef, DCTERMS.description, Literal(' '.join([literal, desc_end]), lang ))
+                                    (bffiURIRef, DCTERMS.description, Literal(' '.join([literal, desc_end]), lang ))
                                 )
-                                to_be_removed.append((lkdURIRef, DCTERMS.description, literal))
+                                to_be_removed.append((bffiURIRef, DCTERMS.description, literal))
                         for triple in to_be_removed:
                             self.graph.remove(triple)
-                        break
 
         curdate = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
 
-        if (lkdURIRef, DCTERMS.issued, None) not in self.graph and self.version:
-            self.graph.add((lkdURIRef, DCTERMS.issued, Literal(curdate[:10], datatype=XSD.date)))
+        if (bffiURIRef, DCTERMS.issued, None) not in self.graph and self.version:
+            self.graph.add((bffiURIRef, DCTERMS.issued, Literal(curdate[:10], datatype=XSD.date)))
 
         if self.version:
             versionIRI = self.publishing_url + self.version.replace(".", "-") + "/"
-            self.graph.remove((lkdURIRef, OWL.versionIRI, None))
-            self.graph.add((lkdURIRef, OWL.versionIRI, URIRef(versionIRI)))
+            self.graph.remove((bffiURIRef, OWL.versionIRI, None))
+            self.graph.add((bffiURIRef, OWL.versionIRI, URIRef(versionIRI)))
 
-            self.graph.remove((lkdURIRef, OWL.versionInfo, None))
-            self.graph.add((lkdURIRef, OWL.versionInfo, Literal(self.version)))
+            self.graph.remove((bffiURIRef, OWL.versionInfo, None))
+            self.graph.add((bffiURIRef, OWL.versionInfo, Literal(self.version)))
 
         if self.prior_version:
             prior_version = self.publishing_url + self.prior_version.replace(".", "-") + "/"
-            self.graph.remove((lkdURIRef, OWL.priorVersion, None))
-            self.graph.add((lkdURIRef, OWL.priorVersion, URIRef(prior_version)))
+            self.graph.remove((bffiURIRef, OWL.priorVersion, None))
+            self.graph.add((bffiURIRef, OWL.priorVersion, URIRef(prior_version)))
 
         # always update modified date
-        self.graph.remove((lkdURIRef, DCTERMS.modified, None))
-        self.graph.add((lkdURIRef, DCTERMS.modified, Literal(curdate, datatype=XSD.dateTime)))
+        self.graph.remove((bffiURIRef, DCTERMS.modified, None))
+        self.graph.add((bffiURIRef, DCTERMS.modified, Literal(curdate, datatype=XSD.dateTime)))
 
         self.convertCSV()
+        for relation in self.graph.objects(bffiURIRef, DCTERMS.relation):
+            if (
+                isinstance(relation, URIRef)
+                and (relation_str:=relation.toPython()).startswith("http://id.loc.gov/ontologies/")
+                and relation_str[-1] == "/"
+            ):
+                local_bf_source = os.path.join(os.path.dirname(__file__), relation.split("/")[-2] + ".ttl")
+                if os.path.exists(local_bf_source):
+                    bf_graph = Graph().parse(local_bf_source)
+                else:
+                    bf_graph = Graph().parse(relation)
+                    bf_graph.serialize(destination=local_bf_source)
+                    logging.info(f"Downloaded LoC ontology file to {local_bf_source}.")
+                bf_definition_prefix = "BFLC definition: " if "bflc" in relation_str else "BIBFRAME definition: "
+
+                for bffi_subject, bf_object in self.graph[:OWL.equivalentClass|OWL.equivalentProperty:]:
+                    for bf_definition in bf_graph[bf_object:SKOS.definition]:
+                        self.graph.add((bffi_subject, SKOS.definition, Literal(bf_definition_prefix + bf_definition, 'en')))
+                self.bf_graph += bf_graph
+        self.validate()
         self.serialize()
         if self.write_rdfxml:
             if self.output_path[-4:] == ".ttl":
@@ -168,11 +210,79 @@ class DataModelConverter:
             # single value expected
             self.graph.add((s, p, self.from_n3(o)))
 
+    def _validateOntology(self, s):
+        # TODO: add more tests
+        curie = self.nsm.curie(s)
+        if str(self.graph.value(s, DCTERMS.modified))[:10] < str(self.graph.value(s, DCTERMS.issued)):
+            logging.warning(f"{curie} is modified before issued!")
+
+    def validate(self):
+        # validate for some identified issues in the past, add more as necessary
+        # TODO: refactor, add more tests
+        q2 = prepareQuery(
+            'SELECT DISTINCT ?o WHERE { ?s ?p ?o . ?s ?p2 ?o . FILTER(STR(?p) < STR(?p2) && (?p != rdfs:domain && ?p2 != rdfs:range))}',
+            initNs = { 'rdfs': RDFS }
+        )
+
+        for s in sorted(self.graph.subjects(unique=True), key=str.casefold):
+            if not isinstance(s, URIRef):
+                continue
+            (prefix, ns_uriref, name) = qname_partition = self.nsm.compute_qname(s)
+            if not ns_uriref in [self.URIRef, self.meta_URIRef]:
+                continue
+            curie = ':'.join([prefix, name])
+            if (s, RDF.type, OWL.Ontology) in self.graph:
+                self._validateOntology(s)
+                continue
+
+            # common tests
+            # TODO: refactor
+            if not (s, RDFS.label, None) in self.graph:
+                logging.warning(f"{curie} is missing labels!")
+
+            for result_row in self.graph.query(q2, initBindings={'s': s}):
+                logging.warning(f"{curie} has more than 1 relationship with {self.nsm.curie(result_row['o'])}")
+
+            for o in self.graph.objects(s):
+                if str(o).startswith(str(self.URIRef)) and not (o, None, None) in self.graph:
+                    logging.warning(f"{curie} object {self.nsm.curie(o)} is missing triples!")
+
+            for modified in self.graph[s:DCTERMS.modified:]:
+                if str(modified).endswith(" (New)"):
+                    break
+            else:
+                logging.warning(f"{curie} is missing (New) timestamp!")
+
+            if (s, RDF.type, OWL.Class) in self.graph:
+                if name[:1].islower():
+                    logging.warning(f"{curie} is expected to start with uppercase!")
+            elif name[:1].isupper():
+                logging.warning(f"{curie} is expected to start with lowercase!")
+
+            if (s, RDF.type, OWL.ObjectProperty) in self.graph:
+                for (s2, o2) in self.graph[:s:]:
+                    if isinstance(o2, Literal): 
+                        logging.warning(f"{curie} may not have literal value object!")
+            if (s, RDF.type, OWL.DatatypeProperty) in self.graph:
+                if not (s, RDFS.range, RDFS.Literal) in self.graph:
+                    logging.warning(f"{curie} should have rdfs:Literal as range!!")
+                for o in self.graph[s:RDFS.range:]:
+                    if not o == RDFS.Literal:
+                        logging.warning(f"{curie} should have rdfs:Literal as range!!")
+                for (s2, o2) in self.graph[:s:]:
+                    if not isinstance(o2, Literal): 
+                        logging.warning(f"{curie} may not have non-literal value object!")
+                pass
+            if (s, RDF.type, OWL.AnnotationProperty) in self.graph:
+                if (s, RDFS.range|RDFS.domain, None) in self.graph:
+                    logging.warning(f"{curie} is not allowed to have property axioms!")
+
     def convertCSV(self):
         """
         Converts the CSV document and adds resulting triples to the conversion-specific graph.
         """
-        LKD = rdflib.Namespace(self.nsm.expand_curie('lkd:'))
+        BFFI = rdflib.Namespace(self.nsm.expand_curie('bffi:'))
+        BFFIMETA = rdflib.Namespace(self.nsm.expand_curie('bffi-meta:'))
         with open(self.input_path, "r", encoding="utf-8", newline="") as csvfile:
             csvreader = csv.DictReader(csvfile, delimiter=",")
 
@@ -184,72 +294,85 @@ class DataModelConverter:
                 row = dict((x, _) if (_ := y.strip()) not in EMPTY_COL_VALS else (x, "") for (x, y) in row.items())
 
                 # drop unwanted rows
-                if row["skos:historyNote"] == "lkd-v0.1: not included":
-                    continue
                 if row["lkd status"] not in ["published", "planned"]:
                     continue
 
                 id = row["lkd-id"]
 
-                if not id.startswith("lkd:"):
-                    raise ValueError("LKD-id is not within the lkd: namespace: " + id)
-                lkd_id = LKD[id[4:]]
+                if not id.startswith("bffi:"):
+                    raise ValueError("BFFI-id is not within the bffi: namespace: " + id)
+                bffi_id = BFFI[id[5:]]
+
+                # modified - new
+                if (bffi_new_version:=row["julkaisuversio"].strip("v")):
+                    while len(bffi_new_version.split(".")) < 3:
+                        bffi_new_version += ".0"
+                    if bffi_new_version.startswith("0.") and int(bffi_new_version.split(".")[1]) < 4:
+                        bffi_new_version = "0.4.0"
+                    self.graph.add(
+                        (bffi_id, DCTERMS.modified, Literal(str(self.versioning_dates[bffi_new_version]) + " (New)"))
+                    )
 
                 # labels
-                self.graph.add((lkd_id, RDFS.label, Literal(row["lkd rdfs:label-en"], "en")))
-                self.graph.add((lkd_id, RDFS.label, Literal(row["lkd rdfs:label-fi"], "fi")))
-                #self.graph.add((lkd_id, RDFS.label, Literal(row["lkd rdfs:label-sv"], "sv")))
+                self.graph.add((bffi_id, RDFS.label, Literal(row["lkd rdfs:label-en"], "en")))
+                self.graph.add((bffi_id, RDFS.label, Literal(row["lkd rdfs:label-fi"], "fi")))
+                #self.graph.add((bffi_id, RDFS.label, Literal(row["lkd rdfs:label-sv"], "sv")))
 
                 # domain
                 domainCol = "lkd rdfs:domain"
-                if (lkd_domain := row[domainCol]) and (id != prevRow["lkd-id"] or lkd_domain != prevRow[domainCol]):
-                    self.processComplexCol(lkd_id, RDFS.domain, lkd_domain)
+                if (bffi_domain := row[domainCol]) and (id != prevRow["lkd-id"] or bffi_domain != prevRow[domainCol]):
+                    self.processComplexCol(bffi_id, RDFS.domain, bffi_domain)
 
                 # range
                 rangeCol = "lkd rdfs:range"
-                if (lkd_range := row[rangeCol]) and (id != prevRow["lkd-id"] or lkd_range != prevRow[rangeCol]):
-                    self.processComplexCol(lkd_id, RDFS.range, lkd_range)
+                if (bffi_range := row[rangeCol]) and (id != prevRow["lkd-id"] or bffi_range != prevRow[rangeCol]):
+                    self.processComplexCol(bffi_id, RDFS.range, bffi_range)
+
+                # related value vocabulary
+                bffi_rvv = row["bffi-meta:relatedValueVocabulary"]
+                for item in [_.strip() for _ in bffi_rvv.split(",") if bffi_rvv]:
+                    self.graph.add((bffi_id, BFFIMETA.relatedValueVocabulary, self.from_n3(item)))
 
                 # type
-                lkd_type = row["lkd: rdf:type"]
-                if (lkd_id_isClass:=lkd_type == "owl:Class"):
-                    self.graph.add((lkd_id, RDF.type, OWL.Class))
-                elif lkd_type in ["owl:ObjectProperty", "owl:SymmetricProperty"]:
-                    self.graph.add((lkd_id, RDF.type, OWL[lkd_type[4:]]))
-                    self.graph.add((lkd_id, RDF.type, OWL.ObjectProperty))
-                    if (lkd_id, RDFS.range, None) not in self.graph:
+                bffi_type = row["bffi: rdf:type"]
+                if (bffi_id_isClass:=bffi_type == "owl:Class"):
+                    self.graph.add((bffi_id, RDF.type, OWL.Class))
+                elif bffi_type in ["owl:ObjectProperty", "owl:SymmetricProperty"]:
+                    self.graph.add((bffi_id, RDF.type, OWL[bffi_type[4:]]))
+                    self.graph.add((bffi_id, RDF.type, OWL.ObjectProperty))
+                    if (bffi_id, RDFS.range, None) not in self.graph:
                         # set rdfs:range to rdfs:Resource in case no range specified (handled previously)
-                        self.graph.add((lkd_id, RDFS.range, RDFS.Resource))
-                elif lkd_type == "owl:DatatypeProperty":
-                    self.graph.add((lkd_id, RDF.type, OWL.DatatypeProperty))
+                        self.graph.add((bffi_id, RDFS.range, RDFS.Resource))
+                elif bffi_type == "owl:DatatypeProperty":
+                    self.graph.add((bffi_id, RDF.type, OWL.DatatypeProperty))
                     empty = True  # helper variable for checking out if rdfs:range is empty
-                    for range in self.graph.objects(lkd_id, RDFS.range):
+                    for range in self.graph.objects(bffi_id, RDFS.range):
                         empty = False
                         if range != RDFS.Literal:
-                            raise ValueError(f"Property {lkd_id} has rdfs:range of {lkd_range} (expected rdfs:Literal due to rdf:type owl:DatatypeProperty)")
+                            raise ValueError(f"Property {bffi_id} has rdfs:range of {bffi_range} (expected rdfs:Literal due to rdf:type owl:DatatypeProperty)")
                     if empty:
                         # set rdfs:range to rdfs:Literal in case no range specified (handled previously)
-                        self.graph.add((lkd_id, RDFS.range, RDFS.Literal))
+                        self.graph.add((bffi_id, RDFS.range, RDFS.Literal))
                 else:
-                    raise ValueError(f"{lkd_id} had an unexpected type value, got {lkd_type}")
+                    raise ValueError(f"{bffi_id} had an unexpected type value, got {bffi_type}")
 
                 # LKD to BF mapping
-                lkd_map_bf = row["LKD-BF-owl-mapping"]
-                if lkd_map_bf not in ["owl:equivalentClass", "owl:equivalentProperty", "rdfs:subClassOf", "rdfs:subPropertyOf", "rdfs:seeAlso"]:
-                    if not lkd_map_bf in EMPTY_COL_VALS:
-                        raise ValueError(f"Mapping property from {lkd_id} to BIBFRAME had an unexpected value, got: {lkd_map_bf}")
+                bffi_map_bf = row["LKD-BF-owl-mapping"]
+                if bffi_map_bf not in ["owl:equivalentClass", "owl:equivalentProperty", "rdfs:subClassOf", "rdfs:subPropertyOf", "rdfs:seeAlso"]:
+                    if not bffi_map_bf in EMPTY_COL_VALS:
+                        raise ValueError(f"Mapping property from {bffi_id} to BIBFRAME had an unexpected value, got: {bffi_map_bf}")
                     else:
                         # missing values may pass
                         pass
                 else:
                     if not (bibframeURI:=row["bibframeURI"]) in EMPTY_COL_VALS:
-                        self.graph.add((lkd_id, self.from_n3(lkd_map_bf), URIRef(bibframeURI)))
+                        self.graph.add((bffi_id, self.from_n3(bffi_map_bf), URIRef(bibframeURI)))
 
                 # LKD to RDA mapping
-                lkd_map_rda = row["LKD-RDA-mapping"]
-                if lkd_map_rda not in ["lkd-meta:broadMatch", "lkd-meta:closeMatch", "lkd-meta:exactMatch", "lkd-meta:narrowMatch", "rdfs:seeAlso"]:
-                    if not lkd_map_rda in EMPTY_COL_VALS:
-                        raise ValueError(f"Mapping property from {lkd_id} to RDA had an unexpected value, got: {lkd_map_rda}")
+                bffi_map_rda = row["LKD-RDA-mapping"]
+                if bffi_map_rda not in ["bffi-meta:broadMatch", "bffi-meta:closeMatch", "bffi-meta:exactMatch", "bffi-meta:narrowMatch", "rdfs:seeAlso"]:
+                    if not bffi_map_rda in EMPTY_COL_VALS:
+                        raise ValueError(f"Mapping property from {bffi_id} to RDA had an unexpected value, got: {bffi_map_rda}")
                     else:
                         # missing values may pass
                         pass
@@ -259,35 +382,35 @@ class DataModelConverter:
                 else:
                     for item in [_.strip() for _ in row["rdaURI"].split("|")]:
                         long_iri = self.graph.namespace_manager.expand_curie(item) if not item.startswith("http") else item
-                        self.graph.add((lkd_id, self.from_n3(lkd_map_rda), URIRef(long_iri)))
+                        self.graph.add((bffi_id, self.from_n3(bffi_map_rda), URIRef(long_iri)))
                         # test that classes match with RDA classes and vice versa for properties
-                        if not (rdaURI_isClass:=long_iri.startswith("http://rdaregistry.info/Elements/c/") and lkd_id_isClass):
+                        if not (rdaURI_isClass:=long_iri.startswith("http://rdaregistry.info/Elements/c/") and bffi_id_isClass):
                             # let termList values pass for now
                             if "/termList/" not in long_iri:
-                                ValueError(f"{lkd_id} is a class but has RDA relationship to something other than to a RDA class!")
-                        elif rdaURI_isClass and not lkd_id_isClass:
-                            ValueError(f"{lkd_id} is not a class but has RDA relationship to a RDA class!")
+                                ValueError(f"{bffi_id} is a class but has RDA relationship to something other than to a RDA class!")
+                        elif rdaURI_isClass and not bffi_id_isClass:
+                            ValueError(f"{bffi_id} is not a class but has RDA relationship to a RDA class!")
 
                 # subclasses
-                lkd_subclass = row["lkd: rdfs:subClassOf"]
-                for item in [_.strip() for _ in lkd_subclass.split(",") if lkd_subclass]:
-                    self.graph.add((lkd_id, RDFS.subClassOf, self.from_n3(item)))
+                bffi_subclass = row["bffi: rdfs:subClassOf"]
+                for item in [_.strip() for _ in bffi_subclass.split(",") if bffi_subclass]:
+                    self.graph.add((bffi_id, RDFS.subClassOf, self.from_n3(item)))
 
                 # subproperties
-                lkd_subproperty = row["lkd: rdfs:subPropertyOf"]
-                for item in [_.strip() for _ in lkd_subproperty.split(",") if lkd_subproperty]:
-                    self.graph.add((lkd_id, RDFS.subPropertyOf, self.from_n3(item)))
+                bffi_subproperty = row["bffi: rdfs:subPropertyOf"]
+                for item in [_.strip() for _ in bffi_subproperty.split(",") if bffi_subproperty]:
+                    self.graph.add((bffi_id, RDFS.subPropertyOf, self.from_n3(item)))
 
                 #inverse of
-                lkd_inverse_of = row["lkd: owl:inverseOf"]
-                if lkd_inverse_of:
-                    self.graph.add((lkd_id, OWL.inverseOf, self.from_n3(lkd_inverse_of)))
-                    self.graph.add((self.from_n3(lkd_inverse_of), OWL.inverseOf, lkd_id))
+                bffi_inverse_of = row["bffi: owl:inverseOf"]
+                if bffi_inverse_of:
+                    self.graph.add((bffi_id, OWL.inverseOf, self.from_n3(bffi_inverse_of)))
+                    self.graph.add((self.from_n3(bffi_inverse_of), OWL.inverseOf, bffi_id))
 
-                lkd_disjoint_with = row["lkd: owl:disjointWith"]
-                if lkd_disjoint_with:
-                    self.graph.add((lkd_id, OWL.disjointWith, self.from_n3(lkd_disjoint_with)))
-                    self.graph.add((self.from_n3(lkd_disjoint_with), OWL.disjointWith, lkd_id))
+                bffi_disjoint_with = row["bffi: owl:disjointWith"]
+                if bffi_disjoint_with:
+                    self.graph.add((bffi_id, OWL.disjointWith, self.from_n3(bffi_disjoint_with)))
+                    self.graph.add((self.from_n3(bffi_disjoint_with), OWL.disjointWith, bffi_id))
 
                 # update the previous row variable for the next iteration
                 prevRow = row

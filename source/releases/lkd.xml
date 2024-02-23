@@ -1,0 +1,2154 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<records xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:nbn:se:uu:ub:epc-schema:rs-location-mapping" xsi:schemaLocation="urn:nbn:se:uu:ub:epc-schema:rs-location-mapping http://urn.kb.se/resolve?urn=urn:nbn:se:uu:ub:epc-schema:rs-location-mapping&amp;amp;godirectly">
+  <protocol-version>3.0</protocol-version>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi-meta:broadMatch</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#bffi-meta:broadMatch</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi-meta:closeMatch</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#bffi-meta:closeMatch</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi-meta:exactMatch</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#bffi-meta:exactMatch</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi-meta:narrowMatch</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#bffi-meta:narrowMatch</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi-meta:relatedValueVocabulary</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#bffi-meta:relatedValueVocabulary</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:AccessPolicy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#AccessPolicy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:AdminMetadata</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#AdminMetadata</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Agent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Agent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:AggregatingExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#AggregatingExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:AggregatingWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#AggregatingWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:AudioExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#AudioExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:AudioWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#AudioWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:BibframeWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#BibframeWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Capture</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Capture</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Carrier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Carrier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Cartographic</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Cartographic</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:CartographyExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#CartographyExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:CartographyWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#CartographyWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Chronology</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Chronology</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Classification</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Classification</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:ClassificationUdc</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#ClassificationUdc</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:CollectionExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#CollectionExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:CollectionWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#CollectionWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Content</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Content</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Contribution</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Contribution</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:CopyrightRegistration</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#CopyrightRegistration</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:CoverArt</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#CoverArt</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Dataset</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Dataset</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Degree</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Degree</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Dissertation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Dissertation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Distribution</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Distribution</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Enumeration</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Enumeration</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:EnumerationAndChronology</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#EnumerationAndChronology</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Event</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Event</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Expression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Expression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Extent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Extent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Family</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Family</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:GenreForm</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#GenreForm</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Identifier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Identifier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Illustration</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Illustration</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Integrating</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Integrating</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:IntendedAudience</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#IntendedAudience</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Issuance</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Issuance</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Item</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Item</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Kit</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Kit</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Language</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Language</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Manifestation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Manifestation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Manufacture</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Manufacture</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Media</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Media</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Meeting</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Meeting</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:MixedMaterial</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MixedMaterial</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Modification</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Modification</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:MonographExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MonographExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:MonographWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MonographWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:MovementNotation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MovementNotation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:MovingImageExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MovingImageExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:MovingImageWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MovingImageWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Multimedia</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Multimedia</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:MusicAudioExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MusicAudioExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:MusicAudioWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MusicAudioWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:MusicFormat</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MusicFormat</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:MusicMedium</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MusicMedium</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:MusicNotation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MusicNotation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:NonMusicAudioExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#NonMusicAudioExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:NonMusicAudioWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#NonMusicAudioWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:NotatedMovement</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#NotatedMovement</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:NotatedMusic</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#NotatedMusic</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Notation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Notation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Note</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Note</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Object</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Object</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Organization</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Organization</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Person</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Person</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Place</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Place</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:PrimaryContribution</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#PrimaryContribution</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Production</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Production</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Projection</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Projection</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:ProvisionActivity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#ProvisionActivity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Publication</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Publication</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:RecordingSource</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#RecordingSource</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Role</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Role</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Scale</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Scale</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Script</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Script</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:SerialExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#SerialExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:SerialWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#SerialWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:SeriesExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#SeriesExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:SeriesWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#SeriesWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Source</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Source</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Status</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Status</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:StillImage</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#StillImage</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Summary</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Summary</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:TactileNotation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#TactileNotation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Temporal</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Temporal</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Text</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Text</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Title</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Title</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:TitleNote</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#TitleNote</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Topic</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Topic</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:UsageAndAccessPolicy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#UsageAndAccessPolicy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:UsePolicy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#UsePolicy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Work</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Work</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:aap</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#aap</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:agent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#agent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:aggregates</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#aggregates</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:awards</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#awards</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:capture</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#capture</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:carrier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#carrier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:cartographicAttributes</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#cartographicAttributes</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:classification</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#classification</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:code</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#code</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:content</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#content</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:contribution</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#contribution</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:coordinates</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#coordinates</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:copyrightDate</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#copyrightDate</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:copyrightRegistration</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#copyrightRegistration</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:coverArt</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#coverArt</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:dataSource</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#dataSource</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:date</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#date</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:degree</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#degree</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:derivedFrom</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#derivedFrom</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:dissertation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#dissertation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:duration</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#duration</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:editionStatement</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#editionStatement</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:editionStatementOfRevision</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#editionStatementOfRevision</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:enumerationAndChronology</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#enumerationAndChronology</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:expressionIdentifiedBy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#expressionIdentifiedBy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:expressionManifested</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#expressionManifested</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:expressionOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#expressionOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:extent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#extent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:firstIssue</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#firstIssue</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:firstIssueChronology</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#firstIssueChronology</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:firstIssueEnumeration</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#firstIssueEnumeration</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:genreForm</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#genreForm</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:grantingInstitution</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#grantingInstitution</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:hasEquivalent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#hasEquivalent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:hasExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#hasExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:hasItem</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#hasItem</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:hasPart</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#hasPart</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:hasRepresentativeExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#hasRepresentativeExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:hasReproduction</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#hasReproduction</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:historyOfWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#historyOfWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:horizontalScale</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#horizontalScale</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:identifiedBy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#identifiedBy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:identifies</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#identifies</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:illustrativeContent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#illustrativeContent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:intendedAudience</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#intendedAudience</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:issuance</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#issuance</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:itemIdentifiedBy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#itemIdentifiedBy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:itemOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#itemOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:label</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#label</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:language</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#language</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:languageOfExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#languageOfExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:languageOfRepresentativeExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#languageOfRepresentativeExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:lastIssue</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#lastIssue</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:lastIssueChronology</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#lastIssueChronology</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:lastIssueEnumeration</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#lastIssueEnumeration</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:latitude</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#latitude</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:longitude</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#longitude</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:mainTitle</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#mainTitle</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:manifestationIdentifiedBy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#manifestationIdentifiedBy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:manifestationOfExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#manifestationOfExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:manifestationOfWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#manifestationOfWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:manufactureStatement</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#manufactureStatement</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:media</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#media</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:musicFormat</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#musicFormat</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:musicKey</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#musicKey</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:musicMedium</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#musicMedium</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:musicOpusNumber</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#musicOpusNumber</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:musicSerialNumber</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#musicSerialNumber</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:musicThematicNumber</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#musicThematicNumber</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:natureOfContent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#natureOfContent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:notation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#notation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:note</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#note</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:originDate</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#originDate</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:originPlace</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#originPlace</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:partName</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#partName</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:partNumber</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#partNumber</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:partOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#partOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:place</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#place</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:precededBy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#precededBy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:preferredCitation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#preferredCitation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:projection</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#projection</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:provisionActivity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#provisionActivity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:qualifier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#qualifier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:recordingSource</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#recordingSource</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:relatedTo</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#relatedTo</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:representativeExpressionOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#representativeExpressionOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:reproductionOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#reproductionOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:responsibilityStatement</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#responsibilityStatement</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:role</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#role</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:scale</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#scale</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:seriesEnumeration</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#seriesEnumeration</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:seriesStatement</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#seriesStatement</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:simpleAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#simpleAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:simpleDate</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#simpleDate</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:simplePlace</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#simplePlace</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:source</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#source</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:sourceConsulted</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#sourceConsulted</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:status</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#status</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:subject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#subject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:subjectOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#subjectOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:subtitle</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#subtitle</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:succeededBy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#succeededBy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:summary</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#summary</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:temporalCoverage</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#temporalCoverage</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:title</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#title</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:titleNote</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#titleNote</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:titleOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#titleOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:translation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#translation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:translationOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#translationOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:usageAndAccessPolicy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#usageAndAccessPolicy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:variantAccessPoint</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#variantAccessPoint</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:verticalScale</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#verticalScale</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:workGroupIdentifiedBy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#workGroupIdentifiedBy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:workIdentifiedBy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#workIdentifiedBy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:workManifested</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#workManifested</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+</records>

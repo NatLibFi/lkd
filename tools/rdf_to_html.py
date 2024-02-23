@@ -36,7 +36,7 @@ from rdflib.plugins.sparql.processor import prepareQuery
 from typing import Any
 from urllib.parse import urldefrag
 
-def defrag_iri(iri, separator='/'):
+def defrag_iri(iri, separator=':'):
     result = urldefrag(iri)
     if result:
         tag = result[0]
@@ -50,6 +50,8 @@ def defrag_iri(iri, separator='/'):
 SCHEMA = Namespace('http://schema.org/')
 RDA = Namespace('http://rdaregistry.info/')
 BF = Namespace('http://id.loc.gov/ontologies/bibframe/')
+BFFI = Namespace('http://urn.fi/URN:NBN:fi:schema:bffi:')
+BFFIMETA = Namespace('http://urn.fi/URN:NBN:fi:schema:bffi-meta:')
 
 HEADERS = {OWL.Class: 'Classes',
            OWL.ObjectProperty: 'Object Properties',
@@ -82,13 +84,18 @@ ROW_HEADER_LABELS = {
     InvPath(RDFS.domain): 'Is in Domain Of',
     RDFS.range: 'Range',
     InvPath(RDFS.range): 'Is in Range Of',
+    BFFIMETA.relatedValueVocabulary: 'Related value vocabulary',
     DCTERMS.identifier: 'Identifier',
     DCTERMS.coverage: 'Coverage',
     SCHEMA.parentOrganization: 'Parent Organization',
     SCHEMA.location: 'Location',
     SCHEMA.member: 'Has Member',
     FOAF.homepage: 'Homepage',
-    # LKDMETA.{(broad|close|exact|narrow)Match} to be added live
+    BFFIMETA.broadMatch: 'Broader Match',
+    BFFIMETA.closeMatch: 'Close Match',
+    BFFIMETA.exactMatch: 'Exact Match',
+    BFFIMETA.narrowMatch: 'Narrow Match',
+    DCTERMS.modified: 'Change Notes',
 }
 
 class RDFtoHTML:
@@ -124,7 +131,7 @@ class RDFtoHTML:
             help='Input path for a separate RDF metadata file, to be used in populating description list')
         parser.add_argument("-r", "--releases-path",
             help="Input path for separate releases csv file")
-        oiArg = parser.add_argument('--other-identifiers', default='lkd:NatLibFi lkd:lkdProject',
+        oiArg = parser.add_argument('--other-identifiers', default='rdfs:Literal rdfs:Resource',
             help='Other identifiers to be shown in the html documentation file')
         parser.add_argument('-v', '--version',
             help='Explicit version number (in format x.y.z), used to overwrite any such thing defined in metadata file')
@@ -148,19 +155,10 @@ class RDFtoHTML:
         self.graph = Graph(bind_namespaces='none')
         self.combined_graph = Graph(bind_namespaces='none')
         self.combined_graph.parse(self.input_path, format='ttl')
-        # identifier for the LKD ontology
-        self.URIRef = URIRef(self.combined_graph.namespace_manager.expand_curie('lkd:'))
+        # identifier for the ontology
+        self.URIRef = URIRef(BFFI)
 
-        # FIXME: add these to globals after LKD namespace has been fixed
-        LKD = Namespace(self.URIRef)
-        LKDMETA = Namespace(self.combined_graph.namespace_manager.expand_curie('lkd-meta:'))
-        ROW_HEADER_LABELS.update({
-            LKDMETA.broadMatch: 'Broader Match',
-            LKDMETA.closeMatch: 'Close Match',
-            LKDMETA.exactMatch: 'Exact Match',
-            LKDMETA.narrowMatch: 'Narrow Match',
-        })
-        self.used_prefixes.add('lkd-meta')
+        self.used_prefixes.add('bffi-meta')
 
         if self.metadata_path:
             self.combined_graph.parse(self.metadata_path, format='ttl', publicID=self.URIRef)
@@ -303,6 +301,19 @@ class RDFtoHTML:
                 # only send 120 requests per minute
                 time.sleep(0.5)
             aElem.text = g.value(identifier, RDFS.label)
+        elif href.startswith("http://www.wikidata.org/"):
+            local_rdf_source = os.path.join("resolver/wikidata/", href.rpartition('/')[2] + ".ttl")
+            os.makedirs(os.path.dirname(local_rdf_source), exist_ok=True)
+            if os.path.exists(local_rdf_source):
+                g = Graph().parse(local_rdf_source)
+            else:
+                g = Graph().parse(href)
+                g.serialize(destination=local_rdf_source)
+                logging.info(f"Downloaded Wikidata link to {local_rdf_source}.")
+                # only send 120 requests per minute
+                time.sleep(0.5)
+            if (aLabel:= self.get_pref_label(identifier, g, SKOS.prefLabel, warn=False)):
+                aElem.text = aLabel
         elif "://isni.org/isni/" in href:
             local_rdf_source = os.path.join("resolver/isni/", (isni_id:=href.rpartition('/')[2]) + "-wikidata.ttl")
             os.makedirs(os.path.dirname(local_rdf_source), exist_ok=True)
@@ -375,7 +386,10 @@ WHERE {
                 SubElement(tablerow, 'td', attrib={'class': 'key'}).text = HEADERS_SINGULAR[header] + ':'
                 td_value = SubElement(tablerow, 'td', attrib={'class': 'value'}) #type: etree.ElementBase
                 SubElement(td_value, 'a', href='#' + result[1]).text = result[1]
-                table.append(etree.fromstring(f'<tr><td class="key">IRI</td><td class="value"><div>{subject}</div></td></tr>'))
+                if (partition:=str(subject).partition("http://urn.fi/"))[1] and not partition[0]:
+                    table.append(etree.fromstring(f'<tr><td class="key">URN</td><td class="value"><div><a href="{subject}">{partition[2]}</a></div></td></tr>'))
+                else:
+                    table.append(etree.fromstring(f'<tr><td class="key">IRI</td><td class="value"><div>{subject}</div></td></tr>'))
                 for prop in properties[subject]:
                     # only show types in 'Other Identifiers' section
                     if prop == RDF.type and next(reversed(HEADERS.values())) != header:
@@ -431,6 +445,9 @@ WHERE {
                         else:
                             #type(value) == Literal:
                             rawText = str(value) + (f" ({value.language})" if value.language != None else '')
+
+                            if prop == DCTERMS.modified:
+                                rawText = f"{rawText[:10]}: {rawText[12:-1]}" 
 
                             try:
                                 litText = etree.fromstring(rawText)
@@ -559,9 +576,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                     for row in csvreader:
                         if row['owl:versionInfo'] == self.version:
                             for lang in ['fi', 'en']:
-                                pElem = description_tree.xpath(f'//p[@id="description-general-{lang}"]')[0]
-                                pElem[-1].tail += ' ' + row[f'html-{lang}']
-
+                                prevpElem = description_tree.xpath(f'//p[@id="description-general-{lang}"]')[0] # type: etree.ElementBase
+                                (pElem:=Element('p', attrib={'id': f'description-version-specific-{lang}'})).text = row[f'html-{lang}']
+                                prevpElem.addnext(pElem)
             body_elem.extend(description_tree.find('body'))
 
         SubElement(body_elem, 'hr')
@@ -620,11 +637,11 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         if len(divItem) > 1:
             dl_elem.append(divItem)
 
-        divItem = self.createDlItemForProperty(DCTERMS.publisher, graph=self.combined_graph, dt_text='Publisher')
+        divItem = self.createDlItemForProperty(DCTERMS.publisher, graph=self.combined_graph, dt_text='Publisher', external_dl=True)
         if len(divItem) > 1:
             dl_elem.append(divItem)
 
-        divItem = self.createDlItemForProperty(DCTERMS.contributor, graph=self.combined_graph, dt_text='Contributor')
+        divItem = self.createDlItemForProperty(DCTERMS.contributor, graph=self.combined_graph, dt_text='Contributor', external_dl=True)
         if len(divItem) > 1:
             dl_elem.append(divItem)
 
@@ -693,7 +710,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
 
         self.combined_graph.serialize(format='turtle', destination='LKD-combined.ttl')
 
-    def createDlItemForProperty(self, prop : URIRef, graph: Graph=None, dt_text=None, dd_value=None, dd_type=None, subject=None) -> etree.ElementBase:
+    def createDlItemForProperty(self, prop : URIRef, graph: Graph=None, dt_text=None, dd_value=None, dd_type=None, subject=None, external_dl=False) -> etree.ElementBase:
         if subject == None:
             subject = self.URIRef
         #dd_type means expected type
@@ -740,6 +757,10 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                     # Use human readable value, if possible
                     if (aLabel := self.get_pref_label(object, graph, warn=False)):
                         aElem.text = aLabel
+                    if not aLabel and external_dl:
+                        aElem2 = self.create_hyperlink_elem(object)
+                        aElem.text = aElem2.text
+                        del aElem2
                 else:
                     if object.language:
                         logging.warning('Not implemented: language tagged literal')

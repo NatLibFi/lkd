@@ -1,9 +1,9 @@
 @prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix bffi: <http://urn.fi/URN:NBN:fi:schema:bffi:> .
+@prefix bffi-meta: <http://urn.fi/URN:NBN:fi:schema:bffi-meta:> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix isothes: <http://purl.org/iso25964/skos-thes#> .
-@prefix lkd: <http://example.org/lkd/> .
-@prefix lkd-meta: <http://example.org/lkd-meta/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdac: <http://rdaregistry.info/Elements/c/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -13,63 +13,47 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix yso: <http://www.yso.fi/onto/yso/> .
 
-lkd: a owl:Ontology ;
-    dct:title        "LKD-tietomalli -- BIBFRAME 2.2.0 -tietomallin kansallinen sovellus"@fi, "LKD data model -- BIBFRAME 2.2.0 data model Finnish implementation"@en ;
-    dct:contributor  lkd:lkdProject ;
-    dct:publisher lkd:NatLibFi ;
+bffi: a owl:Ontology ;
+    dct:title        "LKD-tietomalli -- BIBFRAME 2.3.0 -tietomallin kansallinen sovellus"@fi, "LKD data model -- BIBFRAME 2.3.0 data model Finnish implementation"@en ;
+    dct:contributor <http://www.wikidata.org/entity/Q124635303> ;
+    dct:publisher <http://urn.fi/URN:NBN:fi:au:finaf:000034269> ;
     dct:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
-    dct:relation <http://id.loc.gov/ontologies/bibframe-2-2-0/>, <http://www.rdaregistry.info/Elements/> ;
-    dct:description """Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.2.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä."""@fi, 
-                    """This BIBFRAME data model is based on the BIBFRAME 2.2.0 model published by the Library of Congress. The model has been supplemented with classes and properties from the RDA element sets, as well as the Finnish national cataloguing guidelines."""@en .
+    dct:relation <http://id.loc.gov/ontologies/bibframe-2-3-0/>, <http://id.loc.gov/ontologies/bflc-2-3-0/>, <http://www.rdaregistry.info/Elements/> ;
+    dct:description """Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.3.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä."""@fi, 
+                    """This BIBFRAME data model is based on the BIBFRAME 2.3.0 model published by the Library of Congress. The model has been supplemented with classes and properties from the RDA element sets, as well as the Finnish national cataloguing guidelines."""@en .
 
-lkd:NatLibFi a rdac:C10005 ;
-    rdfs:label   "Kansalliskirjasto"@fi, "Nationalbiblioteket"@sv, "The National Library of Finland"@en ;
-    dct:identifier <http://urn.fi/URN:NBN:fi:au:finaf:000034269>, <http://isni.org/isni/0000000120337602> ;
-    foaf:homepage <https://www.kansalliskirjasto.fi/> ;
-    schema:parentOrganization <http://urn.fi/URN:NBN:fi:au:finaf:000038390> ;
-    schema:location yso:p94137 .
+bffi-meta:relatedValueVocabulary a owl:AnnotationProperty ;
+    rdfs:label "liittyvä arvosanasto"@fi, "related value vocabulary"@en ;
+    dct:modified "2024-02-23 (New)" ;
+    skos:definition "Value vocabulary containing values of the related class."@en, 
+                    "Liittyvän luokan edustajia sisältävä arvosanasto."@fi;
+    rdfs:subPropertyOf dct:relation .
 
-lkd:lkdProject a schema:Project ;
-    rdfs:label "Linkitetty kirjastodata (LKD)"@fi, "Linked Library Data (LKD)"@en;
-    foaf:homepage <https://www.kiwi.fi/display/LKD> ;
-    dct:coverage "2022/2024" ;
-    schema:parentOrganization lkd:NatLibFi ;
-    schema:member <https://orcid.org/0000-0002-8355-0256>, <https://orcid.org/0000-0002-2239-7980>,
-    <https://orcid.org/0000-0002-6801-6151>, <https://orcid.org/0000-0002-2793-5485>, <https://orcid.org/0000-0002-5087-8669>,
-    <https://orcid.org/0000-0002-0348-144X> .
-
-skos:definition
-    rdfs:label "definition"@en, "määritelmä"@fi .
-
-rdfs:seeAlso
-    rdfs:label "katso myös"@fi, "see also"@en .
-
-lkd-meta:relatedConceptGroup a owl:AnnotationProperty ;
-    rdfs:label "liittyvä käsiteryhmä"@fi, "related concept group"@en ;
-    skos:definition "Concept group containing instances of this class."@en, 
-                    "Tämän luokan yksilöitä sisältävä käsiteryhmä."@fi .
-
-lkd-meta:exactMatch a owl:AnnotationProperty ; 
+bffi-meta:exactMatch a owl:AnnotationProperty ; 
     rdfs:label "tarkasti vastaava"@fi, "exact match"@en ;
+    dct:modified "2024-02-23 (New)" ;
     skos:definition "Semantically exactly matching class or property in another ontology or scheme."@en, 
                     "Merkitykseltään vastaava luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi;
     rdfs:subPropertyOf dct:relation .
 
-lkd-meta:closeMatch a owl:AnnotationProperty ;
+bffi-meta:closeMatch a owl:AnnotationProperty ;
     rdfs:label "lähes vastaava"@fi, "close match"@en ;
+    dct:modified "2024-02-23 (New)" ;
     skos:definition "Semantically similar class or property in another ontology or scheme."@en,
                     "Merkitykseltään lähes vastaava luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi;
-   rdfs:subPropertyOf dct:relation ;
-   owl:equivalentProperty <https://www.svde.org/ontology/closeMatch> .
+    rdfs:subPropertyOf dct:relation ;
+    owl:equivalentProperty <https://www.svde.org/ontology/closeMatch> .
 
-lkd-meta:broadMatch  a owl:AnnotationProperty ; 
+bffi-meta:broadMatch a owl:AnnotationProperty ; 
     rdfs:label "laajempi vastaavuus"@fi, "broad match"@en ;
+    dct:modified "2024-02-23 (New)" ;
     skos:definition "Semantically broader class or property in another ontology or scheme."@en,
                     "Merkitykseltään vastaava laajempi luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi;
     rdfs:subPropertyOf dct:relation .
 
-lkd-meta:narrowMatch  a owl:AnnotationProperty ; 
+bffi-meta:narrowMatch a owl:AnnotationProperty ; 
     rdfs:label "suppeampi vastaavuus"@fi, "narrow match"@en ;
+    dct:modified "2024-02-23 (New)" ;
     skos:definition "Semantically narrower class or property in another ontology or scheme."@en,
                     "Merkitykseltään vastaava suppeampi luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi;
     rdfs:subPropertyOf dct:relation .
