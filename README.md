@@ -17,5 +17,7 @@ Test version 0.3.0, published on 2023-11-03, comprises of the RDA elements deter
 
 Test version 0.3.1, published on 2024-01-12, includes subclasses of lkd:Work and lkd:Expression which have close matches to the subclasses of BIBFRAME Work. For handling various Title types we have added the lkd:TitleNote class and the lkd:titleNote property.
 
+In test version 0.4.0, published on 2024-02-23 we have moved from temporary identifiers to permanent URN identifiers. In addition, a new prefix bffi: has been introduced. The version also completes the division of bf:Work and its subclasses into bffi:Work and bffi:Expression and their subclasses. The allocation of properties used with bf:Work is still in progress. This version also includes a new bffi-meta:relatedValueVocabulary property used to denote a concept group in a value vocabulary that contains instances of a given class.
+
 ## Conversion
 In addtion to the data model this project aims to create MARC21 to LKD conversion rules and conversion software to implement them. Backward conversion from LKD to MARC21 will be implemented, too.
