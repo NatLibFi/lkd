@@ -11,9 +11,7 @@ Project ID http://www.wikidata.org/entity/Q124635303
 
 This BIBFRAME data model is based on the BIBFRAME 2.3.0 data model published by the Library of Congress. The model has been supplemented with categories and properties from RDA Registry, as well as additions based on the Finnish description guidelines. A notable difference to the Library of Congress BIBFRAME data model is that LKD data model splits bf:Work into disjoint classes bffi:Work and bffi:Expression corresponding to the structure of RDA classes.
 
-Namespece of the model http://urn.fi/URN:NBN:fi:schema:bffi:   Preferred prefix "bffi".
-
-Wikidata ID of the model http://www.wikidata.org/entity/Q124789177
+Namespece of the model <http://urn.fi/URN:NBN:fi:schema:bffi:>   Preferred prefix "bffi".
 
 ## Versions
 Test version 0.1.0, published on 2023-01-26, comprises of the RDA elements determined by the Finnish cataloguing levels. The identifiers used are temporary and the model is not ready for use.
