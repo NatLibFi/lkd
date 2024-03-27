@@ -91,7 +91,7 @@ ROW_HEADER_LABELS = {
     SCHEMA.location: 'Location',
     SCHEMA.member: 'Has Member',
     FOAF.homepage: 'Homepage',
-    BFFIMETA.broadMatch: 'Broader Match',
+    BFFIMETA.broadMatch: 'Broad Match',
     BFFIMETA.closeMatch: 'Close Match',
     BFFIMETA.exactMatch: 'Exact Match',
     BFFIMETA.narrowMatch: 'Narrow Match',

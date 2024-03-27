@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
     <p id="description-general-fi">Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaiseman <a target="_blank" href="https://id.loc.gov/ontologies/bibframe-2-3-0.html">BIBFRAME-tietomallin 2.3.0 versioon</a>. Mallia on täydennetty <a target="_blank" href="https://www.rdaregistry.info/">RDA Registryn</a> luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Yksi merkittävä ero Kongressin kirjaston BIBFRAME-versioon nähden on, että LKD-tietomalli jakaa BIBFRAMEn Work-tason RDA:n mukaisiin teos- ja ekspressiotasoihin.</p>
     <p id="description-version-specific-fi">Tämä 0.4.0-testiversio sisältää uudistuneen RDA:n mukaiset kansalliset suppean ja laajan kuvailutason elementit. Tässä versiossa on siirrytty väliaikaisista URI-tunnisteista pysyviin URN-muotoisiin tunnisteisiin. Lisäksi on otettu käyttöön uusi prefiksi bffi. Versio saattaa myös valmiiksi bf:Workin ja sen alaluokkien jaon bffi:Workin ja bffi:Expressionin alaluokkiin. bf:Workiin liittyvien ominaisuuksien osalta jako ja kohdistaminen alaluokkiin on vielä osittain kesken. Tietomallissa on myös uusi bffi-meta:relatedValueVocabulary-ominaisuus, jolla voidaan kertoa, että tietyn luokan yksilöitä voidaan poimia tietystä käsiteryhmästä.</p>
     <p class="fw-bold">About the data model</p>
-    <p id="description-general-en">This BIBFRAME data model is based on the <a target="_blank" href="https://id.loc.gov/ontologies/bibframe-2-3-0.html">BIBFRAME 2.3.0 data model</a> published by the Library of Congress. The model has been supplemented with categories and properties from <a target="_blank" href="https://www.rdaregistry.info/">RDA Registry</a>, as well as additions based on the Finnish description guidelines. A notable difference to the Library of Congress BIBFRAME data model is that LKD data model splits bf:Work into lkd:Work and lkd:Expression corresponding to the structure of RDA classes.</p>
+    <p id="description-general-en">This BIBFRAME data model is based on the <a target="_blank" href="https://id.loc.gov/ontologies/bibframe-2-3-0.html">BIBFRAME 2.3.0 data model</a> published by the Library of Congress. The model has been supplemented with categories and properties from <a target="_blank" href="https://www.rdaregistry.info/">RDA Registry</a>, as well as additions based on the Finnish description guidelines. A notable difference to the Library of Congress BIBFRAME data model is that LKD data model splits bf:Work into bffi:Work and bffi:Expression corresponding to the structure of RDA classes.</p>
     <p id="description-version-specific-en">This 0.4.0 test version comprises of the RDA elements determined by the Finnish cataloguing levels. In this version, we have moved from temporary identifiers to permanent URN identifiers. In addition, a new prefix bffi: has been introduced. The version also completes the division of bf:Work and its subclasses into bffi:Work and bffi:Expression and their subclasses. The allocation of properties used with bf:Work is still in progress. This version also includes a new bffi-meta:relatedValueVocabulary property used to denote a concept group in a value vocabulary that contains instances of a given class.</p>
     <hr>
     <p class="fw-bold">Tietomallidokumentaatio - Description Document</p>
@@ -2114,7 +2114,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           </td>
         </tr>
         <tr>
-          <td class="key">Broader Match</td>
+          <td class="key">Broad Match</td>
           <td class="value">
             <div>
               <a href="http://rdaregistry.info/Elements/c/C10013" target="_blank">rdac:C10013 (RDA entity)</a>
@@ -3754,7 +3754,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           </td>
         </tr>
         <tr>
-          <td class="key">Broader Match</td>
+          <td class="key">Broad Match</td>
           <td class="value">
             <div>
               <a href="http://rdaregistry.info/Elements/c/C10012" target="_blank">rdac:C10012 (nomen)</a>
@@ -4753,7 +4753,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           </td>
         </tr>
         <tr>
-          <td class="key">Broader Match</td>
+          <td class="key">Broad Match</td>
           <td class="value">
             <div>
               <a href="http://rdaregistry.info/Elements/c/C10005" target="_blank">rdac:C10005 (corporate body)</a>
@@ -4891,7 +4891,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           </td>
         </tr>
         <tr>
-          <td class="key">Broader Match</td>
+          <td class="key">Broad Match</td>
           <td class="value">
             <div>
               <a href="http://rdaregistry.info/Elements/c/C10005" target="_blank">rdac:C10005 (corporate body)</a>
@@ -6155,7 +6155,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           </td>
         </tr>
         <tr>
-          <td class="key">Broader Match</td>
+          <td class="key">Broad Match</td>
           <td class="value">
             <div>
               <a href="http://rdaregistry.info/Elements/c/C10006" target="_blank">rdac:C10006 (expression)</a>
@@ -6209,7 +6209,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           </td>
         </tr>
         <tr>
-          <td class="key">Broader Match</td>
+          <td class="key">Broad Match</td>
           <td class="value">
             <div>
               <a href="http://rdaregistry.info/Elements/c/C10001" target="_blank">rdac:C10001 (work)</a>
@@ -6463,7 +6463,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           </td>
         </tr>
         <tr>
-          <td class="key">Broader Match</td>
+          <td class="key">Broad Match</td>
           <td class="value">
             <div>
               <a href="http://rdaregistry.info/Elements/c/C10006" target="_blank">rdac:C10006 (expression)</a>
@@ -6517,7 +6517,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           </td>
         </tr>
         <tr>
-          <td class="key">Broader Match</td>
+          <td class="key">Broad Match</td>
           <td class="value">
             <div>
               <a href="http://rdaregistry.info/Elements/c/C10001" target="_blank">rdac:C10001 (work)</a>
@@ -7564,7 +7564,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           </td>
         </tr>
         <tr>
-          <td class="key">Broader Match</td>
+          <td class="key">Broad Match</td>
           <td class="value">
             <div>
               <a href="http://rdaregistry.info/Elements/c/C10005" target="_blank">rdac:C10005 (corporate body)</a>
@@ -9849,7 +9849,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           </td>
         </tr>
         <tr>
-          <td class="key">Broader Match</td>
+          <td class="key">Broad Match</td>
           <td class="value">
             <div>
               <a href="http://rdaregistry.info/Elements/c/C10001" target="_blank">rdac:C10001 (work)</a>
@@ -14028,7 +14028,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           </td>
         </tr>
         <tr>
-          <td class="key">Broader Match</td>
+          <td class="key">Broad Match</td>
           <td class="value">
             <div>
               <a href="http://rdaregistry.info/Elements/a/P50304" target="_blank">rdaa:P50304 (has related RDA entity of agent)</a>
