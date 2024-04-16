@@ -29,7 +29,7 @@ import urllib
 from argparse import ArgumentParser, Action
 from lxml import etree
 from lxml.etree import Element, SubElement
-from rdflib import Graph, URIRef, BNode, Namespace, RDF, Literal, util, DCTERMS, FOAF
+from rdflib import Graph, URIRef, BNode, Namespace, RDF, Literal, util, DCTERMS, FOAF, XSD
 from rdflib.namespace import SKOS, RDFS, OWL
 from rdflib.paths import InvPath
 from rdflib.plugins.sparql.processor import prepareQuery
@@ -53,21 +53,35 @@ BF = Namespace('http://id.loc.gov/ontologies/bibframe/')
 BFFI = Namespace('http://urn.fi/URN:NBN:fi:schema:bffi:')
 BFFIMETA = Namespace('http://urn.fi/URN:NBN:fi:schema:bffi-meta:')
 
-HEADERS = {OWL.Class: 'Classes',
-           OWL.ObjectProperty: 'Object Properties',
-           OWL.DatatypeProperty: 'Datatype Properties',
-           OWL.AnnotationProperty: 'Annotation Properties',
-           '': 'Other Identifiers'}
+HEADERS = {
+    OWL.Class: 'Classes',
+    OWL.ObjectProperty: 'Object Properties',
+    OWL.DatatypeProperty: 'Datatype Properties',
+    OWL.AnnotationProperty: 'Annotation Properties',
+    '': 'Other Identifiers',
+    OWL.DeprecatedClass: 'Deprecated Classes',
+    OWL.DeprecatedProperty: 'Deprecated Properties',
+}
 
 HEADERS_SINGULAR = {v: (v[0] + ''.join(
     [(' ' + x.lower()) if x.isupper() else x for x in defrag_iri(k, '#')[1][1:]])
     if k != '' else 'Identifier') for (k, v) in HEADERS.items()}
 
-TYPES = [OWL.Class, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty, '']
+TYPES = [
+    OWL.Class,
+    OWL.ObjectProperty,
+    OWL.DatatypeProperty,
+    OWL.AnnotationProperty,
+    '',
+    OWL.DeprecatedClass,
+    OWL.DeprecatedProperty,
+]
 
 # Row labels below are ordered
 ROW_HEADER_LABELS = {
     RDFS.label: 'Label',
+    OWL.deprecated: 'Deprecated',
+    DCTERMS.isReplacedBy: 'Is Replaced By',
     SKOS.definition: 'Definition',
     RDFS.comment: "Comment",
     RDF.type: 'Type',
@@ -386,13 +400,16 @@ WHERE {
                 SubElement(tablerow, 'td', attrib={'class': 'key'}).text = HEADERS_SINGULAR[header] + ':'
                 td_value = SubElement(tablerow, 'td', attrib={'class': 'value'}) #type: etree.ElementBase
                 SubElement(td_value, 'a', href='#' + result[1]).text = result[1]
+                if header.startswith("Deprecated"):
+                    td_value[0].tail = " (deprecated)"
+
                 if (partition:=str(subject).partition("http://urn.fi/"))[1] and not partition[0]:
                     table.append(etree.fromstring(f'<tr><td class="key">URN</td><td class="value"><div><a href="{subject}">{partition[2]}</a></div></td></tr>'))
                 else:
                     table.append(etree.fromstring(f'<tr><td class="key">IRI</td><td class="value"><div>{subject}</div></td></tr>'))
                 for prop in properties[subject]:
                     # only show types in 'Other Identifiers' section
-                    if prop == RDF.type and next(reversed(HEADERS.values())) != header:
+                    if prop == RDF.type and header != "Other Identifiers":
                         continue
                     tablerow = SubElement(table, 'tr')
                     (td_key:=SubElement(tablerow, 'td')).text = ROW_HEADER_LABELS[prop]
@@ -444,7 +461,10 @@ WHERE {
 
                         else:
                             #type(value) == Literal:
-                            rawText = str(value) + (f" ({value.language})" if value.language != None else '')
+                            if value.datatype == XSD.boolean:
+                                rawText = "Yes" if str(value) == "true" else "No"
+                            else:
+                                rawText = str(value) + (f" ({value.language})" if value.language != None else '')
 
                             if prop == DCTERMS.modified:
                                 rawText = f"{rawText[:10]}: {rawText[12:-1]}" 

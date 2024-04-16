@@ -47,6 +47,8 @@ class DataModelConverter:
             help="Base URL for published data model", default="http://schema.finto.fi/bffi/")
         parser.add_argument("-m", "--metadata-path",
             help="Input path for separate data model metadata file")
+        parser.add_argument("-c", "--change-notes-path",
+            help="Input path for separate change notes csv file")
         parser.add_argument("-r", "--releases-path",
             help="Input path for separate releases csv file")
         parser.add_argument("--write-rdfxml", default=False, action="store_true",
@@ -63,6 +65,7 @@ class DataModelConverter:
         self.prefixes_path = args.prefixes_path
         self.publishing_url = args.publishing_url
         self.metadata_path = args.metadata_path
+        self.change_notes_path = args.change_notes_path
         self.releases_path = args.releases_path
         self.write_rdfxml = args.write_rdfxml
         self.version = args.version
@@ -70,6 +73,7 @@ class DataModelConverter:
 
         self.graph = Graph(bind_namespaces='none').parse(self.prefixes_path)
         self.meta_graph = Graph(bind_namespaces='none')
+        self.cnotes_graph = Graph(bind_namespaces='none')
         self.bf_graph = Graph()
         self.versioning_dates = {}
 
@@ -139,7 +143,29 @@ class DataModelConverter:
         self.graph.remove((bffiURIRef, DCTERMS.modified, None))
         self.graph.add((bffiURIRef, DCTERMS.modified, Literal(curdate, datatype=XSD.dateTime)))
 
+        if self.change_notes_path and self.versioning_dates:
+            self.processChangeNotesCSV()
+
         self.convertCSV()
+
+        bffi_subjects = set(self.graph.subjects())
+
+        for cnote_subject in self.cnotes_graph.subjects(unique=True):
+            if cnote_subject not in bffi_subjects:
+                # change note defined for nonexistent bffi subject
+                logging.warning(f"{cnote_subject} has only a change note stated about it")
+                continue
+            cnote_depr = (cnote_subject, OWL.deprecated, Literal(True)) in self.graph
+            depr_notice_shown = False
+            for cnoteLit in self.cnotes_graph[cnote_subject:DCTERMS.modified:]:
+                if cnote_depr and not str(cnoteLit)[12:].startswith("Deprecated"):
+                    if not depr_notice_shown:
+                        logging.debug(f"{cnote_subject} is deprecated, dropping non-essential change notes")
+                        depr_notice_shown = True
+                    continue
+                else:
+                    self.graph.add((cnote_subject, DCTERMS.modified, cnoteLit))
+
         for relation in self.graph.objects(bffiURIRef, DCTERMS.relation):
             if (
                 isinstance(relation, URIRef)
@@ -251,9 +277,13 @@ class DataModelConverter:
                 if str(modified).endswith(" (New)"):
                     break
             else:
-                logging.warning(f"{curie} is missing (New) timestamp!")
+                if self.version:
+                    logging.warning(f"{curie} is missing (New) timestamp!")
+            if (depr:=((s, OWL.deprecated, Literal(True)) in self.graph)):
+                if (None, None, s) in self.graph:
+                    logging.warning(f"{curie} is deprecated but is in object position!")
 
-            if (s, RDF.type, OWL.Class) in self.graph:
+            if (s, RDF.type, OWL.Class) in self.graph or (s, RDF.type, OWL.DeprecatedClass) in self.graph:
                 if name[:1].islower():
                     logging.warning(f"{curie} is expected to start with uppercase!")
             elif name[:1].isupper():
@@ -265,10 +295,10 @@ class DataModelConverter:
                         logging.warning(f"{curie} may not have literal value object!")
             if (s, RDF.type, OWL.DatatypeProperty) in self.graph:
                 if not (s, RDFS.range, RDFS.Literal) in self.graph:
-                    logging.warning(f"{curie} should have rdfs:Literal as range!!")
+                    logging.warning(f"{curie} should have rdfs:Literal as range!")
                 for o in self.graph[s:RDFS.range:]:
                     if not o == RDFS.Literal:
-                        logging.warning(f"{curie} should have rdfs:Literal as range!!")
+                        logging.warning(f"{curie} should have rdfs:Literal as range!")
                 for (s2, o2) in self.graph[:s:]:
                     if not isinstance(o2, Literal): 
                         logging.warning(f"{curie} may not have non-literal value object!")
@@ -276,6 +306,45 @@ class DataModelConverter:
             if (s, RDF.type, OWL.AnnotationProperty) in self.graph:
                 if (s, RDFS.range|RDFS.domain, None) in self.graph:
                     logging.warning(f"{curie} is not allowed to have property axioms!")
+
+    def processChangeNotesCSV(self):
+        """
+        Processes the change notes CSV document and adds resulting triples to the change notes graph for later usage.
+        """
+        if self.version:
+            versionTuple = tuple(self.version.split("."))
+            if len(versionTuple) != 3:
+                logging.warning("Version numbering does not match MAJOR.MINOR.PATCH model. Disabling checks")
+                versionTuple = (0, 0, 0)
+        else:
+            versionTuple = (0, 0, 0)
+
+        with open(self.change_notes_path, "r", encoding="utf-8", newline="") as csvfile:
+            csvreader = csv.DictReader(csvfile, delimiter=",")
+
+            for row in csvreader:
+                row = dict((x, y.strip()) for (x, y) in row.items())
+                if not row['changeNote']:
+                    continue
+
+                cnote_iri = self.nsm.expand_curie(row['lkd-id'])
+                change_version = row["version"].strip("v")
+                cnote_version_tuple = tuple(change_version.split("."))
+
+                if len(cnote_version_tuple) != 3:
+                    logging.warning(f"{cnote_iri} change version {change_version} does not match MAJOR.MINOR.PATCH model")
+                elif cnote_version_tuple > versionTuple:
+                    # drop change notes determined to be in a future version
+                    continue
+
+                change_date_str = str(self.versioning_dates[change_version])
+
+                for note in self.cnotes_graph[cnote_iri:DCTERMS.modified:]:
+                    if str(note).startswith(change_date_str):
+                        logging.warning(f"Multiple change notes detected for {cnote_iri} in version {change_version}")
+
+                cnote_str = f"{change_date_str} ({row['changeNote']})"
+                self.cnotes_graph.add((cnote_iri, DCTERMS.modified, Literal(cnote_str)))
 
     def convertCSV(self):
         """
@@ -294,7 +363,7 @@ class DataModelConverter:
                 row = dict((x, _) if (_ := y.strip()) not in EMPTY_COL_VALS else (x, "") for (x, y) in row.items())
 
                 # drop unwanted rows
-                if row["lkd status"] not in ["published", "planned"]:
+                if row["lkd status"] not in ["published", "planned", "deprecated"]:
                     continue
 
                 id = row["lkd-id"]
@@ -307,11 +376,15 @@ class DataModelConverter:
                 if (bffi_new_version:=row["julkaisuversio"].strip("v")):
                     while len(bffi_new_version.split(".")) < 3:
                         bffi_new_version += ".0"
-                    if bffi_new_version.startswith("0.") and int(bffi_new_version.split(".")[1]) < 4:
-                        bffi_new_version = "0.4.0"
-                    self.graph.add(
-                        (bffi_id, DCTERMS.modified, Literal(str(self.versioning_dates[bffi_new_version]) + " (New)"))
-                    )
+                    if bffi_new_version.startswith("0.") and int(bffi_new_version.split(".")[1]) < 4 or bffi_new_version == "0.4.0":
+                        self.graph.add(
+                            (bffi_id, DCTERMS.modified, Literal("2024-02-23 (New)"))
+                        )
+                    else:
+                        if self.versioning_dates:
+                            self.graph.add(
+                                (bffi_id, DCTERMS.modified, Literal(str(self.versioning_dates[bffi_new_version]) + " (New)"))
+                            )
 
                 # labels
                 self.graph.add((bffi_id, RDFS.label, Literal(row["lkd rdfs:label-en"], "en")))
@@ -358,7 +431,7 @@ class DataModelConverter:
 
                 # LKD to BF mapping
                 bffi_map_bf = row["LKD-BF-owl-mapping"]
-                if bffi_map_bf not in ["owl:equivalentClass", "owl:equivalentProperty", "rdfs:subClassOf", "rdfs:subPropertyOf", "rdfs:seeAlso"]:
+                if bffi_map_bf not in ["owl:equivalentClass", "owl:equivalentProperty", "bffi-meta:exactMatch", "bffi-meta:closeMatch", "bffi-meta:broadMatch"]:
                     if not bffi_map_bf in EMPTY_COL_VALS:
                         raise ValueError(f"Mapping property from {bffi_id} to BIBFRAME had an unexpected value, got: {bffi_map_bf}")
                     else:
@@ -370,7 +443,7 @@ class DataModelConverter:
 
                 # LKD to RDA mapping
                 bffi_map_rda = row["LKD-RDA-mapping"]
-                if bffi_map_rda not in ["bffi-meta:broadMatch", "bffi-meta:closeMatch", "bffi-meta:exactMatch", "bffi-meta:narrowMatch", "rdfs:seeAlso"]:
+                if bffi_map_rda not in ["bffi-meta:broadMatch", "bffi-meta:closeMatch", "bffi-meta:exactMatch", "bffi-meta:narrowMatch", "rdfs:seeAlso", "bffi-meta:relatedValueVocabulary"]:
                     if not bffi_map_rda in EMPTY_COL_VALS:
                         raise ValueError(f"Mapping property from {bffi_id} to RDA had an unexpected value, got: {bffi_map_rda}")
                     else:
@@ -411,6 +484,23 @@ class DataModelConverter:
                 if bffi_disjoint_with:
                     self.graph.add((bffi_id, OWL.disjointWith, self.from_n3(bffi_disjoint_with)))
                     self.graph.add((self.from_n3(bffi_disjoint_with), OWL.disjointWith, bffi_id))
+
+                if row["lkd status"] == "deprecated":
+                    if (bffi_id, RDF.type, OWL.Class) in self.graph:
+                        self.graph.remove((bffi_id, RDF.type, None))
+                        self.graph.add((bffi_id, RDF.type, OWL.DeprecatedClass))
+                    else:
+                        self.graph.remove((bffi_id, RDF.type, None))
+                        self.graph.add((bffi_id, RDF.type, OWL.DeprecatedProperty))
+
+                    for pred, obj in self.graph.predicate_objects(subject=bffi_id):
+                        if pred not in [RDFS.label, DCTERMS.modified, RDF.type]:
+                            self.graph.remove((bffi_id, pred, None))
+
+                    self.graph.add((bffi_id, OWL.deprecated, Literal(True)))
+                    bffi_replacedBy = row["replacedBy"]
+                    for item in [_.strip() for _ in bffi_replacedBy.split(",") if bffi_replacedBy]:
+                        self.graph.add((bffi_id, DCTERMS.isReplacedBy, self.from_n3(item)))
 
                 # update the previous row variable for the next iteration
                 prevRow = row

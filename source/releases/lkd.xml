@@ -73,6 +73,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:AcquisitionSource</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#AcquisitionSource</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:AdminMetadata</identifier>
       <destinations>
         <destination status="activated">
@@ -173,6 +183,26 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:CartographicDataType</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#CartographicDataType</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:CartographicObjectType</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#CartographicObjectType</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:CartographyExpression</identifier>
       <destinations>
         <destination status="activated">
@@ -223,6 +253,36 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:CollectionAccrualMethod</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#CollectionAccrualMethod</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:CollectionAccrualPolicy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#CollectionAccrualPolicy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:CollectionArrangement</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#CollectionArrangement</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:CollectionExpression</identifier>
       <destinations>
         <destination status="activated">
@@ -233,10 +293,40 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:CollectionItem</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#CollectionItem</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:CollectionManifestation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#CollectionManifestation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:CollectionWork</identifier>
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#CollectionWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:ColorContent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#ColorContent</url>
         </destination>
       </destinations>
     </header>
@@ -303,6 +393,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:DigitalCharacteristic</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#DigitalCharacteristic</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:Dissertation</identifier>
       <destinations>
         <destination status="activated">
@@ -363,6 +463,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:ExtensionPlan</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#ExtensionPlan</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:Extent</identifier>
       <destinations>
         <destination status="activated">
@@ -407,6 +517,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#Illustration</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:ImmediateAcquisition</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#ImmediateAcquisition</url>
         </destination>
       </destinations>
     </header>
@@ -487,6 +607,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#Manufacture</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Manuscript</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Manuscript</url>
         </destination>
       </destinations>
     </header>
@@ -713,6 +843,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:ObjectCount</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#ObjectCount</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:Organization</identifier>
       <destinations>
         <destination status="activated">
@@ -803,6 +943,26 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:Relief</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Relief</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:RetentionPolicy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#RetentionPolicy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:Role</identifier>
       <destinations>
         <destination status="activated">
@@ -817,6 +977,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#Scale</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:ScaleDesignation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#ScaleDesignation</url>
         </destination>
       </destinations>
     </header>
@@ -897,6 +1067,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#StillImage</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Sublocation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Sublocation</url>
         </destination>
       </destinations>
     </header>
@@ -1013,6 +1193,56 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:accompaniedBy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#accompaniedBy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:accompanies</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#accompanies</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:acquisitionSource</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#acquisitionSource</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:acquisitionTerms</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#acquisitionTerms</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:additionalScaleInformation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#additionalScaleInformation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:agent</identifier>
       <destinations>
         <destination status="activated">
@@ -1027,6 +1257,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#aggregates</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:ascensionAndDeclination</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#ascensionAndDeclination</url>
         </destination>
       </destinations>
     </header>
@@ -1073,6 +1313,46 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:cartographicProjection</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#cartographicProjection</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:cartographicProjectionOfRepresentativeExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#cartographicProjectionOfRepresentativeExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:catalogue</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#catalogue</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:catalogueOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#catalogueOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:classification</identifier>
       <destinations>
         <destination status="activated">
@@ -1093,10 +1373,90 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:collectionAccrualMethod</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#collectionAccrualMethod</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:collectionAccrualPolicy</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#collectionAccrualPolicy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:collectionArrangement</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#collectionArrangement</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:collectionArrangementOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#collectionArrangementOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:collectionOrganization</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#collectionOrganization</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:colorContent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#colorContent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:colorContentOfRepresentativeExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#colorContentOfRepresentativeExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:content</identifier>
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#content</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:contentOfRepresentativeExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#contentOfRepresentativeExpression</url>
         </destination>
       </destinations>
     </header>
@@ -1153,6 +1513,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:custodialHistory</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#custodialHistory</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:dataSource</identifier>
       <destinations>
         <destination status="activated">
@@ -1187,6 +1557,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#derivedFrom</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:digitalCharacteristic</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#digitalCharacteristic</url>
         </destination>
       </destinations>
     </header>
@@ -1243,6 +1623,26 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:equinox</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#equinox</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:exclusionGRing</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#exclusionGRing</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:expressionIdentifiedBy</identifier>
       <destinations>
         <destination status="activated">
@@ -1273,10 +1673,50 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:extensionPlan</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#extensionPlan</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:extent</identifier>
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#extent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:extentOfRepresentativeExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#extentOfRepresentativeExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:findingAid</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#findingAid</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:findingAidOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#findingAidOf</url>
         </destination>
       </destinations>
     </header>
@@ -1393,10 +1833,40 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:hierarchicalLevel</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#hierarchicalLevel</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:historyOfWork</identifier>
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#historyOfWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:holding</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#holding</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:holdingOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#holdingOf</url>
         </destination>
       </destinations>
     </header>
@@ -1443,10 +1913,50 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:immediateAcquisition</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#immediateAcquisition</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:index</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#index</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:indexOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#indexOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:intendedAudience</identifier>
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#intendedAudience</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:intendedAudienceOfRepresentativeExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#intendedAudienceOfRepresentativeExpression</url>
         </destination>
       </destinations>
     </header>
@@ -1557,6 +2067,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#latitude</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:locationOfCollection</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#locationOfCollection</url>
         </destination>
       </destinations>
     </header>
@@ -1723,6 +2243,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:ordinal</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#ordinal</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:originDate</identifier>
       <destinations>
         <destination status="activated">
@@ -1737,6 +2267,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#originPlace</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:outerGRing</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#outerGRing</url>
         </destination>
       </destinations>
     </header>
@@ -1767,6 +2307,26 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#partOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:pattern</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#pattern</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:physicalLocation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#physicalLocation</url>
         </destination>
       </destinations>
     </header>
@@ -1853,6 +2413,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:relief</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#relief</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:representativeExpressionOf</identifier>
       <destinations>
         <destination status="activated">
@@ -1897,6 +2467,36 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#scale</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:scaleDesignation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#scaleDesignation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:scaleOfRepresentativeExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#scaleOfRepresentativeExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:scaleOfStillImageOrThreeDimensionalForm</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#scaleOfStillImageOrThreeDimensionalForm</url>
         </destination>
       </destinations>
     </header>
@@ -1983,6 +2583,26 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:subcollection</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#subcollection</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:subcollectionOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#subcollectionOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:subject</identifier>
       <destinations>
         <destination status="activated">
@@ -1997,6 +2617,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#subjectOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:sublocation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#sublocation</url>
         </destination>
       </destinations>
     </header>

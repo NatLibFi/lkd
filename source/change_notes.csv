@@ -1,0 +1,57 @@
+lkd-id,version,changeNote,editorialNote (ei julkaista)
+bffi:acquisitionSource,v0.5.0,,2024-03-28: changed domain from bffi:Item to bffi:Manifestation
+bffi:acquisitionTerms,v0.5.0,,2024-03-28: changed domain from bffi:Item to bffi:Manifestation
+bffi:additionalScaleInformation ,v0.5.0,,2024-03-27: changed subPropertyOf value from bffi:scale to bffi:note
+bffi:additionalScaleInformation ,v0.5.0,,New property mapped with bffi-meta:exactMatch rdae:P20213; bffi-meta:broadMatch bf:scale
+bffi:aggregates,v0.5.0,,Lisätty mappaus bffi-meta:broadMatch bf:relatedTo
+bffi:Arrangement,v0.5.0,,pushed back to a later version with relatedTo -issues
+bffi:arrangement,v0.5.0,,pushed back to a later version with relatedTo -issues
+bffi:arrangementOf,v0.5.0,,pushed back to a later version with relatedTo -issues
+bffi:AudioExpression,v0.5.0,,changed subClassOf value FROM bf:Audio to bffi:Expression added bffi-meta:broadMatch bf:Audio
+bffi:AudioWork,v0.5.0,,changed subClassOf value FROM bf:Audio to bffi:Work; added bffi-meta:broadMatch bf:Audio
+bffi:cartographicAttributes,v0.5.0,"Changed domain from [bffi:Work, bffi:Manifestation] to bffi:CartographyWork",
+bffi:cartographicProjection,v0.5.0,,"based on bffi:projection, but domain changed from bffi:Cartographic to bffi:CartographyExpression; range changed from bffi:Projection to rdfs:Literal"
+bffi:cartographicProjectionOfRepresentativeExpression ,v0.5.0,,2024-03-19: Changed ID from bffi:cartographicProjectionOfRepresentativeExpression  TO bffi:projectionOfCartographicContentOfRepresentativeExpression
+bffi:cartographicProjectionOfRepresentativeExpression ,v0.5.0,,2024-03-27: changed rdfs:domian from bffi:CartographyWork to bffi:Cartographic
+bffi:catalogue,v0.5.0,,rdfs:subPropertyOf bffi:findingAid; rdfs:inverseOf bffi:catalogueOf; bffi-meta:broadMatch bf:accompaniedBy; 
+bffi:catalogue  ,v0.5.0,,2024-03-28: changed domain to bffi:CollectionManifestation; range to bffi:COllectionWork
+bffi:catalogueOf,v0.5.0,,rdfs:subPropertyOf bffi:findingAidOf; rdfs:inverseOf bffi:catalogue; bffi-meta:broadMatch bf:accompanies
+bffi:catalogueOf ,v0.5.0,,2024-03-28: changed domain to bffi:CollectionWork; range to bffi:CollectionManifestation
+bffi:colorContent,v0.5.0,,"2024-03-27: changed rdfs:domain from bffi:Expression to [bffi:Expression, bffi:Cartographic ]"
+bffi:colorContentOfRepresentativeExpression,v0.5.0,,2024-03-27: added rdfs:domain bffi:Cartographic
+bffi:coordinates,v0.5.0,,2024-03-27: removed RDA mapping to rdaw:P10024. exactMatch to rdaw:P10081
+bffi:Country,v0.5.0,,pushed back to a later version with place -issues
+bffi:country,v0.5.0,,pushed back to a later version with place -issues
+bffi:custodialHistory,v0.5.0,,"2024-03-28 changed domain from [ bffi:Work ,bffi:Expression , bffi:Manifestation, bffi:Item ] to bffi:Item"
+bffi:findingAid,v0.5.0,,"2024-03-28 changed domain from [ bffi:Expression , bffi:Manifestation ]  to bffi:CollectionManifestation; changed range from [ bffi:Expression , bffi:Manifestation ]  to bffi:CollectionWork"
+bffi:findingAidOf,v0.5.0,,"2024-03-28: changed domain from [ bffi:Expression , bffi:Manifestation ]  to bffi:CollectionWork; changed range from [ bffi:Expression , bffi:Manifestation ]  to bffi:CollectionManifestation"
+bffi:firstIssueChronology,v0.5.0,Changed type to ObjectProperty; Changed BIBFRAME mapping to bffi-meta:closeMatch bf:firstIssue,
+bffi:firstIssueEnumeration,v0.5.0,Changed type to ObjectProperty; Changed BIBFRAME mapping to bffi-meta:closeMatch bf:firstIssue,
+bffi:Geographic,v0.5.0,,pushed back to a later version with place -issues
+bffi:GeographicCoverage,v0.5.0,,pushed back to a later version with place -issues
+bffi:geographicCoverage,v0.5.0,,pushed back to a later version with place -issues
+bffi:geographicLocation,v0.5.0,,pushed back to a later version with place -issues
+bffi:GeographicSubdivision,v0.5.0,,pushed back to a later version with place -issues
+bffi:holding,v0.5.0,,2024-03-28 changed range from bffi:CollectionItem to bffi:Item
+bffi:holdingOf,v0.5.0,,2024-03-28 changed domain  from bffi:CollectionItem to bffi:Item
+bffi:index,v0.5.0,,"2024-03-28 changed domain from [ bffi:Expression, bffi:Manifestation ] to bffi:CollectionManifestation; ; changed range from [ bffi:Expression, bffi:Manifestation ] to bffi:CollectionWork"
+bffi:indexedIn,v0.5.0,,pushed back to a later version. does not deal with catalogs
+bffi:indexOf,v0.5.0,,"2024-03-28 changed domain from [ bffi:Expression, bffi:Manifestation ] to bffi:CollectionWork ; changed range from [ bffi:Expression, bffi:Manifestation ] to bffi:CollectionManifestation"
+bffi:lastIssueChronology,v0.5.0,Changed type to ObjectProperty; Changed BIBFRAME mapping to bffi-meta:closeMatch bf:lastIssue,
+bffi:lastIssueEnumeration,v0.5.0,Changed type to ObjectProperty; Changed BIBFRAME mapping to bffi-meta:closeMatch bf:lastIssue,
+bffi:latitude,v0.5.0,Deprecated,"2027-03-27 replaced by bffi:coordinates, deprecated in version 0.5"
+bffi:longitude,v0.5.0,Deprecated,"2027-03-27 Replaced by bffi:coordinates, deprecated in version 0.5"
+bffi:pattern,v0.5.0,,"2024-02-27  changed domain from [ bffi:Item , bffi:CollectionArrangement ]  to bffi:CollectionArrangement"
+bffi:projection,v0.5.0,Deprecated,"2023-03-27 (replaced by bffi:cartographicProjection, deprecated in version 0.5)"
+bffi:ProjectionCharacteristic,v0.5.0,,pushed back to a later version with AV -issues
+bffi:projectionCharacteristic,v0.5.0,,pushed back to a later version with AV -issues
+bffi:recordingSource,v0.5.0,Changed domain from bffi:Work to bffi:AdminMetadata,
+bffi:Relief,v0.5.0,,2024-03-27  rdfs:seeAlso <http://id.loc.gov/vocabulary/mrelief>
+bffi:relief,v0.5.0,,2024-03-27: changed domain from bffi:CartographyExpression  to bffi:Cartograpic (as in BIBFRAME examples)
+bffi:ScaleDesignation,v0.5.0,,2024-03-27: added bffi-meta:relatedValueVocabulary mts:m4396; rdfs:seeAlso <http://rdaregistry.info/termList/scale/> (rdasca:)
+bffi:scaleDesignation,v0.5.0,,2024-03-27: changed rdfs:domain to bffi:Scale; changed type to owl:ObjectType because range is bffi:ScaleDesignation
+bffi:scaleOfRepresentativeExpression,v0.5.0,,2024-02-27: changed rdfs:domain from bffi:Work to bffi:Cartographic
+bffi:scaleOfStillImageOrThreeDimensionalForm ,v0.5.0,,New property mapped with rdae:P20227
+bffi:subcollection,v0.5.0,,2024-03-27: changed domain and range to bffi:CollectionManifestation
+bffi:subcollectionOf,v0.5.0,,2024-03-27: changed domain and range to bffi:CollectionManifestation
+bffi:variantAccessPoint,v0.5.0,,2024-04-04: changed by removing subPropertyOf bf:aap
