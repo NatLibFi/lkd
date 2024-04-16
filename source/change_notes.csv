@@ -54,4 +54,5 @@ bffi:scaleOfRepresentativeExpression,v0.5.0,,2024-02-27: changed rdfs:domain fro
 bffi:scaleOfStillImageOrThreeDimensionalForm ,v0.5.0,,New property mapped with rdae:P20227
 bffi:subcollection,v0.5.0,,2024-03-27: changed domain and range to bffi:CollectionManifestation
 bffi:subcollectionOf,v0.5.0,,2024-03-27: changed domain and range to bffi:CollectionManifestation
+bffi:usageAndAccesPolicy,v0.5.0,,2024-04-16 changed domain by adding bffi:CollectionWork
 bffi:variantAccessPoint,v0.5.0,,2024-04-04: changed by removing subPropertyOf bf:aap

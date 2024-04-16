@@ -98,7 +98,7 @@ ROW_HEADER_LABELS = {
     InvPath(RDFS.domain): 'Is in Domain Of',
     RDFS.range: 'Range',
     InvPath(RDFS.range): 'Is in Range Of',
-    BFFIMETA.relatedValueVocabulary: 'Related value vocabulary',
+    BFFIMETA.relatedValueVocabulary: 'Related Value Vocabulary',
     DCTERMS.identifier: 'Identifier',
     DCTERMS.coverage: 'Coverage',
     SCHEMA.parentOrganization: 'Parent Organization',

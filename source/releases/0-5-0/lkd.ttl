@@ -82,7 +82,7 @@ bffi: a owl:Ontology ;
         "Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.3.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Tämä 0.5.0 testiversio sisältää karttoihin ja kokoelmiin liittyvät ominaisuudet, jotka on jaoteltu teoksen ja ekspression alaluokkiin RDA-kuvailusääntöjen mukaisesti. Olemme lisänneet mappauksia Metatietosanastossa oleviin arvosanastoihin käyttämällä bffi-meta:relatedValueVocabulary -annotaatiota. Tässä versiossa mappaukset BIBFRAME-tietomalliin on määritelty uudelleen ja suhde on pyritty merkitsemään kaikille resursseille. Jos suhde ei ole ekvivalentti, olemme käyttäneet bffi-meta: ontologian suhdemerkintöjä. Tietomallin versioiden väliset muutokset on myös merkitty näkyviin."@fi ;
     dct:issued "2024-04-16"^^xsd:date ;
     dct:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
-    dct:modified "2024-04-16T07:04:25+00:00"^^xsd:dateTime ;
+    dct:modified "2024-04-16T11:35:23+00:00"^^xsd:dateTime ;
     dct:publisher finaf:000034269 ;
     dct:relation <http://id.loc.gov/ontologies/bflc-2-3-0/>,
         <http://id.loc.gov/ontologies/bibframe-2-3-0/>,
@@ -807,12 +807,11 @@ bffi:grantingInstitution a owl:ObjectProperty ;
     rdfs:label "degree granting institution"@en,
         "oppiarvon myöntävä yhteisö"@fi ;
     dct:modified "2024-02-23 (New)" ;
-    bffi-meta:exactMatch rdaw:P10006 ;
+    bffi-meta:closeMatch bf:grantingInstitution,
+        rdaw:P10006 ;
     rdfs:domain [ a owl:Class ;
             owl:unionOf ( bffi:Dissertation bffi:Degree ) ] ;
-    rdfs:range bffi:Organization ;
-    owl:equivalentProperty bf:grantingInstitution ;
-    skos:definition "BIBFRAME definition: Name of degree granting institution."@en .
+    rdfs:range bffi:Organization .
 
 bffi:hierarchicalLevel a owl:DatatypeProperty ;
     rdfs:label "hierarchical level of material"@en,
@@ -1462,10 +1461,9 @@ bffi:variantAccessPoint a owl:DatatypeProperty ;
     rdfs:label "variant access point"@en,
         "varianttihakutieto"@fi ;
     dct:modified "2024-02-23 (New)" ;
-    bffi-meta:broadMatch bflc:aap ;
     bffi-meta:narrowMatch rdaa:P50404,
         rdaa:P50408,
-        rdaa:P50409,
+        rdaa:P50410,
         rdae:P20314,
         rdai:P40084,
         rdam:P30295,
@@ -1683,7 +1681,7 @@ bffi:RecordingSource a owl:Class ;
         "Merkintälähde"@fi ;
     dct:modified "2024-02-23 (New)" ;
     bffi-meta:broadMatch bf:Source ;
-    bffi-meta:relatedValueVocabulary mts:m1685 ;
+    bffi-meta:relatedValueVocabulary mts:m5137 ;
     rdfs:seeAlso <http://rdaregistry.info/termList/RDARecordingSources> ;
     rdfs:subClassOf bffi:Source .
 
@@ -1718,6 +1716,7 @@ bffi:Status a owl:Class ;
     rdfs:label "Status"@en,
         "Status"@fi ;
     dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m5152 ;
     rdfs:seeAlso rdasoi: ;
     owl:equivalentClass bf:Status ;
     skos:definition "BIBFRAME definition: Designation of the validity or position of something, e.g., whether something is incorrect or available."@en .
@@ -2413,7 +2412,7 @@ bffi:usageAndAccessPolicy a owl:ObjectProperty ;
         rdam:P30145,
         rdam:P30146 ;
     rdfs:domain [ a owl:Class ;
-            owl:unionOf ( bffi:Manifestation bffi:Item ) ] ;
+            owl:unionOf ( bffi:CollectionWork bffi:Manifestation bffi:Item ) ] ;
     rdfs:range bffi:UsageAndAccessPolicy ;
     owl:equivalentProperty bf:usageAndAccessPolicy ;
     skos:definition "BIBFRAME definition: General statement of allowances and restrictions on access to a resource, including retention, reproduction, access, and lending."@en .
@@ -2619,19 +2618,19 @@ bffi:Title a owl:Class ;
     owl:equivalentClass bf:Title ;
     skos:definition "BIBFRAME definition: Title information relating to a resource: work title, preferred title, instance title, transcribed title, translated title, variant form of title, etc."@en .
 
-bffi:CollectionWork a owl:Class ;
-    rdfs:label "Collection work"@en,
-        "Kokoelmateos"@fi ;
-    dct:modified "2024-02-23 (New)" ;
-    bffi-meta:broadMatch bf:Collection ;
-    rdfs:subClassOf bffi:Work .
-
 bffi:Cartographic a owl:Class ;
     rdfs:label "Cartographic information"@en,
         "Kartografinen tieto"@fi ;
     dct:modified "2024-02-23 (New)" ;
     owl:equivalentClass bf:Cartographic ;
     skos:definition "BIBFRAME definition: Content that represents the whole or part of the earth, any celestial body, or imaginary place at any scale."@en .
+
+bffi:CollectionWork a owl:Class ;
+    rdfs:label "Collection work"@en,
+        "Kokoelmateos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Collection ;
+    rdfs:subClassOf bffi:Work .
 
 bffi:ProvisionActivity a owl:Class ;
     rdfs:label "Provider entity"@en,
