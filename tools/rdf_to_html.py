@@ -597,7 +597,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                         if row['owl:versionInfo'] == self.version:
                             for lang in ['fi', 'en']:
                                 prevpElem = description_tree.xpath(f'//p[@id="description-general-{lang}"]')[0] # type: etree.ElementBase
-                                (pElem:=Element('p', attrib={'id': f'description-version-specific-{lang}'})).text = row[f'html-{lang}']
+                                (pElem:=
+                                    etree.fromstring(f'<p id="description-version-specific-{lang}">{row[f"html-{lang}"]}</p>', etree.HTMLParser(encoding='utf-8'))[0][0]
+                                )
                                 prevpElem.addnext(pElem)
             body_elem.extend(description_tree.find('body'))
 
