@@ -1,0 +1,3449 @@
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix bffi: <http://urn.fi/URN:NBN:fi:schema:bffi:> .
+@prefix bffi-meta: <http://urn.fi/URN:NBN:fi:schema:bffi-meta:> .
+@prefix bflc: <http://id.loc.gov/ontologies/bflc/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix finaf: <http://urn.fi/URN:NBN:fi:au:finaf:> .
+@prefix mts: <http://urn.fi/URN:NBN:fi:au:mts:> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdaa: <http://rdaregistry.info/Elements/a/> .
+@prefix rdabf: <http://rdaregistry.info/termList/bookFormat/> .
+@prefix rdac: <http://rdaregistry.info/Elements/c/> .
+@prefix rdacarx: <http://www.rdaregistry.info/termList/RDACarrierEU/> .
+@prefix rdacc: <http://rdaregistry.info/termList/RDAColourContent/> .
+@prefix rdacdt: <http://rdaregistry.info/termList/RDACartoDT/> .
+@prefix rdaco: <http://rdaregistry.info/termList/RDAContentType/> .
+@prefix rdact: <http://rdaregistry.info/termList/RDACarrierType/> .
+@prefix rdae: <http://rdaregistry.info/Elements/e/> .
+@prefix rdafmn: <http://rdaregistry.info/termList/MusNotation/> .
+@prefix rdafnm: <http://rdaregistry.info/termList/formatNoteMus/> .
+@prefix rdafs: <http://rdaregistry.info/termList/fontSize/> .
+@prefix rdaft: <http://rdaregistry.info/termList/fileType/> .
+@prefix rdagen: <http://rdaregistry.info/termList/RDAGeneration/> .
+@prefix rdai: <http://rdaregistry.info/Elements/i/> .
+@prefix rdaill: <http://rdaregistry.info/termList/IllusContent/> .
+@prefix rdalay: <http://rdaregistry.info/termList/layout/> .
+@prefix rdam: <http://rdaregistry.info/Elements/m/> .
+@prefix rdamat: <http://rdaregistry.info/termList/RDAMaterial/> .
+@prefix rdami: <http://www.rdaregistry.info/termList/ModeIssue/> .
+@prefix rdamt: <http://rdaregistry.info/termList/RDAMediaType/> .
+@prefix rdan: <http://rdaregistry.info/Elements/n/> .
+@prefix rdap: <http://rdaregistry.info/Elements/p/> .
+@prefix rdapm: <http://rdaregistry.info/termList/RDAproductionMethod/> .
+@prefix rdapol: <http://rdaregistry.info/termList/RDAPolarity/> .
+@prefix rdasca: <http://rdaregistry.info/termList/scale/> .
+@prefix rdat: <http://rdaregistry.info/Elements/t/> .
+@prefix rdatb: <http://rdaregistry.info/termList/RDATypeOfBinding/> .
+@prefix rdaterm: <http://rdaregistry.info/termList/RDATerms/> .
+@prefix rdau: <http://rdaregistry.info/Elements/u/> .
+@prefix rdaw: <http://rdaregistry.info/Elements/w/> .
+@prefix rdax: <http://rdaregistry.info/Elements/x/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bffi-meta:broadMatch a owl:AnnotationProperty ;
+    rdfs:label "broad match"@en,
+        "laajempi vastaavuus"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subPropertyOf dct:relation ;
+    skos:definition "Semantically broader class or property in another ontology or scheme."@en,
+        "Merkitykseltään vastaava laajempi luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi .
+
+bffi-meta:closeMatch a owl:AnnotationProperty ;
+    rdfs:label "close match"@en,
+        "lähes vastaava"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subPropertyOf dct:relation ;
+    owl:equivalentProperty <https://www.svde.org/ontology/closeMatch> ;
+    skos:definition "Semantically similar class or property in another ontology or scheme."@en,
+        "Merkitykseltään lähes vastaava luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi .
+
+bffi-meta:exactMatch a owl:AnnotationProperty ;
+    rdfs:label "exact match"@en,
+        "tarkasti vastaava"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subPropertyOf dct:relation ;
+    skos:definition "Semantically exactly matching class or property in another ontology or scheme."@en,
+        "Merkitykseltään vastaava luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi .
+
+bffi-meta:narrowMatch a owl:AnnotationProperty ;
+    rdfs:label "narrow match"@en,
+        "suppeampi vastaavuus"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subPropertyOf dct:relation ;
+    skos:definition "Semantically narrower class or property in another ontology or scheme."@en,
+        "Merkitykseltään vastaava suppeampi luokka tai ominaisuus jossakin toisessa ontologiassa tai skeemassa."@fi .
+
+bffi-meta:relatedValueVocabulary a owl:AnnotationProperty ;
+    rdfs:label "related value vocabulary"@en,
+        "liittyvä arvosanasto"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subPropertyOf dct:relation ;
+    skos:definition "Value vocabulary containing values of the related class."@en,
+        "Liittyvän luokan edustajia sisältävä arvosanasto."@fi .
+
+bffi: a owl:Ontology ;
+    dct:contributor <http://www.wikidata.org/entity/Q124635303> ;
+    dct:description "This BIBFRAME data model is based on the BIBFRAME 2.4.0 model published by the Library of Congress. The model has been supplemented with classes and properties from the RDA element sets, as well as the Finnish national cataloguing guidelines. This 0.7.0 test version includes classes and properties needed for the implementation of the RDA aggregate model. Also included are the subclasses of Manifestation as well as a large number of classes and properties for cataloguing manifestations. The new 2.4.0 version of BIBFRAME included a major overhaul on how relations of associated resources (e.g. bf:Work and bf:Instance and their subclasses) are represented. This change is still somewhat underway in BIBFRAME but our 0.7.0 test version implements these changes where applicable."@en,
+        "Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.4.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Tämä 0.7.0-testiversio sisältää RDA:n aggregaattimallin edellyttämät luokat ja ominaisuudet. Lisäksi tämä versio sisältää manifestaation alaluokat sekä merkittävän joukon manifestaatioiden kuvailussa tarpeellisia luokkia ja ominaisuuksia. BIBFRAMEn tuore 2.4.0-versio uudisti merkittävästi kuvailtavien kohteiden välisten suhteiden esittämistä. Uudistus on vielä osittain kesken BIBFRAMEn osalta, mutta tämä 0.7.0-versio tietomallistamme tukee jo uudistuksia soveltuvilta osin."@fi ;
+    dct:issued "2024-09-13"^^xsd:date ;
+    dct:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+    dct:modified "2024-09-13T14:21:03+00:00"^^xsd:dateTime ;
+    dct:publisher finaf:000034269 ;
+    dct:relation <http://id.loc.gov/ontologies/bflc-2-4-0/>,
+        <http://id.loc.gov/ontologies/bibframe-2-4-0/>,
+        <http://www.rdaregistry.info/Elements/> ;
+    dct:title "LKD data model -- BIBFRAME 2.4.0 data model Finnish implementation"@en,
+        "LKD-tietomalli -- BIBFRAME 2.4.0 -tietomallin kansallinen sovellus"@fi ;
+    owl:priorVersion <http://schema.finto.fi/bffi/0-6-0/> ;
+    owl:versionIRI <http://schema.finto.fi/bffi/0-7-0/> ;
+    owl:versionInfo "0.7.0" .
+
+bffi:AccessPolicy a owl:Class ;
+    rdfs:label "Access policy"@en,
+        "Pääsyrajoitus"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m457,
+        mts:m600 ;
+    rdfs:subClassOf bffi:UsageAndAccessPolicy ;
+    owl:equivalentClass bf:AccessPolicy ;
+    skos:definition "BIBFRAME definition: Access restrictions and allowances regarding access to a resource, e.g., lending policy, access restrictions, embargos"@en .
+
+bffi:Archival a owl:Class ;
+    rdfs:label "Archival controlled"@en,
+        "Arkistoaineisto"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    rdfs:seeAlso rdaterm:1007 ;
+    rdfs:subClassOf bffi:Manifestation ;
+    owl:equivalentClass bf:Archival ;
+    skos:definition "BIBFRAME definition: Resources organically created, accumulated, and/or used by a person, family, or organization in the course of conduct of affairs and preserved because of their continuing value"@en .
+
+bffi:CartographicDataType a owl:Class ;
+    rdfs:label "Digital cartographic data type"@en,
+        "Kartografinen tietotyyppi"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m1509 ;
+    rdfs:seeAlso rdacdt: ;
+    rdfs:subClassOf bffi:DigitalCharacteristic ;
+    owl:equivalentClass bf:CartographicDataType ;
+    skos:definition "BIBFRAME definition: Data type for encoding of geospatial information in a cartographic resource, e.g., raster, vector, point"@en .
+
+bffi:CartographicObjectType a owl:Class ;
+    rdfs:label "Digital cartographic object type"@en,
+        "Kartografisen sisällön digitaalinen esitysmuoto"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    rdfs:subClassOf bffi:DigitalCharacteristic ;
+    owl:equivalentClass bf:CartographicObjectType ;
+    skos:definition "BIBFRAME definition: Object type for encoding of geospatial information in a cartographic resource, e.g., point, line, polygon"@en .
+
+bffi:ClassificationDdc a owl:Class ;
+    rdfs:label "DDC classification"@en,
+        "Dewey-luokitus"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:subClassOf bffi:Classification ;
+    owl:equivalentClass bf:ClassificationDdc ;
+    skos:definition "BIBFRAME definition: Dewey Decimal Classification number used for subject access"@en .
+
+bffi:ClassificationLcc a owl:Class ;
+    rdfs:label "LCC classification"@en,
+        "Library of Congress -luokitus"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:subClassOf bffi:Classification ;
+    owl:equivalentClass bf:ClassificationLcc ;
+    skos:definition "BIBFRAME definition: Library of Congress Classification number used for subject access"@en .
+
+bffi:ClassificationNal a owl:Class ;
+    rdfs:label "NAL classification"@en,
+        "National Agricultural Library -luokitus"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    rdfs:subClassOf bffi:Classification ;
+    owl:equivalentClass bf:ClassificationNal ;
+    skos:definition "BIBFRAME definition: National Library of Agriculter number used for subject access"@en .
+
+bffi:ClassificationNlm a owl:Class ;
+    rdfs:label "NLM classification"@en,
+        "National Library of Medicine -luokitus"@fi ;
+    dct:modified "2024-06-19 (New)",
+        "2024-09-13 (Changed Finnish label)" ;
+    rdfs:subClassOf bffi:Classification ;
+    owl:equivalentClass bf:ClassificationNlm ;
+    skos:definition "BIBFRAME definition: National Library of Medicine Classification number used for subject access"@en .
+
+bffi:ClassificationUdc a owl:Class ;
+    rdfs:label "UDC Classification"@en,
+        "UDK-luokitus"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subClassOf bffi:Classification ;
+    owl:equivalentClass bf:ClassificationUdc ;
+    skos:definition "BIBFRAME definition: Universal Decimal Classification number used for subject access"@en .
+
+bffi:CollectionExpression a owl:Class ;
+    rdfs:label "Collection expression"@en,
+        "Kokoelmaekspressio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Collection ;
+    rdfs:subClassOf bffi:Expression .
+
+bffi:CollectionItem a owl:Class ;
+    rdfs:label "Collection item"@en,
+        "Kokoelmakappale"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch bf:Item ;
+    rdfs:subClassOf bffi:Item .
+
+bffi:Dataset a owl:Class ;
+    rdfs:label "Dataset"@en,
+        "Datasetti"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-06-19 (Changed BIBFRAME mapping from bffi-meta:broadMatch to owl:equivalentClass bf:Dataset)" ;
+    rdfs:subClassOf bffi:Expression ;
+    owl:equivalentClass bf:Dataset ;
+    skos:definition "BIBFRAME definition: Data encoded in a defined structure, including numeric data, environmental data, etc., used by applications software"@en .
+
+bffi:Distribution a owl:Class ;
+    rdfs:label "Distributor"@en,
+        "Jakaja"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subClassOf bffi:ProvisionActivity ;
+    owl:equivalentClass bf:Distribution ;
+    skos:definition "BIBFRAME definition: Information relating to distribution of a resource"@en .
+
+bffi:Electronic a owl:Class ;
+    rdfs:label "Electronic"@en,
+        "Elektroninen"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    rdfs:subClassOf bffi:Manifestation ;
+    owl:equivalentClass bf:Electronic ;
+    skos:definition "BIBFRAME definition: Resource that is intended for manipulation by a computer, accessed either directly or remotely"@en .
+
+bffi:Family a owl:Class ;
+    rdfs:label "Family"@en,
+        "Suku"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdac:C10008 ;
+    rdfs:subClassOf bffi:Agent ;
+    owl:equivalentClass bf:Family ;
+    skos:definition "BIBFRAME definition: Two or more persons related by birth, marriage, adoption, civil union, or similar legal status, or who otherwise present themselves as a family"@en .
+
+bffi:FileSize a owl:Class ;
+    rdfs:label "File size"@en,
+        "Tiedostokoko"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    rdfs:subClassOf bffi:DigitalCharacteristic ;
+    owl:equivalentClass bf:FileSize ;
+    skos:definition "BIBFRAME definition: Number of bytes in a digital file, e.g., 162 KB"@en .
+
+bffi:FileType a owl:Class ;
+    rdfs:label "File type"@en,
+        "Tiedostotyyppi"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m537 ;
+    rdfs:seeAlso rdaft: ;
+    rdfs:subClassOf bffi:DigitalCharacteristic ;
+    owl:equivalentClass bf:FileType ;
+    skos:definition "BIBFRAME definition: General type of data content encoded in a computer file, e.g., text file, audio file"@en .
+
+bffi:Integrating a owl:Class ;
+    rdfs:label "Integrating work"@en,
+        "Päivittyvä teos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch rdac:C10001 ;
+    rdfs:subClassOf bffi:Work ;
+    owl:equivalentClass bf:Integrating ;
+    skos:definition "BIBFRAME definition: Resource that is added to or changed by updates that do not remain discrete but are integrated into the whole"@en .
+
+bffi:Kit a owl:Class ;
+    rdfs:label "Kit"@en,
+        "Moniviestin"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subClassOf bffi:MixedMaterial ;
+    owl:equivalentClass bf:Kit ;
+    skos:definition "BIBFRAME definition: Resource that contains a mixture of various components issued as a unit and intended primarily for instructional purposes"@en .
+
+bffi:Local a owl:Class ;
+    rdfs:label "Local identifier"@en,
+        "Järjestelmän tunniste"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:subClassOf bffi:Identifier ;
+    owl:equivalentClass bf:Local ;
+    skos:definition "BIBFRAME definition: Identifier established locally and not a standard number"@en .
+
+bffi:Manuscript a owl:Class ;
+    rdfs:label "Manuscript"@en,
+        "Käsikirjoitus"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    rdfs:subClassOf bffi:Work ;
+    owl:equivalentClass bf:Manuscript ;
+    skos:definition "BIBFRAME definition: Resource which is written in handwriting or typescript"@en .
+
+bffi:Meeting a owl:Class ;
+    rdfs:label "Meeting"@en,
+        "Kokous"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch rdac:C10005 ;
+    rdfs:subClassOf bffi:Agent ;
+    owl:equivalentClass bf:Meeting ;
+    skos:definition "BIBFRAME definition: Gathering of individuals or representatives of various bodies for the purpose of discussing and/or acting on topics of common interest"@en .
+
+bffi:Microform a owl:Class ;
+    rdfs:label "Microform"@en,
+        "Mikromuoto"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:broadMatch rdac:C10007 ;
+    rdfs:subClassOf bffi:Manifestation ;
+    owl:equivalentClass bf:Microform ;
+    skos:definition "BIBFRAME definition: Resource that contains microimages, either transparent or opaque, that may be reproductions of existing textual or graphic materials or may be original publications"@en .
+
+bffi:Modification a owl:Class ;
+    rdfs:label "Modification"@en,
+        "Muokkaus"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subClassOf bffi:ProvisionActivity ;
+    owl:equivalentClass bf:Modification ;
+    skos:definition "BIBFRAME definition: Information relating to modification of a resource"@en .
+
+bffi:MonographExpression a owl:Class ;
+    rdfs:label "Monograph expression"@en,
+        "Monografiaekspressio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Monograph ;
+    rdfs:subClassOf bffi:Expression .
+
+bffi:MovementNotation a owl:Class ;
+    rdfs:label "Movement notation"@en,
+        "Liikenotaation tyyppi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m1981 ;
+    rdfs:seeAlso <https://www.rdaregistry.info/termList/noteMove/> ;
+    rdfs:subClassOf bffi:Notation ;
+    owl:equivalentClass bf:MovementNotation ;
+    skos:definition "BIBFRAME definition: Information on the symbol system used to convey the content of a movement resource"@en .
+
+bffi:Multimedia a owl:Class ;
+    rdfs:label "Software"@en,
+        "Ohjelmisto"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subClassOf bffi:Expression ;
+    owl:equivalentClass bf:Multimedia ;
+    skos:definition "BIBFRAME definition: Electronic resource which is a computer program or consists of multiple media types that are software driven, such as videogames"@en .
+
+bffi:MusicAudioWork a owl:Class ;
+    rdfs:label "Music audio work"@en,
+        "Musiikkiääniteos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:MusicAudio,
+        rdac:C10001 ;
+    rdfs:subClassOf bffi:AudioWork .
+
+bffi:MusicNotation a owl:Class ;
+    rdfs:label "Music notation"@en,
+        "Nuottikirjoituksen tyyppi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m1990 ;
+    rdfs:seeAlso <http://rdaregistry.info/termList/MusNotation> ;
+    rdfs:subClassOf bffi:Notation ;
+    owl:equivalentClass bf:MusicNotation ;
+    skos:definition "BIBFRAME definition: Information on the symbol system used to convey the content of a music resource"@en .
+
+bffi:NonMusicAudioExpression a owl:Class ;
+    rdfs:label "Non-music audio expression"@en,
+        "Musiikiton audioekspressio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:NonMusicAudio,
+        rdac:C10006 ;
+    rdfs:subClassOf bffi:AudioExpression .
+
+bffi:NonMusicAudioWork a owl:Class ;
+    rdfs:label "Non-music audio work"@en,
+        "Musiikiton ääniteos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:NonMusicAudio,
+        rdac:C10001 ;
+    rdfs:subClassOf bffi:AudioWork .
+
+bffi:NotatedMovement a owl:Class ;
+    rdfs:label "Notated movement"@en,
+        "Liikenotaation tyyppi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:seeAlso <https://www.rdaregistry.info/termList/noteMove/> ;
+    rdfs:subClassOf bffi:Expression ;
+    owl:equivalentClass bf:NotatedMovement ;
+    skos:definition "BIBFRAME definition: Graphic, non-realized representations of movement intended to be perceived visually, e.g. dance"@en .
+
+bffi:ObjectCount a owl:Class ;
+    rdfs:label "Digital cartographic object count"@en,
+        "Objektien lukumäärä"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    rdfs:subClassOf bffi:DigitalCharacteristic ;
+    owl:equivalentClass bf:ObjectCount ;
+    skos:definition "BIBFRAME definition: Number of objects in encoded geospatial information in a cartographic resource"@en .
+
+bffi:Print a owl:Class ;
+    rdfs:label "Printed"@en,
+        "Painettu"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    rdfs:subClassOf bffi:Manifestation ;
+    owl:equivalentClass bf:Print ;
+    skos:definition "BIBFRAME definition: Resource that is printed"@en .
+
+bffi:Production a owl:Class ;
+    rdfs:label "Producer"@en,
+        "Tuottaja"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch rdac:C10005 ;
+    rdfs:subClassOf bffi:ProvisionActivity ;
+    owl:equivalentClass bf:Production ;
+    skos:definition "BIBFRAME definition: Information relating to production of a resource"@en .
+
+bffi:Publication a owl:Class ;
+    rdfs:label "Publisher"@en,
+        "Kustantaja"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subClassOf bffi:ProvisionActivity ;
+    owl:equivalentClass bf:Publication ;
+    skos:definition "BIBFRAME definition: Information relating to publication of a resource"@en .
+
+bffi:RetentionPolicy a owl:Class ;
+    rdfs:label "Retention policy"@en,
+        "Säilytyskäytäntö"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    rdfs:subClassOf bffi:UsageAndAccessPolicy ;
+    owl:equivalentClass bf:RetentionPolicy ;
+    skos:definition "BIBFRAME definition: Policy of holding institution for retaining resource"@en .
+
+bffi:SerialExpression a owl:Class ;
+    rdfs:label "Serial expression"@en,
+        "Sarjajulkaisuekspressio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Serial ;
+    rdfs:subClassOf bffi:Expression .
+
+bffi:SerialWork a owl:Class ;
+    rdfs:label "Serial work"@en,
+        "Sarjajulkaisuteos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Serial ;
+    rdfs:subClassOf bffi:Work .
+
+bffi:SeriesExpression a owl:Class ;
+    rdfs:label "Series expression"@en,
+        "Sarjaekspressio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Series ;
+    rdfs:subClassOf bffi:Expression .
+
+bffi:SeriesWork a owl:Class ;
+    rdfs:label "Series work"@en,
+        "Sarjateos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Series ;
+    rdfs:subClassOf bffi:Work .
+
+bffi:Tactile a owl:Class ;
+    rdfs:label "Tactile material"@en,
+        "Taktiili"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    rdfs:subClassOf bffi:Manifestation ;
+    owl:equivalentClass bf:Tactile ;
+    skos:definition "BIBFRAME definition: Resource that is intended to be perceived by touch"@en .
+
+bffi:TactileNotation a owl:Class ;
+    rdfs:label "Tactile notation"@en,
+        "Taktiili notaatio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m2003 ;
+    rdfs:seeAlso <http://rdaregistry.info/termList/TacNotation> ;
+    rdfs:subClassOf bffi:Notation ;
+    owl:equivalentClass bf:TactileNotation ;
+    skos:definition "BIBFRAME definition: Information on the symbol system used to convey the content of a tactile resource"@en .
+
+bffi:Temporal a owl:Class ;
+    rdfs:label "Temporal concept"@en,
+        "Ajanjakso"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:closeMatch rdac:C10010 ;
+    owl:equivalentClass bf:Temporal ;
+    skos:definition "BIBFRAME definition: Chronological period"@en .
+
+bffi:Text a owl:Class ;
+    rdfs:label "Text"@en,
+        "Teksti"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-06-19 (Changed BIBRAME mapping from bffi-meta:broadMatch to owl:equivalentClass bf:Text)" ;
+    rdfs:seeAlso rdaco:1020 ;
+    rdfs:subClassOf bffi:Expression ;
+    owl:equivalentClass bf:Text ;
+    skos:definition "BIBFRAME definition: Resource intended to be perceived visually and understood through the use of language in written or spoken form"@en .
+
+bffi:Topic a owl:Class ;
+    rdfs:label "Topic"@en,
+        "Aihe"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:Topic ;
+    skos:definition "BIBFRAME definition: Concept or area of knowledge"@en .
+
+bffi:UsePolicy a owl:Class ;
+    rdfs:label "Use policy"@en,
+        "Käyttöehdot"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m1000,
+        mts:m792 ;
+    rdfs:subClassOf bffi:UsageAndAccessPolicy ;
+    owl:equivalentClass bf:UsePolicy ;
+    skos:definition "BIBFRAME definition: Usage limitations placed on a resource with respect to reproduction, publication, exhibition, etc."@en .
+
+bffi:aap a owl:DatatypeProperty ;
+    rdfs:label "authorized access point"@en,
+        "auktorisoitu hakutieto"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdae:P20313,
+        rdai:P40083,
+        rdam:P30294,
+        rdaw:P10331 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item bffi:AggregatingExpression ) ] ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bflc:aap ;
+    skos:definition "BFLC definition: A text string that represents the label of the resource. It could be a name/title combination, but could also include additional fields to make it unique within the catalog."@en .
+
+bffi:acquisitionSource a owl:ObjectProperty ;
+    rdfs:label "source of acquisition"@en,
+        "hankintalähde"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch rdam:P30141 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:AcquisitionSource ;
+    owl:equivalentProperty bf:acquisitionSource ;
+    skos:definition "BIBFRAME definition: Information about an organization, person, etc., from which a resource may be obtained."@en .
+
+bffi:acquisitionTerms a owl:DatatypeProperty ;
+    rdfs:label "terms of acquisition"@en,
+        "hankintatieto"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:closeMatch rdam:P30160 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:acquisitionTerms ;
+    skos:definition "BIBFRAME definition: Conditions under which the publisher, distributor, etc., will normally supply a resource, e.g., price of a resource."@en .
+
+bffi:additionalScaleInformation a owl:DatatypeProperty ;
+    rdfs:label "additional scale information"@en,
+        "lisätieto mittakaavasta"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:exactMatch rdae:P20213 ;
+    rdfs:domain bffi:Scale ;
+    rdfs:range rdfs:Literal .
+
+bffi:adminMetadata a owl:ObjectProperty ;
+    rdfs:label "administrative metadata"@en,
+        "hallinnolliset metatiedot"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range bffi:AdminMetadata ;
+    owl:equivalentProperty bf:adminMetadata ;
+    skos:definition "BIBFRAME definition: Metadata about the metadata, especially provenance information."@en .
+
+bffi:adminMetadataFor a owl:ObjectProperty ;
+    rdfs:label "administrative metadata for"@en,
+        "hallinnolliset metatiedot kohteelle"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:closeMatch rdaw:P10403 ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range rdfs:Resource ;
+    owl:equivalentProperty bf:adminMetadataFor ;
+    skos:definition "BIBFRAME definition: Relates an Administrative metadata resource to the resource it captures information about."@en .
+
+bffi:agent a owl:ObjectProperty ;
+    rdfs:label "associated agent"@en,
+        "liittyvä toimija"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:closeMatch rdaw:P10311 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Contribution bffi:ProvisionActivity ) ] ;
+    rdfs:range bffi:Agent ;
+    rdfs:subPropertyOf bf:agent .
+
+bffi:appliedMaterial a owl:ObjectProperty ;
+    rdfs:label "applied material"@en,
+        "päällimateriaali"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30084 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:AppliedMaterial ;
+    rdfs:subPropertyOf bffi:material ;
+    owl:equivalentProperty bf:appliedMaterial ;
+    skos:definition "BIBFRAME definition: Physical or chemical substance applied to a base material of a resource."@en .
+
+bffi:ascensionAndDeclination a owl:DatatypeProperty ;
+    rdfs:label "cartographic ascension and declination"@en,
+        "rektaskensio ja deklinaatio"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:exactMatch rdaw:P10082 ;
+    rdfs:domain bffi:Cartographic ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:ascensionAndDeclination ;
+    skos:definition "BIBFRAME definition: System for identifying the location of a celestial object in the sky covered by the cartographic content of a resource using the angles of right ascension and declination."@en .
+
+bffi:assigner a owl:ObjectProperty ;
+    rdfs:label "assigner"@en,
+        "antava taho"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:closeMatch rdan:P80075,
+        rdan:P80077,
+        rdaw:P10437,
+        rdaw:P10531 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( bffi:Person bffi:Organization ) ] ;
+    owl:equivalentProperty bf:assigner ;
+    skos:definition "BIBFRAME definition: Entity that assigned the metadata, such as the entity that assigned a classification number, entity that assigned a name, entity that assigned an identifier."@en .
+
+bffi:associatedResource a owl:ObjectProperty ;
+    rdfs:label "associated resource"@en,
+        "liittyvä aineisto"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    rdfs:domain bffi:Relation ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item ) ] ;
+    owl:equivalentProperty bf:associatedResource ;
+    skos:definition "BIBFRAME definition: Associated resource"@en .
+
+bffi:awards a owl:DatatypeProperty ;
+    rdfs:label "award"@en,
+        "palkinto"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdae:P20005 ;
+    rdfs:domain bffi:Expression ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:awards ;
+    skos:definition "BIBFRAME definition: Information on awards associated with the described resource."@en .
+
+bffi:baseMaterial a owl:ObjectProperty ;
+    rdfs:label "base material"@en,
+        "pohjamateriaali"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30208 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Manifestation bffi:Item ) ] ;
+    rdfs:range bffi:BaseMaterial ;
+    rdfs:subPropertyOf bffi:material ;
+    owl:equivalentProperty bf:baseMaterial ;
+    skos:definition "BIBFRAME definition: Underlying physical material of a resource."@en .
+
+bffi:binding a owl:ObjectProperty ;
+    rdfs:label "binding method"@en,
+        "sidostyyppi"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30309 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Binding ;
+    owl:equivalentProperty bf:binding ;
+    skos:definition "BIBFRAME definition: A method used to bind a published or unpublished resource,or other binding information."@en .
+
+bffi:bookFormat a owl:ObjectProperty ;
+    rdfs:label "book format"@en,
+        "bibliografinen koko"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30197 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:BookFormat ;
+    owl:equivalentProperty bf:bookFormat ;
+    skos:definition "BIBFRAME definition: Result of folding a printed sheet to form a gathering of leaves."@en .
+
+bffi:capture a owl:ObjectProperty ;
+    rdfs:label "capture of content"@en,
+        "tallennustiedot"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdae:P20217 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:AudioExpression bffi:MovingImageExpression ) ] ;
+    rdfs:range bffi:Capture ;
+    rdfs:subPropertyOf bf:capture .
+
+bffi:carrier a owl:ObjectProperty ;
+    rdfs:label "carrier type"@en,
+        "tallennetyyppi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdam:P30001 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Carrier ;
+    rdfs:subPropertyOf bf:carrier .
+
+bffi:cartographicAttributes a owl:ObjectProperty ;
+    rdfs:label "cartographic data"@en,
+        "kartografinen data"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-04-16 (Changed domain from [bffi:Work, bffi:Manifestation] to bffi:CartographyWork)" ;
+    rdfs:domain bffi:CartographyWork ;
+    rdfs:range bffi:Cartographic ;
+    owl:equivalentProperty bf:cartographicAttributes ;
+    skos:definition "BIBFRAME definition: Cartographic data that identifies characteristics of the resource, such as coordinates, projection, etc."@en .
+
+bffi:cartographicProjectionOfRepresentativeExpression a owl:ObjectProperty ;
+    rdfs:label "cartographic projection of representative expression"@en,
+        "edustavan ekspression karttaprojektio"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:closeMatch bf:projection ;
+    bffi-meta:exactMatch rdaw:P10355 ;
+    rdfs:domain bffi:Cartographic ;
+    rdfs:range bffi:Projection .
+
+bffi:catalogerId a owl:DatatypeProperty ;
+    rdfs:label "cataloger ID"@en,
+        "kuvailijan tunnus"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bflc:catalogerId ;
+    skos:definition "BFLC definition: ID of the cataloger who created or edited the description."@en .
+
+bffi:changeDate a owl:DatatypeProperty ;
+    rdfs:label "description change date"@en,
+        "kuvailun muokkausajankohta"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf bffi:date ;
+    owl:equivalentProperty bf:changeDate ;
+    skos:definition "BIBFRAME definition: Date or date and time on which the metadata was modified"@en .
+
+bffi:classification a owl:ObjectProperty ;
+    rdfs:label "classification"@en,
+        "luokitus"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:closeMatch rdaw:P10256 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range bffi:Classification ;
+    owl:equivalentProperty bf:classification ;
+    skos:definition "BIBFRAME definition: Classification number in any scheme."@en .
+
+bffi:classificationPortion a owl:DatatypeProperty ;
+    rdfs:label "classification number"@en,
+        "luokka"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain bffi:Classification ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:classificationPortion ;
+    skos:definition "BIBFRAME definition: Classification number (single class number or beginning number of a span) that indicates the subject by applying a formal system of coding and organizing resources."@en .
+
+bffi:code a owl:DatatypeProperty ;
+    rdfs:label "code"@en,
+        "koodi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:code ;
+    skos:definition "BIBFRAME definition: String of characters that serves as a code representing information."@en .
+
+bffi:collectionAccrualMethod a owl:ObjectProperty ;
+    rdfs:label "collection accrual method"@en,
+        "kokoelman kartuntamenetelmä"@fi ;
+    dct:modified "2024-04-16 (New)",
+        "2024-06-19 (Removed subPropertyOf bffi:usageAndAccessPolicy)" ;
+    bffi-meta:broadMatch bf:usageAndAccessPolicy ;
+    bffi-meta:exactMatch rdaw:P10608 ;
+    rdfs:domain bffi:CollectionWork ;
+    rdfs:range bffi:CollectionAccrualMethod .
+
+bffi:collectionAccrualPolicy a owl:ObjectProperty ;
+    rdfs:label "collection accrual policy"@en,
+        "kokoelman kartuttamisen linja"@fi ;
+    dct:modified "2024-04-16 (New)",
+        "2024-06-19 (Removed subPropertyOf bffi:usageAndAccessPolicy)" ;
+    bffi-meta:broadMatch bf:usageAndAccessPolicy ;
+    bffi-meta:exactMatch rdaw:P10609 ;
+    rdfs:domain bffi:CollectionWork ;
+    rdfs:range bffi:CollectionAccrualPolicy .
+
+bffi:collectionOrganization a owl:DatatypeProperty ;
+    rdfs:label "organization of material"@en,
+        "aineiston ryhmittely"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    rdfs:domain bffi:CollectionArrangement ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:collectionOrganization ;
+    skos:definition "BIBFRAME definition: Manner in which the resource is divided into smaller units."@en .
+
+bffi:colorContent a owl:ObjectProperty ;
+    rdfs:label "color content"@en,
+        "värisisältö"@fi ;
+    dct:modified "2024-04-16 (New)",
+        "2024-09-13 (Removed domain [ bffi:Expression, bffi:Cartographic ]; added domain bffi:Manifestation)" ;
+    bffi-meta:exactMatch rdam:P30456 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:ColorContent ;
+    owl:equivalentProperty bf:colorContent ;
+    skos:definition "BIBFRAME definition: Color characteristics, e.g., black and white, multicolored."@en .
+
+bffi:colorContentOfRepresentativeExpression a owl:DeprecatedProperty ;
+    rdfs:label "color content of representative expression"@en,
+        "edustavan ekspression värisisältö"@fi ;
+    dct:modified "2024-04-16 (New)",
+        "2024-09-13 (Deprecated)" ;
+    owl:deprecated true .
+
+bffi:content a owl:ObjectProperty ;
+    rdfs:label "content type"@en,
+        "sisältötyyppi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdae:P20001 ;
+    rdfs:domain bffi:Expression ;
+    rdfs:range bffi:Content ;
+    owl:equivalentProperty bf:content ;
+    skos:definition "BIBFRAME definition: Categorization reflecting the fundamental form of communication in which the content is expressed and the human sense through which it is intended to be perceived."@en .
+
+bffi:contentAccessibility a owl:ObjectProperty ;
+    rdfs:label "content accessibility information"@en,
+        "saavutettavuussisältö"@fi ;
+    dct:modified "2024-09-13 (Added subClassOf bffi:supplementaryContent)",
+        "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30452 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:ContentAccessibility ;
+    owl:equivalentProperty bf:contentAccessibility ;
+    skos:definition "BIBFRAME definition: Information that assists those with a sensory impairment for greater understanding of content, e.g., captions."@en .
+
+bffi:contentOfRepresentativeExpression a owl:ObjectProperty ;
+    rdfs:label "content type of representative expression"@en,
+        "edustavan ekspression sisältötyyppi"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:closeMatch bf:content ;
+    bffi-meta:exactMatch rdaw:P10349 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range bffi:Content .
+
+bffi:contribution a owl:ObjectProperty ;
+    rdfs:label "contribution"@en,
+        "kontribuutio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdae:P20301,
+        rdam:P30267,
+        rdam:P30327,
+        rdaw:P10311 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item bffi:AggregatingExpression ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( bffi:Contribution bffi:PrimaryContribution ) ] ;
+    owl:equivalentProperty bf:contribution ;
+    skos:definition "BIBFRAME definition: Agent and its role in relation to the resource"@en .
+
+bffi:copyrightDate a owl:DatatypeProperty ;
+    rdfs:label "copyright date"@en,
+        "copyright-vuosi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdam:P30007 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf bffi:date ;
+    owl:equivalentProperty bf:copyrightDate ;
+    skos:definition "BIBFRAME definition: Date associated with a claim of protection under copyright or a similar regime."@en .
+
+bffi:copyrightRegistration a owl:ObjectProperty ;
+    rdfs:label "copyright registration information"@en,
+        "tekijänoikeus- tai vapaakappaletiedot"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:CopyrightRegistration ;
+    owl:equivalentProperty bf:copyrightRegistration ;
+    skos:definition "BIBFRAME definition: Copyright and Legal Deposit registration information"@en .
+
+bffi:coverArt a owl:ObjectProperty ;
+    rdfs:label "cover art"@en,
+        "kansikuva"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:CoverArt ;
+    owl:equivalentProperty bf:coverArt ;
+    skos:definition "BIBFRAME definition: Cover art image of a resource."@en .
+
+bffi:creationDate a owl:DatatypeProperty ;
+    rdfs:label "description creation date"@en,
+        "kuvailun luontiajankohta"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:closeMatch rdam:P30011 ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf bffi:date ;
+    owl:equivalentProperty bf:creationDate ;
+    skos:definition "BIBFRAME definition: Date or date and time on which the original metadata first created"@en .
+
+bffi:creditsPerformer a owl:DatatypeProperty ;
+    rdfs:label "participant or performer credits"@en,
+        "huomautus osallistujista tai esittäjistä"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:broadMatch bf:credits,
+        rdam:P30057 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf bffi:credits .
+
+bffi:creditsProduction a owl:DatatypeProperty ;
+    rdfs:label "creation or production credits"@en,
+        "huomautus tuotantoon osallistujista"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:broadMatch bf:credits,
+        rdam:P30057 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf bffi:credits .
+
+bffi:custodialHistory a owl:DatatypeProperty ;
+    rdfs:label "custodial history"@en,
+        "kappaleen omistushistoria"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:exactMatch rdai:P40026 ;
+    rdfs:domain bffi:Item ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:custodialHistory ;
+    skos:definition "BIBFRAME definition: Information about the provenance, such as origin, ownership and custodial history (chain of custody), of a resource."@en .
+
+bffi:dataSource a owl:ObjectProperty ;
+    rdfs:label "source of information"@en,
+        "tiedonlähde"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation ) ] ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:equivalentProperty bf:dataSource ;
+    skos:definition "BIBFRAME definition: Resource that is a data source to which the described resource is related; may contain information about other files, printed sources, or collection procedures"@en .
+
+bffi:degree a owl:ObjectProperty ;
+    rdfs:label "degree"@en,
+        "oppiarvo"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:closeMatch bf:degree,
+        rdaw:P10077 ;
+    rdfs:domain bffi:Dissertation ;
+    rdfs:range bffi:Degree .
+
+bffi:derivedFrom a owl:ObjectProperty ;
+    rdfs:label "source metadata"@en,
+        "lähdemetatieto"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-06-19 (Changed Finnish label from \"metadatan lähde\" to \"lähdemetatieto\"; removed RDA mapping)" ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range rdfs:Resource ;
+    owl:equivalentProperty bf:derivedFrom ;
+    skos:definition "BIBFRAME definition: Link to the metadata that was the source of the data"@en .
+
+bffi:descriptionAuthentication a owl:ObjectProperty ;
+    rdfs:label "description authentication"@en,
+        "autentikointikoodi"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range bffi:DescriptionAuthentication ;
+    owl:equivalentProperty bf:descriptionAuthentication ;
+    skos:definition "BIBFRAME definition: Indication of specific types of reviews that have been carried out on the description information"@en .
+
+bffi:descriptionConventions a owl:ObjectProperty ;
+    rdfs:label "description conventions"@en,
+        "kuvailusäännöt"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:closeMatch rdaw:P10309 ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range bffi:DescriptionConventions ;
+    owl:equivalentProperty bf:descriptionConventions ;
+    skos:definition "BIBFRAME definition: Rules used for the descriptive content of the resource description"@en .
+
+bffi:descriptionLanguage a owl:ObjectProperty ;
+    rdfs:label "description language"@en,
+        "kuvailukieli"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:broadMatch rdae:P20007 ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range bffi:Language ;
+    owl:equivalentProperty bf:descriptionLanguage ;
+    skos:definition "BIBFRAME definition: Language used for the metadata"@en .
+
+bffi:descriptionLevel a owl:ObjectProperty ;
+    rdfs:label "description level"@en,
+        "kuvailutaso"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range bffi:DescriptionLevel ;
+    owl:equivalentProperty bf:descriptionLevel ;
+    skos:definition "BIBFRAME definition: Designation of the descriptive content of the metadata"@en .
+
+bffi:descriptionModifier a owl:ObjectProperty ;
+    rdfs:label "description modifier"@en,
+        "muokkaava taho"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:exactMatch rdai:P40093 ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range bffi:Agent ;
+    owl:equivalentProperty bf:descriptionModifier ;
+    skos:definition "BIBFRAME definition: Agency that modified a description"@en .
+
+bffi:descriptionScript a owl:ObjectProperty ;
+    rdfs:label "script of description"@en,
+        "kuvailun kirjoitusjärjestelmä"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:closeMatch bf:descriptionLanguage,
+        rdae:P20065 ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range bffi:Script .
+
+bffi:digitalCharacteristic a owl:ObjectProperty ;
+    rdfs:label "digital characteristic"@en,
+        "digitaalisen tiedoston ominaisuus"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:exactMatch rdam:P30124 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:DigitalCharacteristic ;
+    owl:equivalentProperty bf:digitalCharacteristic ;
+    skos:definition "BIBFRAME definition: Technical specification relating to the digital encoding of text, image, audio, video, and other types of data in a resource."@en .
+
+bffi:dimensions a owl:DatatypeProperty ;
+    rdfs:label "dimensions"@en,
+        "koko"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:exactMatch rdam:P30169 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:dimensions ;
+    skos:definition "BIBFRAME definition: Measurements of the carrier or carriers and/or the container of a resource."@en .
+
+bffi:dissertation a owl:ObjectProperty ;
+    rdfs:label "dissertation information"@en,
+        "tieto väitöskirjasta"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10209 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:MonographWork bffi:AggregatingWork ) ] ;
+    rdfs:range bffi:Dissertation ;
+    owl:equivalentProperty bf:dissertation ;
+    skos:definition "BIBFRAME definition: Work presented as part of the formal requirements for an academic degree."@en .
+
+bffi:distributionStatement a owl:DatatypeProperty ;
+    rdfs:label "distribution statement"@en,
+        "jakelumerkintö"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30108 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:distributionStatement ;
+    skos:definition "BIBFRAME definition: Statement related to the distribution of the resources; usually transcribed."@en .
+
+bffi:duration a owl:DatatypeProperty ;
+    rdfs:label "duration"@en,
+        "kesto"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdae:P20219 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:AudioExpression bffi:MovingImageExpression ) ] ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:duration ;
+    skos:definition "BIBFRAME definition: Information about the playing time, running time, etc. of a resource."@en .
+
+bffi:edition a owl:DatatypeProperty ;
+    rdfs:label "classification scheme edition"@en,
+        "painoksen tyyppi"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain bffi:Classification ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:edition ;
+    skos:definition "BIBFRAME definition: Edition of the classification scheme, such as full, abridged or a number, when a classification scheme designates editions."@en .
+
+bffi:editionStatementOfRevision a owl:DatatypeProperty ;
+    rdfs:label "edition statement of revision"@en,
+        "nimetyn uudistetun painoksen määrite"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:editionStatement ;
+    bffi-meta:exactMatch rdam:P30132 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf bffi:editionStatement .
+
+bffi:emulsion a owl:ObjectProperty ;
+    rdfs:label "emulsion"@en,
+        "mikrofilmin ja mikrokortin emulsio"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30122 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Emulsion ;
+    owl:equivalentProperty bf:emulsion ;
+    skos:definition "BIBFRAME definition: Suspension of light-sensitive chemicals used as a coating on a microfilm or microfiche, e.g., silver halide."@en .
+
+bffi:equinox a owl:DatatypeProperty ;
+    rdfs:label "cartographic equinox"@en,
+        "ekvinokti"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    rdfs:domain bffi:Cartographic ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:equinox ;
+    skos:definition "BIBFRAME definition: One of two points of intersection of the ecliptic and the celestial equator, occupied by the sun when its declination is 0 degrees."@en .
+
+bffi:exclusionGRing a owl:DatatypeProperty ;
+    rdfs:label "cartographic G ring area excluded"@en,
+        "poissulkeva G-kehä"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    rdfs:domain bffi:Cartographic ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:exclusionGRing ;
+    skos:definition "BIBFRAME definition: Coordinate pairs that identify the closed non-intersecting boundary of the area contained within the G-polygon outer ring that is excluded."@en .
+
+bffi:expressionIdentifiedBy a owl:ObjectProperty ;
+    rdfs:label "identifier for expression"@en,
+        "ekspression tunniste"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:identifiedBy ;
+    bffi-meta:exactMatch rdae:P20002 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Expression bffi:AggregatingExpression ) ] ;
+    rdfs:range bffi:Identifier ;
+    rdfs:subPropertyOf bffi:identifiedBy .
+
+bffi:extensionPlan a owl:ObjectProperty ;
+    rdfs:label "extension plan"@en,
+        "laajennussuunnitelma"@fi ;
+    dct:modified "2024-04-16 (New)",
+        "2024-06-19 (Changed range from bffi:Issuance to bffi:ExtensionPlan)",
+        "2024-09-13 (Removed subPropertyOf bffi:issuance; broadMatch bf:issuance)" ;
+    bffi-meta:broadMatch bf:issuance ;
+    bffi-meta:exactMatch rdaw:P10365 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range bffi:ExtensionPlan .
+
+bffi:extent a owl:ObjectProperty ;
+    rdfs:label "extent"@en,
+        "laajuus"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdae:P20321,
+        rdam:P30182 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range bffi:Extent ;
+    owl:equivalentProperty bf:extent ;
+    skos:definition "BIBFRAME definition: Number and type of units and/or subunits making up a resource."@en .
+
+bffi:extentOfRepresentativeExpression a owl:ObjectProperty ;
+    rdfs:label "extent of representative expression"@en,
+        "edustavan ekspression laajuus"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:closeMatch bf:extent ;
+    bffi-meta:exactMatch rdaw:P10352 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range bffi:Extent .
+
+bffi:firstIssue a owl:DatatypeProperty ;
+    rdfs:label "multipart first issue"@en,
+        "ensimmäinen numero"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:firstIssue ;
+    skos:definition "BIBFRAME definition: Beginning date of a resource and/or the sequential designations."@en .
+
+bffi:firstIssueChronology a owl:ObjectProperty ;
+    rdfs:label "first chronological designation of sequence"@en,
+        "numerointijakson ensimmäinen aikamäärite"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-04-16 (Changed type to ObjectProperty; Changed BIBFRAME mapping to bffi-meta:closeMatch bf:firstIssue)" ;
+    bffi-meta:broadMatch bf:enumerationAndChronology ;
+    bffi-meta:exactMatch rdam:P30149 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Chronology ;
+    rdfs:subPropertyOf bffi:enumerationAndChronology .
+
+bffi:firstIssueEnumeration a owl:ObjectProperty ;
+    rdfs:label "first alphanumeric designation of sequence"@en,
+        "numerointijakson ensimmäinen numero- ja/tai kirjainmäärite"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-04-16 (Changed type to ObjectProperty; Changed BIBFRAME mapping to bffi-meta:closeMatch bf:firstIssue)" ;
+    bffi-meta:broadMatch bf:enumerationAndChronology ;
+    bffi-meta:exactMatch rdam:P30147 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Enumeration ;
+    rdfs:subPropertyOf bffi:enumerationAndChronology .
+
+bffi:fontSize a owl:ObjectProperty ;
+    rdfs:label "font size"@en,
+        "kirjasinkoko"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30199 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:FontSize ;
+    owl:equivalentProperty bf:fontSize ;
+    skos:definition "BIBFRAME definition: Size of the type used to represent the characters and symbols in a resource."@en .
+
+bffi:generation a owl:ObjectProperty ;
+    rdfs:label "generation"@en,
+        "sukupolvi"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Generation ;
+    owl:equivalentProperty bf:generation ;
+    skos:definition "BIBFRAME definition: Relationship between an original carrier and the carrier of a reproduction made from the original."@en .
+
+bffi:generationDate a owl:DatatypeProperty ;
+    rdfs:label "date generated"@en,
+        "konversioajankohta"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf bffi:date ;
+    owl:equivalentProperty bf:generationDate ;
+    skos:definition "BIBFRAME definition: Date of conversion of the metadata from another format"@en .
+
+bffi:generationProcess a owl:ObjectProperty ;
+    rdfs:label "generation process"@en,
+        "konversioprosessi"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range bffi:GenerationProcess ;
+    owl:equivalentProperty bf:generationProcess ;
+    skos:definition "BIBFRAME definition: Indication of the program or process used to generate the description by application of a particular transformation"@en .
+
+bffi:genreForm a owl:ObjectProperty ;
+    rdfs:label "category of work"@en,
+        "teoksen kategoria"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10004 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( rdfs:Resource bffi:GenreForm ) ] ;
+    owl:equivalentProperty bf:genreForm ;
+    skos:definition "BIBFRAME definition: Form category or genre to which a resource belongs"@en .
+
+bffi:grantingInstitution a owl:ObjectProperty ;
+    rdfs:label "degree granting institution"@en,
+        "oppiarvon myöntävä yhteisö"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:closeMatch bf:grantingInstitution,
+        rdaw:P10006 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Dissertation bffi:Degree ) ] ;
+    rdfs:range bffi:Organization .
+
+bffi:hierarchicalLevel a owl:DatatypeProperty ;
+    rdfs:label "hierarchical level of material"@en,
+        "hierarkkinen taso"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    rdfs:domain bffi:CollectionArrangement ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:hierarchicalLevel ;
+    skos:definition "BIBFRAME definition: Hierarchical position of the described materials relative to other material from the same source."@en .
+
+bffi:historyOfWork a owl:DatatypeProperty ;
+    rdfs:label "history of the work"@en,
+        "teoksen historia"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10210 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:historyOfWork ;
+    skos:definition "BIBFRAME definition: Information about the history of a Work."@en .
+
+bffi:holding a owl:ObjectProperty ;
+    rdfs:label "holding"@en,
+        "kokoelman kappale"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch bf:hasItem ;
+    bffi-meta:exactMatch rdam:P30460 ;
+    rdfs:domain bffi:CollectionManifestation ;
+    rdfs:range bffi:Item ;
+    rdfs:subPropertyOf bffi:relatedTo .
+
+bffi:holdingOf a owl:ObjectProperty ;
+    rdfs:label "holding of"@en,
+        "kappale kokoelmassa"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch bf:itemOf ;
+    bffi-meta:exactMatch rdai:P40161 ;
+    rdfs:domain bffi:Item ;
+    rdfs:range bffi:CollectionManifestation ;
+    rdfs:subPropertyOf bffi:relatedTo .
+
+bffi:horizontalScale a owl:ObjectProperty ;
+    rdfs:label "horizontal scale of cartographic content"@en,
+        "horisontaalinen mittakaava"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:scale ;
+    bffi-meta:exactMatch rdae:P20226 ;
+    rdfs:domain bffi:CartographyExpression ;
+    rdfs:range bffi:Scale ;
+    rdfs:subPropertyOf bffi:scale .
+
+bffi:illustrativeContent a owl:ObjectProperty ;
+    rdfs:label "illustrative content"@en,
+        "kuvasisältö"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-09-13 (Added subClassOf bffi:supplementaryContent)" ;
+    bffi-meta:exactMatch rdam:P30453 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Illustration ;
+    owl:equivalentProperty bf:illustrativeContent ;
+    skos:definition "BIBFRAME definition: Information about content intended to illustrate a resource."@en .
+
+bffi:immediateAcquisition a owl:ObjectProperty ;
+    rdfs:label "immediate acquisition"@en,
+        "kappaleen hankintalähde"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch rdai:P40050 ;
+    rdfs:domain bffi:Item ;
+    rdfs:range bffi:ImmediateAcquisition ;
+    owl:equivalentProperty bf:immediateAcquisition ;
+    skos:definition "BIBFRAME definition: Information about the circumstances, e.g., source, date, method, under which the resource was directly acquired."@en .
+
+bffi:intendedAudience a owl:ObjectProperty ;
+    rdfs:label "intended audience"@en,
+        "kohderyhmä"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdae:P20322,
+        rdam:P30305 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Expression bffi:Manifestation ) ] ;
+    rdfs:range bffi:IntendedAudience ;
+    owl:equivalentProperty bf:intendedAudience ;
+    skos:definition "BIBFRAME definition: Information that identifies the specific audience or intellectual level for which the content of the resource is considered appropriate."@en .
+
+bffi:intendedAudienceOfRepresentativeExpression a owl:ObjectProperty ;
+    rdfs:label "intended audience of representative expression"@en,
+        "edustavan ekspression kohderyhmä"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:closeMatch bf:intendedAudience ;
+    bffi-meta:exactMatch rdaw:P10217 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range bffi:IntendedAudience .
+
+bffi:issuance a owl:ObjectProperty ;
+    rdfs:label "mode of issuance"@en,
+        "julkaisutapa"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-09-13 (Removed subClassOf bf:issuance. Added BIBFRAME mapping bffi-meta:broadMatch bf:issuance)" ;
+    bffi-meta:broadMatch bf:issuance ;
+    bffi-meta:exactMatch rdam:P30003 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Issuance .
+
+bffi:itemIdentifiedBy a owl:ObjectProperty ;
+    rdfs:label "identifier for item"@en,
+        "kappaleen tunniste"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:identifiedBy ;
+    bffi-meta:exactMatch rdai:P40001 ;
+    rdfs:domain bffi:Item ;
+    rdfs:range bffi:Identifier ;
+    rdfs:subPropertyOf bffi:identifiedBy .
+
+bffi:itemPortion a owl:DatatypeProperty ;
+    rdfs:label "classification item number"@en,
+        "kappalenumero"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain bffi:Classification ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:itemPortion ;
+    skos:definition "BIBFRAME definition: Number attached to a classification string that indicates a particular item."@en .
+
+bffi:label a owl:DatatypeProperty ;
+    rdfs:label "label"@en,
+        "termi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdax:P00019 ;
+    rdfs:domain bffi:Note ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf rdfs:label .
+
+bffi:languageOfExpression a owl:ObjectProperty ;
+    rdfs:label "language of expression"@en,
+        "ekspression kieli"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:language ;
+    bffi-meta:exactMatch rdae:P20006 ;
+    rdfs:domain bffi:Expression ;
+    rdfs:range bffi:Language ;
+    rdfs:subPropertyOf bffi:language .
+
+bffi:languageOfRepresentativeExpression a owl:ObjectProperty ;
+    rdfs:label "language of representative expression"@en,
+        "edustavan ekspression kieli"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:closeMatch bf:language ;
+    bffi-meta:exactMatch rdaw:P10353 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range bffi:Language .
+
+bffi:lastIssue a owl:DatatypeProperty ;
+    rdfs:label "multipart last issue"@en,
+        "viimeinen numero"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:lastIssue ;
+    skos:definition "BIBFRAME definition: Ending date of a resource and/or the sequential designations."@en .
+
+bffi:lastIssueChronology a owl:ObjectProperty ;
+    rdfs:label "last chronological designation of sequence"@en,
+        "numerointijakson viimeinen aikamäärite"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-04-16 (Changed type to ObjectProperty; Changed BIBFRAME mapping to bffi-meta:closeMatch bf:lastIssue)",
+        "2024-06-19 (Changed BIBFRAME mapping to bffi-meta:broadMatch bf:enumerationAndChronology)" ;
+    bffi-meta:broadMatch bf:enumerationAndChronology ;
+    bffi-meta:exactMatch rdam:P30150 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Chronology ;
+    rdfs:subPropertyOf bffi:enumerationAndChronology .
+
+bffi:lastIssueEnumeration a owl:ObjectProperty ;
+    rdfs:label "last alphanumeric designation of alternative sequence"@en,
+        "numerointijakson viimeinen numero- ja/tai kirjainmäärite"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-04-16 (Changed type to ObjectProperty; Changed BIBFRAME mapping to bffi-meta:closeMatch bf:lastIssue)",
+        "2024-06-19 (Changed BIBFRAME mapping to bffi-meta:broadMatch bf:enumerationAndChronology)" ;
+    bffi-meta:broadMatch bf:enumerationAndChronology ;
+    bffi-meta:exactMatch rdam:P30148 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Enumeration ;
+    rdfs:subPropertyOf bffi:enumerationAndChronology .
+
+bffi:latitude a owl:DeprecatedProperty ;
+    rdfs:label "latitude"@en,
+        "leveysaste"@fi ;
+    dct:isReplacedBy bffi:coordinates ;
+    dct:modified "2024-02-23 (New)",
+        "2024-04-16 (Deprecated)" ;
+    owl:deprecated true .
+
+bffi:layout a owl:ObjectProperty ;
+    rdfs:label "layout"@en,
+        "layout"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:exactMatch rdam:P30155 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Layout ;
+    owl:equivalentProperty bf:layout ;
+    skos:definition "BIBFRAME definition: Arrangement of text, images, tactile notation, etc., in a resource."@en .
+
+bffi:locationOfCollection a owl:ObjectProperty ;
+    rdfs:label "location of collection"@en,
+        "kokoelman sijainti"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch bf:place ;
+    bffi-meta:exactMatch rdam:P30461 ;
+    rdfs:domain bffi:CollectionManifestation ;
+    rdfs:range bffi:Place ;
+    rdfs:subPropertyOf bffi:place .
+
+bffi:longitude a owl:DeprecatedProperty ;
+    rdfs:label "longitude"@en,
+        "pituusaste"@fi ;
+    dct:isReplacedBy bffi:coordinates ;
+    dct:modified "2024-02-23 (New)",
+        "2024-04-16 (Deprecated)" ;
+    owl:deprecated true .
+
+bffi:mainTitle a owl:DatatypeProperty ;
+    rdfs:label "main title"@en,
+        "nimekkeen merkkijono"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain bffi:Title ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:mainTitle ;
+    skos:definition "BIBFRAME definition: Title being addressed. Possible title component."@en .
+
+bffi:manifestationIdentifiedBy a owl:ObjectProperty ;
+    rdfs:label "identifier for manifestation"@en,
+        "manifestaation tunniste"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:identifiedBy ;
+    bffi-meta:exactMatch rdam:P30004 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Identifier ;
+    rdfs:subPropertyOf bffi:identifiedBy .
+
+bffi:manufactureStatement a owl:DatatypeProperty ;
+    rdfs:label "manufacture statement"@en,
+        "valmistusmerkintö"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-09-13 (Changed mapping to bf:manufactureStatement; removed subPropertyOf  bf:provisionActivityStatement)" ;
+    bffi-meta:exactMatch rdam:P30109 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:manufactureStatement ;
+    skos:definition "BIBFRAME definition: Statement related to the manufacture of the resources; usually transcribed."@en .
+
+bffi:marcKey a owl:DatatypeProperty ;
+    rdfs:label "marc key for headings"@en,
+        "marc-kentän sisältö"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item ) ] ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bflc:marcKey ;
+    skos:definition "BFLC definition: String to store MARC data"@en .
+
+bffi:media a owl:ObjectProperty ;
+    rdfs:label "media type"@en,
+        "mediatyyppi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdam:P30002 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Media ;
+    owl:equivalentProperty bf:media ;
+    skos:definition "BIBFRAME definition: Categorization reflecting the general type of intermediation device required to view, play, run, etc., the content of a resource."@en .
+
+bffi:metadataLicensor a owl:ObjectProperty ;
+    rdfs:label "metadata licensor"@en,
+        "metatiedon tekijänoikeus"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range bffi:MetadataLicensor ;
+    owl:equivalentProperty bflc:metadataLicensor ;
+    skos:definition "BFLC definition: Organization that licenses the intellectual property rights to the data contained in the description."@en .
+
+bffi:mount a owl:ObjectProperty ;
+    rdfs:label "mount material or object"@en,
+        "tukimateriaali"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30186 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Mount ;
+    owl:equivalentProperty bf:mount ;
+    skos:definition "BIBFRAME definition: Physical material or object used for the support or backing to which the base material of a resource has been attached."@en .
+
+bffi:musicFormat a owl:ObjectProperty ;
+    rdfs:label "format of notated music"@en,
+        "nuottiaineiston muoto"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdae:P20209 ;
+    rdfs:domain bffi:NotatedMusic ;
+    rdfs:range bffi:MusicFormat ;
+    owl:equivalentProperty bf:musicFormat ;
+    skos:definition "BIBFRAME definition: Layout for content of a resource that is presented in the form of musical notation, such as full score, condensed score, vocal score, etc."@en .
+
+bffi:musicKey a owl:DatatypeProperty ;
+    rdfs:label "music key"@en,
+        "sävellaji"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdae:P20326,
+        rdaw:P10221 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:MusicAudioExpression bffi:NotatedMusic ) ] ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:musicKey ;
+    skos:definition "BIBFRAME definition: Pitch and mode for music."@en .
+
+bffi:musicMedium a owl:ObjectProperty ;
+    rdfs:label "music medium of performance"@en,
+        "musiikin esityskokoonpano"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdae:P20215 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:MusicAudioExpression bffi:NotatedMusic ) ] ;
+    rdfs:range bffi:MusicMedium ;
+    owl:equivalentProperty bf:musicMedium ;
+    skos:definition "BIBFRAME definition: Instrumental, vocal, and/or other medium of performance for which a musical resource was originally conceived, written or performed."@en .
+
+bffi:musicOpusNumber a owl:DatatypeProperty ;
+    rdfs:label "music opus number"@en,
+        "opusnumero"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10333 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:musicOpusNumber ;
+    skos:definition "BIBFRAME definition: Numeric designation of a musical work assigned by a composer, publisher, or a musicologist."@en .
+
+bffi:musicSerialNumber a owl:DatatypeProperty ;
+    rdfs:label "music serial number"@en,
+        "musiikkiteoksen järjestysnumero"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10334 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:musicSerialNumber ;
+    skos:definition "BIBFRAME definition: Numeric designation for musical works consecutively numbered in music reference sources."@en .
+
+bffi:musicThematicNumber a owl:DatatypeProperty ;
+    rdfs:label "music thematic number"@en,
+        "temaattisen teosluettelon numero"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10335 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:musicThematicNumber ;
+    skos:definition "BIBFRAME definition: Numeric designation for a musical work as found in a thematic index for the composer."@en .
+
+bffi:natureOfContent a owl:DatatypeProperty ;
+    rdfs:label "content nature"@en,
+        "sisällön luonne"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10222 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:natureOfContent ;
+    skos:definition "BIBFRAME definition: Characterization that epitomizes the primary content of a resource, e.g., field recording of birdsong; combined time series analysis and graph plotting system."@en .
+
+bffi:notation a owl:ObjectProperty ;
+    rdfs:label "notation system"@en,
+        "notaatio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdae:P20061,
+        rdae:P20062,
+        rdae:P20063,
+        rdae:P20064 ;
+    rdfs:domain bffi:Expression ;
+    rdfs:range bffi:Notation ;
+    owl:equivalentProperty bf:notation ;
+    skos:definition "BIBFRAME definition: Alphabet, script, or symbol system used to convey the content of the resource, including specialized scripts, typefaces, tactile notation, movement notation, and musical notation."@en .
+
+bffi:ordinal a owl:DatatypeProperty ;
+    rdfs:label "number in sequence"@en,
+        "järjestysnumero"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range rdfs:Literal .
+
+bffi:originDate a owl:DatatypeProperty ;
+    rdfs:label "origin date"@en,
+        "teoksen ajankohta"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10219 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf bffi:date ;
+    owl:equivalentProperty bf:originDate ;
+    skos:definition "BIBFRAME definition: Date or date range associated with the creation of a Work."@en .
+
+bffi:originPlace a owl:ObjectProperty ;
+    rdfs:label "origin place"@en,
+        "teoksen alkuperään liittyvä paikka"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10218 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range bffi:Place ;
+    rdfs:subPropertyOf bffi:place ;
+    owl:equivalentProperty bf:originPlace ;
+    skos:definition "BIBFRAME definition: Place from which the creation of the resource originated."@en .
+
+bffi:outerGRing a owl:DatatypeProperty ;
+    rdfs:label "cartographic outer G ring area covered"@en,
+        "ulompi G-kehä"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:closeMatch rdaw:P10083 ;
+    rdfs:domain bffi:Cartographic ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:outerGRing ;
+    skos:definition "BIBFRAME definition: Coordinate pairs that identify the closed non-intersecting boundary of the area covered."@en .
+
+bffi:partName a owl:DatatypeProperty ;
+    rdfs:label "part title"@en,
+        "osan nimeke"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain bffi:Title ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:partName ;
+    skos:definition "BIBFRAME definition: Part or section name of a title. Possible title component."@en .
+
+bffi:partNumber a owl:DatatypeProperty ;
+    rdfs:label "part number"@en,
+        "osan numero"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10012 ;
+    rdfs:domain bffi:Title ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:partNumber ;
+    skos:definition "BIBFRAME definition: Part or section enumeration of a title. Possible title component."@en .
+
+bffi:pattern a owl:DatatypeProperty ;
+    rdfs:label "arrangement of material"@en,
+        "järjestys"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    rdfs:domain bffi:CollectionArrangement ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:pattern ;
+    skos:definition "BIBFRAME definition: Pattern of arrangement of materials within a unit."@en .
+
+bffi:physicalLocation a owl:DatatypeProperty ;
+    rdfs:label "location of item"@en,
+        "kappaleen sijainti"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:exactMatch rdai:P40162 ;
+    rdfs:domain bffi:Item ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:physicalLocation ;
+    skos:definition "BIBFRAME definition: Location in the holding agency where the item is shelved or stored."@en .
+
+bffi:polarity a owl:ObjectProperty ;
+    rdfs:label "polarity"@en,
+        "polariteetti"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30196 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Polarity ;
+    owl:equivalentProperty bf:polarity ;
+    skos:definition "BIBFRAME definition: Relationship of the colors and tones in an image to the colors and tones of the object reproduced."@en .
+
+bffi:preferredCitation a owl:DatatypeProperty ;
+    rdfs:label "preferred citation"@en,
+        "ensisijainen viittausmuoto"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdam:P30005 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:preferredCitation ;
+    skos:definition "BIBFRAME definition: Citation to the resource preferred by its custodian of the resource."@en .
+
+bffi:productionMethod a owl:ObjectProperty ;
+    rdfs:label "production method"@en,
+        "valmistusmenetelmä"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30187 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:ProductionMethod ;
+    owl:equivalentProperty bf:productionMethod ;
+    skos:definition "BIBFRAME definition: Process used to produce a resource."@en .
+
+bffi:productionStatement a owl:DatatypeProperty ;
+    rdfs:label "production statement"@en,
+        "tuotantomerkintö"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30110 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:productionStatement ;
+    skos:definition "BIBFRAME definition: Statement related to the production of the resources; usually transcribed."@en .
+
+bffi:projection a owl:DeprecatedProperty ;
+    rdfs:label "cartographic projection"@en,
+        "karttaprojektio"@fi ;
+    dct:isReplacedBy bffi:cartographicProjection ;
+    dct:modified "2024-02-23 (New)",
+        "2024-04-16 (Deprecated)" ;
+    owl:deprecated true .
+
+bffi:provisionActivity a owl:ObjectProperty ;
+    rdfs:label "provision activity"@en,
+        "tuottamistiedot"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:ProvisionActivity ;
+    rdfs:seeAlso rdam:P30008,
+        rdam:P30009,
+        rdam:P30010,
+        rdam:P30011,
+        rdam:P30085,
+        rdam:P30086,
+        rdam:P30087,
+        rdam:P30088,
+        rdam:P30173,
+        rdam:P30174,
+        rdam:P30175,
+        rdam:P30176 ;
+    owl:equivalentProperty bf:provisionActivity ;
+    skos:definition "BIBFRAME definition: Place, name, and/or date information relating to the publication, printing, distribution, issue, release, production, etc. of a resource."@en .
+
+bffi:publicationStatement a owl:DatatypeProperty ;
+    rdfs:label "publication statement"@en,
+        "julkaisumerkintö"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30111 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:publicationStatement ;
+    skos:definition "BIBFRAME definition: Statement related to the publication of the resources; usually transcribed."@en .
+
+bffi:qualifier a owl:DatatypeProperty ;
+    rdfs:label "qualifier"@en,
+        "tarkenne"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:closeMatch rdax:P00015 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:qualifier ;
+    skos:definition "BIBFRAME definition: Qualifier of information, such as an addition to a title to make it unique or qualifying information associated with an identifier."@en .
+
+bffi:recordingSource a owl:ObjectProperty ;
+    rdfs:label "recording source"@en,
+        "merkintälähde"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-04-16 (Changed domain from bffi:Work to bffi:AdminMetadata. Removed subClassOf bffi:Source)",
+        "2024-06-19 (Removed subPropertyOf bffi:derivedFrom)" ;
+    bffi-meta:broadMatch bf:derivedFrom ;
+    bffi-meta:exactMatch rdaw:P10404 ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range bffi:RecordingSource .
+
+bffi:relation a owl:ObjectProperty ;
+    rdfs:label "relation"@en,
+        "suhde"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item ) ] ;
+    rdfs:range bf:Relation ;
+    owl:equivalentProperty bf:relation ;
+    skos:definition "BIBFRAME definition: Associated resource and its relationship to the resource being described"@en .
+
+bffi:relationship a owl:ObjectProperty ;
+    rdfs:label "relationship"@en,
+        "suhdetyyppi"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    rdfs:domain bffi:Relation ;
+    rdfs:range bffi:Relationship ;
+    owl:equivalentProperty bf:relationship ;
+    skos:definition "BIBFRAME definition: Type of relationship between resources"@en .
+
+bffi:relief a owl:ObjectProperty ;
+    rdfs:label "relief"@en,
+        "korkeuserojen esitystapa"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:exactMatch rdae:P20318 ;
+    rdfs:domain bffi:Cartographic ;
+    rdfs:range bffi:Relief ;
+    owl:equivalentProperty bf:relief ;
+    skos:definition "BIBFRAME definition: Relief term specified on a cartographic resource"@en .
+
+bffi:responsibilityStatement a owl:DatatypeProperty ;
+    rdfs:label "creative responsibility statement"@en,
+        "vastuullisuusmerkintö"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdam:P30105 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:responsibilityStatement ;
+    skos:definition "BIBFRAME definition: Statement relating to any persons, families, or corporate bodies responsible for the creation of, or contributing to the content of a resource; usually transcribed."@en .
+
+bffi:role a owl:ObjectProperty ;
+    rdfs:label "contributor role"@en,
+        "rooli"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch rdaa:P50304 ;
+    rdfs:domain bffi:Contribution ;
+    rdfs:range bffi:Role ;
+    owl:equivalentProperty bf:role ;
+    skos:definition "BIBFRAME definition: Function provided by a contributor, e.g., author, illustrator, etc."@en .
+
+bffi:scaleDesignation a owl:ObjectProperty ;
+    rdfs:label "scale designation"@en,
+        "mittakaavan määrite"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch bf:scale ;
+    bffi-meta:exactMatch rdae:P20291 ;
+    rdfs:domain bffi:Scale ;
+    rdfs:range bffi:ScaleDesignation ;
+    rdfs:subPropertyOf bffi:scale .
+
+bffi:scaleOfRepresentativeExpression a owl:ObjectProperty ;
+    rdfs:label "scale of representative expression"@en,
+        "edustavan ekspression mittakaava"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:closeMatch bf:scale ;
+    bffi-meta:exactMatch rdaw:P10356 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range bffi:Scale .
+
+bffi:scaleOfStillImageOrThreeDimensionalForm a owl:ObjectProperty ;
+    rdfs:label "scale of still image or three-dimensional form"@en,
+        "stillkuvan tai kolmiulotteisen muodon mittakaava"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch bf:scale ;
+    bffi-meta:exactMatch rdae:P20227 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:StillImage bffi:Object ) ] ;
+    rdfs:range bffi:Scale ;
+    rdfs:subPropertyOf bffi:scale .
+
+bffi:seriesEnumeration a owl:DatatypeProperty ;
+    rdfs:label "series enumeration"@en,
+        "numerointijakson sisäinen numerointi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdam:P30014 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:seriesEnumeration ;
+    skos:definition "BIBFRAME definition: Series enumeration of the resource; usually transcribed."@en .
+
+bffi:seriesStatement a owl:DatatypeProperty ;
+    rdfs:label "series statement"@en,
+        "sarjamerkintö"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdam:P30106 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:seriesStatement ;
+    skos:definition "BIBFRAME definition: Statement of the series the resource is in; usually transcribed; includes the ISSN if applicable."@en .
+
+bffi:simpleAgent a owl:DatatypeProperty ;
+    rdfs:label "agent"@en,
+        "auktorisoimaton liittyvä toimija"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain bffi:ProvisionActivity ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bflc:simpleAgent ;
+    skos:definition "BFLC definition: Name of publisher, distributor, manufacturer or producer as transcribed from the resource"@en .
+
+bffi:simpleDate a owl:DatatypeProperty ;
+    rdfs:label "date of provision activity"@en,
+        "tuottamiseen liittyvä vuosiluku"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain bffi:ProvisionActivity ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bflc:simpleDate ;
+    skos:definition "BFLC definition: Date of publication, distribution, manufacture or production as transcribed from the resource"@en .
+
+bffi:simplePlace a owl:DatatypeProperty ;
+    rdfs:label "place"@en,
+        "auktorisoimaton paikka"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:closeMatch rdap:P70001 ;
+    rdfs:domain bffi:ProvisionActivity ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bflc:simplePlace ;
+    skos:definition "BFLC definition: Location of publication, distribution, manufacture or production as transcribed from the resource"@en .
+
+bffi:source a owl:ObjectProperty ;
+    rdfs:label "source"@en,
+        "lähde"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdan:P80139 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range bffi:Source ;
+    rdfs:subPropertyOf bf:source .
+
+bffi:sourceConsulted a owl:ObjectProperty ;
+    rdfs:label "source consulted"@en,
+        "käytetty lähde"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-06-19 (Changed range from bffi:Source to bffi:SourceConsulted; Removed subPropertyOf bffi:derivedFrom)" ;
+    bffi-meta:broadMatch bf:source ;
+    bffi-meta:exactMatch rdaw:P10406 ;
+    rdfs:domain bffi:AdminMetadata ;
+    rdfs:range bffi:SourceConsulted .
+
+bffi:spanEnd a owl:DatatypeProperty ;
+    rdfs:label "classification number span end"@en,
+        "luokan loppunumero"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain bffi:Classification ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:spanEnd ;
+    skos:definition "BIBFRAME definition: Ending number of classification number span."@en .
+
+bffi:status a owl:ObjectProperty ;
+    rdfs:label "status"@en,
+        "status"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdan:P80168 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range bffi:Status ;
+    owl:equivalentProperty bf:status ;
+    skos:definition "BIBFRAME definition: Designation of the validity or position of something, such as indication that the classification number is canceled or invalid, circulation availability of an item, indication of whether the identifier is canceled or invalid."@en .
+
+bffi:subcollection a owl:ObjectProperty ;
+    rdfs:label "subcollection"@en,
+        "alakokoelma"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch bf:hasPart ;
+    bffi-meta:exactMatch rdam:P30458 ;
+    rdfs:domain bffi:CollectionManifestation ;
+    rdfs:range bffi:CollectionManifestation ;
+    rdfs:subPropertyOf bffi:hasPart .
+
+bffi:subcollectionOf a owl:ObjectProperty ;
+    rdfs:label "has subcollection"@en,
+        "alakokoelma kokoelmassa"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch bf:partOf ;
+    bffi-meta:exactMatch rdam:P30459 ;
+    rdfs:domain bffi:CollectionManifestation ;
+    rdfs:range bffi:CollectionManifestation ;
+    rdfs:subPropertyOf bffi:partOf .
+
+bffi:sublocation a owl:ObjectProperty ;
+    rdfs:label "held in sublocation"@en,
+        "alayksikkö tai kokoelma"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch rdai:P40162 ;
+    rdfs:domain bffi:Item ;
+    rdfs:range bffi:Sublocation ;
+    owl:equivalentProperty bf:sublocation ;
+    skos:definition "BIBFRAME definition: Specific place within the holding entity where the item is located or made available."@en .
+
+bffi:subtitle a owl:DatatypeProperty ;
+    rdfs:label "subtitle"@en,
+        "muu nimeketieto"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:closeMatch rdam:P30142 ;
+    rdfs:domain bffi:Title ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:subtitle ;
+    skos:definition "BIBFRAME definition: Word, character, or group of words and/or characters that contains the remainder of the title after the main title. Possible title component."@en .
+
+bffi:summary a owl:ObjectProperty ;
+    rdfs:label "summary content"@en,
+        "tiivistelmä"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation ) ] ;
+    rdfs:range bffi:Summary ;
+    owl:equivalentProperty bf:summary ;
+    skos:definition "BIBFRAME definition: Summary or abstract of the resource described."@en .
+
+bffi:table a owl:DatatypeProperty ;
+    rdfs:label "classification table identification"@en,
+        "luokkataulun tunniste"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain bffi:Classification ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:table ;
+    skos:definition "BIBFRAME definition: Number of the table from which the classification number in a subdivision entry is taken, e.g., a DDC table."@en .
+
+bffi:tableSeq a owl:DatatypeProperty ;
+    rdfs:label "classification table sequence number"@en,
+        "luokkataulun järjestysnumero"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:domain bffi:Classification ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:tableSeq ;
+    skos:definition "BIBFRAME definition: Sequence number or other identifier for an internal classification sub arrangement or add in a classification scheme."@en .
+
+bffi:temporalCoverage a owl:DatatypeProperty ;
+    rdfs:label "temporal coverage"@en,
+        "ajanjakso"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10322 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:temporalCoverage ;
+    skos:definition "BIBFRAME definition: Time period coverage of the content of the resource."@en .
+
+bffi:titleNote a owl:ObjectProperty ;
+    rdfs:label "title note"@en,
+        "huomautus nimekkeestä"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:note ;
+    rdfs:domain bffi:Title ;
+    rdfs:range bffi:TitleNote ;
+    rdfs:subPropertyOf bffi:note .
+
+bffi:titleSource a owl:ObjectProperty ;
+    rdfs:label "source of title"@en,
+        "nimekkeen tiedonlähde"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:broadMatch bf:source ;
+    rdfs:domain bffi:Title ;
+    rdfs:range bffi:TitleSource .
+
+bffi:usageAndAccessPolicy a owl:ObjectProperty ;
+    rdfs:label "use and access condition"@en,
+        "käyttö- ja pääsyrajoitukset"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdai:P40047,
+        rdai:P40048,
+        rdam:P30145,
+        rdam:P30146 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Manifestation bffi:Item ) ] ;
+    rdfs:range bffi:UsageAndAccessPolicy ;
+    rdfs:subPropertyOf bf:usageAndAccessPolicy .
+
+bffi:variantAccessPoint a owl:DatatypeProperty ;
+    rdfs:label "variant access point"@en,
+        "varianttihakutieto"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-06-19 (Removed mappings to RDA Agent properties)" ;
+    bffi-meta:narrowMatch rdae:P20314,
+        rdai:P40084,
+        rdam:P30295,
+        rdap:P70046,
+        rdat:P70048,
+        rdaw:P10332 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range rdfs:Literal .
+
+bffi:verticalScale a owl:ObjectProperty ;
+    rdfs:label "vertical scale of cartographic content"@en,
+        "kartografisen sisällön vertikaalinen mittakaava"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:scale ;
+    bffi-meta:exactMatch rdae:P20230 ;
+    rdfs:domain bffi:CartographyExpression ;
+    rdfs:range bffi:Scale ;
+    rdfs:subPropertyOf bffi:scale .
+
+bffi:workGroupIdentifiedBy a owl:ObjectProperty ;
+    rdfs:label "identifier for work group"@en,
+        "teosryhmän tunniste"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:identifiedBy ;
+    bffi-meta:exactMatch rdaw:P10400 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range bffi:Identifier ;
+    rdfs:subPropertyOf bffi:identifiedBy .
+
+bffi:workIdentifiedBy a owl:ObjectProperty ;
+    rdfs:label "identifier for work"@en,
+        "teoksen tunniste"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:identifiedBy ;
+    bffi-meta:exactMatch rdaw:P10002 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range bffi:Identifier ;
+    rdfs:subPropertyOf bffi:identifiedBy .
+
+bffi:AcquisitionSource a owl:Class ;
+    rdfs:label "Acquisition source"@en,
+        "Hankintalähde"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m110 ;
+    owl:equivalentClass bf:AcquisitionSource ;
+    skos:definition "BIBFRAME definition: Information about an organization, person, etc., from which a resource may be obtained"@en .
+
+bffi:AggregatingWork a owl:Class ;
+    rdfs:label "Aggregating work"@en,
+        "Aggregoiva teos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Work ;
+    bffi-meta:closeMatch rdac:C10001 ;
+    rdfs:subClassOf bffi:Work .
+
+bffi:AppliedMaterial a owl:Class ;
+    rdfs:label "Applied material"@en,
+        "Päällimateriaali"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m654 ;
+    rdfs:seeAlso rdamat: ;
+    rdfs:subClassOf bffi:Material ;
+    owl:equivalentClass bf:AppliedMaterial ;
+    skos:definition "BIBFRAME definition: Physical or chemical substance applied to a base material of a resource"@en .
+
+bffi:BaseMaterial a owl:Class ;
+    rdfs:label "Base material"@en,
+        "Pohjamateriaali"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m97 ;
+    rdfs:seeAlso rdamat: ;
+    rdfs:subClassOf bffi:Material ;
+    owl:equivalentClass bf:BaseMaterial ;
+    skos:definition "BIBFRAME definition: Underlying physical material of a resource"@en .
+
+bffi:Binding a owl:Class ;
+    rdfs:label "Binding"@en,
+        "Sidostyyppi"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m4402 ;
+    rdfs:seeAlso rdatb: ;
+    owl:equivalentClass bf:Binding ;
+    skos:definition "BIBFRAME definition: Information about methods used to bind a published or unpublished resource, or other binding information"@en .
+
+bffi:BookFormat a owl:Class ;
+    rdfs:label "Book format"@en,
+        "Bibliografinen koko"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m50 ;
+    rdfs:seeAlso rdabf: ;
+    owl:equivalentClass bf:BookFormat ;
+    skos:definition "BIBFRAME definition: Result of folding a printed sheet to form a gathering of leaves"@en .
+
+bffi:Carrier a owl:Class ;
+    rdfs:label "Carrier type"@en,
+        "Tallennetyyppi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m180 ;
+    rdfs:seeAlso rdact: ;
+    owl:equivalentClass bf:Carrier ;
+    skos:definition "BIBFRAME definition: Categorization reflecting the format of the storage medium and housing of a carrier"@en .
+
+bffi:CollectionAccrualMethod a owl:Class ;
+    rdfs:label "Collection accrual method"@en,
+        "Kokoelman kartuntamenetelmä"@fi ;
+    dct:modified "2024-04-16 (New)",
+        "2024-06-19 (Removed subClassOf bffi:UsageAndAccessPolicy)" ;
+    bffi-meta:broadMatch bf:UsageAndAccessPolicy ;
+    bffi-meta:relatedValueVocabulary mts:m5110 ;
+    rdfs:seeAlso <http://rdaregistry.info/termList/RDACollectionAccrualMethod/> .
+
+bffi:CollectionAccrualPolicy a owl:Class ;
+    rdfs:label "Collection accrual policy"@en,
+        "Kokoelman kartuttamisen linja"@fi ;
+    dct:modified "2024-04-16 (New)",
+        "2024-06-19 (Removed subClassOf bffi:UsageAndAccessPolicy)" ;
+    bffi-meta:broadMatch bf:UsageAndAccessPolicy ;
+    bffi-meta:relatedValueVocabulary mts:m5108 ;
+    rdfs:seeAlso <http://rdaregistry.info/termList/RDACollectionAccrualPolicy> .
+
+bffi:ColorContent a owl:Class ;
+    rdfs:label "Color content"@en,
+        "Värisisältö"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m1668 ;
+    rdfs:seeAlso rdacc: ;
+    owl:equivalentClass bf:ColorContent ;
+    skos:definition "BIBFRAME definition: Color characteristics of a resource, e.g., black and white, multicolored, etc."@en .
+
+bffi:ContentAccessibility a owl:Class ;
+    rdfs:label "Content accessibility information"@en,
+        "Saavutettavuussisältö"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m4823 ;
+    owl:equivalentClass bf:ContentAccessibility ;
+    skos:definition "BIBFRAME definition: Information that assists those with a sensory impairment for greater understanding of content, e.g., captions"@en .
+
+bffi:CopyrightRegistration a owl:Class ;
+    rdfs:label "Copyright registration"@en,
+        "Tekijänoikeus- tai vapaakappaletiedot"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:CopyrightRegistration ;
+    skos:definition "BIBFRAME definition: Copyright or Legal Deposit registration information"@en .
+
+bffi:CoverArt a owl:Class ;
+    rdfs:label "Cover art"@en,
+        "Kansikuva"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:CoverArt ;
+    skos:definition "BIBFRAME definition: Cover illustration of a resource"@en .
+
+bffi:DescriptionAuthentication a owl:Class ;
+    rdfs:label "Description authentication"@en,
+        "Autentikointikoodi"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    owl:equivalentClass bf:DescriptionAuthentication ;
+    skos:definition "BIBFRAME definition: Indication of specific types of reviews that have been carried out on the description information"@en .
+
+bffi:DescriptionConventions a owl:Class ;
+    rdfs:label "Description conventions"@en,
+        "Kuvailusäännöt"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    owl:equivalentClass bf:DescriptionConventions ;
+    skos:definition "BIBFRAME definition: Rules used for the descriptive content of the resource description"@en .
+
+bffi:DescriptionLevel a owl:Class ;
+    rdfs:label "Description level"@en,
+        "Kuvailutaso"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    owl:equivalentClass bf:DescriptionLevel ;
+    skos:definition "BIBFRAME definition: Designation of the descriptive content of the metadata"@en .
+
+bffi:Emulsion a owl:Class ;
+    rdfs:label "Emulsion"@en,
+        "Mikrofilmin ja mikrokortin emulsio"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    owl:equivalentClass bf:Emulsion ;
+    skos:definition "BIBFRAME definition: Suspension of light-sensitive chemicals used as a coating on a microfilm or microfiche, e.g., silver halide"@en .
+
+bffi:ExtensionPlan a owl:Class ;
+    rdfs:label "Extension plan"@en,
+        "Laajennussuunnitelma"@fi ;
+    dct:modified "2024-04-16 (New)",
+        "2024-06-19 (Removed subClassOf bffi:Issuance)" ;
+    bffi-meta:broadMatch bf:Issuance ;
+    bffi-meta:relatedValueVocabulary mts:m5119 ;
+    rdfs:seeAlso <http://rdaregistry.info/termList/RDAExtensionPlan> .
+
+bffi:FontSize a owl:Class ;
+    rdfs:label "Font size"@en,
+        "Kirjasinkoko"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m1239 ;
+    rdfs:seeAlso rdafs: ;
+    owl:equivalentClass bf:FontSize ;
+    skos:definition "BIBFRAME definition: Size of the type used to represent the characters and symbols in a resource"@en .
+
+bffi:Generation a owl:Class ;
+    rdfs:label "Generation"@en,
+        "Sukupolvi"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m245 ;
+    rdfs:seeAlso rdagen: ;
+    owl:equivalentClass bf:Generation ;
+    skos:definition "BIBFRAME definition: Relationship between an original carrier and the carrier of a reproduction made from the original"@en .
+
+bffi:GenerationProcess a owl:Class ;
+    rdfs:label "Generation process"@en,
+        "Konversioprosessi"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    owl:equivalentClass bf:GenerationProcess ;
+    skos:definition "BIBFRAME definition: Indication of the program or process used to generate the description by application of a particular transformation"@en .
+
+bffi:GenreForm a owl:Class ;
+    rdfs:label "Category of work"@en,
+        "Teoksen kategoria"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m991 ;
+    owl:equivalentClass bf:GenreForm ;
+    skos:definition "BIBFRAME definition: Form category or genre to which a resource belongs"@en .
+
+bffi:Illustration a owl:Class ;
+    rdfs:label "Illustrative content"@en,
+        "Kuvasisältö"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m439 ;
+    rdfs:seeAlso rdaill: ;
+    owl:equivalentClass bf:Illustration ;
+    skos:definition "BIBFRAME definition: Information about content intended to illustrate a resource"@en .
+
+bffi:ImmediateAcquisition a owl:Class ;
+    rdfs:label "Immediate acquisition"@en,
+        "Kappaleen hankintalähde"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m110 ;
+    owl:equivalentClass bf:ImmediateAcquisition ;
+    skos:definition "BIBFRAME definition: Information about the circumstances, e.g., source, date, method, under which the resource was directly acquired"@en .
+
+bffi:Issuance a owl:Class ;
+    rdfs:label "Mode of issuance"@en,
+        "Julkaisutapa"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Issuance ;
+    bffi-meta:relatedValueVocabulary mts:m4372 ;
+    rdfs:seeAlso rdami: .
+
+bffi:Layout a owl:Class ;
+    rdfs:label "Layout"@en,
+        "Layout"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m58 ;
+    rdfs:seeAlso rdalay: ;
+    owl:equivalentClass bf:Layout ;
+    skos:definition "BIBFRAME definition: Arrangement of text, images, tactile notation, etc., in a resource"@en .
+
+bffi:Manufacture a owl:Class ;
+    rdfs:label "Manufacturer"@en,
+        "Valmistaja"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch rdac:C10005 ;
+    rdfs:subClassOf bffi:ProvisionActivity ;
+    owl:equivalentClass bf:Manufacture ;
+    skos:definition "BIBFRAME definition: Information relating to manufacture of a resource"@en .
+
+bffi:Media a owl:Class ;
+    rdfs:label "Media type"@en,
+        "Mediatyyppi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m777 ;
+    rdfs:seeAlso rdamt: ;
+    owl:equivalentClass bf:Media ;
+    skos:definition "BIBFRAME definition: Categorization reflecting the general type of intermediation device required to view, play, run, etc., the content of a resource"@en .
+
+bffi:MetadataLicensor a owl:Class ;
+    rdfs:label "Metadata licensor"@en,
+        "Metatiedon tekijänoikeus"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    rdfs:subClassOf bffi:Agent ;
+    owl:equivalentClass bflc:MetadataLicensor ;
+    skos:definition "BFLC definition: Organization that licenses the intellectual property rights to the data contained in the description."@en .
+
+bffi:MixedMaterial a owl:Class ;
+    rdfs:label "Mixed material"@en,
+        "Kooste"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subClassOf bffi:Expression ;
+    owl:equivalentClass bf:MixedMaterial ;
+    skos:definition "BIBFRAME definition: Resource comprised of multiple types which is not driven by software, e.g. an archival collection of text, photographs and sound recordings"@en .
+
+bffi:MonographWork a owl:Class ;
+    rdfs:label "Monograph work"@en,
+        "Monografiateos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Monograph ;
+    rdfs:subClassOf bffi:Work .
+
+bffi:Mount a owl:Class ;
+    rdfs:label "Mount"@en,
+        "Tukimateriaali"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    owl:equivalentClass bf:Mount ;
+    skos:definition "BIBFRAME definition: Physical material or object used for the support or backing to which the base material of a resource has been attached"@en .
+
+bffi:MovingImageWork a owl:Class ;
+    rdfs:label "Moving image work"@en,
+        "Liikkuvan kuvan teos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:MovingImage ;
+    rdfs:subClassOf bffi:Work ;
+    owl:disjointWith bffi:MovingImageExpression .
+
+bffi:MusicFormat a owl:Class ;
+    rdfs:label "Notated music format"@en,
+        "Nuottiaineiston muoto"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m2002 ;
+    rdfs:seeAlso rdafnm: ;
+    owl:equivalentClass bf:MusicFormat ;
+    skos:definition "BIBFRAME definition: Layout for content of a resource that is presented in the form of musical notation"@en .
+
+bffi:MusicMedium a owl:Class ;
+    rdfs:label "Music medium information"@en,
+        "Musiikin esityskokoonpano"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:MusicMedium ;
+    skos:definition "BIBFRAME definition: Summary statement of the medium for a musical work"@en .
+
+bffi:Object a owl:Class ;
+    rdfs:label "Three-dimensional form"@en,
+        "Kolmiulotteinen muoto"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:seeAlso rdaco:1021 ;
+    rdfs:subClassOf bffi:Expression ;
+    owl:equivalentClass bf:Object ;
+    skos:definition "BIBFRAME definition: Resource in a form intended to be perceived visually in three-dimensions, including man-made objects such as models, sculptures, clothing, and toys, as well as naturally occurring objects such as specimens mounted for viewing"@en .
+
+bffi:Person a owl:Class ;
+    rdfs:label "Person"@en,
+        "Henkilö"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdac:C10004 ;
+    rdfs:subClassOf bffi:Agent ;
+    owl:equivalentClass bf:Person ;
+    skos:definition "BIBFRAME definition: Individual or identity established by an individual (either alone or in collaboration with one or more other individuals)"@en .
+
+bffi:Polarity a owl:Class ;
+    rdfs:label "Polarity"@en,
+        "Polariteetti"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m558 ;
+    rdfs:seeAlso rdapol: ;
+    owl:equivalentClass bf:Polarity ;
+    skos:definition "BIBFRAME definition: Relationship of the colors and tones in an image to the colors and tones of the object reproduced"@en .
+
+bffi:PrimaryContribution a owl:Class ;
+    rdfs:label "Primary contribution"@en,
+        "Päävastuullinen tekijä"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subClassOf bffi:Contribution ;
+    owl:equivalentClass bf:PrimaryContribution ;
+    skos:definition "BIBFRAME definition: Contribution for which the agent is the name chosen as the name part of the name and title access point"@en .
+
+bffi:ProductionMethod a owl:Class ;
+    rdfs:label "Production method"@en,
+        "Valmistusmenetelmä"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m417 ;
+    rdfs:seeAlso rdapm: ;
+    owl:equivalentClass bf:ProductionMethod ;
+    skos:definition "BIBFRAME definition: Process used to produce a resource"@en .
+
+bffi:Relationship a owl:Class ;
+    rdfs:label "Relationship"@en,
+        "Suhdetyyppi"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m3414 ;
+    owl:equivalentClass bf:Relationship ;
+    skos:definition "BIBFRAME definition: Type of relationship between resources"@en .
+
+bffi:Relief a owl:Class ;
+    rdfs:label "Relief"@en,
+        "Korkeuserojen esitystapa"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    owl:equivalentClass bf:Relief ;
+    skos:definition "BIBFRAME definition: Relief term specified on a cartographic resource"@en .
+
+bffi:Role a owl:Class ;
+    rdfs:label "Role"@en,
+        "Rooli"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m1157,
+        mts:m153,
+        mts:m34,
+        mts:m491 ;
+    owl:equivalentClass bf:Role ;
+    skos:definition "BIBFRAME definition: Function played or provided by a contributor, e.g., author or illustrator"@en .
+
+bffi:ScaleDesignation a owl:Class ;
+    rdfs:label "Scale designation"@en,
+        "Mittakaavan määrite"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch bf:Scale ;
+    bffi-meta:relatedValueVocabulary mts:m4396 ;
+    rdfs:seeAlso rdasca: ;
+    rdfs:subClassOf bffi:Scale .
+
+bffi:Script a owl:Class ;
+    rdfs:label "Script"@en,
+        "Kirjoitusjärjestelmä"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subClassOf bffi:Notation ;
+    owl:equivalentClass bf:Script ;
+    skos:definition "BIBFRAME definition: Information on the script, or symbol system used to convey the content of a text resource"@en .
+
+bffi:SourceConsulted a owl:Class ;
+    rdfs:label "Source consulted"@en,
+        "Käytetty lähde"@fi ;
+    dct:modified "2024-06-19 (New)" .
+
+bffi:Status a owl:Class ;
+    rdfs:label "Status"@en,
+        "Status"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:Status ;
+    skos:definition "BIBFRAME definition: Designation of the validity or position of something, e.g., whether something is incorrect or available"@en .
+
+bffi:Sublocation a owl:Class ;
+    rdfs:label "Sublocation"@en,
+        "Alayksikkö tai kokoelma"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    owl:equivalentClass bf:Sublocation ;
+    skos:definition "BIBFRAME definition: Specific place within the holding entity where the item is located or made available"@en .
+
+bffi:Summary a owl:Class ;
+    rdfs:label "Summary"@en,
+        "Tiivistelmä"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:Summary ;
+    skos:definition "BIBFRAME definition: Description of the content of a resource, such as an abstract, summary, etc."@en .
+
+bffi:TitleNote a owl:Class ;
+    rdfs:label "Title note"@en,
+        "Huomautus nimekkeestä"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Note ;
+    rdfs:subClassOf bffi:Note .
+
+bffi:TitleSource a owl:Class ;
+    rdfs:label "Source of title"@en,
+        "Nimekkeen tiedonlähde"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:broadMatch bf:Source ;
+    bffi-meta:relatedValueVocabulary mts:m1685 ;
+    rdfs:subClassOf bffi:RecordingSource .
+
+bffi:aggregatedBy a owl:ObjectProperty ;
+    rdfs:label "aggregated by"@en,
+        "aggregoija"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:broadMatch bf:relatedTo ;
+    bffi-meta:exactMatch rdae:P20320 ;
+    rdfs:domain bffi:Expression ;
+    rdfs:range bffi:AggregatingExpression ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:inverseOf bffi:aggregates .
+
+bffi:aggregates a owl:ObjectProperty ;
+    rdfs:label "aggregates expression"@en,
+        "aggregoi ekspression"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:relatedTo ;
+    bffi-meta:exactMatch rdae:P20319 ;
+    rdfs:domain bffi:AggregatingExpression ;
+    rdfs:range bffi:Expression ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:inverseOf bffi:aggregatedBy .
+
+bffi:cartographicProjection a owl:ObjectProperty ;
+    rdfs:label "cartographic projection"@en,
+        "karttaprojektio"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:closeMatch bf:projection ;
+    bffi-meta:exactMatch rdae:P20216 ;
+    rdfs:domain bffi:CartographyExpression ;
+    rdfs:range bffi:Projection .
+
+bffi:catalogue a owl:ObjectProperty ;
+    rdfs:label "catalogue"@en,
+        "luettelo"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch bf:accompaniedBy ;
+    bffi-meta:exactMatch rdam:P30464 ;
+    rdfs:domain bffi:CollectionManifestation ;
+    rdfs:range bffi:CollectionWork ;
+    rdfs:subPropertyOf bffi:findingAid ;
+    owl:inverseOf bffi:catalogueOf .
+
+bffi:catalogueOf a owl:ObjectProperty ;
+    rdfs:label "catalogue of"@en,
+        "luettelo kokoelmamanifestaatiolle"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch bf:accompanies ;
+    bffi-meta:exactMatch rdaw:P10625 ;
+    rdfs:domain bffi:CollectionWork ;
+    rdfs:range bffi:CollectionManifestation ;
+    rdfs:subPropertyOf bffi:findingAidOf ;
+    owl:inverseOf bffi:catalogue .
+
+bffi:collectionArrangement a owl:ObjectProperty ;
+    rdfs:label "collection organization and arrangement"@en,
+        "järjestämisperiaate"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:exactMatch rdaw:P10084 ;
+    rdfs:domain bffi:CollectionWork ;
+    rdfs:range bffi:CollectionArrangement ;
+    owl:equivalentProperty bf:collectionArrangement ;
+    owl:inverseOf bffi:collectionArrangementOf ;
+    skos:definition "BIBFRAME definition: Information about the organization and arrangement of a collection of resources."@en .
+
+bffi:collectionArrangementOf a owl:ObjectProperty ;
+    rdfs:label "organization and arrangement of collection"@en,
+        "järjestämisperiaate aineistolle"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    rdfs:domain bffi:CollectionArrangement ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation ) ] ;
+    owl:equivalentProperty bf:collectionArrangementOf ;
+    owl:inverseOf bffi:collectionArrangement ;
+    skos:definition "BIBFRAME definition: Relates an Arrangement resource to that which it describes."@en .
+
+bffi:editionStatement a owl:DatatypeProperty ;
+    rdfs:label "edition statement"@en,
+        "painosmäärite"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdam:P30133 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:editionStatement ;
+    skos:definition "BIBFRAME definition: Information identifying the edition or version of the resource and associated statements of responsibility for the edition; usually transcribed."@en .
+
+bffi:expressionManifested a owl:ObjectProperty ;
+    rdfs:label "expression manifested"@en,
+        "manifestaatioon sisältyvä ekspressio"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-06-19 (Changed BIBFRAME mapping bffi-meta:broadMatch from bf:hasInstance to bf:instanceOf)" ;
+    bffi-meta:broadMatch bf:instanceOf ;
+    bffi-meta:exactMatch rdam:P30139 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Expression ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:inverseOf bffi:manifestationOfExpression .
+
+bffi:expressionOf a owl:ObjectProperty ;
+    rdfs:label "expression of"@en,
+        "ekspression toteuttama teos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdae:P20231 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Expression bffi:AggregatingExpression ) ] ;
+    rdfs:range bffi:Work ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:equivalentProperty bf:expressionOf ;
+    owl:inverseOf bffi:hasExpression ;
+    skos:definition "BIBFRAME definition: Work or Hub that the described Work or Hub is an expression of; used to connect Works and/or Hubs under LRM/RDA guidelines or similar implementations"@en .
+
+bffi:hasExpression a owl:ObjectProperty ;
+    rdfs:label "expressed as"@en,
+        "teoksen ekspressio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10078 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range bffi:Expression ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:equivalentProperty bf:hasExpression ;
+    owl:inverseOf bffi:expressionOf ;
+    skos:definition "BIBFRAME definition: Work or Hub that is an expression of a described Work or Hub; used to relate Works and/or Hubs under LRM/RDA guidelines or similar implementations"@en .
+
+bffi:hasItem a owl:ObjectProperty ;
+    rdfs:label "exemplar of manifestation"@en,
+        "manifestaation kappale"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdam:P30103 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Item ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:equivalentProperty bf:hasItem ;
+    owl:inverseOf bffi:itemOf ;
+    skos:definition "BIBFRAME definition: Item which is an example of the described Instance"@en .
+
+bffi:hasRepresentativeExpression a owl:ObjectProperty ;
+    rdfs:label "representative expression"@en,
+        "edustava ekspressio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:hasExpression ;
+    bffi-meta:exactMatch rdaw:P10346 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range bffi:Expression ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:inverseOf bffi:representativeExpressionOf .
+
+bffi:hasReproduction a owl:ObjectProperty ;
+    rdfs:label "reproduced as manifestation"@en,
+        "manifestaation jäljenne"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdam:P30039 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Manifestation ;
+    rdfs:subPropertyOf bffi:hasEquivalent ;
+    owl:equivalentProperty bf:hasReproduction ;
+    owl:inverseOf bffi:reproductionOf ;
+    skos:definition "BIBFRAME definition: Resource that reproduces another Resource"@en .
+
+bffi:identifies a owl:ObjectProperty ;
+    rdfs:label "resource identified"@en,
+        "tunniste entiteetille"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain bffi:Identifier ;
+    rdfs:range rdfs:Resource ;
+    rdfs:seeAlso rdan:P80160 ;
+    owl:equivalentProperty bf:identifies ;
+    owl:inverseOf bffi:identifiedBy ;
+    skos:definition "BIBFRAME definition: Resource that is associated with a character string that serves to differentiate one resource from another."@en .
+
+bffi:index a owl:ObjectProperty ;
+    rdfs:label "has index"@en,
+        "hakemisto"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:exactMatch rdam:P30466 ;
+    rdfs:domain bffi:CollectionManifestation ;
+    rdfs:range bffi:CollectionWork ;
+    rdfs:subPropertyOf bffi:accompaniedBy ;
+    owl:equivalentProperty bf:index ;
+    owl:inverseOf bffi:indexOf ;
+    skos:definition "BIBFRAME definition: Resource has an accompanying index"@en .
+
+bffi:indexOf a owl:ObjectProperty ;
+    rdfs:label "index to"@en,
+        "hakemisto manifestaatiolle"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:exactMatch rdaw:P10627 ;
+    rdfs:domain bffi:CollectionWork ;
+    rdfs:range bffi:CollectionManifestation ;
+    rdfs:subPropertyOf bffi:accompanies ;
+    owl:equivalentProperty bf:indexOf ;
+    owl:inverseOf bffi:index ;
+    skos:definition "BIBFRAME definition: Index that accompanies a resource"@en .
+
+bffi:itemOf a owl:ObjectProperty ;
+    rdfs:label "manifestation exemplified"@en,
+        "kappaleen edustama manifestaatio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdai:P40049 ;
+    rdfs:domain bffi:Item ;
+    rdfs:range bffi:Manifestation ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:equivalentProperty bf:itemOf ;
+    owl:inverseOf bffi:hasItem ;
+    skos:definition "BIBFRAME definition: Instance for which the described Item is an example"@en .
+
+bffi:language a owl:ObjectProperty ;
+    rdfs:label "language information"@en,
+        "kieli"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:closeMatch rdau:P60099 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range bffi:Language ;
+    rdfs:subPropertyOf bf:language .
+
+bffi:manifestationOfExpression a owl:ObjectProperty ;
+    rdfs:label "manifestation of expression"@en,
+        "ekspression manifestaatio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:hasInstance ;
+    bffi-meta:exactMatch rdae:P20059 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Expression bffi:AggregatingExpression ) ] ;
+    rdfs:range bffi:Manifestation ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:inverseOf bffi:expressionManifested .
+
+bffi:manifestationOfWork a owl:ObjectProperty ;
+    rdfs:label "manifestation of work"@en,
+        "teoksen manifestaatio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:hasInstance ;
+    bffi-meta:exactMatch rdaw:P10072 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range bffi:Manifestation ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:inverseOf bffi:workManifested .
+
+bffi:note a owl:ObjectProperty ;
+    rdfs:label "note"@en,
+        "huomautus"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-06-19 (Changed domain from [bffi:AdminMetadata, bffi:Title] to rdfs:Resource)" ;
+    bffi-meta:narrowMatch rdae:P20071,
+        rdai:P40028,
+        rdam:P30137,
+        rdaw:P10330,
+        rdaw:P10402 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range bffi:Note ;
+    rdfs:subPropertyOf bf:note .
+
+bffi:precededBy a owl:ObjectProperty ;
+    rdfs:label "preceded by"@en,
+        "edeltäjä"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdae:P20154,
+        rdaw:P10156 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression ) ] ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:equivalentProperty bf:precededBy ;
+    owl:inverseOf bffi:succeededBy ;
+    skos:definition "BIBFRAME definition: Resource that precedes the resource being described, e.g., is earlier in time or before in narrative"@en .
+
+bffi:representativeExpressionOf a owl:ObjectProperty ;
+    rdfs:label "is representative expression of"@en,
+        "edustava ekspressio teokselle"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:expressionOf ;
+    bffi-meta:exactMatch rdae:P20325 ;
+    rdfs:domain bffi:Expression ;
+    rdfs:range bffi:Work ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:inverseOf bffi:hasRepresentativeExpression .
+
+bffi:reproductionOf a owl:ObjectProperty ;
+    rdfs:label "reproduction of"@en,
+        "jäljenne manifestaatiosta"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdam:P30043 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Manifestation ;
+    rdfs:subPropertyOf bffi:hasEquivalent ;
+    owl:equivalentProperty bf:reproductionOf ;
+    owl:inverseOf bffi:hasReproduction ;
+    skos:definition "BIBFRAME definition: Resource that is a reproduction of another Resource"@en .
+
+bffi:subject a owl:ObjectProperty ;
+    rdfs:label "subject"@en,
+        "aihe"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10256 ;
+    rdfs:domain bffi:Work ;
+    rdfs:range rdfs:Resource ;
+    owl:equivalentProperty bf:subject ;
+    owl:inverseOf bffi:subjectOf ;
+    skos:definition "BIBFRAME definition: Subject term(s) describing a resource."@en .
+
+bffi:subjectOf a owl:ObjectProperty ;
+    rdfs:label "subject of"@en,
+        "aiheena teoksessa"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range bffi:Work ;
+    owl:equivalentProperty bf:subjectOf ;
+    owl:inverseOf bffi:subject ;
+    skos:definition "BIBFRAME definition: Relates a subject to that which it describes."@en .
+
+bffi:succeededBy a owl:ObjectProperty ;
+    rdfs:label "succeeded by"@en,
+        "seuraaja"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdae:P20169,
+        rdaw:P10170 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression ) ] ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:equivalentProperty bf:succeededBy ;
+    owl:inverseOf bffi:precededBy ;
+    skos:definition "BIBFRAME definition: Resource that succeeds the resource being described, e.g., later in time or after in a narrative"@en .
+
+bffi:title a owl:ObjectProperty ;
+    rdfs:label "title resource"@en,
+        "nimeke"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdae:P20312,
+        rdai:P40082,
+        rdam:P30134,
+        rdaw:P10088 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item bffi:Event bffi:AggregatingExpression ) ] ;
+    rdfs:range bffi:Title ;
+    owl:equivalentProperty bf:title ;
+    owl:inverseOf bffi:titleOf ;
+    skos:definition "BIBFRAME definition: Name given to a resource."@en .
+
+bffi:titleOf a owl:ObjectProperty ;
+    rdfs:label "title of"@en,
+        "nimekkeenä"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdan:P80017,
+        rdan:P80039,
+        rdan:P80062,
+        rdan:P80064 ;
+    rdfs:domain bffi:Title ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item bffi:Event ) ] ;
+    owl:equivalentProperty bf:titleOf ;
+    owl:inverseOf bffi:title ;
+    skos:definition "BIBFRAME definition: Relates a title resource to that which it is the title of."@en .
+
+bffi:translation a owl:ObjectProperty ;
+    rdfs:label "translated as"@en,
+        "käännös"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdae:P20171 ;
+    rdfs:domain bffi:Expression ;
+    rdfs:range bffi:Expression ;
+    rdfs:subPropertyOf bf:translation ;
+    owl:inverseOf bffi:translationOf .
+
+bffi:translationOf a owl:ObjectProperty ;
+    rdfs:label "translation of"@en,
+        "käännöksen perustana"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain bffi:Expression ;
+    rdfs:range bffi:Expression ;
+    rdfs:subPropertyOf bf:translationOf ;
+    owl:inverseOf bffi:translation .
+
+bffi:workManifested a owl:ObjectProperty ;
+    rdfs:label "work manifested"@en,
+        "manifestaatioon sisältyvä teos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:instanceOf ;
+    bffi-meta:exactMatch rdam:P30135 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Work ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:inverseOf bffi:manifestationOfWork .
+
+bffi:AudioWork a owl:Class ;
+    rdfs:label "Audio work"@en,
+        "Ääniteos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Audio ;
+    rdfs:subClassOf bffi:Work .
+
+bffi:BibframeWork a owl:Class ;
+    rdfs:label "BIBFRAME Work"@en,
+        "BIBFRAME-teos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdac:C10001,
+        rdac:C10006 ;
+    owl:equivalentClass bf:Work ;
+    skos:definition "BIBFRAME definition: Resource reflecting a conceptual essence of a cataloging resource"@en .
+
+bffi:CartographyWork a owl:Class ;
+    rdfs:label "Cartographic work"@en,
+        "Kartografinen teos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Cartography ;
+    rdfs:subClassOf bffi:Work ;
+    owl:disjointWith bffi:CartographyExpression .
+
+bffi:Chronology a owl:Class ;
+    rdfs:label "Chronology"@en,
+        "Julkaisuaikatiedot"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subClassOf bffi:EnumerationAndChronology ;
+    owl:equivalentClass bf:Chronology ;
+    skos:definition "BIBFRAME definition: Dates associated with issues or items held"@en .
+
+bffi:Content a owl:Class ;
+    rdfs:label "Content type"@en,
+        "Sisältötyyppi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:Content ;
+    skos:definition "BIBFRAME definition: Categorization reflecting the fundamental form of communication in which the content is expressed and the human sense through which it is intended to be perceived"@en .
+
+bffi:Degree a owl:Class ;
+    rdfs:label "Degree"@en,
+        "Oppiarvo"@fi ;
+    dct:modified "2024-02-23 (New)" .
+
+bffi:Enumeration a owl:Class ;
+    rdfs:label "Enumeration"@en,
+        "Numerointi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:subClassOf bffi:EnumerationAndChronology ;
+    owl:equivalentClass bf:Enumeration ;
+    skos:definition "BIBFRAME definition: Numbering or other enumeration associated with issues or items held"@en .
+
+bffi:Event a owl:Class ;
+    rdfs:label "Event entity"@en,
+        "Tapahtuma"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:Event ;
+    skos:definition "BIBFRAME definition: Something that happens at a certain time and location, such as a performance, speech, or athletic event"@en .
+
+bffi:Extent a owl:Class ;
+    rdfs:label "Extent"@en,
+        "Laajuus"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m8 ;
+    rdfs:seeAlso rdacarx: ;
+    owl:equivalentClass bf:Extent ;
+    skos:definition "BIBFRAME definition: Number and type of units and/or subunits making up a resource"@en .
+
+bffi:IntendedAudience a owl:Class ;
+    rdfs:label "Intended audience information"@en,
+        "Kohderyhmä"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m176 ;
+    owl:equivalentClass bf:IntendedAudience ;
+    skos:definition "BIBFRAME definition: Information that identifies the specific intended or target audience or intellectual level for which the content described is considered appropriate; also used to record interest and motivation levels and special learner characteristics"@en .
+
+bffi:MusicAudioExpression a owl:Class ;
+    rdfs:label "Music audio expression"@en,
+        "Musiikkiaudioekspressio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:MusicAudio,
+        rdac:C10006 ;
+    rdfs:subClassOf bffi:AudioExpression .
+
+bffi:Organization a owl:Class ;
+    rdfs:label "Organization"@en,
+        "Yhteisö"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:closeMatch rdac:C10005 ;
+    rdfs:subClassOf bffi:Agent ;
+    owl:equivalentClass bf:Organization ;
+    skos:definition "BIBFRAME definition: Corporation or group of persons and/or organizations that acts, or may act, as a unit"@en .
+
+bffi:Projection a owl:Class ;
+    rdfs:label "Projection"@en,
+        "Projektio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:Projection ;
+    skos:definition "BIBFRAME definition: Method or system used to represent the surface of the earth or of a celestial sphere on a plane"@en .
+
+bffi:RecordingSource a owl:Class ;
+    rdfs:label "Recording source"@en,
+        "Merkintälähde"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Source ;
+    bffi-meta:relatedValueVocabulary mts:m5137 ;
+    rdfs:seeAlso <http://rdaregistry.info/termList/RDARecordingSources> ;
+    rdfs:subClassOf bffi:Source .
+
+bffi:Relation a owl:Class ;
+    rdfs:label "Relation"@en,
+        "Suhde"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    owl:equivalentClass bf:Relation ;
+    skos:definition "BIBFRAME definition: Associated resource and its relationship to the resource being described"@en .
+
+bffi:Source a owl:Class ;
+    rdfs:label "Source"@en,
+        "Lähde"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-06-19 (Removed mapping to RDA value vocabulary)" ;
+    owl:equivalentClass bf:Source ;
+    skos:definition "BIBFRAME definition: Resource from which value or label came or was derived"@en .
+
+bffi:StillImage a owl:Class ;
+    rdfs:label "Still image"@en,
+        "Stillkuva"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:seeAlso rdaco:1014 ;
+    rdfs:subClassOf bffi:Expression ;
+    owl:equivalentClass bf:StillImage ;
+    skos:definition "BIBFRAME definition: Resource expressed through line, shape, shading, etc., intended to be perceived visually as a still image or images in two dimensions, including two-dimensional images and slides and transparencies"@en .
+
+bffi:accompaniedBy a owl:ObjectProperty ;
+    rdfs:label "accompanied by"@en,
+        "liite"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:narrowMatch rdam:P30022 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item ) ] ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:equivalentProperty bf:accompaniedBy ;
+    skos:definition "BIBFRAME definition: Resource that accompanies the described resource"@en .
+
+bffi:accompanies a owl:ObjectProperty ;
+    rdfs:label "accompanies"@en,
+        "liitteenä"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:narrowMatch rdam:P30025 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item ) ] ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:equivalentProperty bf:accompanies ;
+    skos:definition "BIBFRAME definition: Resource that adds to or is issued with the described resource"@en .
+
+bffi:coordinates a owl:DatatypeProperty ;
+    rdfs:label "cartographic coordinates"@en,
+        "koordinaatit"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdaw:P10081 ;
+    rdfs:domain bffi:Cartographic ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:coordinates ;
+    skos:definition "BIBFRAME definition: Mathematical system for identifying the area covered by the cartographic content of a resource, expressed either by means of longitude and latitude on the surface of planets or by the angles of right ascension and declination for celestial cartographic content."@en .
+
+bffi:credits a owl:DatatypeProperty ;
+    rdfs:label "credits note"@en,
+        "huomautus esittäjistä ja tuotantoon osallistujista"@fi ;
+    dct:modified "2024-06-19 (New)" ;
+    bffi-meta:closeMatch rdam:P30057 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf bf:credits .
+
+bffi:findingAid a owl:ObjectProperty ;
+    rdfs:label "finding aid"@en,
+        "kokoelmaluettelo"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:exactMatch rdam:P30463 ;
+    rdfs:domain bffi:CollectionManifestation ;
+    rdfs:range bffi:CollectionWork ;
+    rdfs:subPropertyOf bffi:accompaniedBy ;
+    owl:equivalentProperty bf:findingAid ;
+    owl:inverseOf bffi:findingAidOf ;
+    skos:definition "BIBFRAME definition: Relationship for archival, visual, and manuscript resources to a finding aid or similar control materials"@en .
+
+bffi:findingAidOf a owl:ObjectProperty ;
+    rdfs:label "finding aid for"@en,
+        "hakemisto manifestaatiolle"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:exactMatch rdaw:P10624 ;
+    rdfs:domain bffi:CollectionWork ;
+    rdfs:range bffi:CollectionManifestation ;
+    rdfs:subPropertyOf bffi:accompanies ;
+    owl:equivalentProperty bf:findingAidOf ;
+    owl:inverseOf bffi:findingAid ;
+    skos:definition "BIBFRAME definition: Finding aid or similar control materials for archival, visual, and manuscript resources"@en .
+
+bffi:hasEquivalent a owl:ObjectProperty ;
+    rdfs:label "equivalence"@en,
+        "vastaava"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdai:P40031,
+        rdam:P30024,
+        rdan:P80113 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item ) ] ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:equivalentProperty bf:hasEquivalent ;
+    skos:definition "BIBFRAME definition: Resource embodies the same content as the described resource"@en .
+
+bffi:hasPart a owl:ObjectProperty ;
+    rdfs:label "has part"@en,
+        "kokonaisuuden osa"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:hasPart ;
+    bffi-meta:narrowMatch rdae:P20145,
+        rdam:P30033,
+        rdaw:P10147 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation bffi:Item ) ] ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:inverseOf bffi:partOf .
+
+bffi:material a owl:ObjectProperty ;
+    rdfs:label "material"@en,
+        "materiaali"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:exactMatch rdam:P30304 ;
+    rdfs:domain bffi:Manifestation ;
+    rdfs:range bffi:Material ;
+    owl:equivalentProperty bf:material ;
+    skos:definition "BIBFRAME definition: Resource uses, is composed of, integrates, etc. the related material."@en .
+
+bffi:partOf a owl:ObjectProperty ;
+    rdfs:label "part of"@en,
+        "osa kokonaisuutta"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdae:P20074,
+        rdam:P30020,
+        rdaw:P10019 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( bffi:Work bffi:Expression bffi:Manifestation ) ] ;
+    rdfs:subPropertyOf bffi:relatedTo ;
+    owl:equivalentProperty bf:partOf ;
+    owl:inverseOf bffi:hasPart ;
+    skos:definition "BIBFRAME definition: Resource in which the described resource is physically or logically contained"@en .
+
+bffi:place a owl:ObjectProperty ;
+    rdfs:label "place"@en,
+        "paikka"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( rdfs:Resource bffi:Agent bffi:Capture bffi:ProvisionActivity bffi:Manufacture ) ] ;
+    rdfs:range bffi:Place ;
+    rdfs:subPropertyOf bf:place .
+
+bffi:Capture a owl:Class ;
+    rdfs:label "Capture of content"@en,
+        "Taltiointi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:Capture ;
+    skos:definition "BIBFRAME definition: Information about place and date associated with the capture (i.e., recording, filming, etc.) of the content of a resource"@en .
+
+bffi:Dissertation a owl:Class ;
+    rdfs:label "Dissertation information"@en,
+        "Tieto väitöskirjasta"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m91 ;
+    owl:equivalentClass bf:Dissertation ;
+    skos:definition "BIBFRAME definition: Information about a work presented as part of the formal requirements for an academic degree"@en .
+
+bffi:EnumerationAndChronology a owl:Class ;
+    rdfs:label "Enumeration and chronology"@en,
+        "Numerointi- ja julkaisuaikatiedot"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:EnumerationAndChronology ;
+    skos:definition "BIBFRAME definition: Numbering or other enumeration and dates associated with issues or items held"@en .
+
+bffi:Material a owl:Class ;
+    rdfs:label "Material"@en,
+        "Materiaali"@fi ;
+    dct:modified "2024-09-13 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m654 ;
+    rdfs:seeAlso rdamat: ;
+    owl:equivalentClass bf:Material ;
+    skos:definition "BIBFRAME definition: Substance or composition of the resource"@en .
+
+bffi:MovingImageExpression a owl:Class ;
+    rdfs:label "Moving image expression"@en,
+        "Liikkuvan kuvan ekspressio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:MovingImage ;
+    rdfs:subClassOf bffi:Expression ;
+    owl:disjointWith bffi:MovingImageWork .
+
+bffi:NotatedMusic a owl:Class ;
+    rdfs:label "Notated music"@en,
+        "Nuottiaineiston muoto"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m1990 ;
+    rdfs:seeAlso rdafmn:,
+        rdaco:1010,
+        rdafnm: ;
+    rdfs:subClassOf bffi:Expression ;
+    owl:equivalentClass bf:NotatedMusic ;
+    skos:definition "BIBFRAME definition: Graphic, non-realized representations of musical works intended to be perceived visually"@en .
+
+bffi:Note a owl:Class ;
+    rdfs:label "Note"@en,
+        "Huomautus"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:Note ;
+    skos:definition "BIBFRAME definition: Information, usually in textual form, on attributes of a resource or some aspect of a resource"@en .
+
+bffi:Place a owl:Class ;
+    rdfs:label "Place"@en,
+        "Paikka"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdac:C10009 ;
+    owl:equivalentClass bf:Place ;
+    skos:definition "BIBFRAME definition: Geographic location"@en .
+
+bffi:AudioExpression a owl:Class ;
+    rdfs:label "Audio expression"@en,
+        "Ääniekspressio"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-06-19 (Changed Finnish label from \"Audioekspressio\" to \"Ääniekspressio\")" ;
+    bffi-meta:broadMatch bf:Audio ;
+    rdfs:subClassOf bffi:Expression .
+
+bffi:CartographyExpression a owl:Class ;
+    rdfs:label "Cartographic expression"@en,
+        "Kartografinen ekspressio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Cartography ;
+    rdfs:subClassOf bffi:Expression ;
+    owl:disjointWith bffi:CartographyWork .
+
+bffi:Contribution a owl:Class ;
+    rdfs:label "Contribution"@en,
+        "Kontribuutio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:Contribution ;
+    skos:definition "BIBFRAME definition: Agent and role with respect to the resource being described"@en .
+
+bffi:Language a owl:Class ;
+    rdfs:label "Language entity"@en,
+        "Kieli"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:Language ;
+    skos:definition "BIBFRAME definition: Language entity"@en .
+
+bffi:UsageAndAccessPolicy a owl:Class ;
+    rdfs:label "Use and access conditions"@en,
+        "Käyttö- ja pääsyrajoitukset"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:UsageAndAccessPolicy ;
+    skos:definition "BIBFRAME definition: General statement of allowances and restrictions on access to a resource, including retention, reproduction, access, and lending"@en .
+
+bffi:enumerationAndChronology a owl:ObjectProperty ;
+    rdfs:label "enumeration and chronology"@en,
+        "numerointi- ja julkaisuaikatiedot"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    rdfs:domain bffi:Item ;
+    rdfs:range bffi:EnumerationAndChronology ;
+    owl:equivalentProperty bf:enumerationAndChronology ;
+    skos:definition "BIBFRAME definition: Numbering and dates of issues or items held."@en .
+
+bffi:scale a owl:ObjectProperty ;
+    rdfs:label "scale"@en,
+        "mittakaava"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdae:P20228 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( bffi:Expression bffi:StillImage ) ] ;
+    rdfs:range bffi:Scale ;
+    owl:equivalentProperty bf:scale ;
+    skos:definition "BIBFRAME definition: Ratio of the dimensions of a form contained or embodied in a resource to the dimensions of the entity it represents, e.g., for images or cartographic resources."@en .
+
+bffi:CollectionArrangement a owl:Class ;
+    rdfs:label "Organization of materials information"@en,
+        "Järjestämisperiaate"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    owl:equivalentClass bf:CollectionArrangement ;
+    skos:definition "BIBFRAME definition: Information about the organization and arrangement of a collection of items"@en .
+
+bffi:Notation a owl:Class ;
+    rdfs:label "Notation"@en,
+        "Notaatio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:Notation ;
+    skos:definition "BIBFRAME definition: Information on the alphabet, script, or symbol system used to convey the content of the resource, including specialized scripts, typefaces, tactile notation, movement notation, and musical notation"@en .
+
+bffi:date a owl:DatatypeProperty ;
+    rdfs:label "date"@en,
+        "ajankohta"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-06-19 (Changed Finnish label from \"aika\" to \"ajankohta\")" ;
+    bffi-meta:closeMatch rdax:P00011 ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( rdfs:Resource bffi:Capture bffi:ProvisionActivity ) ] ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty bf:date ;
+    skos:definition "BIBFRAME definition: Date designation associated with a resource or element of description, such as date of title variation; year a degree was awarded; date associated with the publication, printing, distribution, issue, release or production of a resource. May be date typed."@en .
+
+bffi:DigitalCharacteristic a owl:Class ;
+    rdfs:label "Digital characteristic"@en,
+        "Digitaalisen tiedoston ominaisuus"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    owl:equivalentClass bf:DigitalCharacteristic ;
+    skos:definition "BIBFRAME definition: Technical specification relating to the digital encoding of text, image, audio, video, and other types of data in a resource"@en .
+
+bffi:identifiedBy a owl:ObjectProperty ;
+    rdfs:label "identifier"@en,
+        "tunniste"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdax:P00018 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range bffi:Identifier ;
+    owl:equivalentProperty bf:identifiedBy ;
+    owl:inverseOf bffi:identifies ;
+    skos:definition "BIBFRAME definition: Character string associated with a resource that serves to differentiate that resource from other resources, i.e., that uniquely identifies an entity."@en .
+
+bffi:Agent a owl:Class ;
+    rdfs:label "Agent"@en,
+        "Toimija"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdac:C10002 ;
+    owl:equivalentClass bf:Agent ;
+    skos:definition "BIBFRAME definition: Entity having a role in a resource, such as a person or organization"@en .
+
+bffi:AggregatingExpression a owl:Class ;
+    rdfs:label "Aggregating expression"@en,
+        "Aggregoiva ekspressio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Work ;
+    bffi-meta:closeMatch rdac:C10006 ;
+    rdfs:subClassOf bffi:Expression .
+
+bffi:Cartographic a owl:Class ;
+    rdfs:label "Cartographic information"@en,
+        "Kartografinen tieto"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:Cartographic ;
+    skos:definition "BIBFRAME definition: Content that represents the whole or part of the earth, any celestial body, or imaginary place at any scale"@en .
+
+bffi:Identifier a owl:Class ;
+    rdfs:label "Identifier"@en,
+        "Tunniste"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch rdac:C10012 ;
+    owl:equivalentClass bf:Identifier ;
+    skos:definition "BIBFRAME definition: Token or name that is associated with a resource, such as a URI or an ISBN"@en .
+
+bffi:Scale a owl:Class ;
+    rdfs:label "Scale"@en,
+        "Mittakaava"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:relatedValueVocabulary mts:m4396 ;
+    owl:equivalentClass bf:Scale ;
+    skos:definition "BIBFRAME definition: Ratio of the dimensions of a form contained or embodied in a resource to the dimensions of the entity it represents, e.g., for images or cartographic resources"@en .
+
+bffi:Title a owl:Class ;
+    rdfs:label "Title entity"@en,
+        "Nimeke"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:Title ;
+    skos:definition "BIBFRAME definition: Title information relating to a resource: work title, preferred title, instance title, transcribed title, translated title, variant form of title, etc."@en .
+
+bffi:CollectionWork a owl:Class ;
+    rdfs:label "Collection work"@en,
+        "Kokoelmateos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Collection ;
+    rdfs:subClassOf bffi:Work .
+
+bffi:Classification a owl:Class ;
+    rdfs:label "Classification entity"@en,
+        "Luokitus"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch rdac:C10013 ;
+    owl:equivalentClass bf:Classification ;
+    skos:definition "BIBFRAME definition: System of coding and organizing materials according to their subject"@en .
+
+bffi:ProvisionActivity a owl:Class ;
+    rdfs:label "Provider entity"@en,
+        "Tuottamistiedot"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    owl:equivalentClass bf:ProvisionActivity ;
+    skos:definition "BIBFRAME definition: Information about the agent or place relating to the publication, printing, distribution, issue, release, or production of a resource"@en .
+
+bffi:CollectionManifestation a owl:Class ;
+    rdfs:label "Collection instance"@en,
+        "Kokoelmamanifestaatio"@fi ;
+    dct:modified "2024-04-16 (New)" ;
+    bffi-meta:broadMatch bf:Instance ;
+    rdfs:subClassOf bffi:Manifestation .
+
+bffi:AdminMetadata a owl:Class ;
+    rdfs:label "Administrative metadata"@en,
+        "Hallinnolliset metatiedot"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-06-19 (Revised incoming/outgoing properties)" ;
+    owl:equivalentClass bf:AdminMetadata ;
+    skos:definition "BIBFRAME definition: Metadata about the metadata, especially provenance information"@en .
+
+bffi:relatedTo a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "related resource"@en,
+        "liittyvä resurssi"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:narrowMatch rdaw:P10198,
+        rdax:P00001 ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range rdfs:Resource ;
+    owl:equivalentProperty bf:relatedTo ;
+    skos:definition "BIBFRAME definition: Any relationship between Work, Instance, Item, and Event resources"@en .
+
+bffi:Item a owl:Class ;
+    rdfs:label "Item"@en,
+        "Kappale"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdac:C10003 ;
+    owl:equivalentClass bf:Item ;
+    skos:definition "BIBFRAME definition: Single example of an Instance"@en .
+
+bffi:Expression a owl:Class ;
+    rdfs:label "Expression"@en,
+        "Ekspressio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Work ;
+    bffi-meta:exactMatch rdac:C10006 ;
+    rdfs:subClassOf bffi:BibframeWork ;
+    owl:disjointWith bffi:Work .
+
+bffi:Work a owl:Class ;
+    rdfs:label "Work"@en,
+        "Teos"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Work,
+        rdac:C10001 ;
+    rdfs:subClassOf bffi:BibframeWork ;
+    owl:disjointWith bffi:Expression .
+
+bffi:Manifestation a owl:Class ;
+    rdfs:label "Manifestation"@en,
+        "Manifestaatio"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:exactMatch rdac:C10007 ;
+    owl:equivalentClass bf:Instance ;
+    skos:definition "BIBFRAME definition: Resource reflecting an individual, material embodiment of a Work"@en .
+

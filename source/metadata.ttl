@@ -14,13 +14,13 @@
 @prefix yso: <http://www.yso.fi/onto/yso/> .
 
 bffi: a owl:Ontology ;
-    dct:title        "LKD-tietomalli -- BIBFRAME 2.3.0 -tietomallin kansallinen sovellus"@fi, "LKD data model -- BIBFRAME 2.3.0 data model Finnish implementation"@en ;
+    dct:title        "LKD-tietomalli -- BIBFRAME 2.4.0 -tietomallin kansallinen sovellus"@fi, "LKD data model -- BIBFRAME 2.4.0 data model Finnish implementation"@en ;
     dct:contributor <http://www.wikidata.org/entity/Q124635303> ;
     dct:publisher <http://urn.fi/URN:NBN:fi:au:finaf:000034269> ;
     dct:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
-    dct:relation <http://id.loc.gov/ontologies/bibframe-2-3-0/>, <http://id.loc.gov/ontologies/bflc-2-3-0/>, <http://www.rdaregistry.info/Elements/> ;
-    dct:description """Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.3.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä."""@fi, 
-                    """This BIBFRAME data model is based on the BIBFRAME 2.3.0 model published by the Library of Congress. The model has been supplemented with classes and properties from the RDA element sets, as well as the Finnish national cataloguing guidelines."""@en .
+    dct:relation <http://id.loc.gov/ontologies/bibframe-2-4-0/>, <http://id.loc.gov/ontologies/bflc-2-4-0/>, <http://www.rdaregistry.info/Elements/> ;
+    dct:description """Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.4.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä."""@fi,
+                    """This BIBFRAME data model is based on the BIBFRAME 2.4.0 model published by the Library of Congress. The model has been supplemented with classes and properties from the RDA element sets, as well as the Finnish national cataloguing guidelines."""@en .
 
 bffi-meta:relatedValueVocabulary a owl:AnnotationProperty ;
     rdfs:label "liittyvä arvosanasto"@fi, "related value vocabulary"@en ;

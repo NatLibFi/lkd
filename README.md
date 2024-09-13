@@ -9,7 +9,7 @@ Project ID http://www.wikidata.org/entity/Q124635303
 
 ## About the LKD data model
 
-This BIBFRAME data model is based on the BIBFRAME 2.3.0 data model published by the Library of Congress. The model has been supplemented with categories and properties from RDA Registry, as well as additions based on the Finnish description guidelines. A notable difference to the Library of Congress BIBFRAME data model is that LKD data model splits bf:Work into disjoint classes bffi:Work and bffi:Expression corresponding to the structure of RDA classes.
+This BIBFRAME data model is based on the BIBFRAME 2.4.0 data model published by the Library of Congress. The model has been supplemented with categories and properties from RDA Registry, as well as additions based on the Finnish description guidelines. A notable difference to the Library of Congress BIBFRAME data model is that LKD data model splits bf:Work into disjoint classes bffi:Work and bffi:Expression corresponding to the structure of RDA classes.
 
 Namespece of the model <http://urn.fi/URN:NBN:fi:schema:bffi:>   Preferred prefix "bffi".
 

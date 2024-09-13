@@ -10,6 +10,7 @@ bffi:arrangement,v0.5.0,,pushed back to a later version with relatedTo -issues
 bffi:arrangementOf,v0.5.0,,pushed back to a later version with relatedTo -issues
 bffi:aspectRatioOfRepresentativeExpression,v0.6.0,,2024-06-11 changed BIBFRAME mapping bffi-meta:broadMatch to bffi-meta:closeMatch; removed subPropertyOf bffi:aspectRatio
 bffi:assigner,v0.6.0,,"2024-05-10 Changed: added RDA mappings; Changed range from rdfs:Resource to [bffi:Person, bffi:CorporateBody]"
+bffi:associatedResource,v0.7.0,,2024-08-28 New
 bffi:AudioExpression,v0.5.0,,changed subClassOf value FROM bf:Audio to bffi:Expression added bffi-meta:broadMatch bf:Audio
 bffi:AudioExpression,v0.6.0,"Changed Finnish label from ""Audioekspressio"" to ""Ääniekspressio""",
 bffi:AudioWork,v0.5.0,,changed subClassOf value FROM bf:Audio to bffi:Work; added bffi-meta:broadMatch bf:Audio
@@ -23,13 +24,17 @@ bffi:catalogue,v0.5.0,,rdfs:subPropertyOf bffi:findingAid; rdfs:inverseOf bffi:c
 bffi:catalogue  ,v0.5.0,,2024-03-28: changed domain to bffi:CollectionManifestation; range to bffi:COllectionWork
 bffi:catalogueOf,v0.5.0,,rdfs:subPropertyOf bffi:findingAidOf; rdfs:inverseOf bffi:catalogue; bffi-meta:broadMatch bf:accompanies
 bffi:catalogueOf ,v0.5.0,,2024-03-28: changed domain to bffi:CollectionWork; range to bffi:CollectionManifestation
+bffi:ClassificationNlm,v0.7.0,Changed Finnish label,2024-08-28 Changed erroneous label NLA to NLM
 bffi:CollectionAccrualMethod,v0.6.0,Removed subClassOf bffi:UsageAndAccessPolicy,2024-04-18 Change
 bffi:collectionAccrualMethod,v0.6.0,Removed subPropertyOf bffi:usageAndAccessPolicy,2024-04-18 Change
 bffi:CollectionAccrualPolicy,v0.6.0,Removed subClassOf bffi:UsageAndAccessPolicy,2024-04-18 Change
 bffi:collectionAccrualPolicy,v0.6.0,Removed subPropertyOf bffi:usageAndAccessPolicy,2024-04-18 Change
 bffi:colorContent,v0.5.0,,"2024-03-27: changed rdfs:domain from bffi:Expression to [bffi:Expression, bffi:Cartographic ]"
+bffi:colorContent,v0.7.0,"Removed domain [ bffi:Expression, bffi:Cartographic ]; added domain bffi:Manifestation",
 bffi:colorContentOfRepresentativeExpression,v0.5.0,,2024-03-27: added rdfs:domain bffi:Cartographic
 bffi:colorContentOfRepresentativeExpression,v0.6.0,,2024-06-11 changed BIBFRAME mapping bffi-meta:broadMatch to bffi-meta:closeMatch; removed subPropertyOf bffi:colorContent
+bffi:colorContentOfRepresentativeExpression,v0.7.0,Deprecated,2024-08-22 poistettu kuukaisityöpajassa
+bffi:contentAccessibility,v0.7.0,Added subClassOf bffi:supplementaryContent,
 bffi:contentOfRepresentativeExpression,v0.6.0,,2024-06-11 changed BIBFRAME mapping bffi-meta:broadMatch to bffi-meta:closeMatch; removed subPropertyOf bffi:content
 bffi:contribution,v0.6.0,,2024-06-06 added bffi-meta:narrowMatch rdam:P30327  aggregaattiin osallinen toimija|has contributor agent to aggregate
 bffi:coordinates,v0.5.0,,2024-03-27: removed RDA mapping to rdaw:P10024. exactMatch to rdaw:P10081
@@ -50,6 +55,7 @@ bffi:encodingLevel,v0.6.0,,2024-05-08 Deleted.
 bffi:expressionManifested,v0.6.0,Changed BIBFRAME mapping bffi-meta:broadMatch from bf:hasInstance to bf:instanceOf,
 bffi:ExtensionPlan,v0.6.0,Removed subClassOf bffi:Issuance ,2024-05-06 Change
 bffi:extensionPlan,v0.6.0,Changed range from bffi:Issuance to bffi:ExtensionPlan,2024-05-06 Change
+bffi:extensionPlan,v0.7.0,Removed subPropertyOf bffi:issuance; broadMatch bf:issuance,2024-09-11
 bffi:extentOfRepresentativeExpression,v0.6.0,,2024-06-11 changed BIBFRAME mapping bffi-meta:broadMatch to bffi-meta:closeMatch; removed subPropertyOf bffi:extent
 bffi:findingAid,v0.5.0,,"2024-03-28 changed domain from [ bffi:Expression , bffi:Manifestation ]  to bffi:CollectionManifestation; changed range from [ bffi:Expression , bffi:Manifestation ]  to bffi:CollectionWork"
 bffi:findingAidOf,v0.5.0,,"2024-03-28: changed domain from [ bffi:Expression , bffi:Manifestation ]  to bffi:CollectionWork; changed range from [ bffi:Expression , bffi:Manifestation ]  to bffi:CollectionManifestation"
@@ -66,11 +72,13 @@ bffi:geographicLocation,v0.5.0,,pushed back to a later version with place -issue
 bffi:GeographicSubdivision,v0.5.0,,pushed back to a later version with place -issues
 bffi:holding,v0.5.0,,2024-03-28 changed range from bffi:CollectionItem to bffi:Item
 bffi:holdingOf,v0.5.0,,2024-03-28 changed domain  from bffi:CollectionItem to bffi:Item
+bffi:illustrativeContent,v0.7.0,Added subClassOf bffi:supplementaryContent,
 bffi:ImmediateAcquisition,v0.6.0,,2024-05-08 removed RDA mapping to wrong value vocabulary; added seeAlso to mts:m110
 bffi:index,v0.5.0,,"2024-03-28 changed domain from [ bffi:Expression, bffi:Manifestation ] to bffi:CollectionManifestation; ; changed range from [ bffi:Expression, bffi:Manifestation ] to bffi:CollectionWork"
 bffi:indexedIn,v0.5.0,,pushed back to a later version. does not deal with catalogs
 bffi:indexOf,v0.5.0,,"2024-03-28 changed domain from [ bffi:Expression, bffi:Manifestation ] to bffi:CollectionWork ; changed range from [ bffi:Expression, bffi:Manifestation ] to bffi:CollectionManifestation"
 bffi:intendedAudienceOfRepresentativeExpression,v0.6.0,,2024-06-11 changed BIBFRAME mapping bffi-meta:broadMatch to bffi-meta:closeMatch; removed subPropertyOf bffi:intendedAudience
+bffi:issuance,v0.7.0,Removed subClassOf bf:issuance. Added BIBFRAME mapping bffi-meta:broadMatch bf:issuance,2024-09-11 removed subClassOf. Both bffi:Issuance and bffi:extensionPlan are broadMatches with bfi:issuance
 bffi:issue,v0.6.0,,2024-06-04 New
 bffi:languageOfRepresentativeExpression,v0.6.0,,2024-06-11 changed BIBFRAME mapping bffi-meta:broadMatch to bffi-meta:closeMatch; removed subPropertyOf bffi:language
 bffi:lastIssueChronology,v0.5.0,Changed type to ObjectProperty; Changed BIBFRAME mapping to bffi-meta:closeMatch bf:lastIssue,
@@ -79,6 +87,7 @@ bffi:lastIssueChronology,v0.6.0,Changed BIBFRAME mapping to bffi-meta:broadMatch
 bffi:lastIssueEnumeration,v0.6.0,Changed BIBFRAME mapping to bffi-meta:broadMatch bf:enumerationAndChronology,2024-05-07 Changed
 bffi:latitude,v0.5.0,Deprecated,"2024-03-27 replaced by bffi:coordinates, deprecated in version 0.5"
 bffi:longitude,v0.5.0,Deprecated,"2024-03-27 Replaced by bffi:coordinates, deprecated in version 0.5"
+bffi:manufactureStatement,v0.7.0,Changed mapping to bf:manufactureStatement; removed subPropertyOf  bf:provisionActivityStatement,
 bffi:mediumOfChoreographicContentOfRepresentativeExpression,v0.6.0,,2024-06-11 removed subPropertyOf bffi:ensemble.
 bffi:MetadataLicensor,v0.6.0,,"2024-06-13  Finnish term changed to ""Metatiedon tekijänoikeus"""
 bffi:metadataLicensor,v0.6.0,,"2024-06-13  Finnish term changed to ""metatiedon tekijänoikeus"""
@@ -102,6 +111,7 @@ bffi:scaleOfRepresentativeExpression,v0.6.0,,2024-06-11 changed BIBFRAME mapping
 bffi:scaleOfStillImageOrThreeDimensionalForm ,v0.5.0,,New property mapped with rdae:P20227
 bffi:scriptOfRepresentativeExpression,v0.6.0,,2024-06-11 changed BIBFRAME mapping bffi-meta:broadMatch to bffi-meta:closeMatch; removed subPropertyOf bffi:script
 bffi:soundContentOfRepresentativeExpression,v0.6.0,,2024-06-11 changed BIBFRAME mapping bffi-meta:broadMatch to bffi-meta:closeMatch; removed subPropertyOf bffi:soundContent
+bffi:soundContentOfRepresentativeExpression,v0.7.0,,2024-08-22 Deleted PDCA12 kuukausityöpajassa aggregaattien käsittelyssä
 bffi:Source,v0.6.0,Removed mapping to RDA value vocabulary,2024-04-18 Removed mapping to wrong mts: and RDA value vocabularies (not rdasource:)
 bffi:SourceConsulted,v0.6.0,,2024-05-08 New
 bffi:sourceConsulted,v0.6.0,Changed range from bffi:Source to bffi:SourceConsulted; Removed subPropertyOf bffi:derivedFrom,2024-05-08 Changed.  2024-06-05 Removed subPropertyOf bffi:derivedFrom
