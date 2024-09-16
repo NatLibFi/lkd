@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
   <body class="no-js" style="visibility:hidden">
     <script>document.body.classList.remove("no-js")</script>
     <h2>Linkitetyn kirjastodatan tietomalli (LKD) - BIBFRAME-tietomallin kansallinen sovellus</h2>
-    <p id="description-general-fi">Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaiseman <a target="_blank" href="https://id.loc.gov/ontologies/bibframe-2.4.0.html">BIBFRAME-tietomallin 2.4.0 versioon</a>. Mallia on täydennetty <a target="_blank" href="https://www.rdaregistry.info/">RDA Registryn</a> luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Yksi merkittävä ero Kongressin kirjaston BIBFRAME-versioon nähden on, että LKD-tietomalli jakaa BIBFRAMEn Work-tason RDA:n mukaisiin teos- ja ekspressiotasoihin.</p>
+    <p id="description-general-fi">Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaiseman <a target="_blank" href="https://id.loc.gov/ontologies/bibframe-2-4-0.html">BIBFRAME-tietomallin 2.4.0 versioon</a>. Mallia on täydennetty <a target="_blank" href="https://www.rdaregistry.info/">RDA Registryn</a> luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Yksi merkittävä ero Kongressin kirjaston BIBFRAME-versioon nähden on, että LKD-tietomalli jakaa BIBFRAMEn Work-tason RDA:n mukaisiin teos- ja ekspressiotasoihin.</p>
     <p id="description-version-specific-fi">Tämä 0.7.0-testiversio sisältää RDA:n aggregaattimallin edellyttämät luokat ja ominaisuudet. Lisäksi tämä versio sisältää <a href="#Manifestation">manifestaation</a> alaluokat sekä merkittävän joukon manifestaatioiden kuvailussa tarpeellisia luokkia ja ominaisuuksia. BIBFRAMEn tuore 2.4.0-versio uudisti merkittävästi kuvailtavien kohteiden välisten suhteiden esittämistä. Uudistus on vielä osittain kesken BIBFRAMEn osalta, mutta tämä 0.7.0-versio tietomallistamme tukee jo uudistuksia soveltuvilta osin.</p>
     <p class="fw-bold">About the data model</p>
-    <p id="description-general-en">This BIBFRAME data model is based on the <a target="_blank" href="https://id.loc.gov/ontologies/bibframe-2.4.0.html">BIBFRAME 2.4.0 data model</a> published by the Library of Congress. The model has been supplemented with categories and properties from <a target="_blank" href="https://www.rdaregistry.info/">RDA Registry</a>, as well as additions based on the Finnish description guidelines. A notable difference to the Library of Congress BIBFRAME data model is that LKD data model splits bf:Work into bffi:Work and bffi:Expression corresponding to the structure of RDA classes.</p>
+    <p id="description-general-en">This BIBFRAME data model is based on the <a target="_blank" href="https://id.loc.gov/ontologies/bibframe-2-4-0.html">BIBFRAME 2.4.0 data model</a> published by the Library of Congress. The model has been supplemented with categories and properties from <a target="_blank" href="https://www.rdaregistry.info/">RDA Registry</a>, as well as additions based on the Finnish description guidelines. A notable difference to the Library of Congress BIBFRAME data model is that LKD data model splits bf:Work into bffi:Work and bffi:Expression corresponding to the structure of RDA classes.</p>
     <p id="description-version-specific-en">This 0.7.0 test version includes classes and properties needed for the implementation of the RDA aggregate model. Also included are the subclasses of <a href="#Manifestation">manifestation</a> as well as a large number of classes and properties for cataloguing manifestations. The new 2.4.0 version of BIBFRAME included a major overhaul on how relations of associated resources (e.g. bf:Work and bf:Instance and their subclasses) are represented. This change is still somewhat underway in BIBFRAME but our 0.7.0 test version implements these changes where applicable.</p>
     <hr>
     <p class="fw-bold">Tietomallidokumentaatio - Description Document</p>
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
       </div>
       <div>
         <dt>Last modified</dt>
-        <dd>2024-09-13T14:21:03+00:00</dd>
+        <dd>2024-09-16T13:28:47+00:00</dd>
       </div>
       <div>
         <dt>Version</dt>
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
       </div>
       <div>
         <dt>Issued</dt>
-        <dd>2024-09-13</dd>
+        <dd>2024-09-16</dd>
       </div>
       <div>
         <dt>Relation</dt>
@@ -1346,6 +1346,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 <li>
                   <a href="#translationOf">translationOf</a>
                 </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
               </ul>
               <ul class="superclassProps inwards">
                 <li>
@@ -1407,24 +1410,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Is in Domain Of</td>
           <td class="value">
             <div>
-              <a href="#aap">aap</a> → <a href="#rdfs:Literal">rdfs:Literal</a>
-            </div>
-            <div>
               <a href="#aggregates">aggregates</a> → <a href="#Expression">Expression</a>
-            </div>
-            <div>
-              <a href="#contribution">contribution</a> → {<a href="#Contribution">Contribution</a>, <a href="#PrimaryContribution">PrimaryContribution</a>}</div>
-            <div>
-              <a href="#expressionIdentifiedBy">expressionIdentifiedBy</a> → <a href="#Identifier">Identifier</a>
-            </div>
-            <div>
-              <a href="#expressionOf">expressionOf</a> → <a href="#Work">Work</a>
-            </div>
-            <div>
-              <a href="#manifestationOfExpression">manifestationOfExpression</a> → <a href="#Manifestation">Manifestation</a>
-            </div>
-            <div>
-              <a href="#title">title</a> → <a href="#Title">Title</a>
             </div>
           </td>
         </tr>
@@ -1500,6 +1486,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#accompanies">accompanies</a>
+                </li>
+                <li>
+                  <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a>
                 </li>
                 <li>
                   <a href="#classification">classification</a>
@@ -1596,6 +1585,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#title">title</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
                 <li>
                   <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>
@@ -1762,7 +1754,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -2003,6 +1995,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#usageAndAccessPolicy">usageAndAccessPolicy</a>
                 </li>
                 <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
+                <li>
                   <a href="#workManifested">workManifested</a>
                 </li>
               </ul>
@@ -2064,7 +2059,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -2181,6 +2176,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#translationOf">translationOf</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
               </ul>
               <ul class="superclassProps inwards">
@@ -2320,6 +2318,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#accompanies">accompanies</a>
                 </li>
                 <li>
+                  <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a>
+                </li>
+                <li>
                   <a href="#classification">classification</a>
                 </li>
                 <li>
@@ -2414,6 +2415,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#title">title</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
                 <li>
                   <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>
@@ -2574,7 +2578,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -2800,7 +2804,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -2867,7 +2871,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -3042,9 +3046,6 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="value">
             <div>
               <a href="#ascensionAndDeclination">ascensionAndDeclination</a> → <a href="#rdfs:Literal">rdfs:Literal</a>
-            </div>
-            <div>
-              <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a> → <a href="#Projection">Projection</a>
             </div>
             <div>
               <a href="#coordinates">coordinates</a> → <a href="#rdfs:Literal">rdfs:Literal</a>
@@ -3331,6 +3332,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 <li>
                   <a href="#translationOf">translationOf</a>
                 </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
               </ul>
               <ul class="superclassProps inwards">
                 <li>
@@ -3468,6 +3472,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#accompanies">accompanies</a>
                 </li>
                 <li>
+                  <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a>
+                </li>
+                <li>
                   <a href="#classification">classification</a>
                 </li>
                 <li>
@@ -3562,6 +3569,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#title">title</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
                 <li>
                   <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>
@@ -4045,7 +4055,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -4124,7 +4134,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Change Notes</td>
           <td class="value">
             <div>2024-06-19: New</div>
-            <div>2024-09-13: Changed Finnish label</div>
+            <div>2024-09-16: Changed Finnish label</div>
           </td>
         </tr>
       </table>
@@ -4512,6 +4522,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 <li>
                   <a href="#translationOf">translationOf</a>
                 </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
               </ul>
               <ul class="superclassProps inwards">
                 <li>
@@ -4670,6 +4683,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#usageAndAccessPolicy">usageAndAccessPolicy</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
               </ul>
               <ul class="superclassProps inwards">
@@ -4939,6 +4955,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#usageAndAccessPolicy">usageAndAccessPolicy</a>
                 </li>
                 <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
+                <li>
                   <a href="#workManifested">workManifested</a>
                 </li>
               </ul>
@@ -5096,6 +5115,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#accompanies">accompanies</a>
                 </li>
                 <li>
+                  <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a>
+                </li>
+                <li>
                   <a href="#classification">classification</a>
                 </li>
                 <li>
@@ -5190,6 +5212,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#title">title</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
                 <li>
                   <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>
@@ -5477,7 +5502,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -5541,7 +5566,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Is in Range Of</td>
           <td class="value">
             <div>
-              <a href="#contribution">contribution</a> ← {<a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a>, <a href="#AggregatingExpression">AggregatingExpression</a>}</div>
+              <a href="#contribution">contribution</a> ← {<a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a>}</div>
           </td>
         </tr>
         <tr>
@@ -5782,6 +5807,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#translationOf">translationOf</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
               </ul>
               <ul class="superclassProps inwards">
@@ -6506,6 +6534,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#usageAndAccessPolicy">usageAndAccessPolicy</a>
                 </li>
                 <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
+                <li>
                   <a href="#workManifested">workManifested</a>
                 </li>
               </ul>
@@ -6559,7 +6590,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -6611,7 +6642,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -6928,7 +6959,8 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
               <a href="#content">content</a> → <a href="#Content">Content</a>
             </div>
             <div>
-              <a href="#contribution">contribution</a> → {<a href="#Contribution">Contribution</a>, <a href="#PrimaryContribution">PrimaryContribution</a>}</div>
+              <a href="#contribution">contribution</a> → <a href="#Contribution">Contribution</a>
+            </div>
             <div>
               <a href="#dataSource">dataSource</a> → {<a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>}</div>
             <div>
@@ -6982,6 +7014,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
             </div>
             <div>
               <a href="#translationOf">translationOf</a> → <a href="#Expression">Expression</a>
+            </div>
+            <div>
+              <a href="#variantAccessPoint">variantAccessPoint</a> → <a href="#rdfs:Literal">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -7316,7 +7351,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -7389,7 +7424,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -7456,7 +7491,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -7523,7 +7558,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -7695,7 +7730,8 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Is in Range Of</td>
           <td class="value">
             <div>
-              <a href="#expressionIdentifiedBy">expressionIdentifiedBy</a> ← {<a href="#Expression">Expression</a>, <a href="#AggregatingExpression">AggregatingExpression</a>}</div>
+              <a href="#expressionIdentifiedBy">expressionIdentifiedBy</a> ← <a href="#Expression">Expression</a>
+            </div>
             <div>
               <a href="#identifiedBy">identifiedBy</a> ← <a href="#rdfs:Resource">rdfs:Resource</a>
             </div>
@@ -7911,6 +7947,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#accompanies">accompanies</a>
                 </li>
                 <li>
+                  <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a>
+                </li>
+                <li>
                   <a href="#classification">classification</a>
                 </li>
                 <li>
@@ -8005,6 +8044,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#title">title</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
                 <li>
                   <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>
@@ -8259,7 +8301,8 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
               <a href="#baseMaterial">baseMaterial</a> → <a href="#BaseMaterial">BaseMaterial</a>
             </div>
             <div>
-              <a href="#contribution">contribution</a> → {<a href="#Contribution">Contribution</a>, <a href="#PrimaryContribution">PrimaryContribution</a>}</div>
+              <a href="#contribution">contribution</a> → <a href="#Contribution">Contribution</a>
+            </div>
             <div>
               <a href="#custodialHistory">custodialHistory</a> → <a href="#rdfs:Literal">rdfs:Literal</a>
             </div>
@@ -8299,6 +8342,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
             </div>
             <div>
               <a href="#usageAndAccessPolicy">usageAndAccessPolicy</a> → <a href="#UsageAndAccessPolicy">UsageAndAccessPolicy</a>
+            </div>
+            <div>
+              <a href="#variantAccessPoint">variantAccessPoint</a> → <a href="#rdfs:Literal">rdfs:Literal</a>
             </div>
           </td>
         </tr>
@@ -8469,6 +8515,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#translationOf">translationOf</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
               </ul>
               <ul class="superclassProps inwards">
@@ -8841,7 +8890,8 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
               <a href="#contentAccessibility">contentAccessibility</a> → <a href="#ContentAccessibility">ContentAccessibility</a>
             </div>
             <div>
-              <a href="#contribution">contribution</a> → {<a href="#Contribution">Contribution</a>, <a href="#PrimaryContribution">PrimaryContribution</a>}</div>
+              <a href="#contribution">contribution</a> → <a href="#Contribution">Contribution</a>
+            </div>
             <div>
               <a href="#copyrightDate">copyrightDate</a> → <a href="#rdfs:Literal">rdfs:Literal</a>
             </div>
@@ -8992,6 +9042,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
               <a href="#usageAndAccessPolicy">usageAndAccessPolicy</a> → <a href="#UsageAndAccessPolicy">UsageAndAccessPolicy</a>
             </div>
             <div>
+              <a href="#variantAccessPoint">variantAccessPoint</a> → <a href="#rdfs:Literal">rdfs:Literal</a>
+            </div>
+            <div>
               <a href="#workManifested">workManifested</a> → <a href="#Work">Work</a>
             </div>
           </td>
@@ -9022,7 +9075,8 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
               <a href="#itemOf">itemOf</a> ← <a href="#Item">Item</a>
             </div>
             <div>
-              <a href="#manifestationOfExpression">manifestationOfExpression</a> ← {<a href="#Expression">Expression</a>, <a href="#AggregatingExpression">AggregatingExpression</a>}</div>
+              <a href="#manifestationOfExpression">manifestationOfExpression</a> ← <a href="#Expression">Expression</a>
+            </div>
             <div>
               <a href="#manifestationOfWork">manifestationOfWork</a> ← <a href="#Work">Work</a>
             </div>
@@ -9202,6 +9256,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#accompanies">accompanies</a>
                 </li>
                 <li>
+                  <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a>
+                </li>
+                <li>
                   <a href="#classification">classification</a>
                 </li>
                 <li>
@@ -9296,6 +9353,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#title">title</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
                 <li>
                   <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>
@@ -9435,7 +9495,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -9891,6 +9951,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#usageAndAccessPolicy">usageAndAccessPolicy</a>
                 </li>
                 <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
+                <li>
                   <a href="#workManifested">workManifested</a>
                 </li>
               </ul>
@@ -9952,7 +10015,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -10083,6 +10146,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#translationOf">translationOf</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
               </ul>
               <ul class="superclassProps inwards">
@@ -10348,6 +10414,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 <li>
                   <a href="#translationOf">translationOf</a>
                 </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
               </ul>
               <ul class="superclassProps inwards">
                 <li>
@@ -10463,6 +10532,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#accompanies">accompanies</a>
                 </li>
                 <li>
+                  <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a>
+                </li>
+                <li>
                   <a href="#classification">classification</a>
                 </li>
                 <li>
@@ -10557,6 +10629,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#title">title</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
                 <li>
                   <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>
@@ -10686,7 +10761,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -10885,6 +10960,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 <li>
                   <a href="#translationOf">translationOf</a>
                 </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
               </ul>
               <ul class="superclassProps inwards">
                 <li>
@@ -11019,6 +11097,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#accompanies">accompanies</a>
                 </li>
                 <li>
+                  <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a>
+                </li>
+                <li>
                   <a href="#classification">classification</a>
                 </li>
                 <li>
@@ -11113,6 +11194,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#title">title</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
                 <li>
                   <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>
@@ -11314,6 +11398,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 <li>
                   <a href="#translationOf">translationOf</a>
                 </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
               </ul>
               <ul class="superclassProps inwards">
                 <li>
@@ -11504,6 +11591,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 <li>
                   <a href="#translationOf">translationOf</a>
                 </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
               </ul>
               <ul class="superclassProps inwards">
                 <li>
@@ -11636,6 +11726,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#accompanies">accompanies</a>
                 </li>
                 <li>
+                  <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a>
+                </li>
+                <li>
                   <a href="#classification">classification</a>
                 </li>
                 <li>
@@ -11730,6 +11823,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#title">title</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
                 <li>
                   <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>
@@ -12123,6 +12219,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 <li>
                   <a href="#translationOf">translationOf</a>
                 </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
               </ul>
               <ul class="superclassProps inwards">
                 <li>
@@ -12244,6 +12343,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#accompanies">accompanies</a>
                 </li>
                 <li>
+                  <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a>
+                </li>
+                <li>
                   <a href="#classification">classification</a>
                 </li>
                 <li>
@@ -12338,6 +12440,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#title">title</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
                 <li>
                   <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>
@@ -12542,6 +12647,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 <li>
                   <a href="#translationOf">translationOf</a>
                 </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
               </ul>
               <ul class="superclassProps inwards">
                 <li>
@@ -12741,6 +12849,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#translationOf">translationOf</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
               </ul>
               <ul class="superclassProps inwards">
@@ -13105,6 +13216,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#translationOf">translationOf</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
               </ul>
               <ul class="superclassProps inwards">
@@ -13538,7 +13652,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -13599,13 +13713,6 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
               </ul>
             </div>
-          </td>
-        </tr>
-        <tr class="isInRangeOf">
-          <td class="key">Is in Range Of</td>
-          <td class="value">
-            <div>
-              <a href="#contribution">contribution</a> ← {<a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a>, <a href="#AggregatingExpression">AggregatingExpression</a>}</div>
           </td>
         </tr>
         <tr>
@@ -13852,6 +13959,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#usageAndAccessPolicy">usageAndAccessPolicy</a>
                 </li>
                 <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
+                <li>
                   <a href="#workManifested">workManifested</a>
                 </li>
               </ul>
@@ -13905,7 +14015,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -14058,7 +14168,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -14106,7 +14216,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
               <a href="#cartographicProjection">cartographicProjection</a> ← <a href="#CartographyExpression">CartographyExpression</a>
             </div>
             <div>
-              <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a> ← <a href="#Cartographic">Cartographic</a>
+              <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a> ← <a href="#Work">Work</a>
             </div>
           </td>
         </tr>
@@ -14423,7 +14533,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -14482,7 +14592,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -15024,6 +15134,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 <li>
                   <a href="#translationOf">translationOf</a>
                 </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
               </ul>
               <ul class="superclassProps inwards">
                 <li>
@@ -15139,6 +15252,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#accompanies">accompanies</a>
                 </li>
                 <li>
+                  <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a>
+                </li>
+                <li>
                   <a href="#classification">classification</a>
                 </li>
                 <li>
@@ -15233,6 +15349,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#title">title</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
                 <li>
                   <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>
@@ -15420,6 +15539,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 <li>
                   <a href="#translationOf">translationOf</a>
                 </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
               </ul>
               <ul class="superclassProps inwards">
                 <li>
@@ -15535,6 +15657,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#accompanies">accompanies</a>
                 </li>
                 <li>
+                  <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a>
+                </li>
+                <li>
                   <a href="#classification">classification</a>
                 </li>
                 <li>
@@ -15629,6 +15754,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#title">title</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
                 <li>
                   <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a>
@@ -15983,6 +16111,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 </li>
                 <li>
                   <a href="#translationOf">translationOf</a>
+                </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
                 </li>
               </ul>
               <ul class="superclassProps inwards">
@@ -16407,6 +16538,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                   <a href="#usageAndAccessPolicy">usageAndAccessPolicy</a>
                 </li>
                 <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
+                <li>
                   <a href="#workManifested">workManifested</a>
                 </li>
               </ul>
@@ -16460,7 +16594,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -16717,6 +16851,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
                 <li>
                   <a href="#translationOf">translationOf</a>
                 </li>
+                <li>
+                  <a href="#variantAccessPoint">variantAccessPoint</a>
+                </li>
               </ul>
               <ul class="superclassProps inwards">
                 <li>
@@ -16856,7 +16993,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Is in Range Of</td>
           <td class="value">
             <div>
-              <a href="#title">title</a> ← {<a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a>, <a href="#Event">Event</a>, <a href="#AggregatingExpression">AggregatingExpression</a>}</div>
+              <a href="#title">title</a> ← {<a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a>, <a href="#Event">Event</a>}</div>
           </td>
         </tr>
         <tr>
@@ -17274,13 +17411,17 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
             <div>
               <a href="#accompanies">accompanies</a> → {<a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a>}</div>
             <div>
+              <a href="#cartographicProjectionOfRepresentativeExpression">cartographicProjectionOfRepresentativeExpression</a> → <a href="#Projection">Projection</a>
+            </div>
+            <div>
               <a href="#classification">classification</a> → <a href="#Classification">Classification</a>
             </div>
             <div>
               <a href="#contentOfRepresentativeExpression">contentOfRepresentativeExpression</a> → <a href="#Content">Content</a>
             </div>
             <div>
-              <a href="#contribution">contribution</a> → {<a href="#Contribution">Contribution</a>, <a href="#PrimaryContribution">PrimaryContribution</a>}</div>
+              <a href="#contribution">contribution</a> → <a href="#Contribution">Contribution</a>
+            </div>
             <div>
               <a href="#dataSource">dataSource</a> → {<a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>}</div>
             <div>
@@ -17362,6 +17503,9 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
               <a href="#title">title</a> → <a href="#Title">Title</a>
             </div>
             <div>
+              <a href="#variantAccessPoint">variantAccessPoint</a> → <a href="#rdfs:Literal">rdfs:Literal</a>
+            </div>
+            <div>
               <a href="#workGroupIdentifiedBy">workGroupIdentifiedBy</a> → <a href="#Identifier">Identifier</a>
             </div>
             <div>
@@ -17385,7 +17529,8 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
             <div>
               <a href="#dataSource">dataSource</a> ← {<a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>}</div>
             <div>
-              <a href="#expressionOf">expressionOf</a> ← {<a href="#Expression">Expression</a>, <a href="#AggregatingExpression">AggregatingExpression</a>}</div>
+              <a href="#expressionOf">expressionOf</a> ← <a href="#Expression">Expression</a>
+            </div>
             <div>
               <a href="#hasEquivalent">hasEquivalent</a> ← {<a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a>}</div>
             <div>
@@ -17938,7 +18083,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -18092,7 +18237,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -18227,7 +18372,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -18302,7 +18447,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -18370,7 +18515,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -18438,7 +18583,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -18715,7 +18860,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Domain</td>
           <td class="value">
             <div>
-              <a href="#Cartographic">Cartographic</a>
+              <a href="#Work">Work</a>
             </div>
           </td>
         </tr>
@@ -18747,6 +18892,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Change Notes</td>
           <td class="value">
             <div>2024-04-16: New</div>
+            <div>2024-09-16: Changed domain from bffi:Cartographic to bffi:Work</div>
           </td>
         </tr>
       </table>
@@ -19320,7 +19466,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Change Notes</td>
           <td class="value">
             <div>2024-04-16: New</div>
-            <div>2024-09-13: Removed domain [ bffi:Expression, bffi:Cartographic ]; added domain bffi:Manifestation</div>
+            <div>2024-09-16: Removed domain [ bffi:Expression, bffi:Cartographic ]; added domain bffi:Manifestation</div>
           </td>
         </tr>
       </table>
@@ -19456,8 +19602,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: Added subClassOf bffi:supplementaryContent</div>
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -19563,14 +19708,15 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Domain</td>
           <td class="value">
-            <div>Union of <a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a> and <a href="#AggregatingExpression">AggregatingExpression</a>
+            <div>Union of <a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a> and <a href="#Item">Item</a>
             </div>
           </td>
         </tr>
         <tr>
           <td class="key">Range</td>
           <td class="value">
-            <div>Union of <a href="#Contribution">Contribution</a> and <a href="#PrimaryContribution">PrimaryContribution</a>
+            <div>
+              <a href="#Contribution">Contribution</a>
             </div>
           </td>
         </tr>
@@ -19595,6 +19741,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Change Notes</td>
           <td class="value">
             <div>2024-02-23: New</div>
+            <div>2024-09-16: Removed bffi:PrimaryContribution from range</div>
           </td>
         </tr>
       </table>
@@ -20482,7 +20629,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -20597,7 +20744,8 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Domain</td>
           <td class="value">
-            <div>Union of <a href="#Expression">Expression</a> and <a href="#AggregatingExpression">AggregatingExpression</a>
+            <div>
+              <a href="#Expression">Expression</a>
             </div>
           </td>
         </tr>
@@ -20767,7 +20915,8 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Domain</td>
           <td class="value">
-            <div>Union of <a href="#Expression">Expression</a> and <a href="#AggregatingExpression">AggregatingExpression</a>
+            <div>
+              <a href="#Expression">Expression</a>
             </div>
           </td>
         </tr>
@@ -20854,7 +21003,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="value">
             <div>2024-04-16: New</div>
             <div>2024-06-19: Changed range from bffi:Issuance to bffi:ExtensionPlan</div>
-            <div>2024-09-13: Removed subPropertyOf bffi:issuance; broadMatch bf:issuance</div>
+            <div>2024-09-16: Removed subPropertyOf bffi:issuance; broadMatch bf:issuance</div>
           </td>
         </tr>
       </table>
@@ -21387,7 +21536,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -21447,7 +21596,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -22595,7 +22744,6 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Change Notes</td>
           <td class="value">
             <div>2024-02-23: New</div>
-            <div>2024-09-13: Added subClassOf bffi:supplementaryContent</div>
           </td>
         </tr>
       </table>
@@ -23032,7 +23180,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Change Notes</td>
           <td class="value">
             <div>2024-02-23: New</div>
-            <div>2024-09-13: Removed subClassOf bf:issuance. Added BIBFRAME mapping bffi-meta:broadMatch bf:issuance</div>
+            <div>2024-09-16: Removed subClassOf bf:issuance. Added BIBFRAME mapping bffi-meta:broadMatch bf:issuance</div>
           </td>
         </tr>
       </table>
@@ -23786,7 +23934,8 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Domain</td>
           <td class="value">
-            <div>Union of <a href="#Expression">Expression</a> and <a href="#AggregatingExpression">AggregatingExpression</a>
+            <div>
+              <a href="#Expression">Expression</a>
             </div>
           </td>
         </tr>
@@ -23974,7 +24123,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -24170,7 +24319,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -24769,7 +24918,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -24922,7 +25071,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -25318,7 +25467,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -25378,7 +25527,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -26711,7 +26860,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Domain</td>
           <td class="value">
-            <div>Union of <a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a>, <a href="#Event">Event</a> and <a href="#AggregatingExpression">AggregatingExpression</a>
+            <div>Union of <a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a> and <a href="#Event">Event</a>
             </div>
           </td>
         </tr>
@@ -27480,7 +27629,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Domain</td>
           <td class="value">
-            <div>Union of <a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a> and <a href="#AggregatingExpression">AggregatingExpression</a>
+            <div>Union of <a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a> and <a href="#Item">Item</a>
             </div>
           </td>
         </tr>
@@ -28793,7 +28942,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -29753,7 +29902,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Change Notes</td>
           <td class="value">
             <div>2024-02-23: New</div>
-            <div>2024-09-13: Changed mapping to bf:manufactureStatement; removed subPropertyOf  bf:provisionActivityStatement</div>
+            <div>2024-09-16: Changed mapping to bf:manufactureStatement; removed subPropertyOf  bf:provisionActivityStatement</div>
           </td>
         </tr>
       </table>
@@ -30736,7 +30885,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -30804,7 +30953,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Change Notes</td>
           <td class="value">
-            <div>2024-09-13: New</div>
+            <div>2024-09-16: New</div>
           </td>
         </tr>
       </table>
@@ -31610,8 +31759,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         <tr>
           <td class="key">Domain</td>
           <td class="value">
-            <div>
-              <a href="#rdfs:Resource">rdfs:Resource</a>
+            <div>Union of <a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a> and <a href="#Item">Item</a>
             </div>
           </td>
         </tr>
@@ -31651,6 +31799,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="value">
             <div>2024-02-23: New</div>
             <div>2024-06-19: Removed mappings to RDA Agent properties</div>
+            <div>2024-09-16: Changed domain from rdfs:Resource to [bffi:Work, bffi:Expression, bffi:Manifestation, bffi:Item]</div>
           </td>
         </tr>
       </table>
@@ -31911,7 +32060,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Is in Range Of</td>
           <td class="value">
             <div>
-              <a href="#aap">aap</a> ← {<a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a>, <a href="#AggregatingExpression">AggregatingExpression</a>}</div>
+              <a href="#aap">aap</a> ← {<a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a>}</div>
             <div>
               <a href="#acquisitionTerms">acquisitionTerms</a> ← <a href="#Manifestation">Manifestation</a>
             </div>
@@ -32095,8 +32244,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
               <a href="#temporalCoverage">temporalCoverage</a> ← <a href="#Work">Work</a>
             </div>
             <div>
-              <a href="#variantAccessPoint">variantAccessPoint</a> ← <a href="#rdfs:Resource">rdfs:Resource</a>
-            </div>
+              <a href="#variantAccessPoint">variantAccessPoint</a> ← {<a href="#Work">Work</a>, <a href="#Expression">Expression</a>, <a href="#Manifestation">Manifestation</a>, <a href="#Item">Item</a>}</div>
           </td>
         </tr>
       </table>
@@ -32161,9 +32309,6 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
             <div>
               <a href="#subjectOf">subjectOf</a> → <a href="#Work">Work</a>
             </div>
-            <div>
-              <a href="#variantAccessPoint">variantAccessPoint</a> → <a href="#rdfs:Literal">rdfs:Literal</a>
-            </div>
           </td>
         </tr>
         <tr class="isInRangeOf">
@@ -32225,7 +32370,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
           <td class="key">Change Notes</td>
           <td class="value">
             <div>2024-04-16: New</div>
-            <div>2024-09-13: Deprecated</div>
+            <div>2024-09-16: Deprecated</div>
           </td>
         </tr>
       </table>
