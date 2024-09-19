@@ -28,5 +28,7 @@ In test version 0.5.0, published on 2024-04-16, we have added properties related
 
 In test version 0.6.0, published on 2024-06-19, we added the classes and properties related to administrative metadata, classes and properties related to classifications, and some other properties (bffi:credits, bffi:dimension, bffi:layout). To enable recording the title source we introduced a class and property. For conversions, we added the bffi:marcKey property to store the original MARC field information.
 
+In test version 0.7.0 published on 2024-09-16 we included classes and properties needed for the implementation of the RDA aggregate model in the Official RDA. Also included are the subclasses of Manifestation (Instance in BIBFRAME) as well as a large number of classes and properties for cataloguing manifestations. The new 2.4.0 version of BIBFRAME included a major overhaul on how relations of associated resources (e.g. bf:Work and bf:Instance and their subclasses) are represented. This change is still somewhat underway in BIBFRAME but our 0.7.0 test version implements these changes where applicable.
+
 ## Conversion
 In addtion to the data model this project aims to create MARC21 to BFFI conversion rules and conversion software to implement them. Backward conversion from BFFI to MARC21 will be implemented, too.
