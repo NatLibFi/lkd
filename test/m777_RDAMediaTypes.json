@@ -1,0 +1,42 @@
+{
+"_comment": "poimittu api.finto.fi palvelusta Metatietosanaston ryhmä mts:m777 - yksinkertaisin muoto",
+"uri": "m777",
+"members": [
+{
+"uri": "http://urn.fi/URN:NBN:fi:au:mts:m1515",
+"label": "audio"
+},
+{
+"uri": "http://urn.fi/URN:NBN:fi:au:mts:m502",
+"label": "heijastettava"
+},
+{
+"uri": "http://urn.fi/URN:NBN:fi:au:mts:m87",
+"label": "käytettävissä ilman laitetta"
+},
+{
+"uri": "http://urn.fi/URN:NBN:fi:au:mts:m1012",
+"label": "mikromuoto"
+},
+{
+"uri": "http://urn.fi/URN:NBN:fi:au:mts:m355",
+"label": "mikroskooppinen"
+},
+{
+"uri": "http://urn.fi/URN:NBN:fi:au:mts:m1288",
+"label": "määrittelemätön"
+},
+{
+"uri": "http://urn.fi/URN:NBN:fi:au:mts:m923",
+"label": "stereografinen"
+},
+{
+"uri": "http://urn.fi/URN:NBN:fi:au:mts:m545",
+"label": "tietokonekäyttöinen"
+},
+{
+"uri": "http://urn.fi/URN:NBN:fi:au:mts:m1062",
+"label": "video"
+}
+]
+}
