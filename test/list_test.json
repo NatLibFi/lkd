@@ -1,23 +1,87 @@
-[
 {
-"@id": "http://urn.fi/URN:NBN:fi:au:mts:m4844",
-"@type": [
-"http://www.loc.gov/mads/rdf/v1#Authority"
-],
-"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
-{
-"@value": "kovakantinen"
-}
-]
+   "@id": "_:fintomediaTypes",
+   "@type": [ "http://purl.org/vocab/changeset/schema#ChangeSet" ],
+   "http://purl.org/vocab/changeset/schema#subjectOfChange": [ { "@id": "http://id.loc.gov/vocabulary/mediaTypes" } ],
+   "http://purl.org/vocab/changeset/schema#creatorName": [ { "@id": "http://id.loc.gov/vocabulary/organizations/finl" } ],
+   "http://purl.org/vocab/changeset/schema#createdDate": [
+      {
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "@value": "2024-§§-14T19:05:00"
+      }
+   ],
+   "http://purl.org/vocab/changeset/schema#changeReason": [
+      { "@type": "http://www.w3.org/2001/XMLSchema#string", "@value": "new" }
+      ]
 },
 {
-"@id": "http://urn.fi/URN:NBN:fi:au:mts:m4843",
-"@type": [
-"http://www.loc.gov/mads/rdf/v1#Authority"
-],
-"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
-{
-"@value": "pehmeäkantinen"
-}
+   "@id": "http://urn.fi/URN:NBN:fi:au:mts:m5164",
+   "@type": [
+            "http://www.loc.gov/mads/rdf/v1#MADSScheme",
+            "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            ],
+    "http://www.loc.gov/mads/rdf/v1#hasMADSSchemeMember": [
+            {
+               "@id": "http://urn.fi/URN:NBN:fi:au:mts:m4844"
+            },
+            {
+              "@id": "http://urn.fi/URN:NBN:fi:au:mts:m4843"
+            }
+            ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+            {
+               "@language": "fi",
+               "@value": "Kansityyppi" 
+            }
+            ],
+     "http://www.w3.org/2000/01/rdf-schema#comment": [
+            {  
+             "@value": ""
+            }
+            ],
+      "http://www.loc.gov/mads/rdf/v1#definitionNote": [
+            {
+             "@language": "fi",
+             "@value": "Kansityyppi poimitaan Metatietosanaston arvolistalta."
+            }
+            ],
+      "http://www.loc.gov/mads/rdf/v1#adminMetadata": [
+            {
+            "@id": "_:fintomediaTypes"
+            }
+            ],
+     "http://www.w3.org/2004/02/skos/core#definition": [
+            {
+                   "@language": "en",
+                   "@value": "Otetaan Metatietosanastosta."
+            }
+            ],
+     "http://www.w3.org/2004/02/skos/core#changeNote": [
+            {
+                   "@id": "_:fintomediaTypes"
+            }
+            ]
+},
+[
+    {
+    "@id": "http://urn.fi/URN:NBN:fi:au:mts:m4844",
+    "@type": [
+             "http://www.loc.gov/mads/rdf/v1#Authority"
+             ],
+    "http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+             {
+               "@value": "kovakantinen"
+             }
+             ]
+   },
+   {
+     "@id": "http://urn.fi/URN:NBN:fi:au:mts:m4843",
+     "@type": [
+              "http://www.loc.gov/mads/rdf/v1#Authority"
+              ],
+    "http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+              {
+               "@value": "pehmeäkantinen"
+              }
+              ]
+   }
 ]
-
