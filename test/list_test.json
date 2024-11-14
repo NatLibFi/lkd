@@ -1,9 +1,5 @@
 [
 {
-"@id": "http://id.loc.gov/vocabulary/mediaTypes/x",
-"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [ { "@value": "other" } ]
-},
-{
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m1288",
 "http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [ { "@value": "määrittelemätön" } ]
 },
