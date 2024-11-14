@@ -212,24 +212,12 @@
 },
 {
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m1288",
-"@type": [
-"http://www.loc.gov/mads/rdf/v1#Authority"
-],
-"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
-{
-"@value": "määrittelemätön"
-}
-]
+"@type": [ "http://www.loc.gov/mads/rdf/v1#Authority" ],
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [ { "@value": "määrittelemätön" } ]
 },
 {
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m87",
-"@type": [
-"http://www.loc.gov/mads/rdf/v1#Authority"
-],
-"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
-{
-"@value": "käytettävissä ilman laitetta"
-}
-]
+"@type": [ "http://www.loc.gov/mads/rdf/v1#Authority" ],
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [ {  "@value": "käytettävissä ilman laitetta" } ]
 }
 ]
