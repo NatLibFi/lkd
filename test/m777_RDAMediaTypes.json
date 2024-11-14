@@ -1,7 +1,4 @@
-{
-"_comment": "poimittu api.finto.fi palvelusta Metatietosanaston ryhmä mts:m777 - yksinkertaisin muoto",
-"uri": "m777",
-"members": [
+[
 {
 "uri": "http://urn.fi/URN:NBN:fi:au:mts:m4960",
 "label": "tuntematon taltiointi ja tallennus"
@@ -43,4 +40,3 @@
 "label": "video"
 }
 ]
-}
