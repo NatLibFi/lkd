@@ -1,23 +1,8 @@
 [
 {
-"@id": "http://id.loc.gov/vocabulary/mediaTypes/g",
-"@type": [ "http://www.loc.gov/mads/rdf/v1#Authority" ],
-"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [ { "@value": "projected" } ]
-},
-{
-"@id": "http://id.loc.gov/vocabulary/mediaTypes/p",
-"@type": [ "http://www.loc.gov/mads/rdf/v1#Authority" ],
-"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [ { "@value": "microscopic" } ]
-},
-{
 "@id": "http://id.loc.gov/vocabulary/mediaTypes/x",
 "@type": [ "http://www.loc.gov/mads/rdf/v1#Authority" ],
 "http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [ { "@value": "other" } ]
-},
-{
-"@id": "http://id.loc.gov/vocabulary/mediaTypes/s",
-"@type": [ "http://www.loc.gov/mads/rdf/v1#Authority" ],
-"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [ { "@value": "audio" } ]
 },
 {
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m1288",
