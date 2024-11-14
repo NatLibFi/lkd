@@ -1,0 +1,235 @@
+[
+{
+"@id": "_:b65iddOtlocdOtgovvocabularymediaTypes",
+"@type": [
+"http://purl.org/vocab/changeset/schema#ChangeSet"
+],
+"http://purl.org/vocab/changeset/schema#subjectOfChange": [
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes"
+}
+],
+"http://purl.org/vocab/changeset/schema#creatorName": [
+{
+"@id": "https://id.loc.gov/vocabulary/organizations/dlc"
+}
+],
+"http://purl.org/vocab/changeset/schema#createdDate": [
+{
+"@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+"@value": "2021-08-13T00:00:00"
+}
+],
+"http://purl.org/vocab/changeset/schema#changeReason": [
+{
+"@type": "http://www.w3.org/2001/XMLSchema#string",
+"@value": "new"
+}
+]
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes",
+"@type": [
+"http://www.loc.gov/mads/rdf/v1#MADSScheme",
+"http://www.w3.org/2004/02/skos/core#ConceptScheme"
+],
+"http://www.loc.gov/mads/rdf/v1#hasMADSSchemeMember": [
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/p"
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/s"
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/g"
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/v"
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/z"
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/e"
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/x"
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/h"
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/n"
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/c"
+}
+],
+"http://www.w3.org/2000/01/rdf-schema#label": [
+{
+"@language": "en",
+"@value": "Media Types Schemes"
+}
+],
+"http://www.w3.org/2000/01/rdf-schema#comment": [
+{
+"@value": ""
+}
+],
+"http://www.loc.gov/mads/rdf/v1#definitionNote": [
+{
+"@language": "en",
+"@value": "The Media Types Scheme is derived from a controlled list of values reflecting the general type of intermediation device required to view, play, run, etc., the content of a resource, which is principally used in RDA cataloging."
+}
+],
+"http://www.loc.gov/mads/rdf/v1#adminMetadata": [
+{
+"@id": "_:b50iddOtlocdOtgovvocabularymediaTypes"
+}
+],
+"http://www.w3.org/2004/02/skos/core#definition": [
+{
+"@language": "en",
+"@value": "The Media Types Scheme is derived from a controlled list of values reflecting the general type of intermediation device required to view, play, run, etc., the content of a resource, which is principally used in RDA cataloging."
+}
+],
+"http://www.w3.org/2004/02/skos/core#changeNote": [
+{
+"@id": "_:b65iddOtlocdOtgovvocabularymediaTypes"
+}
+]
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/g",
+"@type": [
+"http://www.loc.gov/mads/rdf/v1#Authority"
+],
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+{
+"@value": "projected"
+}
+]
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/p",
+"@type": [
+"http://www.loc.gov/mads/rdf/v1#Authority"
+],
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+{
+"@value": "microscopic"
+}
+]
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/x",
+"@type": [
+"http://www.loc.gov/mads/rdf/v1#Authority"
+],
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+{
+"@value": "other"
+}
+]
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/h",
+"@type": [
+"http://www.loc.gov/mads/rdf/v1#Authority"
+],
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+{
+"@value": "microform"
+}
+]
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/e",
+"@type": [
+"http://www.loc.gov/mads/rdf/v1#Authority"
+],
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+{
+"@value": "stereographic"
+}
+]
+},
+{
+"@id": "_:b50iddOtlocdOtgovvocabularymediaTypes",
+"@type": [
+"http://id.loc.gov/ontologies/RecordInfo#RecordInfo"
+],
+"http://id.loc.gov/ontologies/RecordInfo#recordStatus": [
+{
+"@type": "http://www.w3.org/2001/XMLSchema#string",
+"@value": "new"
+}
+],
+"http://id.loc.gov/ontologies/RecordInfo#recordChangeDate": [
+{
+"@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+"@value": "2021-08-13T00:00:00"
+}
+],
+"http://id.loc.gov/ontologies/RecordInfo#recordContentSource": [
+{
+"@id": "https://id.loc.gov/vocabulary/organizations/dlc"
+}
+]
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/s",
+"@type": [
+"http://www.loc.gov/mads/rdf/v1#Authority"
+],
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+{
+"@value": "audio"
+}
+]
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/c",
+"@type": [
+"http://www.loc.gov/mads/rdf/v1#Authority"
+],
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+{
+"@value": "computer"
+}
+]
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/v",
+"@type": [
+"http://www.loc.gov/mads/rdf/v1#Authority"
+],
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+{
+"@value": "video"
+}
+]
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/z",
+"@type": [
+"http://www.loc.gov/mads/rdf/v1#Authority"
+],
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+{
+"@value": "unspecified"
+}
+]
+},
+{
+"@id": "http://id.loc.gov/vocabulary/mediaTypes/n",
+"@type": [
+"http://www.loc.gov/mads/rdf/v1#Authority"
+],
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": [
+{
+"@value": "unmediated"
+}
+]
+}
+]
