@@ -1,42 +1,42 @@
 [
 {
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m4960",
-"label": "tuntematon taltiointi ja tallennus"
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": "tuntematon taltiointi ja tallennus"
 },
 {
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m1515",
-"label": "audio"
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": "audio"
 },
 {
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m502",
-"label": "heijastettava"
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": "heijastettava"
 },
 {
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m87",
-"label": "käytettävissä ilman laitetta"
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": "käytettävissä ilman laitetta"
 },
 {
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m1012",
-"label": "mikromuoto"
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": "mikromuoto"
 },
 {
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m355",
-"label": "mikroskooppinen"
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": "mikroskooppinen"
 },
 {
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m1288",
-"label": "määrittelemätön"
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": "määrittelemätön"
 },
 {
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m923",
-"label": "stereografinen"
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": "stereografinen"
 },
 {
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m545",
-"label": "tietokonekäyttöinen"
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": "tietokonekäyttöinen"
 },
 {
 "@id": "http://urn.fi/URN:NBN:fi:au:mts:m1062",
-"label": "video"
+"http://www.loc.gov/mads/rdf/v1#authoritativeLabel": "video"
 }
 ]
