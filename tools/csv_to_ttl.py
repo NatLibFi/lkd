@@ -22,7 +22,7 @@ import logging
 import os
 
 import rdflib # separate import for triggering autocomplete behavior in IDE
-from rdflib import Graph, Literal, URIRef
+from rdflib import Graph, Literal, URIRef, BNode
 from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS, XSD, NamespaceManager
 from rdflib.plugins.sparql.processor import prepareQuery
 from rdflib.util import from_n3
@@ -282,12 +282,33 @@ class DataModelConverter:
             if (depr:=((s, OWL.deprecated, Literal(True)) in self.graph)):
                 if (None, None, s) in self.graph:
                     logging.warning(f"{curie} is deprecated but is in object position!")
+                cnote_count = 0
+                cnote_dates = set()
+                found_depr_notice = False
+                for modified in self.graph[s:DCTERMS.modified:]:
+                    cnote_count = cnote_count + 1
+                    cnote_dates.add(modified[:10])
+                    if modified[12:].startswith("Deprecated"):
+                        found_depr_notice = True
+                if self.version:
+                    if cnote_count != 2 or len(cnote_dates) != 2:
+                        logging.warning(f"{curie} is deprecated and should only have two change notes with different dates, got '{', '.join(cnote_dates)}'!")
+                    if not found_depr_notice:
+                        # TODO: fix issues with having no self.version
+                        logging.warning(f"{curie} is deprecated but has no deprecated change note!")
 
             if (s, RDF.type, OWL.Class) in self.graph or (s, RDF.type, OWL.DeprecatedClass) in self.graph:
                 if name[:1].islower():
                     logging.warning(f"{curie} is expected to start with uppercase!")
-            elif name[:1].isupper():
-                logging.warning(f"{curie} is expected to start with lowercase!")
+                for label in self.graph[s:RDFS.label:]:
+                    if label[:1].islower():
+                        logging.warning(f"{curie} label '{str(label)}' is expected to start with uppercase!")
+            else:
+                if name[:1].isupper():
+                    logging.warning(f"{curie} is expected to start with lowercase!")
+                for label in self.graph[s:RDFS.label:]:
+                    if label[:1].isupper():
+                        logging.warning(f"{curie} label '{str(label)}' is expected to start with lowercase!")
 
             if (s, RDF.type, OWL.ObjectProperty) in self.graph:
                 for (s2, o2) in self.graph[:s:]:
@@ -454,7 +475,14 @@ class DataModelConverter:
                     pass
                 else:
                     for item in [_.strip() for _ in row["rdaURI"].split("|")]:
-                        long_iri = self.graph.namespace_manager.expand_curie(item) if not item.startswith("http") else item
+                        threwError = False # variable for swallowing unhelpful ValueError message from rdflib
+                        try:
+                            long_iri = self.graph.namespace_manager.expand_curie(item) if not item.startswith("http") else item
+                        except ValueError:
+                            threwError = True
+                        if threwError:
+                            raise ValueError(f"{bffi_id} rdaURI column value for had an unexpected value, got: '{item}'")
+
                         self.graph.add((bffi_id, self.from_n3(bffi_map_rda), URIRef(long_iri)))
                         # test that classes match with RDA classes and vice versa for properties
                         if not (rdaURI_isClass:=long_iri.startswith("http://rdaregistry.info/Elements/c/") and bffi_id_isClass):
@@ -477,13 +505,17 @@ class DataModelConverter:
                 #inverse of
                 bffi_inverse_of = row["bffi: owl:inverseOf"]
                 if bffi_inverse_of:
-                    self.graph.add((bffi_id, OWL.inverseOf, self.from_n3(bffi_inverse_of)))
-                    self.graph.add((self.from_n3(bffi_inverse_of), OWL.inverseOf, bffi_id))
+                    bffi_id_inv = self.from_n3(bffi_inverse_of)
+                    self.graph.add((bffi_id, OWL.inverseOf, bffi_id_inv))
+                    if not ((bffi_id_inv, OWL.deprecated, Literal(True))) in self.graph:
+                        self.graph.add((bffi_id_inv, OWL.inverseOf, bffi_id))
 
                 bffi_disjoint_with = row["bffi: owl:disjointWith"]
                 if bffi_disjoint_with:
-                    self.graph.add((bffi_id, OWL.disjointWith, self.from_n3(bffi_disjoint_with)))
-                    self.graph.add((self.from_n3(bffi_disjoint_with), OWL.disjointWith, bffi_id))
+                    bffi_id_disjoint_with = self.from_n3(bffi_disjoint_with)
+                    self.graph.add((bffi_id, OWL.disjointWith, bffi_id_disjoint_with))
+                    if not ((bffi_id_disjoint_with, OWL.deprecated, Literal(True))) in self.graph:
+                        self.graph.add((bffi_id_disjoint_with, OWL.disjointWith, bffi_id))
 
                 if row["lkd status"] == "deprecated":
                     if (bffi_id, RDF.type, OWL.Class) in self.graph:
@@ -495,7 +527,14 @@ class DataModelConverter:
 
                     for pred, obj in self.graph.predicate_objects(subject=bffi_id):
                         if pred not in [RDFS.label, DCTERMS.modified, RDF.type]:
-                            self.graph.remove((bffi_id, pred, None))
+                            self.graph.remove((bffi_id, pred, obj))
+                            if isinstance(obj, BNode):
+                                self.graph.remove((obj, RDF.type, OWL.Class))
+                                for x in list(self.graph.transitive_objects((_:=self.graph.value(obj, OWL.unionOf)), RDF.rest)):
+                                    if x != RDF.nil:
+                                        self.graph.remove((x, RDF.first, None))
+                                        self.graph.remove((x, RDF.rest, None))
+                                self.graph.remove((obj, OWL.unionOf, _))
 
                     self.graph.add((bffi_id, OWL.deprecated, Literal(True)))
                     bffi_replacedBy = row["replacedBy"]
