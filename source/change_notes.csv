@@ -15,7 +15,9 @@ bffi:assigner,v0.6.0,,"2024-05-10 Changed: added RDA mappings; Changed range fro
 bffi:associatedResource,v0.7.0,,2024-08-28 New
 bffi:AudioExpression,v0.5.0,,changed subClassOf value FROM bf:Audio to bffi:Expression added bffi-meta:broadMatch bf:Audio
 bffi:AudioExpression,v0.6.0,"Changed Finnish label from ""Audioekspressio"" to ""Ääniekspressio""",
+bffi:AudioExpression,v0.8.0,Deprecated. Superclass was removed while subclasses remained in the model,
 bffi:AudioWork,v0.5.0,,changed subClassOf value FROM bf:Audio to bffi:Work; added bffi-meta:broadMatch bf:Audio
+bffi:AudioWork,v0.8.0,Deprecated. Separated to bffi:MusicWork and bffi:NonMusicAudioWork,2024-11-20  lisättiin uusi luokka bffi:MusicWork
 bffi:capture,v0.8.0,"Changed Finnish label from ""tallennustiedot"" to ""taltiointitiedot""",2024-10-10 musiikki-issuen käsittelyssä päätetty
 bffi:Capture,v0.8.0,"Changed Finnish label from ""Taltionti"" to ""Taltiointitiedot""",2024-10-10 musiikki-issuen käsittelyssä päätetty
 bffi:cartographicAttributes,v0.5.0,"Changed domain from [bffi:Work, bffi:Manifestation] to bffi:CartographyWork",
@@ -123,8 +125,12 @@ bffi:manufactureStatement,v0.7.0,Changed mapping to bf:manufactureStatement; rem
 bffi:mediumOfChoreographicContentOfRepresentativeExpression,v0.6.0,,2024-06-11 removed subPropertyOf bffi:ensemble.
 bffi:MetadataLicensor,v0.6.0,,"2024-06-13  Finnish term changed to ""Metatiedon tekijänoikeus"""
 bffi:metadataLicensor,v0.6.0,,"2024-06-13  Finnish term changed to ""metatiedon tekijänoikeus"""
+bffi:MusicAudioWork,v0.8.0,Deprecated. Replaced by a broader class bffi:MusicWork which also incorporates notated music works,
+bffi:MusicAudioExpression,v0.8.0,Changed subClassOf from bffi:AudioExpression to bffi:Expression,
 bffi:musicKey,v0.8.0,Changed domain by removing bffi:Work and adding bffi:MusicAudioWork,
-bffi:musicMedium,v0.8.0,Changed mapping to BIBFRAME from owl:equivalentProperty to rdfs:subPropertyOf bf:musicMedium,2024-11-18 vaihdettu yläominaisuus
+bffi:musicMedium,v0.8.0,Changed BIBFRAME mapping from owl:equivalentProperty to rdfs:subPropertyOf bf:musicMedium,2024-11-18 vaihdettu yläominaisuus
+bffi:NonMusicAudioExpression,v0.8.0,Changed subClassOf from bffi:AudioExpression to bffi:Expression,
+bffi:NonMusicAudioWork,v0.8.0,Changed subClassOf from bffi:AudioWork to bffi:Work,
 bffi:NotatedMovement,v0.8.0,"Changed Finnish label from ""Liikenotaation tyyppi"" to ""Liikenotaatio""",2024-10-29 kk työpaja korjattiin väärä termi
 bffi:NotatedMusic,v0.8.0,"Changed Finnish label from ""Nuottiaineiston muoto"" to ""Musiikkinotaatio""",2024-10-29 kk työpaja korjattiin väärä termi
 bffi:note,v0.6.0,"Changed domain from [bffi:AdminMetadata, bffi:Title] to rdfs:Resource",2024-05-08 Changed
@@ -141,6 +147,7 @@ bffi:ReferenceSource,v0.6.0,,2024-05-08 New
 bffi:ReferenceSource,v0.6.0,,"2024-06-05 Deleted. Liittyy Nomeniin ja toimijakuvailuun, ei mukaan tietomalliin."
 bffi:referenceSource,v0.6.0,,2024-05-08 Changed range from bffi:Source to bffi:ReferenceSource
 bffi:referenceSource,v0.6.0,,"2024-06-05 Deleted. Liittyy Nomeniin ja toimijakuvailuun, ei mukaan tietomalliin."
+bffi:relatedTo,v0.8.0,Changed RDA mapping to rdax:P00001,2024-11-20  työkokous
 bffi:relation,v0.8.0,Changed range from bf:Relation to bffi:Relation,2024-10-15 changed range from bf to bffi
 bffi:Relief,v0.5.0,,2024-03-27  rdfs:seeAlso <http://id.loc.gov/vocabulary/mrelief>
 bffi:relief,v0.5.0,,2024-03-27: changed domain from bffi:CartographyExpression  to bffi:Cartograpic (as in BIBFRAME examples)

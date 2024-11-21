@@ -18,7 +18,6 @@
 @prefix rdacpc: <http://rdaregistry.info/termList/configPlayback/> .
 @prefix rdact: <http://rdaregistry.info/termList/RDACarrierType/> .
 @prefix rdae: <http://rdaregistry.info/Elements/e/> .
-@prefix rdafmn: <http://rdaregistry.info/termList/MusNotation/> .
 @prefix rdafnm: <http://rdaregistry.info/termList/formatNoteMus/> .
 @prefix rdafr: <http://rdaregistry.info/termList/frequency/> .
 @prefix rdafs: <http://rdaregistry.info/termList/fontSize/> .
@@ -105,7 +104,7 @@ bffi: a owl:Ontology ;
         "Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.4.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Tämä 0.8.0-testiversio sisältää musiikki- ja audiovisuaalisten aineistojen kuvailussa tarvittavat luokat ja ominaisuudet. RDA:han perustuen lisäsimme tietomalliin myös muuhun kuin musiikkiin liittyvät esiintymiskokoonpanot. Lisäksi tämä versio tukee sarjojen, moniosaisten sekä päivittyvien teosten kuvailua."@fi ;
     dct:issued "2024-11-22"^^xsd:date ;
     dct:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
-    dct:modified "2024-11-19T09:41:19+00:00"^^xsd:dateTime ;
+    dct:modified "2024-11-21T08:20:41+00:00"^^xsd:dateTime ;
     dct:publisher finaf:000034269 ;
     dct:relation <http://id.loc.gov/ontologies/bflc-2-4-0/>,
         <http://id.loc.gov/ontologies/bibframe-2-4-0/>,
@@ -144,6 +143,20 @@ bffi:Arrangement a owl:Class ;
     owl:equivalentClass bf:Arrangement ;
     skos:definition "BIBFRAME definition: Resource that represents an arrangement of another resource"@en .
 
+bffi:AudioExpression a owl:DeprecatedClass ;
+    rdfs:label "Audio expression"@en,
+        "Ääniekspressio"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-11-22 (Deprecated. Superclass was removed while subclasses remained in the model)" ;
+    owl:deprecated true .
+
+bffi:AudioWork a owl:DeprecatedClass ;
+    rdfs:label "Audio work"@en,
+        "Ääniteos"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-11-22 (Deprecated. Separated to bffi:MusicWork and bffi:NonMusicAudioWork)" ;
+    owl:deprecated true .
+
 bffi:BroadcastStandard a owl:Class ;
     rdfs:label "Broadcast standard"@en,
         "Lähetysstandardi"@fi ;
@@ -160,8 +173,8 @@ bffi:CaptureStorage a owl:Class ;
     dct:modified "2024-11-22 (New)" ;
     bffi-meta:relatedValueVocabulary mts:m4955 ;
     rdfs:subClassOf bffi:SoundCharacteristic ;
-    owl:equivalentClass bflc:CaptureStorage ;
-    skos:definition "BFLC definition: Specifies the sound capture and storage technique used on a sound recording resource."@en .
+    owl:equivalentClass bf:CaptureStorage ;
+    skos:definition "BIBFRAME definition: Specifies the sound capture and storage technique used on a sound recording resource"@en .
 
 bffi:CartographicDataType a owl:Class ;
     rdfs:label "Digital cartographic data type"@en,
@@ -417,6 +430,14 @@ bffi:Multimedia a owl:Class ;
     owl:equivalentClass bf:Multimedia ;
     skos:definition "BIBFRAME definition: Electronic resource which is a computer program or consists of multiple media types that are software driven, such as videogames"@en .
 
+bffi:MusicAudioWork a owl:DeprecatedClass ;
+    rdfs:label "Music audio work"@en,
+        "Musiikkiääniteos"@fi ;
+    dct:isReplacedBy bffi:MusicWork ;
+    dct:modified "2024-02-23 (New)",
+        "2024-11-22 (Deprecated. Replaced by a broader class bffi:MusicWork which also incorporates notated music works)" ;
+    owl:deprecated true .
+
 bffi:MusicNotation a owl:Class ;
     rdfs:label "Music notation"@en,
         "Nuottikirjoituksen tyyppi"@fi ;
@@ -427,28 +448,11 @@ bffi:MusicNotation a owl:Class ;
     owl:equivalentClass bf:MusicNotation ;
     skos:definition "BIBFRAME definition: Information on the symbol system used to convey the content of a music resource"@en .
 
-bffi:NonMusicAudioExpression a owl:Class ;
-    rdfs:label "Non-music audio expression"@en,
-        "Musiikiton audioekspressio"@fi ;
-    dct:modified "2024-02-23 (New)" ;
-    bffi-meta:broadMatch bf:NonMusicAudio,
-        rdac:C10006 ;
-    rdfs:subClassOf bffi:AudioExpression .
-
-bffi:NonMusicAudioWork a owl:Class ;
-    rdfs:label "Non-music audio work"@en,
-        "Musiikiton ääniteos"@fi ;
-    dct:modified "2024-02-23 (New)" ;
-    bffi-meta:broadMatch bf:NonMusicAudio,
-        rdac:C10001 ;
-    rdfs:subClassOf bffi:AudioWork .
-
 bffi:NotatedMovement a owl:Class ;
     rdfs:label "Notated movement"@en,
         "Liikenotaatio"@fi ;
     dct:modified "2024-02-23 (New)",
         "2024-11-22 (Changed Finnish label from \"Liikenotaation tyyppi\" to \"Liikenotaatio\")" ;
-    rdfs:seeAlso <https://www.rdaregistry.info/termList/noteMove/> ;
     rdfs:subClassOf bffi:Expression ;
     owl:equivalentClass bf:NotatedMovement ;
     skos:definition "BIBFRAME definition: Graphic, non-realized representations of movement intended to be perceived visually, e.g. dance"@en .
@@ -888,7 +892,7 @@ bffi:capture a owl:ObjectProperty ;
         "2024-11-22 (Changed Finnish label from \"tallennustiedot\" to \"taltiointitiedot\")" ;
     bffi-meta:exactMatch rdae:P20217 ;
     rdfs:domain [ a owl:Class ;
-            owl:unionOf ( bffi:AudioExpression bffi:MovingImageExpression ) ] ;
+            owl:unionOf ( bffi:MusicAudioExpression bffi:NonMusicAudioExpression bffi:MovingImageExpression ) ] ;
     rdfs:range bffi:Capture ;
     rdfs:subPropertyOf bf:capture .
 
@@ -898,7 +902,7 @@ bffi:captureOfRepresentativeExpression a owl:ObjectProperty ;
     dct:modified "2024-11-22 (New)" ;
     bffi-meta:closeMatch rdae:P20217 ;
     rdfs:domain [ a owl:Class ;
-            owl:unionOf ( bffi:AudioWork bffi:MovingImageWork ) ] ;
+            owl:unionOf ( bffi:MusicWork bffi:NonMusicAudioWork bffi:MovingImageWork ) ] ;
     rdfs:range bffi:Capture ;
     rdfs:subPropertyOf bf:capture .
 
@@ -1284,7 +1288,7 @@ bffi:duration a owl:DatatypeProperty ;
         "2024-11-22 (Changed BIBFRAME mapping from owl:equivalentProperty to rdfs:subPropertyOf bf:duration)" ;
     bffi-meta:exactMatch rdae:P20219 ;
     rdfs:domain [ a owl:Class ;
-            owl:unionOf ( bffi:AudioExpression bffi:MovingImageExpression ) ] ;
+            owl:unionOf ( bffi:MusicAudioExpression bffi:NonMusicAudioExpression bffi:MovingImageExpression ) ] ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf bf:duration .
 
@@ -1295,7 +1299,7 @@ bffi:durationOfRepresentativeExpression a owl:DatatypeProperty ;
     bffi-meta:closeMatch bf:duration ;
     bffi-meta:exactMatch rdaw:P10351 ;
     rdfs:domain [ a owl:Class ;
-            owl:unionOf ( bffi:AudioWork bffi:MovingImageWork ) ] ;
+            owl:unionOf ( bffi:MusicWork bffi:NonMusicAudioWork bffi:MovingImageWork ) ] ;
     rdfs:range rdfs:Literal .
 
 bffi:edition a owl:DatatypeProperty ;
@@ -1810,7 +1814,7 @@ bffi:manufactureStatement a owl:DatatypeProperty ;
     rdfs:label "manufacture statement"@en,
         "valmistusmerkintö"@fi ;
     dct:modified "2024-02-23 (New)",
-        "2024-09-16 (Changed mapping to bf:manufactureStatement; removed subPropertyOf  bf:provisionActivityStatement)" ;
+        "2024-09-16 (Changed mapping to bf:manufactureStatement; removed subPropertyOf bf:provisionActivityStatement)" ;
     bffi-meta:exactMatch rdam:P30109 ;
     rdfs:domain bffi:Manifestation ;
     rdfs:range rdfs:Literal ;
@@ -1892,7 +1896,7 @@ bffi:musicKey a owl:DatatypeProperty ;
     bffi-meta:narrowMatch rdae:P20326,
         rdaw:P10221 ;
     rdfs:domain [ a owl:Class ;
-            owl:unionOf ( bffi:MusicAudioWork bffi:MusicAudioExpression bffi:NotatedMusic ) ] ;
+            owl:unionOf ( bffi:MusicWork bffi:MusicAudioExpression bffi:NotatedMusic ) ] ;
     rdfs:range rdfs:Literal ;
     owl:equivalentProperty bf:musicKey ;
     skos:definition "BIBFRAME definition: Pitch and mode for music."@en .
@@ -1901,7 +1905,7 @@ bffi:musicMedium a owl:ObjectProperty ;
     rdfs:label "music medium of performance"@en,
         "musiikin esityskokoonpano"@fi ;
     dct:modified "2024-02-23 (New)",
-        "2024-11-22 (Changed mapping to BIBFRAME from owl:equivalentProperty to rdfs:subPropertyOf bf:musicMedium)" ;
+        "2024-11-22 (Changed BIBFRAME mapping from owl:equivalentProperty to rdfs:subPropertyOf bf:musicMedium)" ;
     bffi-meta:exactMatch rdae:P20215 ;
     rdfs:domain [ a owl:Class ;
             owl:unionOf ( bffi:MusicAudioExpression bffi:NotatedMusic ) ] ;
@@ -1913,7 +1917,7 @@ bffi:musicMediumOfRepresentativeExpression a owl:ObjectProperty ;
         "edustavan ekspression musiikin esityskokoonpano"@fi ;
     dct:modified "2024-11-22 (New)" ;
     bffi-meta:exactMatch rdaw:P10220 ;
-    rdfs:domain bffi:MusicAudioWork ;
+    rdfs:domain bffi:MusicWork ;
     rdfs:range bffi:MusicMedium ;
     rdfs:subPropertyOf bf:musicMedium .
 
@@ -3459,28 +3463,30 @@ bffi:IntendedAudience a owl:Class ;
     owl:equivalentClass bf:IntendedAudience ;
     skos:definition "BIBFRAME definition: Information that identifies the specific intended or target audience or intellectual level for which the content described is considered appropriate; also used to record interest and motivation levels and special learner characteristics"@en .
 
-bffi:MusicAudioExpression a owl:Class ;
-    rdfs:label "Music audio expression"@en,
-        "Musiikkiaudioekspressio"@fi ;
-    dct:modified "2024-02-23 (New)" ;
-    bffi-meta:broadMatch bf:MusicAudio,
-        rdac:C10006 ;
-    rdfs:subClassOf bffi:AudioExpression .
-
-bffi:MusicAudioWork a owl:Class ;
-    rdfs:label "Music audio work"@en,
-        "Musiikkiääniteos"@fi ;
-    dct:modified "2024-02-23 (New)" ;
-    bffi-meta:broadMatch bf:MusicAudio,
-        rdac:C10001 ;
-    rdfs:subClassOf bffi:AudioWork .
-
 bffi:MusicMedium a owl:Class ;
     rdfs:label "Music medium information"@en,
         "Musiikin esityskokoonpano"@fi ;
     dct:modified "2024-02-23 (New)" ;
     owl:equivalentClass bf:MusicMedium ;
     skos:definition "BIBFRAME definition: Summary statement of the medium for a musical work"@en .
+
+bffi:NonMusicAudioExpression a owl:Class ;
+    rdfs:label "Non-music audio expression"@en,
+        "Musiikiton audioekspressio"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-11-22 (Changed subClassOf from bffi:AudioExpression to bffi:Expression)" ;
+    bffi-meta:broadMatch bf:NonMusicAudio,
+        rdac:C10006 ;
+    rdfs:subClassOf bffi:Expression .
+
+bffi:NonMusicAudioWork a owl:Class ;
+    rdfs:label "Non-music audio work"@en,
+        "Musiikiton ääniteos"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-11-22 (Changed subClassOf from bffi:AudioWork to bffi:Work)" ;
+    bffi-meta:broadMatch bf:NonMusicAudio,
+        rdac:C10001 ;
+    rdfs:subClassOf bffi:Work .
 
 bffi:Note a owl:Class ;
     rdfs:label "Note"@en,
@@ -3646,9 +3652,6 @@ bffi:NotatedMusic a owl:Class ;
     dct:modified "2024-02-23 (New)",
         "2024-11-22 (Changed Finnish label from \"Nuottiaineiston muoto\" to \"Musiikkinotaatio\")" ;
     bffi-meta:relatedValueVocabulary mts:m1990 ;
-    rdfs:seeAlso rdafmn:,
-        rdaco:1010,
-        rdafnm: ;
     rdfs:subClassOf bffi:Expression ;
     owl:equivalentClass bf:NotatedMusic ;
     skos:definition "BIBFRAME definition: Graphic, non-realized representations of musical works intended to be perceived visually"@en .
@@ -3683,21 +3686,6 @@ bffi:VideoCharacteristic a owl:Class ;
     owl:equivalentClass bf:VideoCharacteristic ;
     skos:definition "BIBFRAME definition: Technical specification relating to the encoding of video images in a resource"@en .
 
-bffi:AudioExpression a owl:Class ;
-    rdfs:label "Audio expression"@en,
-        "Ääniekspressio"@fi ;
-    dct:modified "2024-02-23 (New)",
-        "2024-06-19 (Changed Finnish label from \"Audioekspressio\" to \"Ääniekspressio\")" ;
-    bffi-meta:broadMatch bf:Audio ;
-    rdfs:subClassOf bffi:Expression .
-
-bffi:AudioWork a owl:Class ;
-    rdfs:label "Audio work"@en,
-        "Ääniteos"@fi ;
-    dct:modified "2024-02-23 (New)" ;
-    bffi-meta:broadMatch bf:Audio ;
-    rdfs:subClassOf bffi:Work .
-
 bffi:CartographyExpression a owl:Class ;
     rdfs:label "Cartographic expression"@en,
         "Kartografinen ekspressio"@fi ;
@@ -3727,6 +3715,14 @@ bffi:MovingImageWork a owl:Class ;
     bffi-meta:broadMatch bf:MovingImage ;
     rdfs:subClassOf bffi:Work ;
     owl:disjointWith bffi:MovingImageExpression .
+
+bffi:MusicAudioExpression a owl:Class ;
+    rdfs:label "Music audio expression"@en,
+        "Musiikkiaudioekspressio"@fi ;
+    dct:modified "2024-02-23 (New)",
+        "2024-11-22 (Changed subClassOf from bffi:AudioExpression to bffi:Expression)" ;
+    bffi-meta:broadMatch bf:MusicAudio ;
+    rdfs:subClassOf bffi:Expression .
 
 bffi:SystemRequirement a owl:Class ;
     rdfs:label "Equipment or system requirement"@en,
@@ -3768,6 +3764,14 @@ bffi:CollectionArrangement a owl:Class ;
     dct:modified "2024-04-16 (New)" ;
     owl:equivalentClass bf:CollectionArrangement ;
     skos:definition "BIBFRAME definition: Information about the organization and arrangement of a collection of items"@en .
+
+bffi:MusicWork a owl:Class ;
+    rdfs:label "Music work"@en,
+        "Musiikkiteos"@fi ;
+    dct:modified "2024-11-22 (New)" ;
+    bffi-meta:closeMatch bf:MusicAudio,
+        bf:NotatedMusic ;
+    rdfs:subClassOf bffi:Work .
 
 bffi:Notation a owl:Class ;
     rdfs:label "Notation"@en,
@@ -3866,9 +3870,9 @@ bffi:relatedTo a owl:ObjectProperty,
         owl:SymmetricProperty ;
     rdfs:label "related resource"@en,
         "liittyvä resurssi"@fi ;
-    dct:modified "2024-02-23 (New)" ;
-    bffi-meta:narrowMatch rdaw:P10198,
-        rdax:P00001 ;
+    dct:modified "2024-02-23 (New)",
+        "2024-11-22 (Changed RDA mapping to rdax:P00001)" ;
+    bffi-meta:exactMatch rdax:P00001 ;
     rdfs:domain rdfs:Resource ;
     rdfs:range rdfs:Resource ;
     owl:equivalentProperty bf:relatedTo ;

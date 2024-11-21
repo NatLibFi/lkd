@@ -1153,6 +1153,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:MusicWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MusicWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:NonMusicAudioExpression</identifier>
       <destinations>
         <destination status="activated">

@@ -365,7 +365,7 @@ class DataModelConverter:
                         logging.warning(f"Multiple change notes detected for {cnote_iri} in version {change_version}")
 
                 cnote_str = f"{change_date_str} ({row['changeNote']})"
-                self.cnotes_graph.add((cnote_iri, DCTERMS.modified, Literal(cnote_str)))
+                self.cnotes_graph.add((cnote_iri, DCTERMS.modified, Literal(" ".join(cnote_str.split()))))
 
     def convertCSV(self):
         """
@@ -459,8 +459,16 @@ class DataModelConverter:
                         # missing values may pass
                         pass
                 else:
-                    if not (bibframeURI:=row["bibframeURI"]) in EMPTY_COL_VALS:
-                        self.graph.add((bffi_id, self.from_n3(bffi_map_bf), URIRef(bibframeURI)))
+                    for item in [_.strip() for _ in row["bibframeURI"].split("|")]:
+                        threwError = False # variable for swallowing unhelpful ValueError message from rdflib
+                        try:
+                            long_iri = self.graph.namespace_manager.expand_curie(item) if not item.startswith("http") else item
+                        except ValueError:
+                            threwError = True
+                        if threwError:
+                            raise ValueError(f"{bffi_id} rdaURI column value for had an unexpected value, got: '{item}'")
+
+                        self.graph.add((bffi_id, self.from_n3(bffi_map_bf), URIRef(long_iri)))
 
                 # LKD to RDA mapping
                 bffi_map_rda = row["LKD-RDA-mapping"]
