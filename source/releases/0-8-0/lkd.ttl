@@ -104,7 +104,7 @@ bffi: a owl:Ontology ;
         "Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.4.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Tämä 0.8.0-testiversio sisältää musiikki- ja audiovisuaalisten aineistojen kuvailussa tarvittavat luokat ja ominaisuudet. RDA:han perustuen lisäsimme tietomalliin myös muuhun kuin musiikkiin liittyvät esiintymiskokoonpanot. Lisäksi tämä versio tukee sarjojen, moniosaisten sekä päivittyvien teosten kuvailua."@fi ;
     dct:issued "2024-11-22"^^xsd:date ;
     dct:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
-    dct:modified "2024-11-21T08:20:41+00:00"^^xsd:dateTime ;
+    dct:modified "2024-11-21T08:42:14+00:00"^^xsd:dateTime ;
     dct:publisher finaf:000034269 ;
     dct:relation <http://id.loc.gov/ontologies/bflc-2-4-0/>,
         <http://id.loc.gov/ontologies/bibframe-2-4-0/>,
@@ -3651,7 +3651,6 @@ bffi:NotatedMusic a owl:Class ;
         "Musiikkinotaatio"@fi ;
     dct:modified "2024-02-23 (New)",
         "2024-11-22 (Changed Finnish label from \"Nuottiaineiston muoto\" to \"Musiikkinotaatio\")" ;
-    bffi-meta:relatedValueVocabulary mts:m1990 ;
     rdfs:subClassOf bffi:Expression ;
     owl:equivalentClass bf:NotatedMusic ;
     skos:definition "BIBFRAME definition: Graphic, non-realized representations of musical works intended to be perceived visually"@en .
