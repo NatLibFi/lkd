@@ -22,6 +22,11 @@ bffi: a owl:Ontology ;
     dct:description """Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 2.4.0 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä."""@fi,
                     """This BIBFRAME data model is based on the BIBFRAME 2.4.0 model published by the Library of Congress. The model has been supplemented with classes and properties from the RDA element sets, as well as the Finnish national cataloguing guidelines."""@en .
 
+bffi-meta: a owl:Ontology ;
+   dct:title "Metadata ontology for LKD data model"@en, "Metadataontologia LKD-tietomallin tueksi"@fi ;
+   dct:license  <http://creativecommons.org/publicdomain/zero/1.0/> ;
+   dct:description """Additional linking properties supporting LKD data model."""@en, """Sisältää lisäominaisuuksia LKD-tietomallin linkityksiä varten."""@fi  .
+
 bffi-meta:relatedValueVocabulary a owl:AnnotationProperty ;
     rdfs:label "liittyvä arvosanasto"@fi, "related value vocabulary"@en ;
     dct:modified "2024-02-23 (New)" ;
