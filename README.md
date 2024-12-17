@@ -32,6 +32,3 @@ In test version 0.6.0, published on 2024-06-19, we added the classes and propert
 In test version 0.7.0 published on 2024-09-16 we included classes and properties needed for the implementation of the RDA aggregate model in the Official RDA. Also included are the subclasses of Manifestation (Instance in BIBFRAME) as well as a large number of classes and properties for cataloguing manifestations. The new 2.4.0 version of BIBFRAME included a major overhaul on how relations of associated resources (e.g. bf:Work and bf:Instance and their subclasses) are represented. This change is still somewhat underway in BIBFRAME but our 0.7.0 test version implements these changes where applicable.
 
 In test version 0.8.0, published on 2024-11-22, we added the classes and properties needed to describe music and audiovisual materials related to sound recordings, moving images, and video recordings. Based on RDA, we also added non-music medium of performance to the data model. In addition, this version supports the description of series, serials, and integrating works and expressions.
-
-## Conversion
-In addtion to the data model this project aims to create MARC21 to BFFI conversion rules and conversion software to implement them. Backward conversion from BFFI to MARC21 will be implemented, too.
