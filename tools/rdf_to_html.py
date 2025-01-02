@@ -83,6 +83,7 @@ ROW_HEADER_LABELS = {
     OWL.deprecated: 'Deprecated',
     DCTERMS.isReplacedBy: 'Is Replaced By',
     SKOS.definition: 'Definition',
+    SKOS.scopeNote: 'Scope Note',
     RDFS.comment: "Comment",
     RDF.type: 'Type',
     OWL.inverseOf: 'Inverse Property',
@@ -667,7 +668,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         if len(divItem) > 1:
             dl_elem.append(divItem)
 
-        SubElement(body_elem, 'p').text = 'Copyright: © The National Library of Finland, 2022-2024'
+        SubElement(body_elem, 'p').text = 'Copyright: © The National Library of Finland, 2022-2025'
 
         SubElement(body_elem, 'p', attrib={'class': 'fw-bold'}).text = 'Prefixes in this document'
 
@@ -745,10 +746,13 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
             aElem.text = dd_value
             if prop in [OWL.versionIRI, OWL.priorVersion, URIRef('latestVersion', self.URIRef)]:
                 dd[-1].tail = '('
-                (aElem2 := SubElement(dd, 'a', {'href': dd_value + 'lkd.ttl'})).text = 'Turtle'
+                (aElem2 := SubElement(dd, 'a', {'href':
+                    dd_value if ((_:=dd_value.partition('//'))[0] not in ["http:", "https:"]) else ('https://' + _[2] + 'lkd.ttl')})
+                ).text = 'Turtle'
                 dd[-1].tail = ', '
-                (aElem3 := SubElement(dd, 'a', {'href': dd_value + 'lkd.rdf'})).text = 'RDF/XML'
-
+                (aElem3 := SubElement(dd, 'a', {'href':
+                    dd_value if ((_:=dd_value.partition('//'))[0] not in ["http:", "https:"]) else ('https://' + _[2] + 'lkd.rdf')})
+                ).text = 'RDF/XML'
                 dd[-1].tail = ')'
         elif dd_type == Literal:
             objects = list(graph.objects(subject, prop))

@@ -24,11 +24,15 @@ import os
 import rdflib # separate import for triggering autocomplete behavior in IDE
 from rdflib import Graph, Literal, URIRef, BNode
 from rdflib.namespace import DCTERMS, OWL, RDF, RDFS, SKOS, XSD, NamespaceManager
+from rdflib.paths import OneOrMore
 from rdflib.plugins.sparql.processor import prepareQuery
 from rdflib.util import from_n3
 
 # treat these CSV cell values as empty/missing
 EMPTY_COL_VALS = set(["", "#N/A", "N/A", "?"])
+
+BF = rdflib.Namespace("http://id.loc.gov/ontologies/bibframe/")
+BFLC = rdflib.Namespace("http://id.loc.gov/ontologies/bflc/")
 
 class DataModelConverter:
     def __init__(self):
@@ -88,6 +92,14 @@ class DataModelConverter:
         else:
             logging.basicConfig(format=logformat, level=loglevel)
 
+        if self.version:
+            self.versionTuple = tuple([int(_) for _ in self.version.strip("v").split(".")])
+            if len(self.versionTuple) != 3:
+                logging.warning("Version numbering does not match MAJOR.MINOR.PATCH model. Disabling checks")
+                self.versionTuple = (0, 0, 0)
+        else:
+            self.versionTuple = (0, 0, 0)
+
         # identifier for the ontology
         self.URIRef = bffiURIRef = URIRef(self.graph.namespace_manager.expand_curie('bffi:'))
         self.meta_URIRef = URIRef(self.graph.namespace_manager.expand_curie('bffi-meta:'))
@@ -98,7 +110,7 @@ class DataModelConverter:
 
         self.nsm = NamespaceManager(self.graph, 'none')
 
-        if self.releases_path and self.version:
+        if self.releases_path:
             with open(self.releases_path, "r", encoding="utf-8", newline="") as releases_file:
                 csvreader = csv.DictReader(releases_file, delimiter=",")
                 for row in csvreader:
@@ -121,10 +133,10 @@ class DataModelConverter:
                         for triple in to_be_removed:
                             self.graph.remove(triple)
 
-        curdate = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+        self.curdate = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
 
         if (bffiURIRef, DCTERMS.issued, None) not in self.graph and self.version:
-            self.graph.add((bffiURIRef, DCTERMS.issued, Literal(curdate[:10], datatype=XSD.date)))
+            self.graph.add((bffiURIRef, DCTERMS.issued, Literal(self.curdate[:10], datatype=XSD.date)))
 
         if self.version:
             versionIRI = self.publishing_url + self.version.replace(".", "-") + "/"
@@ -141,7 +153,7 @@ class DataModelConverter:
 
         # always update modified date
         self.graph.remove((bffiURIRef, DCTERMS.modified, None))
-        self.graph.add((bffiURIRef, DCTERMS.modified, Literal(curdate, datatype=XSD.dateTime)))
+        self.graph.add((bffiURIRef, DCTERMS.modified, Literal(self.curdate, datatype=XSD.dateTime)))
 
         if self.change_notes_path and self.versioning_dates:
             self.processChangeNotesCSV()
@@ -182,8 +194,13 @@ class DataModelConverter:
                 bf_definition_prefix = "BFLC definition: " if "bflc" in relation_str else "BIBFRAME definition: "
 
                 for bffi_subject, bf_object in self.graph[:OWL.equivalentClass|OWL.equivalentProperty:]:
-                    for bf_definition in bf_graph[bf_object:SKOS.definition]:
-                        self.graph.add((bffi_subject, SKOS.definition, Literal(bf_definition_prefix + bf_definition, 'en')))
+                    for bffi_definition in self.graph[bffi_subject:SKOS.definition]:
+                        if bffi_definition.language == "en":
+                            # there already exists a more precise definition
+                            break
+                    else:
+                        for bf_definition in bf_graph[bf_object:SKOS.definition]:
+                            self.graph.add((bffi_subject, SKOS.definition, Literal(bf_definition_prefix + bf_definition, 'en')))
                 self.bf_graph += bf_graph
         self.validate()
         self.serialize()
@@ -245,6 +262,32 @@ class DataModelConverter:
     def validate(self):
         # validate for some identified issues in the past, add more as necessary
         # TODO: refactor, add more tests
+        BFFI = rdflib.Namespace(self.nsm.expand_curie('bffi:'))
+        BFFIMETA = rdflib.Namespace(self.nsm.expand_curie('bffi-meta:'))
+
+        exactMatchDomMapping = {
+            'w': BFFI.Work,
+            'e': BFFI.Expression,
+            'm': BFFI.Manifestation,
+            'i': BFFI.Item,
+            'p': BFFI.Place,
+            'x': RDFS.Resource,
+        }
+
+        q = prepareQuery('''CONSTRUCT {?s ?p ?o3. ?s ?p ?o4 }
+WHERE {
+    VALUES (?p) { (rdfs:range) (rdfs:domain) }
+    { ?s ?p ?o . ?o owl:unionOf ?o2 . ?o2 rdf:rest*/rdf:first ?o3 . }
+    UNION
+    { ?s ?p ?o4 . FILTER(IsIRI(?o4))}
+}
+''',
+        initNs = { 'owl': OWL, 'rdf': RDF, 'rdfs': RDFS }
+        )
+        domRangeGraph = rdflib.Graph()
+        for triple in self.graph.query(q):
+            domRangeGraph.add(triple)
+
         q2 = prepareQuery(
             'SELECT DISTINCT ?o WHERE { ?s ?p ?o . ?s ?p2 ?o . FILTER(STR(?p) < STR(?p2) && (?p != rdfs:domain && ?p2 != rdfs:range))}',
             initNs = { 'rdfs': RDFS }
@@ -309,11 +352,34 @@ class DataModelConverter:
                 for label in self.graph[s:RDFS.label:]:
                     if label[:1].isupper():
                         logging.warning(f"{curie} label '{str(label)}' is expected to start with lowercase!")
+                for exactMatch in self.graph.objects(s, BFFIMETA.exactMatch):
+                    expectedDom = exactMatchDomMapping[exactMatch[-8]]
+                    for dom in domRangeGraph.objects(s, RDFS.domain):
+                        for domSuperclass in self.graph.transitive_objects(dom, RDFS.subClassOf):
+                            if domSuperclass == expectedDom:
+                                break
+                        else:
+                            pass
+                            #logging.warning(f"{curie} bffi-meta:exactMatch mismatch: got {self.graph.qname(dom)} expected {self.graph.qname(expectedDom)}")
 
             if (s, RDF.type, OWL.ObjectProperty) in self.graph:
                 for (s2, o2) in self.graph[:s:]:
                     if isinstance(o2, Literal): 
                         logging.warning(f"{curie} may not have literal value object!")
+                for supProp in self.graph.objects(s, RDFS.subPropertyOf):
+                    if not supProp.startswith(BFFI):
+                        continue
+                    for x in [RDFS.domain, RDFS.range]:
+                        xStr = "domain" if x == RDFS.domain else "range"
+                        for val in domRangeGraph.objects(s, x):
+                            if (supProp, x, val) not in domRangeGraph and (supProp, x, RDFS.Resource) not in domRangeGraph:
+                                for supClass in self.graph.objects(val, RDFS.subClassOf*OneOrMore):
+                                    if (supProp, x, supClass) in domRangeGraph:
+                                        break
+                                else:
+                                    supPropXStr = ','.join([self.graph.qname(_) for _ in domRangeGraph.objects(supProp, x)])
+                                    logging.warning(f"{curie} {xStr} {self.graph.qname(val)} not in superprop {self.graph.qname(supProp)} {xStr} [{supPropXStr}]")
+
             if (s, RDF.type, OWL.DatatypeProperty) in self.graph:
                 if not (s, RDFS.range, RDFS.Literal) in self.graph:
                     logging.warning(f"{curie} should have rdfs:Literal as range!")
@@ -328,17 +394,25 @@ class DataModelConverter:
                 if (s, RDFS.range|RDFS.domain, None) in self.graph:
                     logging.warning(f"{curie} is not allowed to have property axioms!")
 
+            if depr:
+                continue
+            if ((_:=BF[name]), None, None) in self.bf_graph or ((_:=BFLC[name]), None, None) in self.bf_graph:
+                if (s, None, _) not in self.graph:
+                    logging.warning(f"{curie} has no relation to its BF/BFLC counterpart!")
+            for bf_object in self.graph[s:OWL.equivalentClass|OWL.equivalentProperty:]:
+                for bf_type in self.bf_graph[bf_object:RDF.type:]:
+                    if (s, RDF.type, bf_type) not in self.graph:
+                        logging.warning(f"{curie} equivalent {bf_object} types differ!")
+                for s_sup in self.graph[s:RDFS.subClassOf|RDFS.subPropertyOf:]:
+                    for bf_object_sup in self.graph[s_sup:OWL.equivalentClass|OWL.equivalentProperty:]:
+                        if not ((bf_object, RDFS.subClassOf, bf_object_sup) in self.bf_graph or \
+                           (bf_object, RDFS.subPropertyOf, bf_object_sup) in self.bf_graph):
+                            logging.warning(f"{curie} supProp/Class {self.graph.qname(s_sup)} has no equivalance in Bibframe although equivalance stated!")
+
     def processChangeNotesCSV(self):
         """
         Processes the change notes CSV document and adds resulting triples to the change notes graph for later usage.
         """
-        if self.version:
-            versionTuple = tuple(self.version.split("."))
-            if len(versionTuple) != 3:
-                logging.warning("Version numbering does not match MAJOR.MINOR.PATCH model. Disabling checks")
-                versionTuple = (0, 0, 0)
-        else:
-            versionTuple = (0, 0, 0)
 
         with open(self.change_notes_path, "r", encoding="utf-8", newline="") as csvfile:
             csvreader = csv.DictReader(csvfile, delimiter=",")
@@ -350,15 +424,19 @@ class DataModelConverter:
 
                 cnote_iri = self.nsm.expand_curie(row['lkd-id'])
                 change_version = row["version"].strip("v")
-                cnote_version_tuple = tuple(change_version.split("."))
-
+                cnote_version_tuple = tuple([int(_) for _ in change_version.split(".")])
                 if len(cnote_version_tuple) != 3:
                     logging.warning(f"{cnote_iri} change version {change_version} does not match MAJOR.MINOR.PATCH model")
-                elif cnote_version_tuple > versionTuple:
+                elif self.version and cnote_version_tuple > self.versionTuple and self.versionTuple != (0,0,0):
                     # drop change notes determined to be in a future version
                     continue
 
-                change_date_str = str(self.versioning_dates[change_version])
+                try:
+                    change_date_str = str(self.versioning_dates[change_version])
+                except KeyError as e:
+                    logging.warning(f"Release date for version '{change_version}' missing, using '{self.curdate[:10]}' instead")
+                    self.versioning_dates[change_version] = Literal(self.curdate[:10], datatype=XSD.date)
+                    change_date_str = self.versioning_dates[change_version]
 
                 for note in self.cnotes_graph[cnote_iri:DCTERMS.modified:]:
                     if str(note).startswith(change_date_str):
@@ -403,9 +481,18 @@ class DataModelConverter:
                         )
                     else:
                         if self.versioning_dates:
-                            self.graph.add(
-                                (bffi_id, DCTERMS.modified, Literal(str(self.versioning_dates[bffi_new_version]) + " (New)"))
-                            )
+                            if self.version and tuple([int(_) for _ in bffi_new_version.split(".")]) > self.versionTuple and self.versionTuple != (0,0,0):
+                                continue
+                            try:
+                                self.graph.add(
+                                    (bffi_id, DCTERMS.modified, Literal(str(self.versioning_dates[bffi_new_version]) + " (New)"))
+                                )
+                            except KeyError as e:
+                                logging.warning(f"Release date for version '{bffi_new_version}' missing, using '{self.curdate[:10]}' instead")
+                                self.versioning_dates[bffi_new_version] = Literal(self.curdate[:10], datatype=XSD.date)
+                                self.graph.add(
+                                    (bffi_id, DCTERMS.modified, Literal(str(self.versioning_dates[bffi_new_version]) + " (New)"))
+                                )
 
                 # labels
                 self.graph.add((bffi_id, RDFS.label, Literal(row["lkd rdfs:label-en"], "en")))
@@ -425,7 +512,15 @@ class DataModelConverter:
                 # related value vocabulary
                 bffi_rvv = row["bffi-meta:relatedValueVocabulary"]
                 for item in [_.strip() for _ in bffi_rvv.split(",") if bffi_rvv]:
-                    self.graph.add((bffi_id, BFFIMETA.relatedValueVocabulary, self.from_n3(item)))
+                    threwError = False # variable for swallowing unhelpful ValueError message from rdflib
+                    try:
+                        long_iri = self.graph.namespace_manager.expand_curie(item) if not item.startswith("http") else item
+                    except ValueError:
+                        threwError = True
+                    if threwError:
+                        raise ValueError(f"{bffi_id} bffi-meta:relatedValueVocabulary column value for had an unexpected value, got: '{item}'")
+
+                    self.graph.add((bffi_id, BFFIMETA.relatedValueVocabulary, URIRef(long_iri)))
 
                 # type
                 bffi_type = row["bffi: rdf:type"]
@@ -452,7 +547,7 @@ class DataModelConverter:
 
                 # LKD to BF mapping
                 bffi_map_bf = row["LKD-BF-owl-mapping"]
-                if bffi_map_bf not in ["owl:equivalentClass", "owl:equivalentProperty", "bffi-meta:exactMatch", "bffi-meta:closeMatch", "bffi-meta:broadMatch"]:
+                if bffi_map_bf not in ["owl:equivalentClass", "owl:equivalentProperty", "bffi-meta:exactMatch", "bffi-meta:closeMatch", "bffi-meta:broadMatch", "bffi-meta:narrowMatch"]:
                     if not bffi_map_bf in EMPTY_COL_VALS:
                         raise ValueError(f"Mapping property from {bffi_id} to BIBFRAME had an unexpected value, got: {bffi_map_bf}")
                     else:
@@ -499,6 +594,24 @@ class DataModelConverter:
                                 ValueError(f"{bffi_id} is a class but has RDA relationship to something other than to a RDA class!")
                         elif rdaURI_isClass and not bffi_id_isClass:
                             ValueError(f"{bffi_id} is not a class but has RDA relationship to a RDA class!")
+
+                # definitions
+                bffi_definition_fi = row["bffi-definition-fi"]
+                if bffi_definition_fi:
+                    self.graph.add((bffi_id, SKOS.definition, Literal(bffi_definition_fi, lang="fi")))
+
+                bffi_definition_en = row["bffi-definition-en"]
+                if bffi_definition_en:
+                    self.graph.add((bffi_id, SKOS.definition, Literal(bffi_definition_en, lang="en")))
+
+                # scope notes
+                bffi_snote_fi = row["bffi-scopeNote-fi"]
+                if bffi_snote_fi:
+                    self.graph.add((bffi_id, SKOS.scopeNote, Literal(bffi_snote_fi, lang="fi")))
+
+                bffi_snote_en = row["bffi-scopeNote-en"]
+                if bffi_snote_en:
+                    self.graph.add((bffi_id, SKOS.scopeNote, Literal(bffi_snote_en, lang="en")))
 
                 # subclasses
                 bffi_subclass = row["bffi: rdfs:subClassOf"]
