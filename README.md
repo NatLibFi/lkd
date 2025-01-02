@@ -15,6 +15,11 @@ This BIBFRAME data model is based on the BIBFRAME 2.4.0 data model published by 
 - [Data model documentation](https://github.com/NatLibFi/lkd/wiki) (in LKD wiki, work in progress)
 
 ## Versions
+
+Version 1.0.0, published on 2025-01-02, includes all the BIBFRAME classes and properties required in Finnish cataloguing.
+
+## Old Development Versions
+
 Test version 0.1.0, published on 2023-01-26, comprises of the RDA elements determined by the Finnish cataloguing levels. The identifiers used are temporary and the model is not ready for use.
 
 Test version 0.2.0, published on 2023-05-26, comprises of the RDA elements determined by the Finnish cataloguing levels. The identifiers used are temporary and the model is not ready for use. Compared to the 0.1 versions of the data model, this one contains a new approach to titles as well as a number of minor corrections. We have changed the mapping properties we are not entirely satisfied with this approach, either. The translations of the various terms have been updated but the work on these is still partly incomplete.
@@ -32,3 +37,4 @@ In test version 0.6.0, published on 2024-06-19, we added the classes and propert
 In test version 0.7.0 published on 2024-09-16 we included classes and properties needed for the implementation of the RDA aggregate model in the Official RDA. Also included are the subclasses of Manifestation (Instance in BIBFRAME) as well as a large number of classes and properties for cataloguing manifestations. The new 2.4.0 version of BIBFRAME included a major overhaul on how relations of associated resources (e.g. bf:Work and bf:Instance and their subclasses) are represented. This change is still somewhat underway in BIBFRAME but our 0.7.0 test version implements these changes where applicable.
 
 In test version 0.8.0, published on 2024-11-22, we added the classes and properties needed to describe music and audiovisual materials related to sound recordings, moving images, and video recordings. Based on RDA, we also added non-music medium of performance to the data model. In addition, this version supports the description of series, serials, and integrating works and expressions.
+
