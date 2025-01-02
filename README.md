@@ -18,7 +18,7 @@ This BIBFRAME data model is based on the BIBFRAME 2.4.0 data model published by 
 
 Version 1.0.0, published on 2025-01-02, includes all the BIBFRAME classes and properties required in Finnish cataloguing.
 
-## Old Development Versions
+### Old Development Versions
 
 Test version 0.1.0, published on 2023-01-26, comprises of the RDA elements determined by the Finnish cataloguing levels. The identifiers used are temporary and the model is not ready for use.
 
