@@ -14,6 +14,11 @@ This BIBFRAME data model is based on the BIBFRAME 2.4.0 data model published by 
 - Preferred prefix "**bffi**".
 - [Data model documentation](https://github.com/NatLibFi/lkd/wiki) (in LKD wiki, work in progress)
 
+How to cite this model:\
+National Library of Finland (2025). Finnish Linked Library Data Model (BFFI), v. 1.0.0. 
+Available at https://github.com/NatLibFi/lkd.
+PID http://urn.fi/URN:NBN:fi:schema:bffi-meta:
+
 ## Versions
 
 Version 1.0.0, published on 2025-01-02, includes all the BIBFRAME classes and properties required in Finnish cataloguing.
