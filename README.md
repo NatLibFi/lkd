@@ -17,7 +17,7 @@ This BIBFRAME data model is based on the BIBFRAME 2.4.0 data model published by 
 How to cite this model:\
 National Library of Finland (2025). Finnish Linked Library Data Model (BFFI), v. 1.0.0. 
 Available at https://github.com/NatLibFi/lkd.
-PID http://urn.fi/URN:NBN:fi:schema:bffi-meta:
+PID [http://urn.fi/URN:NBN:fi:schema:bffi:](http://urn.fi/URN:NBN:fi:schema:bffi:)
 
 ## Versions
 
