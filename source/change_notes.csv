@@ -1,1 +1,45 @@
-lkd-id,version,changeNote,editorialNote (ei julkaista)
+lkd-id,version,changeNote,editorialNote (ei julkaista osana tietomallia)
+bffi:Content,1.1.0,Added related value vocabulary,
+bffi:content,1.1.0,Removed related value vocabulary,
+bffi:contribution,1.1.0,Changed the Finnish and English labels,
+bffi:dateOfRepresentativeExpression,1.1.0,Changed the superproperty to bffi:date,
+bffi:GrooveCutting,1.1.0,Deprecated. Replaced by bffi:GroovePitch and bffi:GrooveWidth as subclasses of bffi:GrooveCharacteristic,
+bffi:GroovePitch,1.1.0,,bffi:GroovePitch  and bffi:GrooveWidth replace the deprecated bffi:GrooveCutting.
+bffi:GrooveWidth,1.1.0,,bffi:GrooveWidth and bffi:GroovePitch replace the deprecated bffi:GrooveCutting.
+bffi:groupAap,1.1.0,,Added a new property bffi:groupAap.
+bffi:IntendedAudience,1.1.0,Added scope notes in Finnish and English,
+bffi:issuance,1.1.0,Deprecated. Replaced by bffi:extensionPlan and bffi:modeOfIssuance,
+bffi:KeyMode,1.1.0,,Added a new class bffi:KeyMode.
+bffi:keyMode,1.1.0,,Added a new property bffi:keyMode.
+bffi:keyModeOfRepresentativeExpression,1.1.0,,Added a new property bffi:keyModeOfRepresentativeExpression.
+bffi:MediumComponent,1.1.0,,Added a new class bffi:MediumComponent.
+bffi:mediumComponent,1.1.0,,Added a new property bffi:mediumComponent.
+bffi:mediumComponentQualifier,1.1.0,,Added a new property bffi:mediumComponentQualifier.
+bffi:MediumComponentQualifier,1.1.0,,Added a new class MediumComponentQualifier.
+bffi:mode,1.1.0,,Added a new property bffi:mode.
+bffi:Mode,1.1.0,,Added a new class Mode.
+bffi:modeOfIssuance,1.1.0,,Changed the URI of bffi:issuance to bffi:modeOfIssuance since BFFI splits bf:issuance to bffi:extensionPlan and bffi:modeOfIssuance
+bffi:numberOfHands,1.1.0,,Added a new property bffi:numberOfHands.
+bffi:partName,1.1.0,Changed the Finnish label,
+bffi:partNumber,1.1.0,Changed RDA mapping to close match and changed the Finnish label,
+bffi:phonogramDate,1.1.0,,Added a new property bffi:phonogramDate.
+bffi:referenceSource,1.1.0,,Added bffi:referenceScore.
+bffi:ReferenceSource,1.1.0,,Added bffi:ReferenceScore.
+bffi:responsibilityStatement,1.1.0,Corrected the RDA mapping,"Corrected the RDA mapping from ""has statement of responsibility relating to title proper"" to ""has statement of responsibility""."
+bffi:SeriesExpression,1.1.0,Corrected a typo in the Finnish label,
+bffi:SeriesWork,1.1.0,Changed the value of superclass to bffi:MonographWork,
+bffi:subject,1.1.0,Corrected the RDA mapping to cover all the subject properties in RDA,
+bffi:summary,1.1.0,Added RDA mapping,
+bffi:tempo ,1.1.0,,Added a new property bffi:tempo.
+bffi:Temporal,1.1.0,Added related value vocabulary,
+bffi:timePeriodOfCreation,1.1.0,Added definitions in Finnish and English,
+bffi:TitleSource,1.1.0,Deprecated. Replaced by bffi:RecordingSource,
+bffi:usesMediumOfPerformance,1.1.0,,Added a new property usesMediumOfPerformance.
+bffi:validDate,1.1.0,Removed mapping to RDA as there is no suitable RDA element,
+bffi:dramaticRole,1.1.0,,Added new property bffi:dramaticRole
+bffi:DramaticRole,1.1.0,,Added new class bffi:DramaticRole
+bffi:ensembleSize,1.1.0,,Added new property bffi:ensembleSize
+bffi:EnsembleSize,1.1.0,,Added new class bffi:EnsembleSize
+bffi:MediumOfPerformance,1.1.0,,Added new class bffi:MediumOfPerformance
+bffi:mediumOfPerformance,1.1.0,,Added new property bffi:mediumOfPerformance
+bffi:Tempo,1.1.0,,Added new class bffi:Tempo

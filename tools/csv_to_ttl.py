@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
- Copyright 2022-2024 University Of Helsinki (The National Library Of Finland)
+ Copyright 2022-2026 University Of Helsinki (The National Library Of Finland)
 
  Licensed under the GNU, General Public License, Version 3.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -133,7 +133,7 @@ class DataModelConverter:
                         for triple in to_be_removed:
                             self.graph.remove(triple)
 
-        self.curdate = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+        self.curdate = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0, tzinfo=None).isoformat() + "Z"
 
         if (bffiURIRef, DCTERMS.issued, None) not in self.graph and self.version:
             self.graph.add((bffiURIRef, DCTERMS.issued, Literal(self.curdate[:10], datatype=XSD.date)))
@@ -364,7 +364,7 @@ WHERE {
 
             if (s, RDF.type, OWL.ObjectProperty) in self.graph:
                 for (s2, o2) in self.graph[:s:]:
-                    if isinstance(o2, Literal): 
+                    if isinstance(o2, Literal):
                         logging.warning(f"{curie} may not have literal value object!")
                 for supProp in self.graph.objects(s, RDFS.subPropertyOf):
                     if not supProp.startswith(BFFI):
@@ -387,7 +387,7 @@ WHERE {
                     if not o == RDFS.Literal:
                         logging.warning(f"{curie} should have rdfs:Literal as range!")
                 for (s2, o2) in self.graph[:s:]:
-                    if not isinstance(o2, Literal): 
+                    if not isinstance(o2, Literal):
                         logging.warning(f"{curie} may not have non-literal value object!")
                 pass
             if (s, RDF.type, OWL.AnnotationProperty) in self.graph:

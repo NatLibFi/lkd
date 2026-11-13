@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
- Copyright 2022-2024 University Of Helsinki (The National Library Of Finland)
+ Copyright 2022-2026 University Of Helsinki (The National Library Of Finland)
 
  Licensed under the GNU, General Public License, Version 3.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -384,7 +384,7 @@ WHERE {
                 # FIXME fragment = result[1]
                 fragment = result[1] if result[0] == str(self.URIRef) else subject.n3(self.graph.namespace_manager)
                 text = fragment
-                (anchor:=SubElement(SubElement(ul_elem, 'li'), 'a', href='#' + fragment)).text = text 
+                (anchor:=SubElement(SubElement(ul_elem, 'li'), 'a', href='#' + fragment)).text = text
                 if idx < len(properties) - 1:
                     anchor.tail = ', '
 
@@ -468,7 +468,7 @@ WHERE {
                                 rawText = str(value) + (f" ({value.language})" if value.language != None else '')
 
                             if prop == DCTERMS.modified:
-                                rawText = f"{rawText[:10]}: {rawText[12:-1]}" 
+                                rawText = f"{rawText[:10]}: {rawText[12:-1]}"
 
                             try:
                                 litText = etree.fromstring(rawText)
@@ -668,7 +668,7 @@ document.addEventListener("DOMContentLoaded", function(){hideSuperclassProps(); 
         if len(divItem) > 1:
             dl_elem.append(divItem)
 
-        SubElement(body_elem, 'p').text = 'Copyright: © The National Library of Finland, 2022-2025'
+        SubElement(body_elem, 'p').text = f'Copyright: © The National Library of Finland, 2022-{time.strftime("%Y", time.gmtime())}'
 
         SubElement(body_elem, 'p', attrib={'class': 'fw-bold'}).text = 'Prefixes in this document'
 

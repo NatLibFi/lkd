@@ -1,0 +1,176 @@
+body {
+   font-family: sans-serif;
+   font-size: 18px;
+   margin-left: 3%;
+   width: 80%;
+}
+
+h2 {
+   font-size: 24px;
+   margin-bottom: 10px;
+   color: #000000;
+}
+
+a {
+   text-decoration: none;
+   color: #00008B;
+}
+
+hr {
+   color: #DCDCDC;
+}
+
+.fw-bold {
+   font-weight: bold;
+}
+
+dt {
+   margin-top: 4px;
+}
+
+a.version-dl-margin {
+   margin-right: 9px;
+}
+
+h2 + ul {
+   padding: 0;
+}
+
+h2 + ul li {
+   display: inline;
+}
+
+div.backToTop {
+   text-align:right;
+   font-size: 80%;
+   margin-top: 3px;
+   margin-bottom: 5px;
+   margin-bottom: 30px;
+}
+
+table {
+   font-size: 18px;
+   width: 97.5%;
+   margin-left: 2.5%;
+   table-layout: fixed;
+   border-collapse: collapse;
+}
+
+td {
+   border: 2px solid;
+   vertical-align: top;
+   overflow: hidden;
+   padding-left: 0.7%
+}
+
+td.key {
+   width: 20%;
+   word-wrap: break-word;
+}
+
+td.value {
+   width: 80%;
+   word-wrap: break-word;
+}
+
+.property {
+   padding-top: 7px;
+   padding-bottom: 10px;
+}
+
+.prefixes {
+   display:table;
+   margin-left: 40px;
+   border: 1px solid;
+   padding: 10px 15px;
+}
+
+.prefixes > div {
+   margin: 4px 0px;
+}
+
+.prefixes dt, .prefixes dd {
+   display: table-cell;
+   min-width: 120px;
+}
+
+.trHeading {
+   background: #efefef;
+   border: 2px solid;
+}
+
+.trHeading .key, .trHeading .value {
+   border: 0;
+   vertical-align: middle;
+   padding-top: 8px;
+   padding-bottom: 8px;
+}
+
+.tableContainer td, .tableContainer tr {
+   border-color: #CCC;
+}
+
+.tableContainer td {
+   padding-top: 2px;
+   padding-bottom: 2px;
+}
+
+.margin-top-20 {
+   margin-top: 20px;
+}
+
+.button-panel {
+   border-style: dotted;
+   padding: 8px;
+   width: fit-content;
+   border-color: #5b5b5b;
+   border-radius: 10px;
+}
+.button-panel button {
+   padding: 5px 10px;
+   margin: 4px;
+   font-size: initial;
+}
+
+ul.superclassProps {
+   margin-top: 0;
+   margin-bottom: 0;
+   padding-left: 1.2em;
+}
+/*
+ul.superclassProps.outwards {
+   list-style-type: "⬎";
+}
+*/
+ul.superclassProps.outwards li {
+   list-style-type: "⬎";
+   color: green;
+}
+/*
+ul.superclassProps.inwards {
+   list-style-type: "⬑";
+}
+*/
+ul.superclassProps.inwards li {
+   list-style-type: "⬑";
+   color: red;
+}
+
+ul.superclassProps a {
+   margin-left: 2px;
+}
+
+.hide {
+   display: none;
+}
+
+.value button {
+   font-size: 10px;
+   vertical-align: text-top;
+   padding-left: 4px;
+   padding-right: 4px;
+}
+
+.no-js {
+   visibility: visible !important;
+}
