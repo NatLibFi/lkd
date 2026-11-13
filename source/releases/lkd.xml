@@ -633,6 +633,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:DramaticRole</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#DramaticRole</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:Electronic</identifier>
       <destinations>
         <destination status="activated">
@@ -677,6 +687,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#EncodingLevel</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:EnsembleSize</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#EnsembleSize</url>
         </destination>
       </destinations>
     </header>
@@ -863,6 +883,26 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:GroovePitch</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#GroovePitch</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:GrooveWidth</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#GrooveWidth</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:Identifier</identifier>
       <destinations>
         <destination status="activated">
@@ -937,6 +977,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#Jurisdiction</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:KeyMode</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#KeyMode</url>
         </destination>
       </destinations>
     </header>
@@ -1043,6 +1093,36 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:MediumComponent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MediumComponent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:MediumComponentQualifier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MediumComponentQualifier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:MediumOfPerformance</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#MediumOfPerformance</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:Meeting</identifier>
       <destinations>
         <destination status="activated">
@@ -1077,6 +1157,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#MixedMaterial</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Mode</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Mode</url>
         </destination>
       </destinations>
     </header>
@@ -1533,6 +1623,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:ReferenceSource</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#ReferenceSource</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:RegionalEncoding</identifier>
       <destinations>
         <destination status="activated">
@@ -1827,6 +1927,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#TapeConfig</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:Tempo</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#Tempo</url>
         </destination>
       </destinations>
     </header>
@@ -2643,6 +2753,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:dramaticRole</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#dramaticRole</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:duration</identifier>
       <destinations>
         <destination status="activated">
@@ -2717,6 +2837,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#encodingLevel</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:ensembleSize</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#ensembleSize</url>
         </destination>
       </destinations>
     </header>
@@ -2923,6 +3053,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:groupAap</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#groupAap</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:hasExpression</identifier>
       <destinations>
         <destination status="activated">
@@ -3103,6 +3243,26 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:keyMode</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#keyMode</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:keyModeOfRepresentativeExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#keyModeOfRepresentativeExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:language</identifier>
       <destinations>
         <destination status="activated">
@@ -3263,6 +3423,26 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:mediumComponent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#mediumComponent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:mediumComponentQualifier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#mediumComponentQualifier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:mediumOfChoreographicContent</identifier>
       <destinations>
         <destination status="activated">
@@ -3283,10 +3463,40 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:mediumOfPerformance</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#mediumOfPerformance</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:metadataLicensor</identifier>
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#metadataLicensor</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:mode</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#mode</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:modeOfIssuance</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#modeOfIssuance</url>
         </destination>
       </destinations>
     </header>
@@ -3413,6 +3623,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:numberOfHands</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#numberOfHands</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:numberingOfSequence</identifier>
       <destinations>
         <destination status="activated">
@@ -3487,6 +3707,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#pattern</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:phonogramDate</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#phonogramDate</url>
         </destination>
       </destinations>
     </header>
@@ -3627,6 +3857,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#reductionRatio</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:referenceSource</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#referenceSource</url>
         </destination>
       </destinations>
     </header>
@@ -3993,6 +4233,16 @@
   </record>
   <record>
     <header>
+      <identifier>URN:NBN:fi:schema:bffi:tempo</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#tempo</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
       <identifier>URN:NBN:fi:schema:bffi:temporalCoverage</identifier>
       <destinations>
         <destination status="activated">
@@ -4047,6 +4297,16 @@
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/bffi/#usageAndAccessPolicy</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:bffi:usesMediumOfPerformance</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/bffi/#usesMediumOfPerformance</url>
         </destination>
       </destinations>
     </header>

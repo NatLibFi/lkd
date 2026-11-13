@@ -110,7 +110,7 @@ bffi: a owl:Ontology ;
         "Tämä BIBFRAME-tietomalli perustuu Kongressin kirjaston julkaisemaan BIBFRAME-tietomallin 3.0.1 versioon. Mallia on täydennetty RDA-tietomallin luokilla ja ominaisuuksilla sekä suomalaisiin kansallisiin kuvailuohjeisiin perustuvilla täydennyksillä. Versio 1.1.0 suomalaisesta linkitetyn kirjastodatan tietomallista päivittää tietomallin yhteentoimivaksi BIBFRAME 3.0:n kanssa sekä korjaa joukon pieniä ongelmia. bffi:GrooveCutting deprekoitiin ja korvattiin uusilla bffi:GrooveWidth- ja bffi:GroovePitch-luokilla. bffi:issuance deprekoitiin ja korvattiin bffi:modeOfIssuance- ja bffi:extensionPlan-ominaisuuksilla. Lisäksi deprekoitiin bffi:TitleSource, jonka tilalla voi käyttää sen bffi:RecordingSource-yläluokkaa."@fi ;
     dct:issued "2026-11-13"^^xsd:date ;
     dct:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
-    dct:modified "2026-11-13T14:24:56+00:00"^^xsd:dateTime ;
+    dct:modified "2026-11-13T14:57:12+00:00"^^xsd:dateTime ;
     dct:publisher finaf:000034269 ;
     dct:relation <http://id.loc.gov/ontologies/bflc-3-0-0/>,
         <http://id.loc.gov/ontologies/bibframe-3-0-1/>,
@@ -661,6 +661,7 @@ bffi:TitleNote a owl:Class ;
 bffi:TitleSource a owl:DeprecatedClass ;
     rdfs:label "Source of title proper"@en,
         "Päänimekkeen tiedonlähde"@fi ;
+    dct:isReplacedBy bffi:RecordingSource ;
     dct:modified "2024-06-19 (New)",
         "2026-11-13 (Deprecated. Replaced by bffi:RecordingSource)" ;
     owl:deprecated true .
@@ -3117,15 +3118,6 @@ bffi:PubFrequency a owl:Class ;
     owl:equivalentClass bf:PubFrequency ;
     skos:definition "BIBFRAME definition: Information about the publication frequency of a resource"@en .
 
-bffi:RecordingSource a owl:Class ;
-    rdfs:label "Recording source"@en,
-        "Merkintälähde"@fi ;
-    dct:modified "2024-02-23 (New)" ;
-    bffi-meta:broadMatch bf:Source ;
-    bffi-meta:relatedValueVocabulary mts:m5137 ;
-    rdfs:seeAlso <http://rdaregistry.info/termList/RDARecordingSources> ;
-    rdfs:subClassOf bffi:Source .
-
 bffi:ReductionRatio a owl:Class ;
     rdfs:label "Reduction ratio"@en,
         "Pienennyssuhde"@fi ;
@@ -3712,6 +3704,15 @@ bffi:Projection a owl:Class ;
     dct:modified "2024-02-23 (New)" ;
     owl:equivalentClass bf:Projection ;
     skos:definition "BIBFRAME definition: Method or system used to represent the surface of the earth or of a celestial sphere on a plane"@en .
+
+bffi:RecordingSource a owl:Class ;
+    rdfs:label "Recording source"@en,
+        "Merkintälähde"@fi ;
+    dct:modified "2024-02-23 (New)" ;
+    bffi-meta:broadMatch bf:Source ;
+    bffi-meta:relatedValueVocabulary mts:m5137 ;
+    rdfs:seeAlso <http://rdaregistry.info/termList/RDARecordingSources> ;
+    rdfs:subClassOf bffi:Source .
 
 bffi:SerialWork a owl:Class ;
     rdfs:label "Serial work"@en,
