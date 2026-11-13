@@ -12,7 +12,7 @@ The BFFI data model is based on the BIBFRAME data model published by the Library
 - [Data model documentation](https://github.com/NatLibFi/lkd/wiki) (in LKD wiki, work in progress)
 
 How to cite this model (change the year, version and link as appropriate):\
-National Library of Finland (2025). Finnish Linked Library Data Model (BFFI) v 1.0.0
+National Library of Finland (2025). Finnish Linked Library Data Model (BFFI), v. 1.0.0
 Available at https://schema.finto.fi/bffi/1-0-0/.
 PID [http://urn.fi/URN:NBN:fi:schema:bffi:](http://urn.fi/URN:NBN:fi:schema:bffi:)
 
