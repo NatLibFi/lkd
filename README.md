@@ -18,7 +18,7 @@ PID [http://urn.fi/URN:NBN:fi:schema:bffi:](http://urn.fi/URN:NBN:fi:schema:bffi
 
 ## Current Version
 
-Version 1.1.0, published on 2026-11-13, updates the BFFI to comply with BIBFRAME 3.0 as well as some fixes to labels, mappings, and definitions. For a full change log, see CHANGELOG.md.
+Version 1.1.0, published on 2026-11-13, updates the BFFI to comply with BIBFRAME 3.0 as well as some fixes to labels, mappings, and definitions. For a full change log, see [CHANGELOG.md](CHANGELOG.md).
 
 ### Old Versions
 
