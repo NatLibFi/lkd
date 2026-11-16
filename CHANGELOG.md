@@ -61,6 +61,3 @@ Link: <https://schema.finto.fi/bffi/1-1-0/>
 Initial Release
 
 Link: <https://schema.finto.fi/bffi/1-0-0/>
-bffi:validDate	1.1.0	Removed mapping to RDA as there is no suitable RDA element	
-bffi:dramaticRole	1.1.0		Added new property bffi:dramaticRole
-bffi:DramaticRole	1.1.0		Added new class bffi:DramaticRole
